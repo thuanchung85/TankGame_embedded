@@ -6,6 +6,19 @@
 # Learn Makefiles at https://makefiletutorial.com/
 # using find PATH -type d -print to list subdirectories recursively
 
+#############################################################################
+# 1. Khối định nghĩa biến cơ bản
+
+# Đây là nơi đặt tên và định vị các công cụ cần thiết.
+
+#    NAME_MODULE = ChungGame_embedded: Tên dự án của bạn. Mọi file kết quả (bin, hex) sẽ mang tên này.
+
+#    GCC_PATH: Đường dẫn tới bộ biên dịch (compiler) dành cho chip ARM mà bạn đã cài.
+
+#    PROGRAMER_PATH: Đường dẫn tới công cụ nạp code của hãng ST.
+
+#    APP_START_ADDR_VAL = 0x08003000: Địa chỉ bắt đầu của ứng dụng trong bộ nhớ Flash. Vì bạn dùng Bootloader nên phải chừa một khoảng trống ở đầu, ứng dụng sẽ bắt đầu từ đây.
+
 # Utilitis define
 Print = @echo "~"
 
@@ -25,6 +38,16 @@ APP_ADDR_OPTION = -DAPP_START_ADDR=$(APP_START_ADDR_VAL)
 SYS_CONSOLE_BAUDRATE = 115200
 CONSOLE_BAUDRATE_DEF = -DSYS_CONSOLE_BAUDRATE=$(SYS_CONSOLE_BAUDRATE)
 
+#############################################################################
+# 2. Khối cấu hình biên dịch (Flags)
+
+# Các dòng này điều chỉnh cách mà trình biên dịch sẽ xử lý code C/C++ của bạn.
+
+#    OPTIMIZE_OPTION = -g -Os: -g để giữ lại thông tin phục vụ sửa lỗi (debug), -Os để tối ưu hóa kích thước file sao cho nhỏ nhất (rất quan trọng cho chip nhớ ít).
+
+#    HARDWARE_OPTION: Cấu hình driver cho màn hình OLED. Hiện tại đang bật SSD1309 và tắt SH1106.
+
+#    CONSOLE_OPTION: Các cờ (flag) cho phép in thông báo (Log) ra màn hình máy tính qua cổng Serial để bạn theo dõi lỗi.
 #|---------------------------------------------------------------------------------------------------|
 #| OPTIMIZE LEVELS                                                                                   |
 #|------------|----------------------------------|--------------|---------|------------|-------------|
@@ -59,6 +82,12 @@ IF_NETWORK_NRF24_OPTION = -UIF_NETWORK_NRF24_EN
 TASK_ZIGBEE_OPTION = -UTASK_ZIGBEE_EN
 TASK_MBMASTER_OPTION = -DTASK_MBMASTER_EN
 
+#############################################################################
+# 3. Khối quản lý file nguồn (Source files)
+
+# Dự án này rất lớn nên tác giả chia nhỏ thành nhiều file Makefile.mk ở các thư mục con.
+
+# include sources/.../Makefile.mk: Lệnh này gom tất cả danh sách các file .c, .cpp từ các thư mục như driver, app, sys vào dự án chính.
 # Include sources file
 include sources/ak/Makefile.mk
 include sources/app/Makefile.mk
@@ -187,6 +216,16 @@ LDFLAGS	=	-Map=$(OBJECTS_DIR)/$(PROJECT).map	\
 		$(LIB_PATH)	\
 		$(LIBC) $(LIBM) $(LIBSTDCPP_NANO) $(LIBGCC) $(LIBGCOV) $(LIBFPU) $(LIBRDPMON)
 
+#############################################################################
+# 4. Khối quy trình biên dịch (The Build Process)
+
+# Đây là "trái tim" của Makefile, định nghĩa các bước để biến chữ viết thành file chạy.
+
+#    all: create $(TARGET): Mục tiêu mặc định khi bạn gõ make. Nó sẽ tạo thư mục build và tạo ra file đích.
+
+#    $(OBJECTS_DIR)/%.o: %.c: Công thức biến mỗi file .c thành file đối tượng .o (mã máy tạm thời).
+
+#    $(TARGET): $(OBJECTS) ...: Bước cuối cùng (Linker), gom tất cả các file .o và các thư viện hệ thống (libc.a, libm.a) lại thành một file duy nhất để nạp vào chip.
 all: create $(TARGET)
 
 create:
@@ -214,6 +253,16 @@ $(OBJECTS_DIR)/%.o: %.s
 	$(Print) AS $@
 	@$(AS) $(CFLAGS) -o $@ $<
 
+#############################################################################
+#5. Khối các lệnh thực thi (Phony Targets)
+
+#Đây là các lệnh tiện ích mà bạn hay gõ ở Terminal:
+
+#    make flash: Kiểm tra nếu bạn truyền dev=/dev/ttyUSB0 thì nạp qua Serial (ak-flash), nếu không thì dùng mạch nạp ST-Link (STM32_Programmer).
+
+#    make clean: Xóa sạch thư mục build. Bạn nên dùng lệnh này khi muốn giải phóng dung lượng cho phân vùng 20GB của mình.
+
+#    make com: Mở chương trình minicom để xem dữ liệu chip gửi lên máy tính.
 .PHONY: help
 help:
 	$(Print) "[make flash dev=/dev/tty*] burn firmware via ak bootloader"
