@@ -1,5 +1,7 @@
 #include "scr_tank.h"
 
+static int scroll_offset = 0;
+
 // 1. ================Phần Hiển thị (Rendering)========================
 //Đây là hàm vẽ. Mỗi khi màn hình cần làm mới, hệ thống sẽ gọi hàm này.
 static void view_scr_tank(){
@@ -14,7 +16,7 @@ static void view_scr_tank(){
     // Tọa độ y = 52 (nằm dưới chân xe tank)
     for (int x = 0; x < 124; x += 24) { 
         // Lưu ý: chiều rộng là 24, chiều cao là 8
-        view_render.drawBitmap(x, 52, bitmap_ground, 24, 8, WHITE);
+        view_render.drawBitmap(x - (scroll_offset % 24), 52, bitmap_ground, 24, 8, WHITE);
     }
 };
 
@@ -49,12 +51,32 @@ void scr_tank_handle(ak_msg_t* msg){
         case SCREEN_ENTRY:
             APP_DBG(">> Entered TANK Screen Success!\n");
             APP_DBG(">> Screen Bitmap Size: bitmap_TANK = 120 bytes\n");
+
+            // Bắt đầu gửi tin nhắn cập nhật màn hình định kỳ
+            timer_set(AC_TASK_DISPLAY_ID, 
+              AC_DISPLAY_SHOW_TANK_MOVING_UPDATE, // Bạn có thể định nghĩa signal mới này
+              30, // Cập nhật mỗi 30ms
+              TIMER_PERIODIC);
+
             break;
+
+        //TANK UPDATE LOOP
+        case AC_DISPLAY_SHOW_TANK_MOVING_UPDATE: {
+             APP_DBG("TANK: I alive now tick!\n");
+             scroll_offset++;
+            if (scroll_offset >= 24) { // 24 là độ rộng mảng ground của bạn
+                scroll_offset = 0;
+            }
+        }
+        break;
 
         // Khi nút "MODE" được thả ra
         //AC_DISPLAY_BUTON_MODE_RELEASED: Đây là sự kiện bấm nút. 
         //Khi bạn bấm và thả nút "Mode" trên mạch, code sẽ thực hiện lệnh bên trong.
         case AC_DISPLAY_BUTON_MODE_RELEASED: { 
+            // Phải gỡ bỏ timer trước khi chuyển màn hình
+            timer_remove_attr(AC_TASK_DISPLAY_ID, AC_DISPLAY_SHOW_TANK_MOVING_UPDATE);
+
             //SCREEN_TRAN(scr_idle_handle, &scr_idle): Đây là lệnh Chuyển cảnh (Transition).
             // Nó sẽ thoát khỏi màn hình tank và quay về màn hình chờ (scr_idle).
             SCREEN_TRAN(scr_idle_handle, &scr_idle);
