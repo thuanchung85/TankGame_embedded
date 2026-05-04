@@ -1,3 +1,5 @@
+include sources/app/screens/bitmap_data/Makefile.mk
+
 CFLAGS		+= -I./sources/app/screens
 CPPFLAGS	+= -I./sources/app/screens
 
@@ -11,4 +13,3 @@ SOURCES_CPP += sources/app/screens/scr_lhio404_io_device.cpp
 SOURCES_CPP += sources/app/screens/scr_noen.cpp
 SOURCES_CPP += sources/app/screens/scr_startup.cpp
 SOURCES_CPP += sources/app/screens/scr_tank.cpp
-SOURCES_CPP += sources/app/screens/screens_bitmap.cpp

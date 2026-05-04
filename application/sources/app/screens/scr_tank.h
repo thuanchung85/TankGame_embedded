@@ -17,7 +17,7 @@ screens_bitmap.h: Chứa dữ liệu hình ảnh (pixels) của nhân vật Tank
 #include "message.h"
 #include "task_display.h"
 #include "view_render.h"
-#include "screens_bitmap.h"
+#include "bitmap_data/screens_bitmap.h"
 
 /*
 Từ khóa extern (Lời hứa của Header). Đây là phần thú vị nhất. extern nói với trình biên dịch rằng: "Những thứ này tồn tại đâu đó trong các file .cpp, đừng lo, cứ cho phép dùng đi, lúc chạy sẽ thấy!"

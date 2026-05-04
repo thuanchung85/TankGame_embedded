@@ -1,7 +1,7 @@
 build_ChungGame_embedded/screens_bitmap.o: \
- sources/app/screens/screens_bitmap.cpp \
- sources/app/screens/screens_bitmap.h sources/common/view_render.h \
- sources/common/view_item.h \
+ sources/app/screens/bitmap_data/screens_bitmap.cpp \
+ sources/app/screens/bitmap_data/screens_bitmap.h \
+ sources/common/view_render.h sources/common/view_item.h \
  /home/luong/workspace/tools/gcc-arm-none-eabi-10.3-2021.10/lib/gcc/arm-none-eabi/10.3.1/include/stdint.h \
  /home/luong/workspace/tools/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/stdint.h \
  /home/luong/workspace/tools/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/machine/_default_types.h \
