@@ -4,11 +4,18 @@
 //Đây là hàm vẽ. Mỗi khi màn hình cần làm mới, hệ thống sẽ gọi hàm này.
 static void view_scr_tank(){
     //Lệnh này vẽ hình ảnh tank lên màn hình. 
-    // 0, 0: Tọa độ bắt đầu (góc trên cùng bên trái).
-    // tank: Dữ liệu hình ảnh lấy từ screens_bitmap.h mà bạn thấy trong file header.
-    // 30, 30: Kích thước vùng vẽ (độ phân giải màn hình của bạn là 128x64). tank size 30x30
+    // 20, 30: Tọa độ bắt đầu (góc trên cùng bên trái).
+    // bitmap_tank: Dữ liệu hình ảnh lấy từ screens_bitmap.h mà bạn thấy trong file header.
+    // 30, 30: Kích thước vùng vẽ (độ phân giải màn hình của bạn là 124x60). tank size 30x30
     // WHITE: Màu sắc của hình ảnh.
     view_render.drawBitmap(20,30,bitmap_tank,30,30,WHITE);
+
+    // Vẽ mặt đất bằng các khối 24x8 pixel
+    // Tọa độ y = 52 (nằm dưới chân xe tank)
+    for (int x = 0; x < 124; x += 24) { 
+        // Lưu ý: chiều rộng là 24, chiều cao là 8
+        view_render.drawBitmap(x, 52, bitmap_ground, 24, 8, WHITE);
+    }
 };
 
 

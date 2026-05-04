@@ -4,5 +4,6 @@
 #include "view_render.h"
 
 extern const unsigned char PROGMEM bitmap_tank [];
+extern const unsigned char PROGMEM bitmap_ground [];
 
 #endif
