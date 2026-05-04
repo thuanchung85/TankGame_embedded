@@ -3,6 +3,6 @@
 
 #include "view_render.h"
 
-extern const unsigned char PROGMEM bitmap_peashooter [];
+extern const unsigned char PROGMEM bitmap_tank [];
 
 #endif

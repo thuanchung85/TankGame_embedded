@@ -1,6 +1,5 @@
-build_ChungGame_embedded/scr_es35sw_th_sensor.o: \
- sources/app/screens/scr_es35sw_th_sensor.cpp \
- sources/app/screens/scr_es35sw_th_sensor.h sources/ak/inc/fsm.h \
+build_ChungGame_embedded/scr_tank.o: sources/app/screens/scr_tank.cpp \
+ sources/app/screens/scr_tank.h sources/ak/inc/fsm.h \
  /home/luong/workspace/tools/gcc-arm-none-eabi-10.3-2021.10/lib/gcc/arm-none-eabi/10.3.1/include/stdint.h \
  /home/luong/workspace/tools/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/stdint.h \
  /home/luong/workspace/tools/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/machine/_default_types.h \
@@ -34,11 +33,21 @@ build_ChungGame_embedded/scr_es35sw_th_sensor.o: \
  /home/luong/workspace/tools/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/stdlib.h \
  /home/luong/workspace/tools/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/machine/stdlib.h \
  /home/luong/workspace/tools/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/c++/10.3.1/bits/std_abs.h \
- sources/common/container/log_queue.h sources/ak/inc/port.h \
- sources/ak/inc/message.h sources/ak/inc/timer.h sources/ak/inc/timer.h \
+ sources/common/container/log_queue.h sources/ak/inc/message.h \
+ sources/app/task_display.h sources/common/screen_manager.h \
+ sources/ak/inc/ak.h sources/common/view_render.h \
+ sources/common/view_item.h \
+ sources/driver/Adafruit_oled_drv/Adafruit_oled_drv.h \
+ sources/driver/Adafruit_oled_drv/Adafruit_GFX.h \
+ sources/platform/stm32l/arduino/cores/Arduino.h \
+ /home/luong/workspace/tools/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/c++/10.3.1/math.h \
+ /home/luong/workspace/tools/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/c++/10.3.1/cmath \
+ /home/luong/workspace/tools/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/c++/10.3.1/bits/cpp_type_traits.h \
+ /home/luong/workspace/tools/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/c++/10.3.1/ext/type_traits.h \
+ /home/luong/workspace/tools/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/math.h \
  sources/sys/sys_ctrl.h sources/app/app_data.h sources/sys/sys_boot.h \
- sources/sys/sys_dbg.h sources/ak/inc/task.h sources/sys/sys_ctrl.h \
- sources/common/xprintf.h sources/app/app.h sources/ak/inc/ak.h \
+ sources/ak/inc/port.h sources/sys/sys_dbg.h sources/ak/inc/task.h \
+ sources/sys/sys_ctrl.h sources/common/xprintf.h sources/app/app.h \
  sources/app/app_if.h sources/app/app_eeprom.h sources/app/app_data.h \
  sources/driver/buzzer/buzzer.h sources/platform/stm32l/io_cfg.h \
  sources/platform/stm32l/Libraries/CMSIS/Device/ST/STM32L1xx/Include/stm32l1xx.h \
@@ -82,22 +91,8 @@ build_ChungGame_embedded/scr_es35sw_th_sensor.o: \
  sources/networks/mbmaster-v2.9.6/mbmaster/include/internal/mbmiconfig.h \
  sources/networks/mbmaster-v2.9.6/mbmaster/include/common/mbtypes.h \
  sources/networks/mbmaster-v2.9.6/mbmaster/include/common/mbportlayer.h \
- sources/platform/stm32l/system.h sources/app/app.h sources/app/app_dbg.h \
- sources/app/app_modbus_pull.h \
- sources/networks/mbmaster-v2.9.6/mbmaster/include/common/mbtypes.h \
- sources/networks/mbmaster-v2.9.6/mbmaster/include/common/mbportlayer.h \
- sources/app/task_list.h sources/app/task_display.h \
- sources/common/screen_manager.h sources/common/view_render.h \
- sources/common/view_item.h \
- sources/driver/Adafruit_oled_drv/Adafruit_oled_drv.h \
- sources/driver/Adafruit_oled_drv/Adafruit_GFX.h \
- sources/platform/stm32l/arduino/cores/Arduino.h \
- /home/luong/workspace/tools/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/c++/10.3.1/math.h \
- /home/luong/workspace/tools/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/c++/10.3.1/cmath \
- /home/luong/workspace/tools/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/c++/10.3.1/bits/cpp_type_traits.h \
- /home/luong/workspace/tools/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/c++/10.3.1/ext/type_traits.h \
- /home/luong/workspace/tools/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/math.h \
- sources/sys/sys_io.h sources/platform/stm32l/sys_cfg.h \
+ sources/platform/stm32l/system.h sources/sys/sys_io.h \
+ sources/platform/stm32l/sys_cfg.h \
  sources/platform/stm32l/arduino/cores/Print.h \
  /home/luong/workspace/tools/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/stdio.h \
  /home/luong/workspace/tools/gcc-arm-none-eabi-10.3-2021.10/lib/gcc/arm-none-eabi/10.3.1/include/stdarg.h \
@@ -111,7 +106,9 @@ build_ChungGame_embedded/scr_es35sw_th_sensor.o: \
  /home/luong/workspace/tools/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/ctype.h \
  sources/platform/stm32l/arduino/cores/stm32/pgmspace.h \
  /home/luong/workspace/tools/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/inttypes.h \
- sources/app/screens/scr_idle.h sources/common/view_render.h \
+ sources/app/screens/scr_idle.h sources/ak/inc/timer.h \
+ sources/ak/inc/timer.h sources/app/app.h sources/app/app_dbg.h \
+ sources/app/task_list.h sources/common/view_render.h \
  /home/luong/workspace/tools/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/c++/10.3.1/vector \
  /home/luong/workspace/tools/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h \
  /home/luong/workspace/tools/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/c++/10.3.1/bits/functexcept.h \
@@ -155,6 +152,8 @@ build_ChungGame_embedded/scr_es35sw_th_sensor.o: \
  /home/luong/workspace/tools/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/c++/10.3.1/bits/vector.tcc \
  sources/app/screens/scr_info.h sources/app/screens/scr_startup.h \
  sources/app/screens/scr_noen.h \
- sources/app/screens/scr_es35sw_th_sensor.h \
+ sources/app/screens/scr_es35sw_th_sensor.h sources/app/app_modbus_pull.h \
+ sources/networks/mbmaster-v2.9.6/mbmaster/include/common/mbtypes.h \
+ sources/networks/mbmaster-v2.9.6/mbmaster/include/common/mbportlayer.h \
  sources/app/screens/scr_lhio404_io_device.h \
  sources/app/screens/scr_tank.h sources/app/screens/screens_bitmap.h
