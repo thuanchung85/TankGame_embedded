@@ -155,4 +155,5 @@ build_ChungGame_embedded/scr_startup.o: \
  sources/app/screens/scr_es35sw_th_sensor.h sources/app/app_modbus_pull.h \
  sources/networks/mbmaster-v2.9.6/mbmaster/include/common/mbtypes.h \
  sources/networks/mbmaster-v2.9.6/mbmaster/include/common/mbportlayer.h \
- sources/app/screens/scr_lhio404_io_device.h
+ sources/app/screens/scr_lhio404_io_device.h \
+ sources/app/screens/scr_tank.h sources/app/screens/screens_bitmap.h

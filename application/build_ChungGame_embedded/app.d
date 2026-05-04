@@ -228,8 +228,9 @@ build_ChungGame_embedded/app.o: sources/app/app.cpp \
  sources/app/screens/scr_es35sw_th_sensor.h sources/app/app_modbus_pull.h \
  sources/networks/mbmaster-v2.9.6/mbmaster/include/common/mbtypes.h \
  sources/networks/mbmaster-v2.9.6/mbmaster/include/common/mbportlayer.h \
- sources/app/screens/scr_lhio404_io_device.h sources/app/task_zigbee.h \
- sources/sys/sys_irq.h \
+ sources/app/screens/scr_lhio404_io_device.h \
+ sources/app/screens/scr_tank.h sources/app/screens/screens_bitmap.h \
+ sources/app/task_zigbee.h sources/sys/sys_irq.h \
  sources/platform/stm32l/arduino/libraries/SPI/SPI.h \
  sources/platform/stm32l/arduino/cores/WString.h \
  sources/platform/stm32l/arduino/cores/HardwareSerial.h \

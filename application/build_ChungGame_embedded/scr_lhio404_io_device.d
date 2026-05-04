@@ -156,4 +156,5 @@ build_ChungGame_embedded/scr_lhio404_io_device.o: \
  sources/app/screens/scr_info.h sources/app/screens/scr_startup.h \
  sources/app/screens/scr_noen.h \
  sources/app/screens/scr_es35sw_th_sensor.h \
- sources/app/screens/scr_lhio404_io_device.h
+ sources/app/screens/scr_lhio404_io_device.h \
+ sources/app/screens/scr_tank.h sources/app/screens/screens_bitmap.h
