@@ -3042,7 +3042,7 @@ Linker script and memory map
                 0x0000000008003000                isr_vector
                 0x00000000080030f4                . = ALIGN (0x4)
 
-.text           0x00000000080030f8     0xed80
+.text           0x00000000080030f8     0xf130
                 0x00000000080030f8                . = ALIGN (0x4)
  *(.text)
  .text          0x00000000080030f8       0xec /home/luong/workspace/tools/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/lib/thumb/v7-m/nofp/libc.a(lib_a-memcpy.o)
@@ -4039,761 +4039,780 @@ Linker script and memory map
                 0x000000000800a914       0x8c build_ChungGame_embedded/scr_startup.o
                 0x000000000800a914                scr_startup_handle(ak_msg_t*)
  .text._ZL13view_scr_tankv
-                0x000000000800a9a0       0xac build_ChungGame_embedded/scr_tank.o
+                0x000000000800a9a0      0x100 build_ChungGame_embedded/scr_tank.o
  .text._Z15scr_tank_handleP8ak_msg_t
-                0x000000000800aa4c       0xa8 build_ChungGame_embedded/scr_tank.o
-                0x000000000800aa4c                scr_tank_handle(ak_msg_t*)
+                0x000000000800aaa0      0x10c build_ChungGame_embedded/scr_tank.o
+                0x000000000800aaa0                scr_tank_handle(ak_msg_t*)
  .text.startup._GLOBAL__sub_I_dyn_view_tank
-                0x000000000800aaf4       0x2c build_ChungGame_embedded/scr_tank.o
+                0x000000000800abac       0x3c build_ChungGame_embedded/scr_tank.o
  .text._Z11task_systemP8ak_msg_t
-                0x000000000800ab20       0x44 build_ChungGame_embedded/task_system.o
-                0x000000000800ab20                task_system(ak_msg_t*)
+                0x000000000800abe8       0x44 build_ChungGame_embedded/task_system.o
+                0x000000000800abe8                task_system(ak_msg_t*)
  .text.main_app
-                0x000000000800ab64      0x294 build_ChungGame_embedded/app.o
-                0x000000000800ab64                main_app
+                0x000000000800ac2c      0x294 build_ChungGame_embedded/app.o
+                0x000000000800ac2c                main_app
  .text._Z19task_polling_zigbeev
-                0x000000000800adf8        0x2 build_ChungGame_embedded/app.o
-                0x000000000800adf8                task_polling_zigbee()
- *fill*         0x000000000800adfa        0x2 
+                0x000000000800aec0        0x2 build_ChungGame_embedded/app.o
+                0x000000000800aec0                task_polling_zigbee()
+ *fill*         0x000000000800aec2        0x2 
  .text._Z20task_polling_consolev
-                0x000000000800adfc       0xd8 build_ChungGame_embedded/app.o
-                0x000000000800adfc                task_polling_console()
+                0x000000000800aec4       0xd8 build_ChungGame_embedded/app.o
+                0x000000000800aec4                task_polling_console()
  .text.sys_irq_timer_10ms
-                0x000000000800aed4       0x24 build_ChungGame_embedded/app.o
-                0x000000000800aed4                sys_irq_timer_10ms
+                0x000000000800af9c       0x24 build_ChungGame_embedded/app.o
+                0x000000000800af9c                sys_irq_timer_10ms
  .text._Z17btn_mode_callbackPv
-                0x000000000800aef8       0x3c build_ChungGame_embedded/app_bsp.o
-                0x000000000800aef8                btn_mode_callback(void*)
+                0x000000000800afc0       0x3c build_ChungGame_embedded/app_bsp.o
+                0x000000000800afc0                btn_mode_callback(void*)
  .text._Z15btn_up_callbackPv
-                0x000000000800af34       0x3c build_ChungGame_embedded/app_bsp.o
-                0x000000000800af34                btn_up_callback(void*)
+                0x000000000800affc       0x3c build_ChungGame_embedded/app_bsp.o
+                0x000000000800affc                btn_up_callback(void*)
  .text._Z17btn_down_callbackPv
-                0x000000000800af70       0x3c build_ChungGame_embedded/app_bsp.o
-                0x000000000800af70                btn_down_callback(void*)
+                0x000000000800b038       0x3c build_ChungGame_embedded/app_bsp.o
+                0x000000000800b038                btn_down_callback(void*)
  .text._Z22updateDataModbusDeviceP21ModbusDeviceStructure
-                0x000000000800afac       0xc4 build_ChungGame_embedded/app_modbus_pull.o
-                0x000000000800afac                updateDataModbusDevice(ModbusDeviceStructure*)
+                0x000000000800b074       0xc4 build_ChungGame_embedded/app_modbus_pull.o
+                0x000000000800b074                updateDataModbusDevice(ModbusDeviceStructure*)
  .text._ZL19str_parser_get_attrh
-                0x000000000800b070       0x1c build_ChungGame_embedded/shell.o
+                0x000000000800b138       0x1c build_ChungGame_embedded/shell.o
  .text._Z9shell_sttPh
-                0x000000000800b08c        0x4 build_ChungGame_embedded/shell.o
-                0x000000000800b08c                shell_stt(unsigned char*)
+                0x000000000800b154        0x4 build_ChungGame_embedded/shell.o
+                0x000000000800b154                shell_stt(unsigned char*)
  .text._Z9shell_psvPh
-                0x000000000800b090       0x14 build_ChungGame_embedded/shell.o
-                0x000000000800b090                shell_psv(unsigned char*)
+                0x000000000800b158       0x14 build_ChungGame_embedded/shell.o
+                0x000000000800b158                shell_psv(unsigned char*)
  .text._Z11shell_resetPh
-                0x000000000800b0a4       0x10 build_ChungGame_embedded/shell.o
-                0x000000000800b0a4                shell_reset(unsigned char*)
+                0x000000000800b16c       0x10 build_ChungGame_embedded/shell.o
+                0x000000000800b16c                shell_reset(unsigned char*)
  .text._Z10shell_helpPh
-                0x000000000800b0b4       0x30 build_ChungGame_embedded/shell.o
-                0x000000000800b0b4                shell_help(unsigned char*)
+                0x000000000800b17c       0x30 build_ChungGame_embedded/shell.o
+                0x000000000800b17c                shell_help(unsigned char*)
  .text._Z9shell_verPh
-                0x000000000800b0e4      0x118 build_ChungGame_embedded/shell.o
-                0x000000000800b0e4                shell_ver(unsigned char*)
+                0x000000000800b1ac      0x118 build_ChungGame_embedded/shell.o
+                0x000000000800b1ac                shell_ver(unsigned char*)
  .text._Z12shell_rebootPh
-                0x000000000800b1fc       0x10 build_ChungGame_embedded/shell.o
-                0x000000000800b1fc                shell_reboot(unsigned char*)
+                0x000000000800b2c4       0x10 build_ChungGame_embedded/shell.o
+                0x000000000800b2c4                shell_reboot(unsigned char*)
  .text._ZL10str_parserPc
-                0x000000000800b20c       0x60 build_ChungGame_embedded/shell.o
+                0x000000000800b2d4       0x60 build_ChungGame_embedded/shell.o
  .text._Z11shell_fatalPh
-                0x000000000800b26c      0x2f4 build_ChungGame_embedded/shell.o
-                0x000000000800b26c                shell_fatal(unsigned char*)
+                0x000000000800b334      0x2f4 build_ChungGame_embedded/shell.o
+                0x000000000800b334                shell_fatal(unsigned char*)
  .text._Z11shell_flashPh
-                0x000000000800b560      0x150 build_ChungGame_embedded/shell.o
-                0x000000000800b560                shell_flash(unsigned char*)
+                0x000000000800b628      0x150 build_ChungGame_embedded/shell.o
+                0x000000000800b628                shell_flash(unsigned char*)
  .text._Z9shell_epsPh
-                0x000000000800b6b0       0xd0 build_ChungGame_embedded/shell.o
-                0x000000000800b6b0                shell_eps(unsigned char*)
+                0x000000000800b778       0xd0 build_ChungGame_embedded/shell.o
+                0x000000000800b778                shell_eps(unsigned char*)
  .text._Z9shell_ramPh
-                0x000000000800b780      0x20c build_ChungGame_embedded/shell.o
-                0x000000000800b780                shell_ram(unsigned char*)
+                0x000000000800b848      0x20c build_ChungGame_embedded/shell.o
+                0x000000000800b848                shell_ram(unsigned char*)
  .text._Z10shell_bootPh
-                0x000000000800b98c       0xdc build_ChungGame_embedded/shell.o
-                0x000000000800b98c                shell_boot(unsigned char*)
+                0x000000000800ba54       0xdc build_ChungGame_embedded/shell.o
+                0x000000000800ba54                shell_boot(unsigned char*)
  .text._Z9shell_fwuPh
-                0x000000000800ba68       0x34 build_ChungGame_embedded/shell.o
-                0x000000000800ba68                shell_fwu(unsigned char*)
+                0x000000000800bb30       0x34 build_ChungGame_embedded/shell.o
+                0x000000000800bb30                shell_fwu(unsigned char*)
  .text._Z12shell_buzzerPh
-                0x000000000800ba9c       0x88 build_ChungGame_embedded/shell.o
-                0x000000000800ba9c                shell_buzzer(unsigned char*)
+                0x000000000800bb64       0x88 build_ChungGame_embedded/shell.o
+                0x000000000800bb64                shell_buzzer(unsigned char*)
  .text._Z9shell_dbgPh
-                0x000000000800bb24       0x38 build_ChungGame_embedded/shell.o
-                0x000000000800bb24                shell_dbg(unsigned char*)
+                0x000000000800bbec       0x38 build_ChungGame_embedded/shell.o
+                0x000000000800bbec                shell_dbg(unsigned char*)
  .text._Z12shell_modbusPh
-                0x000000000800bb5c       0xe0 build_ChungGame_embedded/shell.o
-                0x000000000800bb5c                shell_modbus(unsigned char*)
+                0x000000000800bc24       0xe0 build_ChungGame_embedded/shell.o
+                0x000000000800bc24                shell_modbus(unsigned char*)
  .text._Z9shell_epiPh
-                0x000000000800bc3c        0x4 build_ChungGame_embedded/shell.o
-                0x000000000800bc3c                shell_epi(unsigned char*)
+                0x000000000800bd04        0x4 build_ChungGame_embedded/shell.o
+                0x000000000800bd04                shell_epi(unsigned char*)
  .text._Z9shell_lcdPh
-                0x000000000800bc40      0x15c build_ChungGame_embedded/shell.o
-                0x000000000800bc40                shell_lcd(unsigned char*)
+                0x000000000800bd08      0x15c build_ChungGame_embedded/shell.o
+                0x000000000800bd08                shell_lcd(unsigned char*)
  .text.sys_irq_shell
-                0x000000000800bd9c       0x2c build_ChungGame_embedded/task_shell.o
-                0x000000000800bd9c                sys_irq_shell
+                0x000000000800be64       0x2c build_ChungGame_embedded/task_shell.o
+                0x000000000800be64                sys_irq_shell
  .text._Z10task_shellP8ak_msg_t
-                0x000000000800bdc8       0x7c build_ChungGame_embedded/task_shell.o
-                0x000000000800bdc8                task_shell(ak_msg_t*)
+                0x000000000800be90       0x7c build_ChungGame_embedded/task_shell.o
+                0x000000000800be90                task_shell(ak_msg_t*)
  .text._Z9task_lifeP8ak_msg_t
-                0x000000000800be44       0x20 build_ChungGame_embedded/task_life.o
-                0x000000000800be44                task_life(ak_msg_t*)
+                0x000000000800bf0c       0x20 build_ChungGame_embedded/task_life.o
+                0x000000000800bf0c                task_life(ak_msg_t*)
  .text._Z7task_fwP8ak_msg_t
-                0x000000000800be64      0x490 build_ChungGame_embedded/task_fw.o
-                0x000000000800be64                task_fw(ak_msg_t*)
+                0x000000000800bf2c      0x490 build_ChungGame_embedded/task_fw.o
+                0x000000000800bf2c                task_fw(ak_msg_t*)
  .text._Z12task_displayP8ak_msg_t
-                0x000000000800c2f4        0x4 build_ChungGame_embedded/task_display.o
-                0x000000000800c2f4                task_display(ak_msg_t*)
+                0x000000000800c3bc        0x4 build_ChungGame_embedded/task_display.o
+                0x000000000800c3bc                task_display(ak_msg_t*)
  .text._Z7task_ifP8ak_msg_t
-                0x000000000800c2f8       0xe4 build_ChungGame_embedded/task_if.o
-                0x000000000800c2f8                task_if(ak_msg_t*)
+                0x000000000800c3c0       0xe4 build_ChungGame_embedded/task_if.o
+                0x000000000800c3c0                task_if(ak_msg_t*)
  .text._Z12task_rf24_ifP8ak_msg_t
-                0x000000000800c3dc        0x2 build_ChungGame_embedded/task_rf24_if.o
-                0x000000000800c3dc                task_rf24_if(ak_msg_t*)
- *fill*         0x000000000800c3de        0x2 
+                0x000000000800c4a4        0x2 build_ChungGame_embedded/task_rf24_if.o
+                0x000000000800c4a4                task_rf24_if(ak_msg_t*)
+ *fill*         0x000000000800c4a6        0x2 
  .text._Z12task_uart_ifP8ak_msg_t
-                0x000000000800c3e0       0xc4 build_ChungGame_embedded/task_uart_if.o
-                0x000000000800c3e0                task_uart_if(ak_msg_t*)
+                0x000000000800c4a8       0xc4 build_ChungGame_embedded/task_uart_if.o
+                0x000000000800c4a8                task_uart_if(ak_msg_t*)
  .text._Z8task_dbgP8ak_msg_t
-                0x000000000800c4a4        0x2 build_ChungGame_embedded/task_dbg.o
-                0x000000000800c4a4                task_dbg(ak_msg_t*)
+                0x000000000800c56c        0x2 build_ChungGame_embedded/task_dbg.o
+                0x000000000800c56c                task_dbg(ak_msg_t*)
  .text._ZL19view_render_dynamicPv
-                0x000000000800c4a6        0xa build_ChungGame_embedded/view_render.o
+                0x000000000800c56e        0xa build_ChungGame_embedded/view_render.o
  .text._Z22view_render_display_onv
-                0x000000000800c4b0        0xc build_ChungGame_embedded/view_render.o
-                0x000000000800c4b0                view_render_display_on()
+                0x000000000800c578        0xc build_ChungGame_embedded/view_render.o
+                0x000000000800c578                view_render_display_on()
  .text.startup._GLOBAL__sub_I_view_render
-                0x000000000800c4bc        0xc build_ChungGame_embedded/view_render.o
+                0x000000000800c584        0xc build_ChungGame_embedded/view_render.o
  .text.exit._GLOBAL__sub_D_view_render
-                0x000000000800c4c8        0xc build_ChungGame_embedded/view_render.o
+                0x000000000800c590        0xc build_ChungGame_embedded/view_render.o
  .text._Z18view_render_screenP13view_screen_t
-                0x000000000800c4d4       0x68 build_ChungGame_embedded/view_render.o
-                0x000000000800c4d4                view_render_screen(view_screen_t*)
+                0x000000000800c59c       0x68 build_ChungGame_embedded/view_render.o
+                0x000000000800c59c                view_render_screen(view_screen_t*)
  .text._ZL21view_render_rectanglePv
-                0x000000000800c53c       0xe8 build_ChungGame_embedded/view_render.o
+                0x000000000800c604       0xe8 build_ChungGame_embedded/view_render.o
  .text._Z12scr_mng_ctorP9scr_mng_tPFvP8ak_msg_tEP13view_screen_t
-                0x000000000800c624       0x20 build_ChungGame_embedded/screen_manager.o
-                0x000000000800c624                scr_mng_ctor(scr_mng_t*, void (*)(ak_msg_t*), view_screen_t*)
+                0x000000000800c6ec       0x20 build_ChungGame_embedded/screen_manager.o
+                0x000000000800c6ec                scr_mng_ctor(scr_mng_t*, void (*)(ak_msg_t*), view_screen_t*)
  .text._Z16scr_mng_dispatchP8ak_msg_t
-                0x000000000800c644       0x48 build_ChungGame_embedded/screen_manager.o
-                0x000000000800c644                scr_mng_dispatch(ak_msg_t*)
+                0x000000000800c70c       0x48 build_ChungGame_embedded/screen_manager.o
+                0x000000000800c70c                scr_mng_dispatch(ak_msg_t*)
  .text._Z12scr_mng_tranPFvP8ak_msg_tEP13view_screen_t
-                0x000000000800c68c       0x44 build_ChungGame_embedded/screen_manager.o
-                0x000000000800c68c                scr_mng_tran(void (*)(ak_msg_t*), view_screen_t*)
+                0x000000000800c754       0x44 build_ChungGame_embedded/screen_manager.o
+                0x000000000800c754                scr_mng_tran(void (*)(ak_msg_t*), view_screen_t*)
  .text._ZN12Adafruit_GFX8drawLineEsssst
-                0x000000000800c6d0       0xbe build_ChungGame_embedded/Adafruit_GFX.o
-                0x000000000800c6d0                Adafruit_GFX::drawLine(short, short, short, short, unsigned short)
+                0x000000000800c798       0xbe build_ChungGame_embedded/Adafruit_GFX.o
+                0x000000000800c798                Adafruit_GFX::drawLine(short, short, short, short, unsigned short)
  .text._ZN12Adafruit_GFX8drawRectEsssst
-                0x000000000800c78e       0x68 build_ChungGame_embedded/Adafruit_GFX.o
-                0x000000000800c78e                Adafruit_GFX::drawRect(short, short, short, short, unsigned short)
+                0x000000000800c856       0x68 build_ChungGame_embedded/Adafruit_GFX.o
+                0x000000000800c856                Adafruit_GFX::drawRect(short, short, short, short, unsigned short)
  .text._ZN12Adafruit_GFX13drawFastVLineEssst
-                0x000000000800c7f6       0x1c build_ChungGame_embedded/Adafruit_GFX.o
-                0x000000000800c7f6                Adafruit_GFX::drawFastVLine(short, short, short, unsigned short)
+                0x000000000800c8be       0x1c build_ChungGame_embedded/Adafruit_GFX.o
+                0x000000000800c8be                Adafruit_GFX::drawFastVLine(short, short, short, unsigned short)
  .text._ZN12Adafruit_GFX13drawFastHLineEssst
-                0x000000000800c812       0x1a build_ChungGame_embedded/Adafruit_GFX.o
-                0x000000000800c812                Adafruit_GFX::drawFastHLine(short, short, short, unsigned short)
+                0x000000000800c8da       0x1a build_ChungGame_embedded/Adafruit_GFX.o
+                0x000000000800c8da                Adafruit_GFX::drawFastHLine(short, short, short, unsigned short)
  .text._ZN12Adafruit_GFX8fillRectEsssst
-                0x000000000800c82c       0x38 build_ChungGame_embedded/Adafruit_GFX.o
-                0x000000000800c82c                Adafruit_GFX::fillRect(short, short, short, short, unsigned short)
+                0x000000000800c8f4       0x38 build_ChungGame_embedded/Adafruit_GFX.o
+                0x000000000800c8f4                Adafruit_GFX::fillRect(short, short, short, short, unsigned short)
  .text._ZN12Adafruit_GFX10fillScreenEt
-                0x000000000800c864       0x1c build_ChungGame_embedded/Adafruit_GFX.o
-                0x000000000800c864                Adafruit_GFX::fillScreen(unsigned short)
+                0x000000000800c92c       0x1c build_ChungGame_embedded/Adafruit_GFX.o
+                0x000000000800c92c                Adafruit_GFX::fillScreen(unsigned short)
  .text._ZN12Adafruit_GFXC2Ess
-                0x000000000800c880       0x28 build_ChungGame_embedded/Adafruit_GFX.o
-                0x000000000800c880                Adafruit_GFX::Adafruit_GFX(short, short)
-                0x000000000800c880                Adafruit_GFX::Adafruit_GFX(short, short)
+                0x000000000800c948       0x28 build_ChungGame_embedded/Adafruit_GFX.o
+                0x000000000800c948                Adafruit_GFX::Adafruit_GFX(short, short)
+                0x000000000800c948                Adafruit_GFX::Adafruit_GFX(short, short)
  .text._ZN12Adafruit_GFX10drawCircleEssst
-                0x000000000800c8a8      0x172 build_ChungGame_embedded/Adafruit_GFX.o
-                0x000000000800c8a8                Adafruit_GFX::drawCircle(short, short, short, unsigned short)
+                0x000000000800c970      0x172 build_ChungGame_embedded/Adafruit_GFX.o
+                0x000000000800c970                Adafruit_GFX::drawCircle(short, short, short, unsigned short)
  .text._ZN12Adafruit_GFX16fillCircleHelperEssshst
-                0x000000000800ca1a      0x124 build_ChungGame_embedded/Adafruit_GFX.o
-                0x000000000800ca1a                Adafruit_GFX::fillCircleHelper(short, short, short, unsigned char, short, unsigned short)
+                0x000000000800cae2      0x124 build_ChungGame_embedded/Adafruit_GFX.o
+                0x000000000800cae2                Adafruit_GFX::fillCircleHelper(short, short, short, unsigned char, short, unsigned short)
  .text._ZN12Adafruit_GFX13fillRoundRectEssssst
-                0x000000000800cb3e       0x88 build_ChungGame_embedded/Adafruit_GFX.o
-                0x000000000800cb3e                Adafruit_GFX::fillRoundRect(short, short, short, short, short, unsigned short)
+                0x000000000800cc06       0x88 build_ChungGame_embedded/Adafruit_GFX.o
+                0x000000000800cc06                Adafruit_GFX::fillRoundRect(short, short, short, short, short, unsigned short)
  .text._ZN12Adafruit_GFX10drawBitmapEssPKhsst
-                0x000000000800cbc6       0x92 build_ChungGame_embedded/Adafruit_GFX.o
-                0x000000000800cbc6                Adafruit_GFX::drawBitmap(short, short, unsigned char const*, short, short, unsigned short)
+                0x000000000800cc8e       0x92 build_ChungGame_embedded/Adafruit_GFX.o
+                0x000000000800cc8e                Adafruit_GFX::drawBitmap(short, short, unsigned char const*, short, short, unsigned short)
  .text._ZN12Adafruit_GFX8drawCharEsshtth
-                0x000000000800cc58      0x108 build_ChungGame_embedded/Adafruit_GFX.o
-                0x000000000800cc58                Adafruit_GFX::drawChar(short, short, unsigned char, unsigned short, unsigned short, unsigned char)
+                0x000000000800cd20      0x108 build_ChungGame_embedded/Adafruit_GFX.o
+                0x000000000800cd20                Adafruit_GFX::drawChar(short, short, unsigned char, unsigned short, unsigned short, unsigned char)
  .text._ZN12Adafruit_GFX5writeEh
-                0x000000000800cd60       0x64 build_ChungGame_embedded/Adafruit_GFX.o
-                0x000000000800cd60                Adafruit_GFX::write(unsigned char)
+                0x000000000800ce28       0x64 build_ChungGame_embedded/Adafruit_GFX.o
+                0x000000000800ce28                Adafruit_GFX::write(unsigned char)
  .text._ZN12Adafruit_GFX9setCursorEss
-                0x000000000800cdc4        0x6 build_ChungGame_embedded/Adafruit_GFX.o
-                0x000000000800cdc4                Adafruit_GFX::setCursor(short, short)
+                0x000000000800ce8c        0x6 build_ChungGame_embedded/Adafruit_GFX.o
+                0x000000000800ce8c                Adafruit_GFX::setCursor(short, short)
  .text._ZN12Adafruit_GFX11setTextSizeEh
-                0x000000000800cdca        0xa build_ChungGame_embedded/Adafruit_GFX.o
-                0x000000000800cdca                Adafruit_GFX::setTextSize(unsigned char)
+                0x000000000800ce92        0xa build_ChungGame_embedded/Adafruit_GFX.o
+                0x000000000800ce92                Adafruit_GFX::setTextSize(unsigned char)
  .text._ZN12Adafruit_GFX12setTextColorEt
-                0x000000000800cdd4        0x6 build_ChungGame_embedded/Adafruit_GFX.o
-                0x000000000800cdd4                Adafruit_GFX::setTextColor(unsigned short)
+                0x000000000800ce9c        0x6 build_ChungGame_embedded/Adafruit_GFX.o
+                0x000000000800ce9c                Adafruit_GFX::setTextColor(unsigned short)
  .text._ZN12Adafruit_GFX5widthEv
-                0x000000000800cdda        0x6 build_ChungGame_embedded/Adafruit_GFX.o
-                0x000000000800cdda                Adafruit_GFX::width()
+                0x000000000800cea2        0x6 build_ChungGame_embedded/Adafruit_GFX.o
+                0x000000000800cea2                Adafruit_GFX::width()
  .text._ZN12Adafruit_GFX6heightEv
-                0x000000000800cde0        0x6 build_ChungGame_embedded/Adafruit_GFX.o
-                0x000000000800cde0                Adafruit_GFX::height()
+                0x000000000800cea8        0x6 build_ChungGame_embedded/Adafruit_GFX.o
+                0x000000000800cea8                Adafruit_GFX::height()
  .text._ZN17Adafruit_oled_drv9updateRowEii
-                0x000000000800cde6       0x1e build_ChungGame_embedded/Adafruit_oled_drv.o
-                0x000000000800cde6                Adafruit_oled_drv::updateRow(int, int)
+                0x000000000800ceae       0x1e build_ChungGame_embedded/Adafruit_oled_drv.o
+                0x000000000800ceae                Adafruit_oled_drv::updateRow(int, int)
  .text._ZN17Adafruit_oled_drv9drawPixelEsst
-                0x000000000800ce04       0x52 build_ChungGame_embedded/Adafruit_oled_drv.o
-                0x000000000800ce04                Adafruit_oled_drv::drawPixel(short, short, unsigned short)
- *fill*         0x000000000800ce56        0x2 
+                0x000000000800cecc       0x52 build_ChungGame_embedded/Adafruit_oled_drv.o
+                0x000000000800cecc                Adafruit_oled_drv::drawPixel(short, short, unsigned short)
+ *fill*         0x000000000800cf1e        0x2 
  .text._ZN17Adafruit_oled_drvC2Ev
-                0x000000000800ce58       0x28 build_ChungGame_embedded/Adafruit_oled_drv.o
-                0x000000000800ce58                Adafruit_oled_drv::Adafruit_oled_drv()
-                0x000000000800ce58                Adafruit_oled_drv::Adafruit_oled_drv()
+                0x000000000800cf20       0x28 build_ChungGame_embedded/Adafruit_oled_drv.o
+                0x000000000800cf20                Adafruit_oled_drv::Adafruit_oled_drv()
+                0x000000000800cf20                Adafruit_oled_drv::Adafruit_oled_drv()
  .text._ZN17Adafruit_oled_drvD2Ev
-                0x000000000800ce80        0x2 build_ChungGame_embedded/Adafruit_oled_drv.o
-                0x000000000800ce80                Adafruit_oled_drv::~Adafruit_oled_drv()
-                0x000000000800ce80                Adafruit_oled_drv::~Adafruit_oled_drv()
+                0x000000000800cf48        0x2 build_ChungGame_embedded/Adafruit_oled_drv.o
+                0x000000000800cf48                Adafruit_oled_drv::~Adafruit_oled_drv()
+                0x000000000800cf48                Adafruit_oled_drv::~Adafruit_oled_drv()
  .text._ZN17Adafruit_oled_drv5clearEb
-                0x000000000800ce82       0x22 build_ChungGame_embedded/Adafruit_oled_drv.o
-                0x000000000800ce82                Adafruit_oled_drv::clear(bool)
+                0x000000000800cf4a       0x22 build_ChungGame_embedded/Adafruit_oled_drv.o
+                0x000000000800cf4a                Adafruit_oled_drv::clear(bool)
  .text._ZN17Adafruit_oled_drv9writeByteEh
-                0x000000000800cea4       0x54 build_ChungGame_embedded/Adafruit_oled_drv.o
-                0x000000000800cea4                Adafruit_oled_drv::writeByte(unsigned char)
+                0x000000000800cf6c       0x54 build_ChungGame_embedded/Adafruit_oled_drv.o
+                0x000000000800cf6c                Adafruit_oled_drv::writeByte(unsigned char)
  .text._ZN17Adafruit_oled_drv8startIICEv
-                0x000000000800cef8       0x2c build_ChungGame_embedded/Adafruit_oled_drv.o
-                0x000000000800cef8                Adafruit_oled_drv::startIIC()
+                0x000000000800cfc0       0x2c build_ChungGame_embedded/Adafruit_oled_drv.o
+                0x000000000800cfc0                Adafruit_oled_drv::startIIC()
  .text._ZN17Adafruit_oled_drv7stopIICEv
-                0x000000000800cf24       0x2c build_ChungGame_embedded/Adafruit_oled_drv.o
-                0x000000000800cf24                Adafruit_oled_drv::stopIIC()
+                0x000000000800cfec       0x2c build_ChungGame_embedded/Adafruit_oled_drv.o
+                0x000000000800cfec                Adafruit_oled_drv::stopIIC()
  .text._ZN17Adafruit_oled_drv12writeCommandEh
-                0x000000000800cf50       0x2c build_ChungGame_embedded/Adafruit_oled_drv.o
-                0x000000000800cf50                Adafruit_oled_drv::writeCommand(unsigned char)
+                0x000000000800d018       0x2c build_ChungGame_embedded/Adafruit_oled_drv.o
+                0x000000000800d018                Adafruit_oled_drv::writeCommand(unsigned char)
  .text._ZN17Adafruit_oled_drv10initializeEv
-                0x000000000800cf7c      0x120 build_ChungGame_embedded/Adafruit_oled_drv.o
-                0x000000000800cf7c                Adafruit_oled_drv::initialize()
+                0x000000000800d044      0x120 build_ChungGame_embedded/Adafruit_oled_drv.o
+                0x000000000800d044                Adafruit_oled_drv::initialize()
  .text._ZN17Adafruit_oled_drv10display_onEv
-                0x000000000800d09c        0x6 build_ChungGame_embedded/Adafruit_oled_drv.o
-                0x000000000800d09c                Adafruit_oled_drv::display_on()
+                0x000000000800d164        0x6 build_ChungGame_embedded/Adafruit_oled_drv.o
+                0x000000000800d164                Adafruit_oled_drv::display_on()
  .text._ZN17Adafruit_oled_drv11display_offEv
-                0x000000000800d0a2        0x6 build_ChungGame_embedded/Adafruit_oled_drv.o
-                0x000000000800d0a2                Adafruit_oled_drv::display_off()
+                0x000000000800d16a        0x6 build_ChungGame_embedded/Adafruit_oled_drv.o
+                0x000000000800d16a                Adafruit_oled_drv::display_off()
  .text._ZN17Adafruit_oled_drv17startDataSequenceEv
-                0x000000000800d0a8       0x1c build_ChungGame_embedded/Adafruit_oled_drv.o
-                0x000000000800d0a8                Adafruit_oled_drv::startDataSequence()
+                0x000000000800d170       0x1c build_ChungGame_embedded/Adafruit_oled_drv.o
+                0x000000000800d170                Adafruit_oled_drv::startDataSequence()
  .text._ZN17Adafruit_oled_drv6updateEv
-                0x000000000800d0c4       0x4e build_ChungGame_embedded/Adafruit_oled_drv.o
-                0x000000000800d0c4                Adafruit_oled_drv::update()
+                0x000000000800d18c       0x4e build_ChungGame_embedded/Adafruit_oled_drv.o
+                0x000000000800d18c                Adafruit_oled_drv::update()
  .text._ZN17Adafruit_oled_drv9updateRowEi
-                0x000000000800d112       0x6c build_ChungGame_embedded/Adafruit_oled_drv.o
-                0x000000000800d112                Adafruit_oled_drv::updateRow(int)
+                0x000000000800d1da       0x6c build_ChungGame_embedded/Adafruit_oled_drv.o
+                0x000000000800d1da                Adafruit_oled_drv::updateRow(int)
  .text.eeprom_read
-                0x000000000800d17e        0x4 build_ChungGame_embedded/eeprom.o
-                0x000000000800d17e                eeprom_read
+                0x000000000800d246        0x4 build_ChungGame_embedded/eeprom.o
+                0x000000000800d246                eeprom_read
  .text.eeprom_erase
-                0x000000000800d182        0x4 build_ChungGame_embedded/eeprom.o
-                0x000000000800d182                eeprom_erase
+                0x000000000800d24a        0x4 build_ChungGame_embedded/eeprom.o
+                0x000000000800d24a                eeprom_erase
  .text._ZL19link_hal_write_byteh
-                0x000000000800d186        0x2 build_ChungGame_embedded/link_hal.o
+                0x000000000800d24e        0x2 build_ChungGame_embedded/link_hal.o
  .text._ZL17link_hal_rev_byteh
-                0x000000000800d188        0x4 build_ChungGame_embedded/link_hal.o
+                0x000000000800d250        0x4 build_ChungGame_embedded/link_hal.o
  .text._Z23link_hal_reg_write_bytePFhhE
-                0x000000000800d18c       0x28 build_ChungGame_embedded/link_hal.o
-                0x000000000800d18c                link_hal_reg_write_byte(unsigned char (*)(unsigned char))
+                0x000000000800d254       0x28 build_ChungGame_embedded/link_hal.o
+                0x000000000800d254                link_hal_reg_write_byte(unsigned char (*)(unsigned char))
  .text._Z21link_hal_reg_rev_bytePFhhE
-                0x000000000800d1b4       0x28 build_ChungGame_embedded/link_hal.o
-                0x000000000800d1b4                link_hal_reg_rev_byte(unsigned char (*)(unsigned char))
+                0x000000000800d27c       0x28 build_ChungGame_embedded/link_hal.o
+                0x000000000800d27c                link_hal_reg_rev_byte(unsigned char (*)(unsigned char))
  .text._ZL21fsm_link_state_handleP8ak_msg_t
-                0x000000000800d1dc      0x2b0 build_ChungGame_embedded/link.o
+                0x000000000800d2a4      0x2b0 build_ChungGame_embedded/link.o
  .text._ZL19fsm_link_state_initP8ak_msg_t
-                0x000000000800d48c       0x80 build_ChungGame_embedded/link.o
+                0x000000000800d554       0x80 build_ChungGame_embedded/link.o
  .text._Z9task_linkP8ak_msg_t
-                0x000000000800d50c        0xc build_ChungGame_embedded/link.o
-                0x000000000800d50c                task_link(ak_msg_t*)
+                0x000000000800d5d4        0xc build_ChungGame_embedded/link.o
+                0x000000000800d5d4                task_link(ak_msg_t*)
  .text._Z23link_init_state_machinev
-                0x000000000800d518       0x2c build_ChungGame_embedded/link.o
-                0x000000000800d518                link_init_state_machine()
+                0x000000000800d5e0       0x2c build_ChungGame_embedded/link.o
+                0x000000000800d5e0                link_init_state_machine()
  .text._ZL23link_mac_frame_send_reqv
-                0x000000000800d544       0x3c build_ChungGame_embedded/link_mac.o
+                0x000000000800d60c       0x3c build_ChungGame_embedded/link_mac.o
  .text._ZL23link_mac_frame_send_endv
-                0x000000000800d580       0x34 build_ChungGame_embedded/link_mac.o
+                0x000000000800d648       0x34 build_ChungGame_embedded/link_mac.o
  .text._ZL28link_mac_frame_cals_checksumP16link_mac_frame_t.constprop.0
-                0x000000000800d5b4       0x38 build_ChungGame_embedded/link_mac.o
+                0x000000000800d67c       0x38 build_ChungGame_embedded/link_mac.o
  .text._Z25fsm_link_mac_state_handleP8ak_msg_t
-                0x000000000800d5ec      0x2b8 build_ChungGame_embedded/link_mac.o
-                0x000000000800d5ec                fsm_link_mac_state_handle(ak_msg_t*)
+                0x000000000800d6b4      0x2b8 build_ChungGame_embedded/link_mac.o
+                0x000000000800d6b4                fsm_link_mac_state_handle(ak_msg_t*)
  .text._Z13task_link_macP8ak_msg_t
-                0x000000000800d8a4        0xc build_ChungGame_embedded/link_mac.o
-                0x000000000800d8a4                task_link_mac(ak_msg_t*)
+                0x000000000800d96c        0xc build_ChungGame_embedded/link_mac.o
+                0x000000000800d96c                task_link_mac(ak_msg_t*)
  .text._Z23fsm_link_mac_state_initP8ak_msg_t
-                0x000000000800d8b0       0x88 build_ChungGame_embedded/link_mac.o
-                0x000000000800d8b0                fsm_link_mac_state_init(ak_msg_t*)
+                0x000000000800d978       0x88 build_ChungGame_embedded/link_mac.o
+                0x000000000800d978                fsm_link_mac_state_init(ak_msg_t*)
  .text._ZL26link_phy_frame_write_blockPhm
-                0x000000000800d938       0x1c build_ChungGame_embedded/link_phy.o
+                0x000000000800da00       0x1c build_ChungGame_embedded/link_phy.o
  .text._ZL20link_phy_frame_writeP16link_phy_frame_t
-                0x000000000800d954       0x1c build_ChungGame_embedded/link_phy.o
+                0x000000000800da1c       0x1c build_ChungGame_embedded/link_phy.o
  .text._ZL28link_phy_frame_cals_checksumP16link_phy_frame_t
-                0x000000000800d970       0x38 build_ChungGame_embedded/link_phy.o
+                0x000000000800da38       0x38 build_ChungGame_embedded/link_phy.o
  .text._ZL25link_phy_frame_write_byteh
-                0x000000000800d9a8        0xc build_ChungGame_embedded/link_phy.o
+                0x000000000800da70        0xc build_ChungGame_embedded/link_phy.o
  .text._ZL26ac_link_phy_frame_rev_byteh
-                0x000000000800d9b4      0x100 build_ChungGame_embedded/link_phy.o
+                0x000000000800da7c      0x100 build_ChungGame_embedded/link_phy.o
  .text._ZL19link_phy_frame_sendv
-                0x000000000800dab4       0x2c build_ChungGame_embedded/link_phy.o
+                0x000000000800db7c       0x2c build_ChungGame_embedded/link_phy.o
  .text._Z25fsm_link_phy_state_handleP8ak_msg_t
-                0x000000000800dae0      0x1f0 build_ChungGame_embedded/link_phy.o
-                0x000000000800dae0                fsm_link_phy_state_handle(ak_msg_t*)
+                0x000000000800dba8      0x1f0 build_ChungGame_embedded/link_phy.o
+                0x000000000800dba8                fsm_link_phy_state_handle(ak_msg_t*)
  .text._Z13task_link_phyP8ak_msg_t
-                0x000000000800dcd0        0xc build_ChungGame_embedded/link_phy.o
-                0x000000000800dcd0                task_link_phy(ak_msg_t*)
+                0x000000000800dd98        0xc build_ChungGame_embedded/link_phy.o
+                0x000000000800dd98                task_link_phy(ak_msg_t*)
  .text._Z23fsm_link_phy_state_initP8ak_msg_t
-                0x000000000800dcdc       0x90 build_ChungGame_embedded/link_phy.o
-                0x000000000800dcdc                fsm_link_phy_state_init(ak_msg_t*)
+                0x000000000800dda4       0x90 build_ChungGame_embedded/link_phy.o
+                0x000000000800dda4                fsm_link_phy_state_init(ak_msg_t*)
  .text._Z26link_phy_get_send_frame_tov
-                0x000000000800dd6c       0x10 build_ChungGame_embedded/link_phy.o
-                0x000000000800dd6c                link_phy_get_send_frame_to()
+                0x000000000800de34       0x10 build_ChungGame_embedded/link_phy.o
+                0x000000000800de34                link_phy_get_send_frame_to()
  .text._Z13link_pdu_initv
-                0x000000000800dd7c       0x54 build_ChungGame_embedded/link_data.o
-                0x000000000800dd7c                link_pdu_init()
+                0x000000000800de44       0x54 build_ChungGame_embedded/link_data.o
+                0x000000000800de44                link_pdu_init()
  .text._Z15link_pdu_mallocv
-                0x000000000800ddd0       0x24 build_ChungGame_embedded/link_data.o
-                0x000000000800ddd0                link_pdu_malloc()
+                0x000000000800de98       0x24 build_ChungGame_embedded/link_data.o
+                0x000000000800de98                link_pdu_malloc()
  .text._Z12link_pdu_getm
-                0x000000000800ddf4       0x3c build_ChungGame_embedded/link_data.o
-                0x000000000800ddf4                link_pdu_get(unsigned long)
+                0x000000000800debc       0x3c build_ChungGame_embedded/link_data.o
+                0x000000000800debc                link_pdu_get(unsigned long)
  .text._Z13link_pdu_freem
-                0x000000000800de30       0x4c build_ChungGame_embedded/link_data.o
-                0x000000000800de30                link_pdu_free(unsigned long)
+                0x000000000800def8       0x4c build_ChungGame_embedded/link_data.o
+                0x000000000800def8                link_pdu_free(unsigned long)
  .text._Z17link_get_src_addrv
-                0x000000000800de7c       0x18 build_ChungGame_embedded/link_data.o
-                0x000000000800de7c                link_get_src_addr()
+                0x000000000800df44       0x18 build_ChungGame_embedded/link_data.o
+                0x000000000800df44                link_get_src_addr()
  .text._Z17link_get_des_addrv
-                0x000000000800de94       0x18 build_ChungGame_embedded/link_data.o
-                0x000000000800de94                link_get_des_addr()
+                0x000000000800df5c       0x18 build_ChungGame_embedded/link_data.o
+                0x000000000800df5c                link_get_des_addr()
  .text._Z7pinModehh
-                0x000000000800deac       0x84 build_ChungGame_embedded/wiring_digital.o
-                0x000000000800deac                pinMode(unsigned char, unsigned char)
+                0x000000000800df74       0x84 build_ChungGame_embedded/wiring_digital.o
+                0x000000000800df74                pinMode(unsigned char, unsigned char)
  .text._Z12digitalWritehh
-                0x000000000800df30       0x78 build_ChungGame_embedded/wiring_digital.o
-                0x000000000800df30                digitalWrite(unsigned char, unsigned char)
+                0x000000000800dff8       0x78 build_ChungGame_embedded/wiring_digital.o
+                0x000000000800dff8                digitalWrite(unsigned char, unsigned char)
  .text._ZN5Print5writeEPKhj
-                0x000000000800dfa8       0x22 build_ChungGame_embedded/Print.o
-                0x000000000800dfa8                Print::write(unsigned char const*, unsigned int)
+                0x000000000800e070       0x22 build_ChungGame_embedded/Print.o
+                0x000000000800e070                Print::write(unsigned char const*, unsigned int)
  .text._ZN5Print5writeEPKc
-                0x000000000800dfca       0x20 build_ChungGame_embedded/Print.o
-                0x000000000800dfca                Print::write(char const*)
+                0x000000000800e092       0x20 build_ChungGame_embedded/Print.o
+                0x000000000800e092                Print::write(char const*)
  .text._ZN5Print5printEPKc
-                0x000000000800dfea        0x8 build_ChungGame_embedded/Print.o
-                0x000000000800dfea                Print::print(char const*)
+                0x000000000800e0b2        0x8 build_ChungGame_embedded/Print.o
+                0x000000000800e0b2                Print::print(char const*)
  .text._ZN14HardwareSerial9availableEv
-                0x000000000800dff2        0xa build_ChungGame_embedded/HardwareSerial.o
-                0x000000000800dff2                HardwareSerial::available()
+                0x000000000800e0ba        0xa build_ChungGame_embedded/HardwareSerial.o
+                0x000000000800e0ba                HardwareSerial::available()
  .text._ZN14HardwareSerial4peekEv
-                0x000000000800dffc       0x14 build_ChungGame_embedded/HardwareSerial.o
-                0x000000000800dffc                HardwareSerial::peek()
+                0x000000000800e0c4       0x14 build_ChungGame_embedded/HardwareSerial.o
+                0x000000000800e0c4                HardwareSerial::peek()
  .text._ZN14HardwareSerial4readEv
-                0x000000000800e010       0x20 build_ChungGame_embedded/HardwareSerial.o
-                0x000000000800e010                HardwareSerial::read()
+                0x000000000800e0d8       0x20 build_ChungGame_embedded/HardwareSerial.o
+                0x000000000800e0d8                HardwareSerial::read()
  .text._ZN14HardwareSerial5flushEv
-                0x000000000800e030        0x2 build_ChungGame_embedded/HardwareSerial.o
-                0x000000000800e030                HardwareSerial::flush()
+                0x000000000800e0f8        0x2 build_ChungGame_embedded/HardwareSerial.o
+                0x000000000800e0f8                HardwareSerial::flush()
  .text._ZN14HardwareSerial17availableForWriteEv
-                0x000000000800e032       0x26 build_ChungGame_embedded/HardwareSerial.o
-                0x000000000800e032                HardwareSerial::availableForWrite()
+                0x000000000800e0fa       0x26 build_ChungGame_embedded/HardwareSerial.o
+                0x000000000800e0fa                HardwareSerial::availableForWrite()
  .text._ZN14HardwareSerial5writeEh
-                0x000000000800e058       0x30 build_ChungGame_embedded/HardwareSerial.o
-                0x000000000800e058                HardwareSerial::write(unsigned char)
+                0x000000000800e120       0x30 build_ChungGame_embedded/HardwareSerial.o
+                0x000000000800e120                HardwareSerial::write(unsigned char)
  .text._ZL20serial2_trigger_putcv
-                0x000000000800e088       0x10 build_ChungGame_embedded/HardwareSerial2.o
+                0x000000000800e150       0x10 build_ChungGame_embedded/HardwareSerial2.o
  .text.startup._GLOBAL__sub_I_Serial2
-                0x000000000800e098       0x34 build_ChungGame_embedded/HardwareSerial2.o
+                0x000000000800e160       0x34 build_ChungGame_embedded/HardwareSerial2.o
  .text._ZN8SPIClass9io_configEv
-                0x000000000800e0cc       0x68 build_ChungGame_embedded/SPI.o
-                0x000000000800e0cc                SPIClass::io_config()
+                0x000000000800e194       0x68 build_ChungGame_embedded/SPI.o
+                0x000000000800e194                SPIClass::io_config()
  .text._ZN8SPIClass5beginEv
-                0x000000000800e134       0xd0 build_ChungGame_embedded/SPI.o
-                0x000000000800e134                SPIClass::begin()
+                0x000000000800e1fc       0xd0 build_ChungGame_embedded/SPI.o
+                0x000000000800e1fc                SPIClass::begin()
  .text.startup._GLOBAL__sub_I__ZN8SPIClassC2Ev
-                0x000000000800e204       0x14 build_ChungGame_embedded/SPI.o
+                0x000000000800e2cc       0x14 build_ChungGame_embedded/SPI.o
  .text._ZN7TwoWire9availableEv
-                0x000000000800e218       0x14 build_ChungGame_embedded/Wire.o
-                0x000000000800e218                TwoWire::available()
+                0x000000000800e2e0       0x14 build_ChungGame_embedded/Wire.o
+                0x000000000800e2e0                TwoWire::available()
  .text._ZN7TwoWire4readEv
-                0x000000000800e22c       0x28 build_ChungGame_embedded/Wire.o
-                0x000000000800e22c                TwoWire::read()
+                0x000000000800e2f4       0x28 build_ChungGame_embedded/Wire.o
+                0x000000000800e2f4                TwoWire::read()
  .text._ZN7TwoWire4peekEv
-                0x000000000800e254       0x24 build_ChungGame_embedded/Wire.o
-                0x000000000800e254                TwoWire::peek()
+                0x000000000800e31c       0x24 build_ChungGame_embedded/Wire.o
+                0x000000000800e31c                TwoWire::peek()
  .text._ZN7TwoWire5flushEv
-                0x000000000800e278        0x2 build_ChungGame_embedded/Wire.o
-                0x000000000800e278                TwoWire::flush()
- *fill*         0x000000000800e27a        0x2 
+                0x000000000800e340        0x2 build_ChungGame_embedded/Wire.o
+                0x000000000800e340                TwoWire::flush()
+ *fill*         0x000000000800e342        0x2 
  .text._ZN7TwoWire5writeEh
-                0x000000000800e27c       0x54 build_ChungGame_embedded/Wire.o
-                0x000000000800e27c                TwoWire::write(unsigned char)
+                0x000000000800e344       0x54 build_ChungGame_embedded/Wire.o
+                0x000000000800e344                TwoWire::write(unsigned char)
  .text._ZN7TwoWire5writeEPKhj
-                0x000000000800e2d0       0x34 build_ChungGame_embedded/Wire.o
-                0x000000000800e2d0                TwoWire::write(unsigned char const*, unsigned int)
+                0x000000000800e398       0x34 build_ChungGame_embedded/Wire.o
+                0x000000000800e398                TwoWire::write(unsigned char const*, unsigned int)
  .text.startup._GLOBAL__sub_I__ZN7TwoWire8rxBufferE
-                0x000000000800e304       0x1c build_ChungGame_embedded/Wire.o
+                0x000000000800e3cc       0x1c build_ChungGame_embedded/Wire.o
  .text._Z12twi_transmitPKhh
-                0x000000000800e320       0x44 build_ChungGame_embedded/twi.o
-                0x000000000800e320                twi_transmit(unsigned char const*, unsigned char)
+                0x000000000800e3e8       0x44 build_ChungGame_embedded/twi.o
+                0x000000000800e3e8                twi_transmit(unsigned char const*, unsigned char)
  .text.__cxa_pure_virtual
-                0x000000000800e364       0x1c build_ChungGame_embedded/mini_cpp.o
-                0x000000000800e364                __cxa_pure_virtual
- .text._Znwj    0x000000000800e380        0x4 build_ChungGame_embedded/mini_cpp.o
-                0x000000000800e380                operator new(unsigned int)
- .text._ZdlPv   0x000000000800e384        0x4 build_ChungGame_embedded/mini_cpp.o
-                0x000000000800e384                operator delete(void*)
- .text._sbrk    0x000000000800e388       0x1c build_ChungGame_embedded/mini_cpp.o
-                0x000000000800e388                _sbrk
- .text.malloc   0x000000000800e3a4       0x10 /home/luong/workspace/tools/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/lib/thumb/v7-m/nofp/libc.a(lib_a-malloc.o)
-                0x000000000800e3a4                malloc
- .text.free     0x000000000800e3b4       0x10 /home/luong/workspace/tools/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/lib/thumb/v7-m/nofp/libc.a(lib_a-malloc.o)
-                0x000000000800e3b4                free
+                0x000000000800e42c       0x1c build_ChungGame_embedded/mini_cpp.o
+                0x000000000800e42c                __cxa_pure_virtual
+ .text._Znwj    0x000000000800e448        0x4 build_ChungGame_embedded/mini_cpp.o
+                0x000000000800e448                operator new(unsigned int)
+ .text._ZdlPv   0x000000000800e44c        0x4 build_ChungGame_embedded/mini_cpp.o
+                0x000000000800e44c                operator delete(void*)
+ .text._sbrk    0x000000000800e450       0x1c build_ChungGame_embedded/mini_cpp.o
+                0x000000000800e450                _sbrk
+ .text.malloc   0x000000000800e46c       0x10 /home/luong/workspace/tools/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/lib/thumb/v7-m/nofp/libc.a(lib_a-malloc.o)
+                0x000000000800e46c                malloc
+ .text.free     0x000000000800e47c       0x10 /home/luong/workspace/tools/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/lib/thumb/v7-m/nofp/libc.a(lib_a-malloc.o)
+                0x000000000800e47c                free
  .text._malloc_r
-                0x000000000800e3c4      0x558 /home/luong/workspace/tools/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/lib/thumb/v7-m/nofp/libc.a(lib_a-mallocr.o)
-                0x000000000800e3c4                _malloc_r
- .text.memcmp   0x000000000800e91c       0x68 /home/luong/workspace/tools/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/lib/thumb/v7-m/nofp/libc.a(lib_a-memcmp.o)
-                0x000000000800e91c                memcmp
- .text.memset   0x000000000800e984       0xa4 /home/luong/workspace/tools/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/lib/thumb/v7-m/nofp/libc.a(lib_a-memset.o)
-                0x000000000800e984                memset
+                0x000000000800e48c      0x558 /home/luong/workspace/tools/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/lib/thumb/v7-m/nofp/libc.a(lib_a-mallocr.o)
+                0x000000000800e48c                _malloc_r
+ .text.memcmp   0x000000000800e9e4       0x68 /home/luong/workspace/tools/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/lib/thumb/v7-m/nofp/libc.a(lib_a-memcmp.o)
+                0x000000000800e9e4                memcmp
+ .text.memset   0x000000000800ea4c       0xa4 /home/luong/workspace/tools/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/lib/thumb/v7-m/nofp/libc.a(lib_a-memset.o)
+                0x000000000800ea4c                memset
  .text.__malloc_lock
-                0x000000000800ea28        0xc /home/luong/workspace/tools/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/lib/thumb/v7-m/nofp/libc.a(lib_a-mlock.o)
-                0x000000000800ea28                __malloc_lock
+                0x000000000800eaf0        0xc /home/luong/workspace/tools/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/lib/thumb/v7-m/nofp/libc.a(lib_a-mlock.o)
+                0x000000000800eaf0                __malloc_lock
  .text.__malloc_unlock
-                0x000000000800ea34        0xc /home/luong/workspace/tools/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/lib/thumb/v7-m/nofp/libc.a(lib_a-mlock.o)
-                0x000000000800ea34                __malloc_unlock
- .text.rand     0x000000000800ea40       0x38 /home/luong/workspace/tools/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/lib/thumb/v7-m/nofp/libc.a(lib_a-rand.o)
-                0x000000000800ea40                rand
- .text._sbrk_r  0x000000000800ea78       0x24 /home/luong/workspace/tools/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/lib/thumb/v7-m/nofp/libc.a(lib_a-sbrkr.o)
-                0x000000000800ea78                _sbrk_r
- .text.strcpy   0x000000000800ea9c       0xbc /home/luong/workspace/tools/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/lib/thumb/v7-m/nofp/libc.a(lib_a-strcpy.o)
-                0x000000000800ea9c                strcpy
- .text.strlen   0x000000000800eb58       0x5c /home/luong/workspace/tools/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/lib/thumb/v7-m/nofp/libc.a(lib_a-strlen-stub.o)
-                0x000000000800eb58                strlen
+                0x000000000800eafc        0xc /home/luong/workspace/tools/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/lib/thumb/v7-m/nofp/libc.a(lib_a-mlock.o)
+                0x000000000800eafc                __malloc_unlock
+ .text.rand     0x000000000800eb08       0x38 /home/luong/workspace/tools/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/lib/thumb/v7-m/nofp/libc.a(lib_a-rand.o)
+                0x000000000800eb08                rand
+ .text._sbrk_r  0x000000000800eb40       0x24 /home/luong/workspace/tools/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/lib/thumb/v7-m/nofp/libc.a(lib_a-sbrkr.o)
+                0x000000000800eb40                _sbrk_r
+ .text.strcpy   0x000000000800eb64       0xbc /home/luong/workspace/tools/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/lib/thumb/v7-m/nofp/libc.a(lib_a-strcpy.o)
+                0x000000000800eb64                strcpy
+ .text.strlen   0x000000000800ec20       0x5c /home/luong/workspace/tools/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/lib/thumb/v7-m/nofp/libc.a(lib_a-strlen-stub.o)
+                0x000000000800ec20                strlen
  .text._strtol_l.part.0
-                0x000000000800ebb4      0x120 /home/luong/workspace/tools/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/lib/thumb/v7-m/nofp/libc.a(lib_a-strtol.o)
- .text.strtol   0x000000000800ecd4       0x2c /home/luong/workspace/tools/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/lib/thumb/v7-m/nofp/libc.a(lib_a-strtol.o)
-                0x000000000800ecd4                strtol
- .text.__errno  0x000000000800ed00        0xc /home/luong/workspace/tools/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/lib/thumb/v7-m/nofp/libc.a(lib_a-errno.o)
-                0x000000000800ed00                __errno
+                0x000000000800ec7c      0x120 /home/luong/workspace/tools/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/lib/thumb/v7-m/nofp/libc.a(lib_a-strtol.o)
+ .text.strtol   0x000000000800ed9c       0x2c /home/luong/workspace/tools/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/lib/thumb/v7-m/nofp/libc.a(lib_a-strtol.o)
+                0x000000000800ed9c                strtol
+ .text.__errno  0x000000000800edc8        0xc /home/luong/workspace/tools/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/lib/thumb/v7-m/nofp/libc.a(lib_a-errno.o)
+                0x000000000800edc8                __errno
  .text._malloc_trim_r
-                0x000000000800ed0c       0xa0 /home/luong/workspace/tools/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/lib/thumb/v7-m/nofp/libc.a(lib_a-freer.o)
-                0x000000000800ed0c                _malloc_trim_r
- .text._free_r  0x000000000800edac      0x200 /home/luong/workspace/tools/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/lib/thumb/v7-m/nofp/libc.a(lib_a-freer.o)
-                0x000000000800edac                _free_r
+                0x000000000800edd4       0xa0 /home/luong/workspace/tools/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/lib/thumb/v7-m/nofp/libc.a(lib_a-freer.o)
+                0x000000000800edd4                _malloc_trim_r
+ .text._free_r  0x000000000800ee74      0x200 /home/luong/workspace/tools/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/lib/thumb/v7-m/nofp/libc.a(lib_a-freer.o)
+                0x000000000800ee74                _free_r
  .text.__retarget_lock_acquire_recursive
-                0x000000000800efac        0x4 /home/luong/workspace/tools/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/lib/thumb/v7-m/nofp/libc.a(lib_a-lock.o)
-                0x000000000800efac                __retarget_lock_acquire_recursive
+                0x000000000800f074        0x4 /home/luong/workspace/tools/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/lib/thumb/v7-m/nofp/libc.a(lib_a-lock.o)
+                0x000000000800f074                __retarget_lock_acquire_recursive
  .text.__retarget_lock_release_recursive
-                0x000000000800efb0        0x4 /home/luong/workspace/tools/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/lib/thumb/v7-m/nofp/libc.a(lib_a-lock.o)
-                0x000000000800efb0                __retarget_lock_release_recursive
- .text.abort    0x000000000800efb4       0x10 /home/luong/workspace/tools/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/lib/thumb/v7-m/nofp/libc.a(lib_a-abort.o)
-                0x000000000800efb4                abort
- .text.raise    0x000000000800efc4       0x5c /home/luong/workspace/tools/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/lib/thumb/v7-m/nofp/libc.a(lib_a-signal.o)
-                0x000000000800efc4                raise
- .text._kill_r  0x000000000800f020       0x28 /home/luong/workspace/tools/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/lib/thumb/v7-m/nofp/libc.a(lib_a-signalr.o)
-                0x000000000800f020                _kill_r
+                0x000000000800f078        0x4 /home/luong/workspace/tools/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/lib/thumb/v7-m/nofp/libc.a(lib_a-lock.o)
+                0x000000000800f078                __retarget_lock_release_recursive
+ .text.abort    0x000000000800f07c       0x10 /home/luong/workspace/tools/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/lib/thumb/v7-m/nofp/libc.a(lib_a-abort.o)
+                0x000000000800f07c                abort
+ .text.raise    0x000000000800f08c       0x5c /home/luong/workspace/tools/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/lib/thumb/v7-m/nofp/libc.a(lib_a-signal.o)
+                0x000000000800f08c                raise
+ .text._kill_r  0x000000000800f0e8       0x28 /home/luong/workspace/tools/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/lib/thumb/v7-m/nofp/libc.a(lib_a-signalr.o)
+                0x000000000800f0e8                _kill_r
  .text._getpid_r
-                0x000000000800f048        0x4 /home/luong/workspace/tools/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/lib/thumb/v7-m/nofp/libc.a(lib_a-signalr.o)
-                0x000000000800f048                _getpid_r
- *fill*         0x000000000800f04c        0x4 
- .text.atan     0x000000000800f050      0x31c /home/luong/workspace/tools/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/lib/thumb/v7-m/nofp/libm.a(lib_a-s_atan.o)
-                0x000000000800f050                atan
- .text.fabs     0x000000000800f36c        0x8 /home/luong/workspace/tools/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/lib/thumb/v7-m/nofp/libm.a(lib_a-s_fabs.o)
-                0x000000000800f36c                fabs
+                0x000000000800f110        0x4 /home/luong/workspace/tools/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/lib/thumb/v7-m/nofp/libc.a(lib_a-signalr.o)
+                0x000000000800f110                _getpid_r
+ *fill*         0x000000000800f114        0x4 
+ .text.atan     0x000000000800f118      0x31c /home/luong/workspace/tools/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/lib/thumb/v7-m/nofp/libm.a(lib_a-s_atan.o)
+                0x000000000800f118                atan
+ .text.fabs     0x000000000800f434        0x8 /home/luong/workspace/tools/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/lib/thumb/v7-m/nofp/libm.a(lib_a-s_fabs.o)
+                0x000000000800f434                fabs
  .text.unlikely._ZSt20__throw_length_errorPKc
-                0x000000000800f374        0x6 /home/luong/workspace/tools/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/lib/thumb/v7-m/nofp/libstdc++_nano.a(functexcept.o)
-                0x000000000800f374                std::__throw_length_error(char const*)
- *fill*         0x000000000800f37a        0x2 
- .text._getpid  0x000000000800f37c        0x4 /home/luong/workspace/tools/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/lib/thumb/v7-m/nofp/librdpmon.a(syscalls.o)
-                0x000000000800f37c                _getpid
- .text._exit    0x000000000800f380       0x14 /home/luong/workspace/tools/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/lib/thumb/v7-m/nofp/librdpmon.a(_exit.o)
-                0x000000000800f380                _exit
- .text._kill    0x000000000800f394        0x4 /home/luong/workspace/tools/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/lib/thumb/v7-m/nofp/librdpmon.a(_kill.o)
-                0x000000000800f394                _kill
+                0x000000000800f43c        0x6 /home/luong/workspace/tools/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/lib/thumb/v7-m/nofp/libstdc++_nano.a(functexcept.o)
+                0x000000000800f43c                std::__throw_length_error(char const*)
+ *fill*         0x000000000800f442        0x2 
+ .text._getpid  0x000000000800f444        0x4 /home/luong/workspace/tools/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/lib/thumb/v7-m/nofp/librdpmon.a(syscalls.o)
+                0x000000000800f444                _getpid
+ .text._exit    0x000000000800f448       0x14 /home/luong/workspace/tools/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/lib/thumb/v7-m/nofp/librdpmon.a(_exit.o)
+                0x000000000800f448                _exit
+ .text._kill    0x000000000800f45c        0x4 /home/luong/workspace/tools/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/lib/thumb/v7-m/nofp/librdpmon.a(_kill.o)
+                0x000000000800f45c                _kill
  .text._kill_shared
-                0x000000000800f398        0x4 /home/luong/workspace/tools/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/lib/thumb/v7-m/nofp/librdpmon.a(_kill.o)
-                0x000000000800f398                _kill_shared
+                0x000000000800f460        0x4 /home/luong/workspace/tools/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/lib/thumb/v7-m/nofp/librdpmon.a(_kill.o)
+                0x000000000800f460                _kill_shared
  *(.rodata)
+ .rodata        0x000000000800f464       0x1c build_ChungGame_embedded/scr_tank.o
  *(.rodata*)
  .rodata.task_create.str1.1
-                0x000000000800f39c        0x3 build_ChungGame_embedded/task.o
+                0x000000000800f480        0x3 build_ChungGame_embedded/task.o
  .rodata.task_run.str1.1
-                0x000000000800f39f       0x25 build_ChungGame_embedded/task.o
+                0x000000000800f483       0x25 build_ChungGame_embedded/task.o
  .rodata.timer_set.str1.1
-                0x000000000800f3c4        0x3 build_ChungGame_embedded/timer.o
+                0x000000000800f4a8        0x3 build_ChungGame_embedded/timer.o
  .rodata.msg_force_free.str1.1
-                0x000000000800f3c7        0x3 build_ChungGame_embedded/message.o
+                0x000000000800f4ab        0x3 build_ChungGame_embedded/message.o
  .rodata.ak_malloc.str1.1
-                0x000000000800f3ca        0xa build_ChungGame_embedded/message.o
+                0x000000000800f4ae        0xa build_ChungGame_embedded/message.o
  .rodata.fifo_put.str1.1
-                0x000000000800f3d4        0x5 build_ChungGame_embedded/fifo.o
+                0x000000000800f4b8        0x5 build_ChungGame_embedded/fifo.o
  .rodata.xvfprintf.str1.1
-                0x000000000800f3d9        0xb build_ChungGame_embedded/xprintf.o
+                0x000000000800f4bd        0xb build_ChungGame_embedded/xprintf.o
                                           0xc (size before relaxing)
  .rodata.CSWTCH.86
-                0x000000000800f3e4       0x1b build_ChungGame_embedded/qrcode.o
+                0x000000000800f4c8       0x1b build_ChungGame_embedded/qrcode.o
  .rodata.NUM_ERROR_CORRECTION_BLOCKS
-                0x000000000800f3ff       0xa0 build_ChungGame_embedded/qrcode.o
- *fill*         0x000000000800f49f        0x1 
+                0x000000000800f4e3       0xa0 build_ChungGame_embedded/qrcode.o
+ *fill*         0x000000000800f583        0x1 
  .rodata.NUM_ERROR_CORRECTION_CODEWORDS
-                0x000000000800f4a0      0x140 build_ChungGame_embedded/qrcode.o
+                0x000000000800f584      0x140 build_ChungGame_embedded/qrcode.o
  .rodata.NUM_RAW_DATA_MODULES
-                0x000000000800f5e0       0x50 build_ChungGame_embedded/qrcode.o
+                0x000000000800f6c4       0x50 build_ChungGame_embedded/qrcode.o
  .rodata.sys_dbg_cpu_dump.str1.1
-                0x000000000800f630       0x5f build_ChungGame_embedded/sys_dbg.o
+                0x000000000800f714       0x5f build_ChungGame_embedded/sys_dbg.o
  .rodata.sys_dbg_stack_space_dump.str1.1
-                0x000000000800f68f       0x2f build_ChungGame_embedded/sys_dbg.o
+                0x000000000800f773       0x2f build_ChungGame_embedded/sys_dbg.o
  .rodata.sys_dbg_fatal.str1.1
-                0x000000000800f6be      0x25b build_ChungGame_embedded/sys_dbg.o
+                0x000000000800f7a2      0x25b build_ChungGame_embedded/sys_dbg.o
                                         0x261 (size before relaxing)
  .rodata.CSWTCH.8
-                0x000000000800f919        0xb build_ChungGame_embedded/mbutils.o
+                0x000000000800f9fd        0xb build_ChungGame_embedded/mbutils.o
  .rodata.aucCRCHi
-                0x000000000800f924      0x100 build_ChungGame_embedded/mbmcrc.o
+                0x000000000800fa08      0x100 build_ChungGame_embedded/mbmcrc.o
  .rodata.aucCRCLo
-                0x000000000800fa24      0x100 build_ChungGame_embedded/mbmcrc.o
+                0x000000000800fb08      0x100 build_ChungGame_embedded/mbmcrc.o
  .rodata.vMBPAssert.str1.1
-                0x000000000800fb24        0x3 build_ChungGame_embedded/mbportother.o
+                0x000000000800fc08        0x3 build_ChungGame_embedded/mbportother.o
  .rodata.exit_critical.str1.1
-                0x000000000800fb27        0x4 build_ChungGame_embedded/platform.o
+                0x000000000800fc0b        0x4 build_ChungGame_embedded/platform.o
  .rodata.default_handler.str1.1
-                0x000000000800fb2b        0x3 build_ChungGame_embedded/system.o
+                0x000000000800fc0f        0x3 build_ChungGame_embedded/system.o
  .rodata.sys_cfg_update_info.str1.1
-                0x000000000800fb2e       0x62 build_ChungGame_embedded/sys_cfg.o
+                0x000000000800fc12       0x62 build_ChungGame_embedded/sys_cfg.o
                                          0x64 (size before relaxing)
  .rodata.sys_ctrl_soft_watchdog_increase_counter.str1.1
-                0x000000000800fb90        0x5 build_ChungGame_embedded/sys_cfg.o
+                0x000000000800fc74        0x5 build_ChungGame_embedded/sys_cfg.o
  .rodata.flash_transfer.str1.1
-                0x000000000800fb95        0x4 build_ChungGame_embedded/io_cfg.o
+                0x000000000800fc79        0x4 build_ChungGame_embedded/io_cfg.o
  .rodata.bitmap_coconutTree
-                0x000000000800fb99       0x7c build_ChungGame_embedded/screens_bitmap.o
-                0x000000000800fb99                bitmap_coconutTree
+                0x000000000800fc7d       0x7c build_ChungGame_embedded/screens_bitmap.o
+                0x000000000800fc7d                bitmap_coconutTree
+ .rodata.bitmap_dryTree
+                0x000000000800fcf9       0x78 build_ChungGame_embedded/screens_bitmap.o
+                0x000000000800fcf9                bitmap_dryTree
+ .rodata.bitmap_grassesTree
+                0x000000000800fd71       0x78 build_ChungGame_embedded/screens_bitmap.o
+                0x000000000800fd71                bitmap_grassesTree
  .rodata.bitmap_ground
-                0x000000000800fc15       0x18 build_ChungGame_embedded/screens_bitmap.o
-                0x000000000800fc15                bitmap_ground
+                0x000000000800fde9       0x18 build_ChungGame_embedded/screens_bitmap.o
+                0x000000000800fde9                bitmap_ground
+ .rodata.bitmap_house1
+                0x000000000800fe01       0x78 build_ChungGame_embedded/screens_bitmap.o
+                0x000000000800fe01                bitmap_house1
+ .rodata.bitmap_house2
+                0x000000000800fe79       0x78 build_ChungGame_embedded/screens_bitmap.o
+                0x000000000800fe79                bitmap_house2
+ .rodata.bitmap_house3
+                0x000000000800fef1       0x78 build_ChungGame_embedded/screens_bitmap.o
+                0x000000000800fef1                bitmap_house3
+ .rodata.bitmap_house4
+                0x000000000800ff69       0x78 build_ChungGame_embedded/screens_bitmap.o
+                0x000000000800ff69                bitmap_house4
  .rodata.bitmap_tank
-                0x000000000800fc2d       0x78 build_ChungGame_embedded/screens_bitmap.o
-                0x000000000800fc2d                bitmap_tank
+                0x000000000800ffe1       0x78 build_ChungGame_embedded/screens_bitmap.o
+                0x000000000800ffe1                bitmap_tank
  .rodata.bitmap_theMountain
-                0x000000000800fca5      0x1f8 build_ChungGame_embedded/screens_bitmap.o
-                0x000000000800fca5                bitmap_theMountain
+                0x0000000008010059      0x1f8 build_ChungGame_embedded/screens_bitmap.o
+                0x0000000008010059                bitmap_theMountain
  .rodata._Z27scr_es35sw_th_sensor_handleP8ak_msg_t.str1.1
-                0x000000000800fe9d       0xb2 build_ChungGame_embedded/scr_es35sw_th_sensor.o
+                0x0000000008010251       0xb2 build_ChungGame_embedded/scr_es35sw_th_sensor.o
  .rodata._ZL25view_scr_es35sw_th_sensorv.str1.1
-                0x000000000800ff4f       0x10 build_ChungGame_embedded/scr_es35sw_th_sensor.o
- *fill*         0x000000000800ff5f        0x1 
+                0x0000000008010303       0x10 build_ChungGame_embedded/scr_es35sw_th_sensor.o
+ *fill*         0x0000000008010313        0x1 
  .rodata._ZL11tones_3beep
-                0x000000000800ff60       0x18 build_ChungGame_embedded/scr_es35sw_th_sensor.o
+                0x0000000008010314       0x18 build_ChungGame_embedded/scr_es35sw_th_sensor.o
  .rodata._ZL14icon_hum_13x13
-                0x000000000800ff78       0x1a build_ChungGame_embedded/scr_es35sw_th_sensor.o
+                0x000000000801032c       0x1a build_ChungGame_embedded/scr_es35sw_th_sensor.o
  .rodata._ZL15icon_temp_12x13
-                0x000000000800ff92       0x1a build_ChungGame_embedded/scr_es35sw_th_sensor.o
+                0x0000000008010346       0x1a build_ChungGame_embedded/scr_es35sw_th_sensor.o
  .rodata._ZL22icon_es35_sensor_28x55
-                0x000000000800ffac       0xdc build_ChungGame_embedded/scr_es35sw_th_sensor.o
+                0x0000000008010360       0xdc build_ChungGame_embedded/scr_es35sw_th_sensor.o
  .rodata._ZNSt6vectorI4ballSaIS0_EE17_M_realloc_insertIJRKS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.str1.1
-                0x0000000008010088       0x1a build_ChungGame_embedded/scr_idle.o
+                0x000000000801043c       0x1a build_ChungGame_embedded/scr_idle.o
  .rodata._Z15scr_idle_handleP8ak_msg_t.str1.1
-                0x00000000080100a2       0x88 build_ChungGame_embedded/scr_idle.o
+                0x0000000008010456       0x88 build_ChungGame_embedded/scr_idle.o
  .rodata._ZL11tones_3beep
-                0x00000000080100a2       0x18 build_ChungGame_embedded/scr_idle.o
+                0x0000000008010456       0x18 build_ChungGame_embedded/scr_idle.o
  .rodata._Z15scr_info_handleP8ak_msg_t.str1.1
-                0x00000000080100ba       0x1d build_ChungGame_embedded/scr_info.o
+                0x000000000801046e       0x1d build_ChungGame_embedded/scr_info.o
                                          0x59 (size before relaxing)
  .rodata._ZL13view_scr_infov.str1.1
-                0x00000000080100d7       0x3e build_ChungGame_embedded/scr_info.o
+                0x000000000801048b       0x3e build_ChungGame_embedded/scr_info.o
  .rodata._Z28scr_lhio404_io_device_handleP8ak_msg_t.str1.1
-                0x0000000008010115       0xb2 build_ChungGame_embedded/scr_lhio404_io_device.o
+                0x00000000080104c9       0xb2 build_ChungGame_embedded/scr_lhio404_io_device.o
  .rodata._ZL26view_scr_lhio404_io_devicev.str1.1
-                0x0000000008010115       0x12 build_ChungGame_embedded/scr_lhio404_io_device.o
- *fill*         0x0000000008010127        0x1 
+                0x00000000080104c9       0x12 build_ChungGame_embedded/scr_lhio404_io_device.o
+ *fill*         0x00000000080104db        0x1 
  .rodata._ZL11tones_3beep
-                0x0000000008010128       0x18 build_ChungGame_embedded/scr_lhio404_io_device.o
+                0x00000000080104dc       0x18 build_ChungGame_embedded/scr_lhio404_io_device.o
  .rodata._ZL16view_scr_startupv.str1.1
-                0x0000000008010140       0x49 build_ChungGame_embedded/scr_startup.o
+                0x00000000080104f4       0x49 build_ChungGame_embedded/scr_startup.o
  .rodata._Z18scr_startup_handleP8ak_msg_t.str1.1
-                0x0000000008010189       0x38 build_ChungGame_embedded/scr_startup.o
+                0x000000000801053d       0x38 build_ChungGame_embedded/scr_startup.o
                                          0x7c (size before relaxing)
  .rodata._Z15scr_tank_handleP8ak_msg_t.str1.1
-                0x00000000080101c1       0x7d build_ChungGame_embedded/scr_tank.o
+                0x0000000008010575       0x7d build_ChungGame_embedded/scr_tank.o
  .rodata._Z11task_systemP8ak_msg_t.str1.1
-                0x000000000801023e       0x23 build_ChungGame_embedded/task_system.o
+                0x00000000080105f2       0x23 build_ChungGame_embedded/task_system.o
  .rodata.main_app.str1.1
-                0x0000000008010261      0x27a build_ChungGame_embedded/app.o
+                0x0000000008010615      0x27a build_ChungGame_embedded/app.o
  .rodata._Z20task_polling_consolev.str1.1
-                0x00000000080104db       0x31 build_ChungGame_embedded/app.o
+                0x000000000801088f       0x31 build_ChungGame_embedded/app.o
  .rodata._ZL13tones_startup
-                0x000000000801050c       0x28 build_ChungGame_embedded/app.o
+                0x00000000080108c0       0x28 build_ChungGame_embedded/app.o
  .rodata.app_info
-                0x0000000008010534        0x8 build_ChungGame_embedded/app.o
-                0x0000000008010534                app_info
+                0x00000000080108e8        0x8 build_ChungGame_embedded/app.o
+                0x00000000080108e8                app_info
  .rodata._Z17btn_mode_callbackPv.str1.1
-                0x000000000801053c       0x9f build_ChungGame_embedded/app_bsp.o
+                0x00000000080108f0       0x9f build_ChungGame_embedded/app_bsp.o
  .rodata._Z15btn_up_callbackPv.str1.1
-                0x00000000080105db       0x99 build_ChungGame_embedded/app_bsp.o
+                0x000000000801098f       0x99 build_ChungGame_embedded/app_bsp.o
  .rodata._Z17btn_down_callbackPv.str1.1
-                0x0000000008010674       0x9f build_ChungGame_embedded/app_bsp.o
+                0x0000000008010a28       0x9f build_ChungGame_embedded/app_bsp.o
  .rodata.str1.1
-                0x0000000008010713       0xc1 build_ChungGame_embedded/app_modbus_pull.o
+                0x0000000008010ac7       0xc1 build_ChungGame_embedded/app_modbus_pull.o
  .rodata._Z11shell_resetPh.str1.1
-                0x00000000080107d4        0x6 build_ChungGame_embedded/shell.o
+                0x0000000008010b88        0x6 build_ChungGame_embedded/shell.o
  .rodata._Z10shell_helpPh.str1.1
-                0x00000000080107da       0x24 build_ChungGame_embedded/shell.o
+                0x0000000008010b8e       0x24 build_ChungGame_embedded/shell.o
  .rodata._Z9shell_verPh.str1.1
-                0x00000000080107fe      0x15d build_ChungGame_embedded/shell.o
+                0x0000000008010bb2      0x15d build_ChungGame_embedded/shell.o
                                         0x180 (size before relaxing)
  .rodata._Z11shell_fatalPh.str1.1
-                0x000000000801095b       0x65 build_ChungGame_embedded/shell.o
+                0x0000000008010d0f       0x65 build_ChungGame_embedded/shell.o
                                         0x229 (size before relaxing)
  .rodata._Z11shell_flashPh.str1.1
-                0x00000000080109c0       0x4f build_ChungGame_embedded/shell.o
+                0x0000000008010d74       0x4f build_ChungGame_embedded/shell.o
                                          0x55 (size before relaxing)
  .rodata._Z9shell_epsPh.str1.1
-                0x0000000008010a0f       0x28 build_ChungGame_embedded/shell.o
+                0x0000000008010dc3       0x28 build_ChungGame_embedded/shell.o
  .rodata._Z9shell_ramPh.str1.1
-                0x0000000008010a37       0x53 build_ChungGame_embedded/shell.o
+                0x0000000008010deb       0x53 build_ChungGame_embedded/shell.o
  .rodata._Z10shell_bootPh.str1.1
-                0x0000000008010a8a      0x166 build_ChungGame_embedded/shell.o
+                0x0000000008010e3e      0x166 build_ChungGame_embedded/shell.o
  .rodata._Z12shell_buzzerPh.str1.1
-                0x0000000008010bf0      0x16f build_ChungGame_embedded/shell.o
+                0x0000000008010fa4      0x16f build_ChungGame_embedded/shell.o
  .rodata._Z9shell_dbgPh.str1.1
-                0x0000000008010d5f       0x1b build_ChungGame_embedded/shell.o
+                0x0000000008011113       0x1b build_ChungGame_embedded/shell.o
  .rodata._Z12shell_modbusPh.str1.1
-                0x0000000008010d7a       0x8f build_ChungGame_embedded/shell.o
+                0x000000000801112e       0x8f build_ChungGame_embedded/shell.o
  .rodata._Z9shell_lcdPh.str1.1
-                0x0000000008010e09        0xb build_ChungGame_embedded/shell.o
+                0x00000000080111bd        0xb build_ChungGame_embedded/shell.o
                                          0x54 (size before relaxing)
  .rodata.str1.1
-                0x0000000008010e14       0xda build_ChungGame_embedded/shell.o
+                0x00000000080111c8       0xda build_ChungGame_embedded/shell.o
                                          0xdf (size before relaxing)
  .rodata._ZL11tones_3beep
-                0x0000000008010eee       0x18 build_ChungGame_embedded/shell.o
+                0x00000000080112a2       0x18 build_ChungGame_embedded/shell.o
  .rodata._ZL13tones_startup
-                0x0000000008010f06       0x28 build_ChungGame_embedded/shell.o
+                0x00000000080112ba       0x28 build_ChungGame_embedded/shell.o
  .rodata._ZL20tones_merryChrismast
-                0x0000000008010f2e       0xd0 build_ChungGame_embedded/shell.o
+                0x00000000080112e2       0xd0 build_ChungGame_embedded/shell.o
  .rodata._ZL9tones_SMB
-                0x0000000008010ffe      0x104 build_ChungGame_embedded/shell.o
- *fill*         0x0000000008011102        0x2 
+                0x00000000080113b2      0x104 build_ChungGame_embedded/shell.o
+ *fill*         0x00000000080114b6        0x2 
  .rodata.lgn_cmd_table
-                0x0000000008011104       0xd8 build_ChungGame_embedded/shell.o
-                0x0000000008011104                lgn_cmd_table
+                0x00000000080114b8       0xd8 build_ChungGame_embedded/shell.o
+                0x00000000080114b8                lgn_cmd_table
  .rodata._Z10task_shellP8ak_msg_t.str1.1
-                0x00000000080111dc       0x43 build_ChungGame_embedded/task_shell.o
+                0x0000000008011590       0x43 build_ChungGame_embedded/task_shell.o
  .rodata._Z7task_fwP8ak_msg_t.str1.1
-                0x000000000801121f      0x206 build_ChungGame_embedded/task_fw.o
- *fill*         0x0000000008011425        0x3 
+                0x00000000080115d3      0x206 build_ChungGame_embedded/task_fw.o
+ *fill*         0x00000000080117d9        0x3 
  .rodata.app_task_polling_table
-                0x0000000008011428       0x18 build_ChungGame_embedded/task_list.o
-                0x0000000008011428                app_task_polling_table
+                0x00000000080117dc       0x18 build_ChungGame_embedded/task_list.o
+                0x00000000080117dc                app_task_polling_table
  .rodata.app_task_table
-                0x0000000008011440       0x70 build_ChungGame_embedded/task_list.o
-                0x0000000008011440                app_task_table
+                0x00000000080117f4       0x70 build_ChungGame_embedded/task_list.o
+                0x00000000080117f4                app_task_table
  .rodata._Z7task_ifP8ak_msg_t.str1.1
-                0x00000000080114b0       0xa9 build_ChungGame_embedded/task_if.o
+                0x0000000008011864       0xa9 build_ChungGame_embedded/task_if.o
  .rodata._Z12task_uart_ifP8ak_msg_t.str1.1
-                0x0000000008011559       0xdf build_ChungGame_embedded/task_uart_if.o
+                0x000000000801190d       0xdf build_ChungGame_embedded/task_uart_if.o
  .rodata._ZL11render_list
-                0x0000000008011638        0x8 build_ChungGame_embedded/view_render.o
+                0x00000000080119ec        0x8 build_ChungGame_embedded/view_render.o
  .rodata._Z16scr_mng_dispatchP8ak_msg_t.str1.1
-                0x0000000008011640        0x8 build_ChungGame_embedded/screen_manager.o
+                0x00000000080119f4        0x8 build_ChungGame_embedded/screen_manager.o
  .rodata._ZL4font
-                0x0000000008011648      0x4fb build_ChungGame_embedded/Adafruit_GFX.o
- *fill*         0x0000000008011b43        0x1 
+                0x00000000080119fc      0x4fb build_ChungGame_embedded/Adafruit_GFX.o
+ *fill*         0x0000000008011ef7        0x1 
  .rodata._ZTV12Adafruit_GFX
-                0x0000000008011b44       0x2c build_ChungGame_embedded/Adafruit_GFX.o
-                0x0000000008011b44                vtable for Adafruit_GFX
+                0x0000000008011ef8       0x2c build_ChungGame_embedded/Adafruit_GFX.o
+                0x0000000008011ef8                vtable for Adafruit_GFX
  .rodata._ZTV17Adafruit_oled_drv
-                0x0000000008011b70       0x3c build_ChungGame_embedded/Adafruit_oled_drv.o
-                0x0000000008011b70                vtable for Adafruit_oled_drv
+                0x0000000008011f24       0x3c build_ChungGame_embedded/Adafruit_oled_drv.o
+                0x0000000008011f24                vtable for Adafruit_oled_drv
  .rodata._Z23link_hal_reg_write_bytePFhhE.str1.1
-                0x0000000008011bac        0x9 build_ChungGame_embedded/link_hal.o
+                0x0000000008011f60        0x9 build_ChungGame_embedded/link_hal.o
  .rodata._ZL19fsm_link_state_initP8ak_msg_t.str1.1
-                0x0000000008011bb5      0x110 build_ChungGame_embedded/link.o
+                0x0000000008011f69      0x110 build_ChungGame_embedded/link.o
  .rodata._ZL23link_mac_frame_send_reqv.str1.1
-                0x0000000008011cc5        0x9 build_ChungGame_embedded/link_mac.o
+                0x0000000008012079        0x9 build_ChungGame_embedded/link_mac.o
  .rodata._Z25fsm_link_mac_state_handleP8ak_msg_t.str1.1
-                0x0000000008011cce        0x5 build_ChungGame_embedded/link_mac.o
+                0x0000000008012082        0x5 build_ChungGame_embedded/link_mac.o
  .rodata._Z25fsm_link_phy_state_handleP8ak_msg_t.str1.1
-                0x0000000008011cd3        0x7 build_ChungGame_embedded/link_phy.o
+                0x0000000008012087        0x7 build_ChungGame_embedded/link_phy.o
  .rodata._Z13link_pdu_freeP10link_pdu_t.str1.1
-                0x0000000008011cda        0x9 build_ChungGame_embedded/link_data.o
+                0x000000000801208e        0x9 build_ChungGame_embedded/link_data.o
  .rodata._Z7pinModehh.str1.1
-                0x0000000008011ce3        0x3 build_ChungGame_embedded/wiring_digital.o
- *fill*         0x0000000008011ce6        0x2 
+                0x0000000008012097        0x3 build_ChungGame_embedded/wiring_digital.o
+ *fill*         0x000000000801209a        0x2 
  .rodata._ZTV14HardwareSerial
-                0x0000000008011ce8       0x24 build_ChungGame_embedded/HardwareSerial.o
-                0x0000000008011ce8                vtable for HardwareSerial
+                0x000000000801209c       0x24 build_ChungGame_embedded/HardwareSerial.o
+                0x000000000801209c                vtable for HardwareSerial
  .rodata._ZTV7TwoWire
-                0x0000000008011d0c       0x20 build_ChungGame_embedded/Wire.o
-                0x0000000008011d0c                vtable for TwoWire
+                0x00000000080120c0       0x20 build_ChungGame_embedded/Wire.o
+                0x00000000080120c0                vtable for TwoWire
  .rodata.__cxa_pure_virtual.str1.1
-                0x0000000008011d2c        0x4 build_ChungGame_embedded/mini_cpp.o
+                0x00000000080120e0        0x4 build_ChungGame_embedded/mini_cpp.o
  .rodata._ctype_
-                0x0000000008011d30      0x101 /home/luong/workspace/tools/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/lib/thumb/v7-m/nofp/libc.a(lib_a-ctype_.o)
-                0x0000000008011d30                _ctype_
- *fill*         0x0000000008011e31        0x7 
+                0x00000000080120e4      0x101 /home/luong/workspace/tools/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/lib/thumb/v7-m/nofp/libc.a(lib_a-ctype_.o)
+                0x00000000080120e4                _ctype_
+ *fill*         0x00000000080121e5        0x3 
  .rodata.atanhi
-                0x0000000008011e38       0x20 /home/luong/workspace/tools/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/lib/thumb/v7-m/nofp/libm.a(lib_a-s_atan.o)
+                0x00000000080121e8       0x20 /home/luong/workspace/tools/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/lib/thumb/v7-m/nofp/libm.a(lib_a-s_atan.o)
  .rodata.atanlo
-                0x0000000008011e58       0x20 /home/luong/workspace/tools/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/lib/thumb/v7-m/nofp/libm.a(lib_a-s_atan.o)
+                0x0000000008012208       0x20 /home/luong/workspace/tools/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/lib/thumb/v7-m/nofp/libm.a(lib_a-s_atan.o)
  *(.glue_7)
- .glue_7        0x0000000008011e78        0x0 linker stubs
+ .glue_7        0x0000000008012228        0x0 linker stubs
  *(.glue_7t)
- .glue_7t       0x0000000008011e78        0x0 linker stubs
+ .glue_7t       0x0000000008012228        0x0 linker stubs
  *(.init)
  *(.fini)
-                0x0000000008011e78                . = ALIGN (0x4)
-                0x0000000008011e78                _etext = .
+                0x0000000008012228                . = ALIGN (0x4)
+                0x0000000008012228                _etext = .
 
-.vfp11_veneer   0x0000000008011e78        0x0
- .vfp11_veneer  0x0000000008011e78        0x0 linker stubs
+.vfp11_veneer   0x0000000008012228        0x0
+ .vfp11_veneer  0x0000000008012228        0x0 linker stubs
 
-.v4_bx          0x0000000008011e78        0x0
- .v4_bx         0x0000000008011e78        0x0 linker stubs
+.v4_bx          0x0000000008012228        0x0
+ .v4_bx         0x0000000008012228        0x0 linker stubs
 
-.iplt           0x0000000008011e78        0x0
- .iplt          0x0000000008011e78        0x0 build_ChungGame_embedded/task.o
+.iplt           0x0000000008012228        0x0
+ .iplt          0x0000000008012228        0x0 build_ChungGame_embedded/task.o
 
-.rel.dyn        0x0000000008011e78        0x0
- .rel.iplt      0x0000000008011e78        0x0 build_ChungGame_embedded/task.o
+.rel.dyn        0x0000000008012228        0x0
+ .rel.iplt      0x0000000008012228        0x0 build_ChungGame_embedded/task.o
 
-.ARM.exidx      0x0000000008011e78        0x8
- .ARM.exidx     0x0000000008011e78        0x8 /home/luong/workspace/tools/gcc-arm-none-eabi-10.3-2021.10/lib/gcc/arm-none-eabi/10.3.1/thumb/v7-m/nofp/libgcc.a(_udivmoddi4.o)
+.ARM.exidx      0x0000000008012228        0x8
+ .ARM.exidx     0x0000000008012228        0x8 /home/luong/workspace/tools/gcc-arm-none-eabi-10.3-2021.10/lib/gcc/arm-none-eabi/10.3.1/thumb/v7-m/nofp/libgcc.a(_udivmoddi4.o)
 
-.preinit_array  0x0000000008011e80        0x0
-                0x0000000008011e80                PROVIDE (__preinit_array_start = .)
+.preinit_array  0x0000000008012230        0x0
+                0x0000000008012230                PROVIDE (__preinit_array_start = .)
  *(SORT_BY_NAME(.preinit_array.*))
  *(.preinit_array*)
-                0x0000000008011e80                PROVIDE (__preinit_array_end = .)
+                0x0000000008012230                PROVIDE (__preinit_array_end = .)
 
-.init_array     0x0000000008011e80       0x18
-                0x0000000008011e80                PROVIDE (__init_array_start = .)
+.init_array     0x0000000008012230       0x18
+                0x0000000008012230                PROVIDE (__init_array_start = .)
  *(SORT_BY_NAME(.init_array.*))
  *(.init_array*)
- .init_array    0x0000000008011e80        0x4 build_ChungGame_embedded/scr_idle.o
- .init_array    0x0000000008011e84        0x4 build_ChungGame_embedded/scr_tank.o
- .init_array    0x0000000008011e88        0x4 build_ChungGame_embedded/view_render.o
- .init_array    0x0000000008011e8c        0x4 build_ChungGame_embedded/HardwareSerial2.o
- .init_array    0x0000000008011e90        0x4 build_ChungGame_embedded/SPI.o
- .init_array    0x0000000008011e94        0x4 build_ChungGame_embedded/Wire.o
-                0x0000000008011e98                PROVIDE (__init_array_end = .)
+ .init_array    0x0000000008012230        0x4 build_ChungGame_embedded/scr_idle.o
+ .init_array    0x0000000008012234        0x4 build_ChungGame_embedded/scr_tank.o
+ .init_array    0x0000000008012238        0x4 build_ChungGame_embedded/view_render.o
+ .init_array    0x000000000801223c        0x4 build_ChungGame_embedded/HardwareSerial2.o
+ .init_array    0x0000000008012240        0x4 build_ChungGame_embedded/SPI.o
+ .init_array    0x0000000008012244        0x4 build_ChungGame_embedded/Wire.o
+                0x0000000008012248                PROVIDE (__init_array_end = .)
 
-.fini_array     0x0000000008011e98        0x8
+.fini_array     0x0000000008012248        0x8
                 [!provide]                        PROVIDE (__fini_array_start = .)
  *(.fini_array*)
- .fini_array    0x0000000008011e98        0x4 build_ChungGame_embedded/scr_idle.o
- .fini_array    0x0000000008011e9c        0x4 build_ChungGame_embedded/view_render.o
+ .fini_array    0x0000000008012248        0x4 build_ChungGame_embedded/scr_idle.o
+ .fini_array    0x000000000801224c        0x4 build_ChungGame_embedded/view_render.o
  *(SORT_BY_NAME(.fini_array.*))
                 [!provide]                        PROVIDE (__fini_array_end = .)
 
-.end_flash      0x0000000008011ea0        0x0
-                0x0000000008011ea0                _end_flash = .
+.end_flash      0x0000000008012250        0x0
+                0x0000000008012250                _end_flash = .
 
 .start_ram      0x0000000020000000        0x0
                 0x0000000020000000                _start_ram = .
 
-.data           0x0000000020000000      0xa58 load address 0x0000000008011ea0
+.data           0x0000000020000000      0xa58 load address 0x0000000008012250
                 0x0000000020000000                _data = .
-                0x0000000008011ea0                _ldata = LOADADDR (.data)
+                0x0000000008012250                _ldata = LOADADDR (.data)
  *(vtable)
  *(.data)
  *(.data*)
@@ -4886,10 +4905,10 @@ Linker script and memory map
  *(.ram_func*)
                 0x0000000020000a58                _edata = .
 
-.igot.plt       0x0000000020000a58        0x0 load address 0x00000000080128f8
+.igot.plt       0x0000000020000a58        0x0 load address 0x0000000008012ca8
  .igot.plt      0x0000000020000a58        0x0 build_ChungGame_embedded/task.o
 
-.bss            0x0000000020000a58     0x224c load address 0x00000000080128f8
+.bss            0x0000000020000a58     0x2240 load address 0x0000000008012ca8
                 0x0000000020000a58                _bss = .
  *(.bss)
  *(.bss*)
@@ -5031,203 +5050,204 @@ Linker script and memory map
                 0x0000000020001ab8        0xc build_ChungGame_embedded/scr_idle.o
                 0x0000000020001ab8                v_idle_ball
  .bss._ZL11my_mountain
-                0x0000000020001ac4        0x8 build_ChungGame_embedded/scr_tank.o
+                0x0000000020001ac4        0x4 build_ChungGame_embedded/scr_tank.o
  .bss._ZL14my_coconutTree
-                0x0000000020001acc        0x4 build_ChungGame_embedded/scr_tank.o
+                0x0000000020001ac8        0x4 build_ChungGame_embedded/scr_tank.o
  .bss._ZL7my_tank
-                0x0000000020001ad0        0x8 build_ChungGame_embedded/scr_tank.o
+                0x0000000020001acc        0x2 build_ChungGame_embedded/scr_tank.o
+ .bss._ZL8my_house
+                0x0000000020001ace        0x4 build_ChungGame_embedded/scr_tank.o
  .bss._ZL9my_ground
-                0x0000000020001ad8        0x4 build_ChungGame_embedded/scr_tank.o
+                0x0000000020001ad2        0x1 build_ChungGame_embedded/scr_tank.o
  .bss._ZL19boot_app_share_data
-                0x0000000020001adc        0x1 build_ChungGame_embedded/app.o
- *fill*         0x0000000020001add        0x3 
+                0x0000000020001ad3        0x1 build_ChungGame_embedded/app.o
  .bss.xMBMMaster
-                0x0000000020001ae0        0x4 build_ChungGame_embedded/app_data.o
-                0x0000000020001ae0                xMBMMaster
- .bss.btn_down  0x0000000020001ae4       0x18 build_ChungGame_embedded/app_bsp.o
-                0x0000000020001ae4                btn_down
- .bss.btn_mode  0x0000000020001afc       0x18 build_ChungGame_embedded/app_bsp.o
-                0x0000000020001afc                btn_mode
- .bss.btn_up    0x0000000020001b14       0x18 build_ChungGame_embedded/app_bsp.o
-                0x0000000020001b14                btn_up
+                0x0000000020001ad4        0x4 build_ChungGame_embedded/app_data.o
+                0x0000000020001ad4                xMBMMaster
+ .bss.btn_down  0x0000000020001ad8       0x18 build_ChungGame_embedded/app_bsp.o
+                0x0000000020001ad8                btn_down
+ .bss.btn_mode  0x0000000020001af0       0x18 build_ChungGame_embedded/app_bsp.o
+                0x0000000020001af0                btn_mode
+ .bss.btn_up    0x0000000020001b08       0x18 build_ChungGame_embedded/app_bsp.o
+                0x0000000020001b08                btn_up
  .bss._ZL10cmd_buffer
-                0x0000000020001b2c       0x80 build_ChungGame_embedded/shell.o
+                0x0000000020001b20       0x80 build_ChungGame_embedded/shell.o
  .bss._ZL12str_list_len
-                0x0000000020001bac        0x1 build_ChungGame_embedded/shell.o
- *fill*         0x0000000020001bad        0x3 
+                0x0000000020001ba0        0x1 build_ChungGame_embedded/shell.o
+ *fill*         0x0000000020001ba1        0x3 
  .bss._ZL8str_list
-                0x0000000020001bb0       0x20 build_ChungGame_embedded/shell.o
+                0x0000000020001ba4       0x20 build_ChungGame_embedded/shell.o
  .bss.buffer_console_rev
-                0x0000000020001bd0      0x100 build_ChungGame_embedded/task_shell.o
-                0x0000000020001bd0                buffer_console_rev
+                0x0000000020001bc4      0x100 build_ChungGame_embedded/task_shell.o
+                0x0000000020001bc4                buffer_console_rev
  .bss.ring_buffer_console_rev
-                0x0000000020001cd0        0xc build_ChungGame_embedded/task_shell.o
-                0x0000000020001cd0                ring_buffer_console_rev
- .bss.shell     0x0000000020001cdc       0x21 build_ChungGame_embedded/task_shell.o
-                0x0000000020001cdc                shell
- *fill*         0x0000000020001cfd        0x3 
- .bss.led_life  0x0000000020001d00       0x1c build_ChungGame_embedded/task_life.o
-                0x0000000020001d00                led_life
+                0x0000000020001cc4        0xc build_ChungGame_embedded/task_shell.o
+                0x0000000020001cc4                ring_buffer_console_rev
+ .bss.shell     0x0000000020001cd0       0x21 build_ChungGame_embedded/task_shell.o
+                0x0000000020001cd0                shell
+ *fill*         0x0000000020001cf1        0x3 
+ .bss.led_life  0x0000000020001cf4       0x1c build_ChungGame_embedded/task_life.o
+                0x0000000020001cf4                led_life
  .bss._ZL15bin_file_cursor
-                0x0000000020001d1c        0x4 build_ChungGame_embedded/task_fw.o
+                0x0000000020001d10        0x4 build_ChungGame_embedded/task_fw.o
  .bss._ZL17flash_read_buffer
-                0x0000000020001d20      0x100 build_ChungGame_embedded/task_fw.o
+                0x0000000020001d14      0x100 build_ChungGame_embedded/task_fw.o
  .bss._ZL20firmware_header_file
-                0x0000000020001e20        0xc build_ChungGame_embedded/task_fw.o
+                0x0000000020001e14        0xc build_ChungGame_embedded/task_fw.o
  .bss._ZL21host_firmware_if_type
-                0x0000000020001e2c        0x1 build_ChungGame_embedded/task_fw.o
+                0x0000000020001e20        0x1 build_ChungGame_embedded/task_fw.o
  .bss._ZL21host_firmware_task_id
-                0x0000000020001e2d        0x1 build_ChungGame_embedded/task_fw.o
- *fill*         0x0000000020001e2e        0x2 
+                0x0000000020001e21        0x1 build_ChungGame_embedded/task_fw.o
+ *fill*         0x0000000020001e22        0x2 
  .bss.scr_mng_app
-                0x0000000020001e30        0x4 build_ChungGame_embedded/task_display.o
-                0x0000000020001e30                scr_mng_app
+                0x0000000020001e24        0x4 build_ChungGame_embedded/task_display.o
+                0x0000000020001e24                scr_mng_app
  .bss.view_render
-                0x0000000020001e34       0x2c build_ChungGame_embedded/view_render.o
-                0x0000000020001e34                view_render
+                0x0000000020001e28       0x2c build_ChungGame_embedded/view_render.o
+                0x0000000020001e28                view_render
  .bss._ZL11view_screen
-                0x0000000020001e60        0x4 build_ChungGame_embedded/screen_manager.o
+                0x0000000020001e54        0x4 build_ChungGame_embedded/screen_manager.o
  .bss._ZL14screen_manager
-                0x0000000020001e64        0x4 build_ChungGame_embedded/screen_manager.o
+                0x0000000020001e58        0x4 build_ChungGame_embedded/screen_manager.o
  .bss._ZL16screen_msg_entry
-                0x0000000020001e68       0x1c build_ChungGame_embedded/screen_manager.o
+                0x0000000020001e5c       0x1c build_ChungGame_embedded/screen_manager.o
  .bss._ZL23screen_none_update_mark
-                0x0000000020001e84        0x1 build_ChungGame_embedded/screen_manager.o
+                0x0000000020001e78        0x1 build_ChungGame_embedded/screen_manager.o
  .bss._ZL12frame_buffer
-                0x0000000020001e85      0x400 build_ChungGame_embedded/Adafruit_oled_drv.o
- *fill*         0x0000000020002285        0x3 
+                0x0000000020001e79      0x400 build_ChungGame_embedded/Adafruit_oled_drv.o
+ *fill*         0x0000000020002279        0x3 
  .bss._ZL8fsm_link
-                0x0000000020002288        0x4 build_ChungGame_embedded/link.o
+                0x000000002000227c        0x4 build_ChungGame_embedded/link.o
  .bss._ZL15link_pdu_id_buf
-                0x000000002000228c       0x10 build_ChungGame_embedded/link_mac.o
+                0x0000000020002280       0x10 build_ChungGame_embedded/link_mac.o
  .bss._ZL16link_pdu_id_fifo
-                0x000000002000229c       0x18 build_ChungGame_embedded/link_mac.o
+                0x0000000020002290       0x18 build_ChungGame_embedded/link_mac.o
  .bss._ZL18link_mac_rev_state
-                0x00000000200022b4        0x1 build_ChungGame_embedded/link_mac.o
+                0x00000000200022a8        0x1 build_ChungGame_embedded/link_mac.o
  .bss._ZL19link_mac_frame_send
-                0x00000000200022b5       0x32 build_ChungGame_embedded/link_mac.o
+                0x00000000200022a9       0x32 build_ChungGame_embedded/link_mac.o
  .bss._ZL19link_mac_send_state
-                0x00000000200022e7        0x1 build_ChungGame_embedded/link_mac.o
+                0x00000000200022db        0x1 build_ChungGame_embedded/link_mac.o
  .bss._ZL20link_mac_pdu_sending
-                0x00000000200022e8        0x4 build_ChungGame_embedded/link_mac.o
+                0x00000000200022dc        0x4 build_ChungGame_embedded/link_mac.o
  .bss._ZL22link_mac_pdu_receiving
-                0x00000000200022ec        0x4 build_ChungGame_embedded/link_mac.o
+                0x00000000200022e0        0x4 build_ChungGame_embedded/link_mac.o
  .bss._ZL29link_mac_pdu_sending_sequence
-                0x00000000200022f0        0x1 build_ChungGame_embedded/link_mac.o
+                0x00000000200022e4        0x1 build_ChungGame_embedded/link_mac.o
  .bss._ZL31link_mac_pdu_receiving_sequence
-                0x00000000200022f1        0x1 build_ChungGame_embedded/link_mac.o
+                0x00000000200022e5        0x1 build_ChungGame_embedded/link_mac.o
  .bss._ZL34link_mac_pdu_sending_retry_counter
-                0x00000000200022f2        0x1 build_ChungGame_embedded/link_mac.o
- *fill*         0x00000000200022f3        0x1 
+                0x00000000200022e6        0x1 build_ChungGame_embedded/link_mac.o
+ *fill*         0x00000000200022e7        0x1 
  .bss.fsm_link_mac
-                0x00000000200022f4        0x4 build_ChungGame_embedded/link_mac.o
-                0x00000000200022f4                fsm_link_mac
+                0x00000000200022e8        0x4 build_ChungGame_embedded/link_mac.o
+                0x00000000200022e8                fsm_link_mac
  .bss.link_mac_frame_rev_to_interval
-                0x00000000200022f8        0x4 build_ChungGame_embedded/link_mac.o
-                0x00000000200022f8                link_mac_frame_rev_to_interval
+                0x00000000200022ec        0x4 build_ChungGame_embedded/link_mac.o
+                0x00000000200022ec                link_mac_frame_rev_to_interval
  .bss.link_mac_frame_send_to_interval
-                0x00000000200022fc        0x4 build_ChungGame_embedded/link_mac.o
-                0x00000000200022fc                link_mac_frame_send_to_interval
+                0x00000000200022f0        0x4 build_ChungGame_embedded/link_mac.o
+                0x00000000200022f0                link_mac_frame_send_to_interval
  .bss._ZL18retry_counter_send
-                0x0000000020002300        0x1 build_ChungGame_embedded/link_phy.o
+                0x00000000200022f4        0x1 build_ChungGame_embedded/link_phy.o
  .bss._ZL18rev_link_phy_frame
-                0x0000000020002301       0x40 build_ChungGame_embedded/link_phy.o
+                0x00000000200022f5       0x40 build_ChungGame_embedded/link_phy.o
  .bss._ZL19link_phy_send_state
-                0x0000000020002341        0x1 build_ChungGame_embedded/link_phy.o
+                0x0000000020002335        0x1 build_ChungGame_embedded/link_phy.o
  .bss._ZL19send_link_phy_frame
-                0x0000000020002342       0x40 build_ChungGame_embedded/link_phy.o
+                0x0000000020002336       0x40 build_ChungGame_embedded/link_phy.o
  .bss._ZL20link_phy_rev_seq_num
-                0x0000000020002382        0x1 build_ChungGame_embedded/link_phy.o
+                0x0000000020002376        0x1 build_ChungGame_embedded/link_phy.o
  .bss._ZL21link_phy_send_seq_num
-                0x0000000020002383        0x1 build_ChungGame_embedded/link_phy.o
+                0x0000000020002377        0x1 build_ChungGame_embedded/link_phy.o
  .bss._ZL22link_phy_max_retry_val
-                0x0000000020002384        0x1 build_ChungGame_embedded/link_phy.o
+                0x0000000020002378        0x1 build_ChungGame_embedded/link_phy.o
  .bss._ZZL26ac_link_phy_frame_rev_bytehE19link_phy_util_index
-                0x0000000020002385        0x1 build_ChungGame_embedded/link_phy.o
- *fill*         0x0000000020002386        0x2 
+                0x0000000020002379        0x1 build_ChungGame_embedded/link_phy.o
+ *fill*         0x000000002000237a        0x2 
  .bss.fsm_link_phy
-                0x0000000020002388        0x4 build_ChungGame_embedded/link_phy.o
-                0x0000000020002388                fsm_link_phy
+                0x000000002000237c        0x4 build_ChungGame_embedded/link_phy.o
+                0x000000002000237c                fsm_link_phy
  .bss.link_phy_frame_parser_state_revc
-                0x000000002000238c        0x1 build_ChungGame_embedded/link_phy.o
-                0x000000002000238c                link_phy_frame_parser_state_revc
- *fill*         0x000000002000238d        0x3 
+                0x0000000020002380        0x1 build_ChungGame_embedded/link_phy.o
+                0x0000000020002380                link_phy_frame_parser_state_revc
+ *fill*         0x0000000020002381        0x3 
  .bss._ZL13link_pdu_pool
-                0x0000000020002390      0x640 build_ChungGame_embedded/link_data.o
+                0x0000000020002384      0x640 build_ChungGame_embedded/link_data.o
  .bss._ZL18free_link_pdu_pool
-                0x00000000200029d0        0x4 build_ChungGame_embedded/link_data.o
- .bss.Serial2   0x00000000200029d4      0x21c build_ChungGame_embedded/HardwareSerial2.o
-                0x00000000200029d4                Serial2
- .bss.SPI       0x0000000020002bf0       0x1c build_ChungGame_embedded/SPI.o
-                0x0000000020002bf0                SPI
- .bss.Wire      0x0000000020002c0c       0x10 build_ChungGame_embedded/Wire.o
-                0x0000000020002c0c                Wire
+                0x00000000200029c4        0x4 build_ChungGame_embedded/link_data.o
+ .bss.Serial2   0x00000000200029c8      0x21c build_ChungGame_embedded/HardwareSerial2.o
+                0x00000000200029c8                Serial2
+ .bss.SPI       0x0000000020002be4       0x1c build_ChungGame_embedded/SPI.o
+                0x0000000020002be4                SPI
+ .bss.Wire      0x0000000020002c00       0x10 build_ChungGame_embedded/Wire.o
+                0x0000000020002c00                Wire
  .bss._ZN7TwoWire12transmittingE
-                0x0000000020002c1c        0x1 build_ChungGame_embedded/Wire.o
-                0x0000000020002c1c                TwoWire::transmitting
+                0x0000000020002c10        0x1 build_ChungGame_embedded/Wire.o
+                0x0000000020002c10                TwoWire::transmitting
  .bss._ZN7TwoWire13rxBufferIndexE
-                0x0000000020002c1d        0x1 build_ChungGame_embedded/Wire.o
-                0x0000000020002c1d                TwoWire::rxBufferIndex
+                0x0000000020002c11        0x1 build_ChungGame_embedded/Wire.o
+                0x0000000020002c11                TwoWire::rxBufferIndex
  .bss._ZN7TwoWire13txBufferIndexE
-                0x0000000020002c1e        0x1 build_ChungGame_embedded/Wire.o
-                0x0000000020002c1e                TwoWire::txBufferIndex
+                0x0000000020002c12        0x1 build_ChungGame_embedded/Wire.o
+                0x0000000020002c12                TwoWire::txBufferIndex
  .bss._ZN7TwoWire14rxBufferLengthE
-                0x0000000020002c1f        0x1 build_ChungGame_embedded/Wire.o
-                0x0000000020002c1f                TwoWire::rxBufferLength
+                0x0000000020002c13        0x1 build_ChungGame_embedded/Wire.o
+                0x0000000020002c13                TwoWire::rxBufferLength
  .bss._ZN7TwoWire14txBufferLengthE
-                0x0000000020002c20        0x1 build_ChungGame_embedded/Wire.o
-                0x0000000020002c20                TwoWire::txBufferLength
+                0x0000000020002c14        0x1 build_ChungGame_embedded/Wire.o
+                0x0000000020002c14                TwoWire::txBufferLength
  .bss._ZN7TwoWire8rxBufferE
-                0x0000000020002c21       0x20 build_ChungGame_embedded/Wire.o
-                0x0000000020002c21                TwoWire::rxBuffer
+                0x0000000020002c15       0x20 build_ChungGame_embedded/Wire.o
+                0x0000000020002c15                TwoWire::rxBuffer
  .bss._ZN7TwoWire8txBufferE
-                0x0000000020002c41       0x20 build_ChungGame_embedded/Wire.o
-                0x0000000020002c41                TwoWire::txBuffer
- *fill*         0x0000000020002c61        0x3 
+                0x0000000020002c35       0x20 build_ChungGame_embedded/Wire.o
+                0x0000000020002c35                TwoWire::txBuffer
+ *fill*         0x0000000020002c55        0x3 
  .bss._ZZ5_sbrkE4heap
-                0x0000000020002c64        0x4 build_ChungGame_embedded/mini_cpp.o
+                0x0000000020002c58        0x4 build_ChungGame_embedded/mini_cpp.o
  .bss.__malloc_current_mallinfo
-                0x0000000020002c68       0x28 /home/luong/workspace/tools/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/lib/thumb/v7-m/nofp/libc.a(lib_a-mallocr.o)
-                0x0000000020002c68                __malloc_current_mallinfo
+                0x0000000020002c5c       0x28 /home/luong/workspace/tools/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/lib/thumb/v7-m/nofp/libc.a(lib_a-mallocr.o)
+                0x0000000020002c5c                __malloc_current_mallinfo
  .bss.__malloc_max_sbrked_mem
-                0x0000000020002c90        0x4 /home/luong/workspace/tools/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/lib/thumb/v7-m/nofp/libc.a(lib_a-mallocr.o)
-                0x0000000020002c90                __malloc_max_sbrked_mem
+                0x0000000020002c84        0x4 /home/luong/workspace/tools/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/lib/thumb/v7-m/nofp/libc.a(lib_a-mallocr.o)
+                0x0000000020002c84                __malloc_max_sbrked_mem
  .bss.__malloc_max_total_mem
-                0x0000000020002c94        0x4 /home/luong/workspace/tools/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/lib/thumb/v7-m/nofp/libc.a(lib_a-mallocr.o)
-                0x0000000020002c94                __malloc_max_total_mem
+                0x0000000020002c88        0x4 /home/luong/workspace/tools/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/lib/thumb/v7-m/nofp/libc.a(lib_a-mallocr.o)
+                0x0000000020002c88                __malloc_max_total_mem
  .bss.__malloc_top_pad
-                0x0000000020002c98        0x4 /home/luong/workspace/tools/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/lib/thumb/v7-m/nofp/libc.a(lib_a-mallocr.o)
-                0x0000000020002c98                __malloc_top_pad
+                0x0000000020002c8c        0x4 /home/luong/workspace/tools/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/lib/thumb/v7-m/nofp/libc.a(lib_a-mallocr.o)
+                0x0000000020002c8c                __malloc_top_pad
  .bss.__lock___malloc_recursive_mutex
-                0x0000000020002c9c        0x1 /home/luong/workspace/tools/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/lib/thumb/v7-m/nofp/libc.a(lib_a-lock.o)
-                0x0000000020002c9c                __lock___malloc_recursive_mutex
- *fill*         0x0000000020002c9d        0x3 
- .bss.errno     0x0000000020002ca0        0x4 /home/luong/workspace/tools/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/lib/thumb/v7-m/nofp/libc.a(lib_a-reent.o)
-                0x0000000020002ca0                errno
+                0x0000000020002c90        0x1 /home/luong/workspace/tools/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/lib/thumb/v7-m/nofp/libc.a(lib_a-lock.o)
+                0x0000000020002c90                __lock___malloc_recursive_mutex
+ *fill*         0x0000000020002c91        0x3 
+ .bss.errno     0x0000000020002c94        0x4 /home/luong/workspace/tools/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/lib/thumb/v7-m/nofp/libc.a(lib_a-reent.o)
+                0x0000000020002c94                errno
  *(COMMON)
-                0x0000000020002ca4                _ebss = .
+                0x0000000020002c98                _ebss = .
 
-.heap           0x0000000020002ca4      0x800 load address 0x0000000008014b44
-                0x0000000020002ca4                __heap_start__ = .
-                0x00000000200034a4                . = (. + HEAP_SIZE)
- *fill*         0x0000000020002ca4      0x800 
-                0x00000000200034a4                . = ALIGN (0x4)
-                0x00000000200034a4                __heap_end__ = .
+.heap           0x0000000020002c98      0x800 load address 0x0000000008014ee8
+                0x0000000020002c98                __heap_start__ = .
+                0x0000000020003498                . = (. + HEAP_SIZE)
+ *fill*         0x0000000020002c98      0x800 
+                0x0000000020003498                . = ALIGN (0x4)
+                0x0000000020003498                __heap_end__ = .
 
-.non_clear_ram  0x00000000200034a4        0x4 load address 0x0000000008015344
-                0x00000000200034a4                _non_clear_ram = .
+.non_clear_ram  0x0000000020003498        0x4 load address 0x00000000080156e8
+                0x0000000020003498                _non_clear_ram = .
  *(.non_clear_ram)
  .non_clear_ram
-                0x00000000200034a4        0x4 build_ChungGame_embedded/app_non_clear_ram.o
-                0x00000000200034a4                sys_soft_reboot_counter
+                0x0000000020003498        0x4 build_ChungGame_embedded/app_non_clear_ram.o
+                0x0000000020003498                sys_soft_reboot_counter
  *(.non_clear_ram*)
-                0x00000000200034a8                _enon_clear_ram = .
+                0x000000002000349c                _enon_clear_ram = .
 
-.end_ram        0x00000000200034a8        0x0
-                0x00000000200034a8                _end_ram = .
+.end_ram        0x000000002000349c        0x0
+                0x000000002000349c                _end_ram = .
 
-.sstack         0x00000000200034a8        0x0
-                0x00000000200034a8                _sstack = .
+.sstack         0x000000002000349c        0x0
+                0x000000002000349c                _sstack = .
                 0x0000000020004000                _estack = (ORIGIN (SRAM) + LENGTH (SRAM))
 
 /DISCARD/
@@ -5368,7 +5388,7 @@ LOAD /home/luong/workspace/tools/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/li
 LOAD /home/luong/workspace/tools/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/lib/thumb/v7-m/nofp/libg.a
 LOAD /home/luong/workspace/tools/gcc-arm-none-eabi-10.3-2021.10/lib/gcc/arm-none-eabi/10.3.1/thumb/v7-m/nofp/libgcc.a
 
-.debug_info     0x0000000000000000    0x79c90
+.debug_info     0x0000000000000000    0x79ffc
  .debug_info    0x0000000000000000      0x226 build_ChungGame_embedded/fsm.o
  .debug_info    0x0000000000000226     0x1136 build_ChungGame_embedded/task.o
  .debug_info    0x000000000000135c      0xb05 build_ChungGame_embedded/timer.o
@@ -5415,49 +5435,49 @@ LOAD /home/luong/workspace/tools/gcc-arm-none-eabi-10.3-2021.10/lib/gcc/arm-none
  .debug_info    0x000000000001b39f     0x21d2 build_ChungGame_embedded/sys_cfg.o
  .debug_info    0x000000000001d571     0x2830 build_ChungGame_embedded/io_cfg.o
  .debug_info    0x000000000001fda1      0x5db build_ChungGame_embedded/system_stm32l1xx.o
- .debug_info    0x000000000002037c     0x2100 build_ChungGame_embedded/screens_bitmap.o
- .debug_info    0x000000000002247c     0x2c1b build_ChungGame_embedded/scr_es35sw_th_sensor.o
- .debug_info    0x0000000000025097     0x65ff build_ChungGame_embedded/scr_idle.o
- .debug_info    0x000000000002b696     0x2878 build_ChungGame_embedded/scr_info.o
- .debug_info    0x000000000002df0e     0x2b33 build_ChungGame_embedded/scr_lhio404_io_device.o
- .debug_info    0x0000000000030a41     0x2897 build_ChungGame_embedded/scr_startup.o
- .debug_info    0x00000000000332d8     0x2dd6 build_ChungGame_embedded/scr_tank.o
- .debug_info    0x00000000000360ae      0xdc2 build_ChungGame_embedded/task_system.o
- .debug_info    0x0000000000036e70     0x8558 build_ChungGame_embedded/app.o
- .debug_info    0x000000000003f3c8      0xa84 build_ChungGame_embedded/app_data.o
- .debug_info    0x000000000003fe4c      0xa90 build_ChungGame_embedded/app_non_clear_ram.o
- .debug_info    0x00000000000408dc      0xddd build_ChungGame_embedded/app_bsp.o
- .debug_info    0x00000000000416b9      0xfac build_ChungGame_embedded/app_modbus_pull.o
- .debug_info    0x0000000000042665     0x45da build_ChungGame_embedded/shell.o
- .debug_info    0x0000000000046c3f      0xee4 build_ChungGame_embedded/task_shell.o
- .debug_info    0x0000000000047b23      0xca9 build_ChungGame_embedded/task_life.o
- .debug_info    0x00000000000487cc     0x18cb build_ChungGame_embedded/task_fw.o
- .debug_info    0x000000000004a097      0xa49 build_ChungGame_embedded/task_list.o
- .debug_info    0x000000000004aae0     0x24c1 build_ChungGame_embedded/task_display.o
- .debug_info    0x000000000004cfa1      0xe2e build_ChungGame_embedded/task_if.o
- .debug_info    0x000000000004ddcf      0xb99 build_ChungGame_embedded/task_rf24_if.o
- .debug_info    0x000000000004e968      0xe38 build_ChungGame_embedded/task_uart_if.o
- .debug_info    0x000000000004f7a0      0xb99 build_ChungGame_embedded/task_dbg.o
- .debug_info    0x0000000000050339     0x260a build_ChungGame_embedded/view_render.o
- .debug_info    0x0000000000052943     0x23ad build_ChungGame_embedded/screen_manager.o
- .debug_info    0x0000000000054cf0     0x4796 build_ChungGame_embedded/Adafruit_GFX.o
- .debug_info    0x0000000000059486     0x2ffc build_ChungGame_embedded/Adafruit_oled_drv.o
- .debug_info    0x000000000005c482      0xbef build_ChungGame_embedded/eeprom.o
- .debug_info    0x000000000005d071      0xbf5 build_ChungGame_embedded/link_hal.o
- .debug_info    0x000000000005dc66     0x16d8 build_ChungGame_embedded/link.o
- .debug_info    0x000000000005f33e     0x1a09 build_ChungGame_embedded/link_mac.o
- .debug_info    0x0000000000060d47     0x179c build_ChungGame_embedded/link_phy.o
- .debug_info    0x00000000000624e3      0xf37 build_ChungGame_embedded/link_data.o
- .debug_info    0x000000000006341a     0x22f1 build_ChungGame_embedded/wiring_digital.o
- .debug_info    0x000000000006570b     0x36c7 build_ChungGame_embedded/Print.o
- .debug_info    0x0000000000068dd2     0x3b59 build_ChungGame_embedded/HardwareSerial.o
- .debug_info    0x000000000006c92b     0x3b89 build_ChungGame_embedded/HardwareSerial2.o
- .debug_info    0x00000000000704b4      0xfb7 build_ChungGame_embedded/SPI.o
- .debug_info    0x000000000007146b     0x46e6 build_ChungGame_embedded/Wire.o
- .debug_info    0x0000000000075b51     0x2b50 build_ChungGame_embedded/twi.o
- .debug_info    0x00000000000786a1     0x15ef build_ChungGame_embedded/mini_cpp.o
+ .debug_info    0x000000000002037c     0x21b4 build_ChungGame_embedded/screens_bitmap.o
+ .debug_info    0x0000000000022530     0x2c1b build_ChungGame_embedded/scr_es35sw_th_sensor.o
+ .debug_info    0x000000000002514b     0x65ff build_ChungGame_embedded/scr_idle.o
+ .debug_info    0x000000000002b74a     0x2878 build_ChungGame_embedded/scr_info.o
+ .debug_info    0x000000000002dfc2     0x2b33 build_ChungGame_embedded/scr_lhio404_io_device.o
+ .debug_info    0x0000000000030af5     0x2897 build_ChungGame_embedded/scr_startup.o
+ .debug_info    0x000000000003338c     0x308e build_ChungGame_embedded/scr_tank.o
+ .debug_info    0x000000000003641a      0xdc2 build_ChungGame_embedded/task_system.o
+ .debug_info    0x00000000000371dc     0x8558 build_ChungGame_embedded/app.o
+ .debug_info    0x000000000003f734      0xa84 build_ChungGame_embedded/app_data.o
+ .debug_info    0x00000000000401b8      0xa90 build_ChungGame_embedded/app_non_clear_ram.o
+ .debug_info    0x0000000000040c48      0xddd build_ChungGame_embedded/app_bsp.o
+ .debug_info    0x0000000000041a25      0xfac build_ChungGame_embedded/app_modbus_pull.o
+ .debug_info    0x00000000000429d1     0x45da build_ChungGame_embedded/shell.o
+ .debug_info    0x0000000000046fab      0xee4 build_ChungGame_embedded/task_shell.o
+ .debug_info    0x0000000000047e8f      0xca9 build_ChungGame_embedded/task_life.o
+ .debug_info    0x0000000000048b38     0x18cb build_ChungGame_embedded/task_fw.o
+ .debug_info    0x000000000004a403      0xa49 build_ChungGame_embedded/task_list.o
+ .debug_info    0x000000000004ae4c     0x24c1 build_ChungGame_embedded/task_display.o
+ .debug_info    0x000000000004d30d      0xe2e build_ChungGame_embedded/task_if.o
+ .debug_info    0x000000000004e13b      0xb99 build_ChungGame_embedded/task_rf24_if.o
+ .debug_info    0x000000000004ecd4      0xe38 build_ChungGame_embedded/task_uart_if.o
+ .debug_info    0x000000000004fb0c      0xb99 build_ChungGame_embedded/task_dbg.o
+ .debug_info    0x00000000000506a5     0x260a build_ChungGame_embedded/view_render.o
+ .debug_info    0x0000000000052caf     0x23ad build_ChungGame_embedded/screen_manager.o
+ .debug_info    0x000000000005505c     0x4796 build_ChungGame_embedded/Adafruit_GFX.o
+ .debug_info    0x00000000000597f2     0x2ffc build_ChungGame_embedded/Adafruit_oled_drv.o
+ .debug_info    0x000000000005c7ee      0xbef build_ChungGame_embedded/eeprom.o
+ .debug_info    0x000000000005d3dd      0xbf5 build_ChungGame_embedded/link_hal.o
+ .debug_info    0x000000000005dfd2     0x16d8 build_ChungGame_embedded/link.o
+ .debug_info    0x000000000005f6aa     0x1a09 build_ChungGame_embedded/link_mac.o
+ .debug_info    0x00000000000610b3     0x179c build_ChungGame_embedded/link_phy.o
+ .debug_info    0x000000000006284f      0xf37 build_ChungGame_embedded/link_data.o
+ .debug_info    0x0000000000063786     0x22f1 build_ChungGame_embedded/wiring_digital.o
+ .debug_info    0x0000000000065a77     0x36c7 build_ChungGame_embedded/Print.o
+ .debug_info    0x000000000006913e     0x3b59 build_ChungGame_embedded/HardwareSerial.o
+ .debug_info    0x000000000006cc97     0x3b89 build_ChungGame_embedded/HardwareSerial2.o
+ .debug_info    0x0000000000070820      0xfb7 build_ChungGame_embedded/SPI.o
+ .debug_info    0x00000000000717d7     0x46e6 build_ChungGame_embedded/Wire.o
+ .debug_info    0x0000000000075ebd     0x2b50 build_ChungGame_embedded/twi.o
+ .debug_info    0x0000000000078a0d     0x15ef build_ChungGame_embedded/mini_cpp.o
 
-.debug_abbrev   0x0000000000000000    0x10d07
+.debug_abbrev   0x0000000000000000    0x10d73
  .debug_abbrev  0x0000000000000000       0xdc build_ChungGame_embedded/fsm.o
  .debug_abbrev  0x00000000000000dc      0x3c6 build_ChungGame_embedded/task.o
  .debug_abbrev  0x00000000000004a2      0x324 build_ChungGame_embedded/timer.o
@@ -5510,43 +5530,43 @@ LOAD /home/luong/workspace/tools/gcc-arm-none-eabi-10.3-2021.10/lib/gcc/arm-none
  .debug_abbrev  0x00000000000076dc      0x4d6 build_ChungGame_embedded/scr_info.o
  .debug_abbrev  0x0000000000007bb2      0x4da build_ChungGame_embedded/scr_lhio404_io_device.o
  .debug_abbrev  0x000000000000808c      0x499 build_ChungGame_embedded/scr_startup.o
- .debug_abbrev  0x0000000000008525      0x5ad build_ChungGame_embedded/scr_tank.o
- .debug_abbrev  0x0000000000008ad2      0x25d build_ChungGame_embedded/task_system.o
- .debug_abbrev  0x0000000000008d2f      0x8b2 build_ChungGame_embedded/app.o
- .debug_abbrev  0x00000000000095e1      0x1cd build_ChungGame_embedded/app_data.o
- .debug_abbrev  0x00000000000097ae      0x1cd build_ChungGame_embedded/app_non_clear_ram.o
- .debug_abbrev  0x000000000000997b      0x287 build_ChungGame_embedded/app_bsp.o
- .debug_abbrev  0x0000000000009c02      0x32e build_ChungGame_embedded/app_modbus_pull.o
- .debug_abbrev  0x0000000000009f30      0x55d build_ChungGame_embedded/shell.o
- .debug_abbrev  0x000000000000a48d      0x2dd build_ChungGame_embedded/task_shell.o
- .debug_abbrev  0x000000000000a76a      0x266 build_ChungGame_embedded/task_life.o
- .debug_abbrev  0x000000000000a9d0      0x364 build_ChungGame_embedded/task_fw.o
- .debug_abbrev  0x000000000000ad34      0x1e6 build_ChungGame_embedded/task_list.o
- .debug_abbrev  0x000000000000af1a      0x402 build_ChungGame_embedded/task_display.o
- .debug_abbrev  0x000000000000b31c      0x2b2 build_ChungGame_embedded/task_if.o
- .debug_abbrev  0x000000000000b5ce      0x1eb build_ChungGame_embedded/task_rf24_if.o
- .debug_abbrev  0x000000000000b7b9      0x26c build_ChungGame_embedded/task_uart_if.o
- .debug_abbrev  0x000000000000ba25      0x1eb build_ChungGame_embedded/task_dbg.o
- .debug_abbrev  0x000000000000bc10      0x3e4 build_ChungGame_embedded/view_render.o
- .debug_abbrev  0x000000000000bff4      0x339 build_ChungGame_embedded/screen_manager.o
- .debug_abbrev  0x000000000000c32d      0x7bc build_ChungGame_embedded/Adafruit_GFX.o
- .debug_abbrev  0x000000000000cae9      0x54a build_ChungGame_embedded/Adafruit_oled_drv.o
- .debug_abbrev  0x000000000000d033      0x220 build_ChungGame_embedded/eeprom.o
- .debug_abbrev  0x000000000000d253      0x264 build_ChungGame_embedded/link_hal.o
- .debug_abbrev  0x000000000000d4b7      0x3c1 build_ChungGame_embedded/link.o
- .debug_abbrev  0x000000000000d878      0x4b1 build_ChungGame_embedded/link_mac.o
- .debug_abbrev  0x000000000000dd29      0x5bc build_ChungGame_embedded/link_phy.o
- .debug_abbrev  0x000000000000e2e5      0x304 build_ChungGame_embedded/link_data.o
- .debug_abbrev  0x000000000000e5e9      0x2dc build_ChungGame_embedded/wiring_digital.o
- .debug_abbrev  0x000000000000e8c5      0x548 build_ChungGame_embedded/Print.o
- .debug_abbrev  0x000000000000ee0d      0x54f build_ChungGame_embedded/HardwareSerial.o
- .debug_abbrev  0x000000000000f35c      0x5d7 build_ChungGame_embedded/HardwareSerial2.o
- .debug_abbrev  0x000000000000f933      0x39f build_ChungGame_embedded/SPI.o
- .debug_abbrev  0x000000000000fcd2      0x769 build_ChungGame_embedded/Wire.o
- .debug_abbrev  0x000000000001043b      0x46b build_ChungGame_embedded/twi.o
- .debug_abbrev  0x00000000000108a6      0x461 build_ChungGame_embedded/mini_cpp.o
+ .debug_abbrev  0x0000000000008525      0x619 build_ChungGame_embedded/scr_tank.o
+ .debug_abbrev  0x0000000000008b3e      0x25d build_ChungGame_embedded/task_system.o
+ .debug_abbrev  0x0000000000008d9b      0x8b2 build_ChungGame_embedded/app.o
+ .debug_abbrev  0x000000000000964d      0x1cd build_ChungGame_embedded/app_data.o
+ .debug_abbrev  0x000000000000981a      0x1cd build_ChungGame_embedded/app_non_clear_ram.o
+ .debug_abbrev  0x00000000000099e7      0x287 build_ChungGame_embedded/app_bsp.o
+ .debug_abbrev  0x0000000000009c6e      0x32e build_ChungGame_embedded/app_modbus_pull.o
+ .debug_abbrev  0x0000000000009f9c      0x55d build_ChungGame_embedded/shell.o
+ .debug_abbrev  0x000000000000a4f9      0x2dd build_ChungGame_embedded/task_shell.o
+ .debug_abbrev  0x000000000000a7d6      0x266 build_ChungGame_embedded/task_life.o
+ .debug_abbrev  0x000000000000aa3c      0x364 build_ChungGame_embedded/task_fw.o
+ .debug_abbrev  0x000000000000ada0      0x1e6 build_ChungGame_embedded/task_list.o
+ .debug_abbrev  0x000000000000af86      0x402 build_ChungGame_embedded/task_display.o
+ .debug_abbrev  0x000000000000b388      0x2b2 build_ChungGame_embedded/task_if.o
+ .debug_abbrev  0x000000000000b63a      0x1eb build_ChungGame_embedded/task_rf24_if.o
+ .debug_abbrev  0x000000000000b825      0x26c build_ChungGame_embedded/task_uart_if.o
+ .debug_abbrev  0x000000000000ba91      0x1eb build_ChungGame_embedded/task_dbg.o
+ .debug_abbrev  0x000000000000bc7c      0x3e4 build_ChungGame_embedded/view_render.o
+ .debug_abbrev  0x000000000000c060      0x339 build_ChungGame_embedded/screen_manager.o
+ .debug_abbrev  0x000000000000c399      0x7bc build_ChungGame_embedded/Adafruit_GFX.o
+ .debug_abbrev  0x000000000000cb55      0x54a build_ChungGame_embedded/Adafruit_oled_drv.o
+ .debug_abbrev  0x000000000000d09f      0x220 build_ChungGame_embedded/eeprom.o
+ .debug_abbrev  0x000000000000d2bf      0x264 build_ChungGame_embedded/link_hal.o
+ .debug_abbrev  0x000000000000d523      0x3c1 build_ChungGame_embedded/link.o
+ .debug_abbrev  0x000000000000d8e4      0x4b1 build_ChungGame_embedded/link_mac.o
+ .debug_abbrev  0x000000000000dd95      0x5bc build_ChungGame_embedded/link_phy.o
+ .debug_abbrev  0x000000000000e351      0x304 build_ChungGame_embedded/link_data.o
+ .debug_abbrev  0x000000000000e655      0x2dc build_ChungGame_embedded/wiring_digital.o
+ .debug_abbrev  0x000000000000e931      0x548 build_ChungGame_embedded/Print.o
+ .debug_abbrev  0x000000000000ee79      0x54f build_ChungGame_embedded/HardwareSerial.o
+ .debug_abbrev  0x000000000000f3c8      0x5d7 build_ChungGame_embedded/HardwareSerial2.o
+ .debug_abbrev  0x000000000000f99f      0x39f build_ChungGame_embedded/SPI.o
+ .debug_abbrev  0x000000000000fd3e      0x769 build_ChungGame_embedded/Wire.o
+ .debug_abbrev  0x00000000000104a7      0x46b build_ChungGame_embedded/twi.o
+ .debug_abbrev  0x0000000000010912      0x461 build_ChungGame_embedded/mini_cpp.o
 
-.debug_loc      0x0000000000000000    0x1b3e8
+.debug_loc      0x0000000000000000    0x1b460
  .debug_loc     0x0000000000000000       0x4a build_ChungGame_embedded/fsm.o
  .debug_loc     0x000000000000004a      0x73c build_ChungGame_embedded/task.o
  .debug_loc     0x0000000000000786      0x379 build_ChungGame_embedded/timer.o
@@ -5593,40 +5613,40 @@ LOAD /home/luong/workspace/tools/gcc-arm-none-eabi-10.3-2021.10/lib/gcc/arm-none
  .debug_loc     0x0000000000011764      0x775 build_ChungGame_embedded/io_cfg.o
  .debug_loc     0x0000000000011ed9      0x172 build_ChungGame_embedded/system_stm32l1xx.o
  .debug_loc     0x000000000001204b       0xed build_ChungGame_embedded/scr_es35sw_th_sensor.o
- .debug_loc     0x0000000000012138     0x1051 build_ChungGame_embedded/scr_idle.o
- .debug_loc     0x0000000000013189      0x12c build_ChungGame_embedded/scr_info.o
- .debug_loc     0x00000000000132b5       0xf3 build_ChungGame_embedded/scr_lhio404_io_device.o
- .debug_loc     0x00000000000133a8       0x89 build_ChungGame_embedded/scr_startup.o
- .debug_loc     0x0000000000013431      0x1ea build_ChungGame_embedded/scr_tank.o
- .debug_loc     0x000000000001361b       0x25 build_ChungGame_embedded/task_system.o
- .debug_loc     0x0000000000013640       0x15 build_ChungGame_embedded/app.o
- .debug_loc     0x0000000000013655      0x288 build_ChungGame_embedded/app_bsp.o
- .debug_loc     0x00000000000138dd      0x275 build_ChungGame_embedded/app_modbus_pull.o
- .debug_loc     0x0000000000013b52      0xf8b build_ChungGame_embedded/shell.o
- .debug_loc     0x0000000000014add       0x61 build_ChungGame_embedded/task_shell.o
- .debug_loc     0x0000000000014b3e       0x32 build_ChungGame_embedded/task_life.o
- .debug_loc     0x0000000000014b70      0x433 build_ChungGame_embedded/task_fw.o
- .debug_loc     0x0000000000014fa3       0x25 build_ChungGame_embedded/task_display.o
- .debug_loc     0x0000000000014fc8      0x1bb build_ChungGame_embedded/task_if.o
- .debug_loc     0x0000000000015183       0xf8 build_ChungGame_embedded/task_uart_if.o
- .debug_loc     0x000000000001527b      0x267 build_ChungGame_embedded/view_render.o
- .debug_loc     0x00000000000154e2       0xd3 build_ChungGame_embedded/screen_manager.o
- .debug_loc     0x00000000000155b5     0x18c8 build_ChungGame_embedded/Adafruit_GFX.o
- .debug_loc     0x0000000000016e7d      0x6bf build_ChungGame_embedded/Adafruit_oled_drv.o
- .debug_loc     0x000000000001753c      0x128 build_ChungGame_embedded/eeprom.o
- .debug_loc     0x0000000000017664       0x6f build_ChungGame_embedded/link_hal.o
- .debug_loc     0x00000000000176d3      0x4b2 build_ChungGame_embedded/link.o
- .debug_loc     0x0000000000017b85      0x399 build_ChungGame_embedded/link_mac.o
- .debug_loc     0x0000000000017f1e      0x4be build_ChungGame_embedded/link_phy.o
- .debug_loc     0x00000000000183dc      0x230 build_ChungGame_embedded/link_data.o
- .debug_loc     0x000000000001860c      0x43c build_ChungGame_embedded/wiring_digital.o
- .debug_loc     0x0000000000018a48     0x13b8 build_ChungGame_embedded/Print.o
- .debug_loc     0x0000000000019e00      0x1e2 build_ChungGame_embedded/HardwareSerial.o
- .debug_loc     0x0000000000019fe2       0x84 build_ChungGame_embedded/HardwareSerial2.o
- .debug_loc     0x000000000001a066      0x538 build_ChungGame_embedded/SPI.o
- .debug_loc     0x000000000001a59e      0x935 build_ChungGame_embedded/Wire.o
- .debug_loc     0x000000000001aed3      0x418 build_ChungGame_embedded/twi.o
- .debug_loc     0x000000000001b2eb       0xfd build_ChungGame_embedded/mini_cpp.o
+ .debug_loc     0x0000000000012138     0x1042 build_ChungGame_embedded/scr_idle.o
+ .debug_loc     0x000000000001317a      0x12c build_ChungGame_embedded/scr_info.o
+ .debug_loc     0x00000000000132a6       0xf3 build_ChungGame_embedded/scr_lhio404_io_device.o
+ .debug_loc     0x0000000000013399       0x89 build_ChungGame_embedded/scr_startup.o
+ .debug_loc     0x0000000000013422      0x271 build_ChungGame_embedded/scr_tank.o
+ .debug_loc     0x0000000000013693       0x25 build_ChungGame_embedded/task_system.o
+ .debug_loc     0x00000000000136b8       0x15 build_ChungGame_embedded/app.o
+ .debug_loc     0x00000000000136cd      0x288 build_ChungGame_embedded/app_bsp.o
+ .debug_loc     0x0000000000013955      0x275 build_ChungGame_embedded/app_modbus_pull.o
+ .debug_loc     0x0000000000013bca      0xf8b build_ChungGame_embedded/shell.o
+ .debug_loc     0x0000000000014b55       0x61 build_ChungGame_embedded/task_shell.o
+ .debug_loc     0x0000000000014bb6       0x32 build_ChungGame_embedded/task_life.o
+ .debug_loc     0x0000000000014be8      0x433 build_ChungGame_embedded/task_fw.o
+ .debug_loc     0x000000000001501b       0x25 build_ChungGame_embedded/task_display.o
+ .debug_loc     0x0000000000015040      0x1bb build_ChungGame_embedded/task_if.o
+ .debug_loc     0x00000000000151fb       0xf8 build_ChungGame_embedded/task_uart_if.o
+ .debug_loc     0x00000000000152f3      0x267 build_ChungGame_embedded/view_render.o
+ .debug_loc     0x000000000001555a       0xd3 build_ChungGame_embedded/screen_manager.o
+ .debug_loc     0x000000000001562d     0x18c8 build_ChungGame_embedded/Adafruit_GFX.o
+ .debug_loc     0x0000000000016ef5      0x6bf build_ChungGame_embedded/Adafruit_oled_drv.o
+ .debug_loc     0x00000000000175b4      0x128 build_ChungGame_embedded/eeprom.o
+ .debug_loc     0x00000000000176dc       0x6f build_ChungGame_embedded/link_hal.o
+ .debug_loc     0x000000000001774b      0x4b2 build_ChungGame_embedded/link.o
+ .debug_loc     0x0000000000017bfd      0x399 build_ChungGame_embedded/link_mac.o
+ .debug_loc     0x0000000000017f96      0x4be build_ChungGame_embedded/link_phy.o
+ .debug_loc     0x0000000000018454      0x230 build_ChungGame_embedded/link_data.o
+ .debug_loc     0x0000000000018684      0x43c build_ChungGame_embedded/wiring_digital.o
+ .debug_loc     0x0000000000018ac0     0x13b8 build_ChungGame_embedded/Print.o
+ .debug_loc     0x0000000000019e78      0x1e2 build_ChungGame_embedded/HardwareSerial.o
+ .debug_loc     0x000000000001a05a       0x84 build_ChungGame_embedded/HardwareSerial2.o
+ .debug_loc     0x000000000001a0de      0x538 build_ChungGame_embedded/SPI.o
+ .debug_loc     0x000000000001a616      0x935 build_ChungGame_embedded/Wire.o
+ .debug_loc     0x000000000001af4b      0x418 build_ChungGame_embedded/twi.o
+ .debug_loc     0x000000000001b363       0xfd build_ChungGame_embedded/mini_cpp.o
 
 .debug_aranges  0x0000000000000000     0x2410
  .debug_aranges
@@ -5804,7 +5824,7 @@ LOAD /home/luong/workspace/tools/gcc-arm-none-eabi-10.3-2021.10/lib/gcc/arm-none
  .debug_aranges
                 0x00000000000023b0       0x60 build_ChungGame_embedded/mini_cpp.o
 
-.debug_ranges   0x0000000000000000     0x35c8
+.debug_ranges   0x0000000000000000     0x3680
  .debug_ranges  0x0000000000000000       0x10 build_ChungGame_embedded/fsm.o
  .debug_ranges  0x0000000000000010       0xf0 build_ChungGame_embedded/task.o
  .debug_ranges  0x0000000000000100       0x90 build_ChungGame_embedded/timer.o
@@ -5856,40 +5876,40 @@ LOAD /home/luong/workspace/tools/gcc-arm-none-eabi-10.3-2021.10/lib/gcc/arm-none
  .debug_ranges  0x0000000000002548       0x30 build_ChungGame_embedded/scr_info.o
  .debug_ranges  0x0000000000002578       0x18 build_ChungGame_embedded/scr_lhio404_io_device.o
  .debug_ranges  0x0000000000002590       0x18 build_ChungGame_embedded/scr_startup.o
- .debug_ranges  0x00000000000025a8       0x40 build_ChungGame_embedded/scr_tank.o
- .debug_ranges  0x00000000000025e8       0x10 build_ChungGame_embedded/task_system.o
- .debug_ranges  0x00000000000025f8       0x30 build_ChungGame_embedded/app.o
- .debug_ranges  0x0000000000002628       0x20 build_ChungGame_embedded/app_bsp.o
- .debug_ranges  0x0000000000002648       0x70 build_ChungGame_embedded/app_modbus_pull.o
- .debug_ranges  0x00000000000026b8      0x130 build_ChungGame_embedded/shell.o
- .debug_ranges  0x00000000000027e8       0x18 build_ChungGame_embedded/task_shell.o
- .debug_ranges  0x0000000000002800       0x10 build_ChungGame_embedded/task_life.o
- .debug_ranges  0x0000000000002810       0x78 build_ChungGame_embedded/task_fw.o
- .debug_ranges  0x0000000000002888       0x10 build_ChungGame_embedded/task_display.o
- .debug_ranges  0x0000000000002898       0x40 build_ChungGame_embedded/task_if.o
- .debug_ranges  0x00000000000028d8       0x10 build_ChungGame_embedded/task_rf24_if.o
- .debug_ranges  0x00000000000028e8       0x10 build_ChungGame_embedded/task_uart_if.o
- .debug_ranges  0x00000000000028f8       0x10 build_ChungGame_embedded/task_dbg.o
- .debug_ranges  0x0000000000002908       0x48 build_ChungGame_embedded/view_render.o
- .debug_ranges  0x0000000000002950       0x30 build_ChungGame_embedded/screen_manager.o
- .debug_ranges  0x0000000000002980      0x230 build_ChungGame_embedded/Adafruit_GFX.o
- .debug_ranges  0x0000000000002bb0       0xc8 build_ChungGame_embedded/Adafruit_oled_drv.o
- .debug_ranges  0x0000000000002c78       0x20 build_ChungGame_embedded/eeprom.o
- .debug_ranges  0x0000000000002c98       0x28 build_ChungGame_embedded/link_hal.o
- .debug_ranges  0x0000000000002cc0       0xf0 build_ChungGame_embedded/link.o
- .debug_ranges  0x0000000000002db0      0x168 build_ChungGame_embedded/link_mac.o
- .debug_ranges  0x0000000000002f18      0x150 build_ChungGame_embedded/link_phy.o
- .debug_ranges  0x0000000000003068       0xb0 build_ChungGame_embedded/link_data.o
- .debug_ranges  0x0000000000003118       0x20 build_ChungGame_embedded/wiring_digital.o
- .debug_ranges  0x0000000000003138      0x1e8 build_ChungGame_embedded/Print.o
- .debug_ranges  0x0000000000003320       0x50 build_ChungGame_embedded/HardwareSerial.o
- .debug_ranges  0x0000000000003370       0x38 build_ChungGame_embedded/HardwareSerial2.o
- .debug_ranges  0x00000000000033a8       0x88 build_ChungGame_embedded/SPI.o
- .debug_ranges  0x0000000000003430       0xf0 build_ChungGame_embedded/Wire.o
- .debug_ranges  0x0000000000003520       0x58 build_ChungGame_embedded/twi.o
- .debug_ranges  0x0000000000003578       0x50 build_ChungGame_embedded/mini_cpp.o
+ .debug_ranges  0x00000000000025a8       0xf8 build_ChungGame_embedded/scr_tank.o
+ .debug_ranges  0x00000000000026a0       0x10 build_ChungGame_embedded/task_system.o
+ .debug_ranges  0x00000000000026b0       0x30 build_ChungGame_embedded/app.o
+ .debug_ranges  0x00000000000026e0       0x20 build_ChungGame_embedded/app_bsp.o
+ .debug_ranges  0x0000000000002700       0x70 build_ChungGame_embedded/app_modbus_pull.o
+ .debug_ranges  0x0000000000002770      0x130 build_ChungGame_embedded/shell.o
+ .debug_ranges  0x00000000000028a0       0x18 build_ChungGame_embedded/task_shell.o
+ .debug_ranges  0x00000000000028b8       0x10 build_ChungGame_embedded/task_life.o
+ .debug_ranges  0x00000000000028c8       0x78 build_ChungGame_embedded/task_fw.o
+ .debug_ranges  0x0000000000002940       0x10 build_ChungGame_embedded/task_display.o
+ .debug_ranges  0x0000000000002950       0x40 build_ChungGame_embedded/task_if.o
+ .debug_ranges  0x0000000000002990       0x10 build_ChungGame_embedded/task_rf24_if.o
+ .debug_ranges  0x00000000000029a0       0x10 build_ChungGame_embedded/task_uart_if.o
+ .debug_ranges  0x00000000000029b0       0x10 build_ChungGame_embedded/task_dbg.o
+ .debug_ranges  0x00000000000029c0       0x48 build_ChungGame_embedded/view_render.o
+ .debug_ranges  0x0000000000002a08       0x30 build_ChungGame_embedded/screen_manager.o
+ .debug_ranges  0x0000000000002a38      0x230 build_ChungGame_embedded/Adafruit_GFX.o
+ .debug_ranges  0x0000000000002c68       0xc8 build_ChungGame_embedded/Adafruit_oled_drv.o
+ .debug_ranges  0x0000000000002d30       0x20 build_ChungGame_embedded/eeprom.o
+ .debug_ranges  0x0000000000002d50       0x28 build_ChungGame_embedded/link_hal.o
+ .debug_ranges  0x0000000000002d78       0xf0 build_ChungGame_embedded/link.o
+ .debug_ranges  0x0000000000002e68      0x168 build_ChungGame_embedded/link_mac.o
+ .debug_ranges  0x0000000000002fd0      0x150 build_ChungGame_embedded/link_phy.o
+ .debug_ranges  0x0000000000003120       0xb0 build_ChungGame_embedded/link_data.o
+ .debug_ranges  0x00000000000031d0       0x20 build_ChungGame_embedded/wiring_digital.o
+ .debug_ranges  0x00000000000031f0      0x1e8 build_ChungGame_embedded/Print.o
+ .debug_ranges  0x00000000000033d8       0x50 build_ChungGame_embedded/HardwareSerial.o
+ .debug_ranges  0x0000000000003428       0x38 build_ChungGame_embedded/HardwareSerial2.o
+ .debug_ranges  0x0000000000003460       0x88 build_ChungGame_embedded/SPI.o
+ .debug_ranges  0x00000000000034e8       0xf0 build_ChungGame_embedded/Wire.o
+ .debug_ranges  0x00000000000035d8       0x58 build_ChungGame_embedded/twi.o
+ .debug_ranges  0x0000000000003630       0x50 build_ChungGame_embedded/mini_cpp.o
 
-.debug_line     0x0000000000000000    0x266a3
+.debug_line     0x0000000000000000    0x26772
  .debug_line    0x0000000000000000      0x140 build_ChungGame_embedded/fsm.o
  .debug_line    0x0000000000000140      0x99f build_ChungGame_embedded/task.o
  .debug_line    0x0000000000000adf      0x571 build_ChungGame_embedded/timer.o
@@ -5942,43 +5962,43 @@ LOAD /home/luong/workspace/tools/gcc-arm-none-eabi-10.3-2021.10/lib/gcc/arm-none
  .debug_line    0x00000000000152ec      0x667 build_ChungGame_embedded/scr_info.o
  .debug_line    0x0000000000015953      0x7a7 build_ChungGame_embedded/scr_lhio404_io_device.o
  .debug_line    0x00000000000160fa      0x66e build_ChungGame_embedded/scr_startup.o
- .debug_line    0x0000000000016768      0x71e build_ChungGame_embedded/scr_tank.o
- .debug_line    0x0000000000016e86      0x457 build_ChungGame_embedded/task_system.o
- .debug_line    0x00000000000172dd     0x11ce build_ChungGame_embedded/app.o
- .debug_line    0x00000000000184ab      0x3c8 build_ChungGame_embedded/app_data.o
- .debug_line    0x0000000000018873      0x392 build_ChungGame_embedded/app_non_clear_ram.o
- .debug_line    0x0000000000018c05      0x50a build_ChungGame_embedded/app_bsp.o
- .debug_line    0x000000000001910f      0x580 build_ChungGame_embedded/app_modbus_pull.o
- .debug_line    0x000000000001968f     0x134f build_ChungGame_embedded/shell.o
- .debug_line    0x000000000001a9de      0x50d build_ChungGame_embedded/task_shell.o
- .debug_line    0x000000000001aeeb      0x42d build_ChungGame_embedded/task_life.o
- .debug_line    0x000000000001b318      0x9e4 build_ChungGame_embedded/task_fw.o
- .debug_line    0x000000000001bcfc      0x386 build_ChungGame_embedded/task_list.o
- .debug_line    0x000000000001c082      0x4b0 build_ChungGame_embedded/task_display.o
- .debug_line    0x000000000001c532      0x4e8 build_ChungGame_embedded/task_if.o
- .debug_line    0x000000000001ca1a      0x3b2 build_ChungGame_embedded/task_rf24_if.o
- .debug_line    0x000000000001cdcc      0x508 build_ChungGame_embedded/task_uart_if.o
- .debug_line    0x000000000001d2d4      0x3ac build_ChungGame_embedded/task_dbg.o
- .debug_line    0x000000000001d680      0x671 build_ChungGame_embedded/view_render.o
- .debug_line    0x000000000001dcf1      0x561 build_ChungGame_embedded/screen_manager.o
- .debug_line    0x000000000001e252     0x132b build_ChungGame_embedded/Adafruit_GFX.o
- .debug_line    0x000000000001f57d      0x998 build_ChungGame_embedded/Adafruit_oled_drv.o
- .debug_line    0x000000000001ff15      0x3e3 build_ChungGame_embedded/eeprom.o
- .debug_line    0x00000000000202f8      0x47e build_ChungGame_embedded/link_hal.o
- .debug_line    0x0000000000020776      0x878 build_ChungGame_embedded/link.o
- .debug_line    0x0000000000020fee      0xab4 build_ChungGame_embedded/link_mac.o
- .debug_line    0x0000000000021aa2      0xc04 build_ChungGame_embedded/link_phy.o
- .debug_line    0x00000000000226a6      0x6ce build_ChungGame_embedded/link_data.o
- .debug_line    0x0000000000022d74      0x5d1 build_ChungGame_embedded/wiring_digital.o
- .debug_line    0x0000000000023345      0x9c7 build_ChungGame_embedded/Print.o
- .debug_line    0x0000000000023d0c      0x5f6 build_ChungGame_embedded/HardwareSerial.o
- .debug_line    0x0000000000024302      0x5a8 build_ChungGame_embedded/HardwareSerial2.o
- .debug_line    0x00000000000248aa      0x765 build_ChungGame_embedded/SPI.o
- .debug_line    0x000000000002500f      0x96c build_ChungGame_embedded/Wire.o
- .debug_line    0x000000000002597b      0x7d5 build_ChungGame_embedded/twi.o
- .debug_line    0x0000000000026150      0x553 build_ChungGame_embedded/mini_cpp.o
+ .debug_line    0x0000000000016768      0x7ed build_ChungGame_embedded/scr_tank.o
+ .debug_line    0x0000000000016f55      0x457 build_ChungGame_embedded/task_system.o
+ .debug_line    0x00000000000173ac     0x11ce build_ChungGame_embedded/app.o
+ .debug_line    0x000000000001857a      0x3c8 build_ChungGame_embedded/app_data.o
+ .debug_line    0x0000000000018942      0x392 build_ChungGame_embedded/app_non_clear_ram.o
+ .debug_line    0x0000000000018cd4      0x50a build_ChungGame_embedded/app_bsp.o
+ .debug_line    0x00000000000191de      0x580 build_ChungGame_embedded/app_modbus_pull.o
+ .debug_line    0x000000000001975e     0x134f build_ChungGame_embedded/shell.o
+ .debug_line    0x000000000001aaad      0x50d build_ChungGame_embedded/task_shell.o
+ .debug_line    0x000000000001afba      0x42d build_ChungGame_embedded/task_life.o
+ .debug_line    0x000000000001b3e7      0x9e4 build_ChungGame_embedded/task_fw.o
+ .debug_line    0x000000000001bdcb      0x386 build_ChungGame_embedded/task_list.o
+ .debug_line    0x000000000001c151      0x4b0 build_ChungGame_embedded/task_display.o
+ .debug_line    0x000000000001c601      0x4e8 build_ChungGame_embedded/task_if.o
+ .debug_line    0x000000000001cae9      0x3b2 build_ChungGame_embedded/task_rf24_if.o
+ .debug_line    0x000000000001ce9b      0x508 build_ChungGame_embedded/task_uart_if.o
+ .debug_line    0x000000000001d3a3      0x3ac build_ChungGame_embedded/task_dbg.o
+ .debug_line    0x000000000001d74f      0x671 build_ChungGame_embedded/view_render.o
+ .debug_line    0x000000000001ddc0      0x561 build_ChungGame_embedded/screen_manager.o
+ .debug_line    0x000000000001e321     0x132b build_ChungGame_embedded/Adafruit_GFX.o
+ .debug_line    0x000000000001f64c      0x998 build_ChungGame_embedded/Adafruit_oled_drv.o
+ .debug_line    0x000000000001ffe4      0x3e3 build_ChungGame_embedded/eeprom.o
+ .debug_line    0x00000000000203c7      0x47e build_ChungGame_embedded/link_hal.o
+ .debug_line    0x0000000000020845      0x878 build_ChungGame_embedded/link.o
+ .debug_line    0x00000000000210bd      0xab4 build_ChungGame_embedded/link_mac.o
+ .debug_line    0x0000000000021b71      0xc04 build_ChungGame_embedded/link_phy.o
+ .debug_line    0x0000000000022775      0x6ce build_ChungGame_embedded/link_data.o
+ .debug_line    0x0000000000022e43      0x5d1 build_ChungGame_embedded/wiring_digital.o
+ .debug_line    0x0000000000023414      0x9c7 build_ChungGame_embedded/Print.o
+ .debug_line    0x0000000000023ddb      0x5f6 build_ChungGame_embedded/HardwareSerial.o
+ .debug_line    0x00000000000243d1      0x5a8 build_ChungGame_embedded/HardwareSerial2.o
+ .debug_line    0x0000000000024979      0x765 build_ChungGame_embedded/SPI.o
+ .debug_line    0x00000000000250de      0x96c build_ChungGame_embedded/Wire.o
+ .debug_line    0x0000000000025a4a      0x7d5 build_ChungGame_embedded/twi.o
+ .debug_line    0x000000000002621f      0x553 build_ChungGame_embedded/mini_cpp.o
 
-.debug_str      0x0000000000000000    0x17707
+.debug_str      0x0000000000000000    0x177b4
  .debug_str     0x0000000000000000      0x1c5 build_ChungGame_embedded/fsm.o
                                         0x259 (size before relaxing)
  .debug_str     0x00000000000001c5      0x5a0 build_ChungGame_embedded/task.o
@@ -6071,87 +6091,87 @@ LOAD /home/luong/workspace/tools/gcc-arm-none-eabi-10.3-2021.10/lib/gcc/arm-none
                                        0x14eb (size before relaxing)
  .debug_str     0x00000000000070d7       0x37 build_ChungGame_embedded/system_stm32l1xx.o
                                         0x375 (size before relaxing)
- .debug_str     0x000000000000710e      0xbcb build_ChungGame_embedded/screens_bitmap.o
-                                        0xd98 (size before relaxing)
- .debug_str     0x0000000000007cd9      0x880 build_ChungGame_embedded/scr_es35sw_th_sensor.o
+ .debug_str     0x000000000000710e      0xc25 build_ChungGame_embedded/screens_bitmap.o
+                                        0xdf2 (size before relaxing)
+ .debug_str     0x0000000000007d33      0x880 build_ChungGame_embedded/scr_es35sw_th_sensor.o
                                        0x18b6 (size before relaxing)
- .debug_str     0x0000000000008559     0x364a build_ChungGame_embedded/scr_idle.o
+ .debug_str     0x00000000000085b3     0x364a build_ChungGame_embedded/scr_idle.o
                                        0x4d95 (size before relaxing)
- .debug_str     0x000000000000bba3       0xa5 build_ChungGame_embedded/scr_info.o
+ .debug_str     0x000000000000bbfd       0xa5 build_ChungGame_embedded/scr_info.o
                                        0x16c8 (size before relaxing)
- .debug_str     0x000000000000bc48       0xcf build_ChungGame_embedded/scr_lhio404_io_device.o
+ .debug_str     0x000000000000bca2       0xcf build_ChungGame_embedded/scr_lhio404_io_device.o
                                        0x1848 (size before relaxing)
- .debug_str     0x000000000000bd17       0xd2 build_ChungGame_embedded/scr_startup.o
+ .debug_str     0x000000000000bd71       0xd2 build_ChungGame_embedded/scr_startup.o
                                        0x16e0 (size before relaxing)
- .debug_str     0x000000000000bde9      0x259 build_ChungGame_embedded/scr_tank.o
-                                       0x18c9 (size before relaxing)
- .debug_str     0x000000000000c042       0xa8 build_ChungGame_embedded/task_system.o
+ .debug_str     0x000000000000be43      0x2ac build_ChungGame_embedded/scr_tank.o
+                                       0x198b (size before relaxing)
+ .debug_str     0x000000000000c0ef       0xa8 build_ChungGame_embedded/task_system.o
                                         0x635 (size before relaxing)
- .debug_str     0x000000000000c0ea     0x6964 build_ChungGame_embedded/app.o
+ .debug_str     0x000000000000c197     0x6964 build_ChungGame_embedded/app.o
                                        0x88fd (size before relaxing)
- .debug_str     0x0000000000012a4e       0x19 build_ChungGame_embedded/app_data.o
+ .debug_str     0x0000000000012afb       0x19 build_ChungGame_embedded/app_data.o
                                         0x3c8 (size before relaxing)
- .debug_str     0x0000000000012a67       0x22 build_ChungGame_embedded/app_non_clear_ram.o
+ .debug_str     0x0000000000012b14       0x22 build_ChungGame_embedded/app_non_clear_ram.o
                                         0x3e8 (size before relaxing)
- .debug_str     0x0000000000012a89       0x97 build_ChungGame_embedded/app_bsp.o
+ .debug_str     0x0000000000012b36       0x97 build_ChungGame_embedded/app_bsp.o
                                         0x794 (size before relaxing)
- .debug_str     0x0000000000012b20      0x2e0 build_ChungGame_embedded/app_modbus_pull.o
+ .debug_str     0x0000000000012bcd      0x2e0 build_ChungGame_embedded/app_modbus_pull.o
                                         0x9a9 (size before relaxing)
- .debug_str     0x0000000000012e00      0x376 build_ChungGame_embedded/shell.o
+ .debug_str     0x0000000000012ead      0x376 build_ChungGame_embedded/shell.o
                                        0x1a46 (size before relaxing)
- .debug_str     0x0000000000013176       0x49 build_ChungGame_embedded/task_shell.o
+ .debug_str     0x0000000000013223       0x49 build_ChungGame_embedded/task_shell.o
                                         0x690 (size before relaxing)
- .debug_str     0x00000000000131bf       0x3b build_ChungGame_embedded/task_life.o
+ .debug_str     0x000000000001326c       0x3b build_ChungGame_embedded/task_life.o
                                         0x55c (size before relaxing)
- .debug_str     0x00000000000131fa      0x356 build_ChungGame_embedded/task_fw.o
+ .debug_str     0x00000000000132a7      0x356 build_ChungGame_embedded/task_fw.o
                                         0xe9c (size before relaxing)
- .debug_str     0x0000000000013550       0x1a build_ChungGame_embedded/task_list.o
+ .debug_str     0x00000000000135fd       0x1a build_ChungGame_embedded/task_list.o
                                         0x5cb (size before relaxing)
- .debug_str     0x000000000001356a       0x75 build_ChungGame_embedded/task_display.o
+ .debug_str     0x0000000000013617       0x75 build_ChungGame_embedded/task_display.o
                                        0x128f (size before relaxing)
- .debug_str     0x00000000000135df       0x67 build_ChungGame_embedded/task_if.o
+ .debug_str     0x000000000001368c       0x67 build_ChungGame_embedded/task_if.o
                                         0x76a (size before relaxing)
- .debug_str     0x0000000000013646       0x45 build_ChungGame_embedded/task_rf24_if.o
+ .debug_str     0x00000000000136f3       0x45 build_ChungGame_embedded/task_rf24_if.o
                                         0x4a8 (size before relaxing)
- .debug_str     0x000000000001368b      0x14a build_ChungGame_embedded/task_uart_if.o
+ .debug_str     0x0000000000013738      0x14a build_ChungGame_embedded/task_uart_if.o
                                         0x7e6 (size before relaxing)
- .debug_str     0x00000000000137d5       0x38 build_ChungGame_embedded/task_dbg.o
+ .debug_str     0x0000000000013882       0x38 build_ChungGame_embedded/task_dbg.o
                                         0x49b (size before relaxing)
- .debug_str     0x000000000001380d      0x1b4 build_ChungGame_embedded/view_render.o
+ .debug_str     0x00000000000138ba      0x1b4 build_ChungGame_embedded/view_render.o
                                        0x1118 (size before relaxing)
- .debug_str     0x00000000000139c1       0xfe build_ChungGame_embedded/screen_manager.o
+ .debug_str     0x0000000000013a6e       0xfe build_ChungGame_embedded/screen_manager.o
                                        0x1080 (size before relaxing)
- .debug_str     0x0000000000013abf      0x78e build_ChungGame_embedded/Adafruit_GFX.o
+ .debug_str     0x0000000000013b6c      0x78e build_ChungGame_embedded/Adafruit_GFX.o
                                        0x192b (size before relaxing)
- .debug_str     0x000000000001424d      0x5c1 build_ChungGame_embedded/Adafruit_oled_drv.o
+ .debug_str     0x00000000000142fa      0x5c1 build_ChungGame_embedded/Adafruit_oled_drv.o
                                        0x14b8 (size before relaxing)
- .debug_str     0x000000000001480e       0x21 build_ChungGame_embedded/eeprom.o
+ .debug_str     0x00000000000148bb       0x21 build_ChungGame_embedded/eeprom.o
                                         0x431 (size before relaxing)
- .debug_str     0x000000000001482f       0xdd build_ChungGame_embedded/link_hal.o
+ .debug_str     0x00000000000148dc       0xdd build_ChungGame_embedded/link_hal.o
                                         0x506 (size before relaxing)
- .debug_str     0x000000000001490c      0x3e4 build_ChungGame_embedded/link.o
+ .debug_str     0x00000000000149b9      0x3e4 build_ChungGame_embedded/link.o
                                         0xcc5 (size before relaxing)
- .debug_str     0x0000000000014cf0      0x556 build_ChungGame_embedded/link_mac.o
+ .debug_str     0x0000000000014d9d      0x556 build_ChungGame_embedded/link_mac.o
                                         0xf71 (size before relaxing)
- .debug_str     0x0000000000015246      0x46a build_ChungGame_embedded/link_phy.o
+ .debug_str     0x00000000000152f3      0x46a build_ChungGame_embedded/link_phy.o
                                         0xe48 (size before relaxing)
- .debug_str     0x00000000000156b0       0xe9 build_ChungGame_embedded/link_data.o
+ .debug_str     0x000000000001575d       0xe9 build_ChungGame_embedded/link_data.o
                                         0x60b (size before relaxing)
- .debug_str     0x0000000000015799       0x56 build_ChungGame_embedded/wiring_digital.o
+ .debug_str     0x0000000000015846       0x56 build_ChungGame_embedded/wiring_digital.o
                                         0xf58 (size before relaxing)
- .debug_str     0x00000000000157ef      0x323 build_ChungGame_embedded/Print.o
+ .debug_str     0x000000000001589c      0x323 build_ChungGame_embedded/Print.o
                                        0x112c (size before relaxing)
- .debug_str     0x0000000000015b12     0x1122 build_ChungGame_embedded/HardwareSerial.o
+ .debug_str     0x0000000000015bbf     0x1122 build_ChungGame_embedded/HardwareSerial.o
                                        0x2001 (size before relaxing)
- .debug_str     0x0000000000016c34       0xc1 build_ChungGame_embedded/HardwareSerial2.o
+ .debug_str     0x0000000000016ce1       0xc1 build_ChungGame_embedded/HardwareSerial2.o
                                        0x1ffd (size before relaxing)
- .debug_str     0x0000000000016cf5      0x104 build_ChungGame_embedded/SPI.o
+ .debug_str     0x0000000000016da2      0x104 build_ChungGame_embedded/SPI.o
                                         0x9df (size before relaxing)
- .debug_str     0x0000000000016df9      0x6d5 build_ChungGame_embedded/Wire.o
+ .debug_str     0x0000000000016ea6      0x6d5 build_ChungGame_embedded/Wire.o
                                        0x2482 (size before relaxing)
- .debug_str     0x00000000000174ce       0xee build_ChungGame_embedded/twi.o
+ .debug_str     0x000000000001757b       0xee build_ChungGame_embedded/twi.o
                                        0x13d5 (size before relaxing)
- .debug_str     0x00000000000175bc      0x14b build_ChungGame_embedded/mini_cpp.o
+ .debug_str     0x0000000000017669      0x14b build_ChungGame_embedded/mini_cpp.o
                                         0x97e (size before relaxing)
 
 .comment        0x0000000000000000       0x49

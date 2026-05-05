@@ -6,6 +6,13 @@
 extern const unsigned char PROGMEM bitmap_tank [];
 extern const unsigned char PROGMEM bitmap_ground [];
 extern const unsigned char PROGMEM bitmap_coconutTree [];
+extern const unsigned char PROGMEM bitmap_dryTree [];
+extern const unsigned char PROGMEM bitmap_grassesTree [];
 extern const unsigned char PROGMEM bitmap_theMountain [];
+extern const unsigned char PROGMEM bitmap_house1 [];
+extern const unsigned char PROGMEM bitmap_house2 [];
+extern const unsigned char PROGMEM bitmap_house3 [];
+extern const unsigned char PROGMEM bitmap_house4 [];
+
 
 #endif
