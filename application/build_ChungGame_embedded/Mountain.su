@@ -1,0 +1,3 @@
+sources/app/screens/game_objects/Mountain.cpp:4:1:Mountain::Mountain()	0	static
+sources/app/screens/game_objects/Mountain.cpp:9:6:void Mountain::update()	0	static
+sources/app/screens/game_objects/Mountain.cpp:25:6:void Mountain::draw()	24	static

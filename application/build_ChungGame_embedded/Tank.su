@@ -1,0 +1,3 @@
+sources/app/screens/game_objects/Tank.cpp:4:1:Tank::Tank()	0	static
+sources/app/screens/game_objects/Tank.cpp:10:6:void Tank::update()	0	static
+sources/app/screens/game_objects/Tank.cpp:16:6:void Tank::draw()	24	static

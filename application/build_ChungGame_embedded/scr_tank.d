@@ -157,4 +157,10 @@ build_ChungGame_embedded/scr_tank.o: sources/app/screens/scr_tank.cpp \
  sources/networks/mbmaster-v2.9.6/mbmaster/include/common/mbportlayer.h \
  sources/app/screens/scr_lhio404_io_device.h \
  sources/app/screens/scr_tank.h \
- sources/app/screens/bitmap_data/screens_bitmap.h
+ sources/app/screens/bitmap_data/screens_bitmap.h \
+ sources/app/screens/game_objects/Tank.h \
+ sources/app/screens/game_objects/../bitmap_data/screens_bitmap.h \
+ sources/app/screens/game_objects/Ground.h \
+ sources/app/screens/game_objects/Tree.h \
+ sources/app/screens/game_objects/Mountain.h \
+ sources/app/screens/game_objects/House.h
