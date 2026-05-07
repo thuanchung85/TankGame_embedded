@@ -19,6 +19,9 @@ void Tank::update() {
 
     // update các viên đạn của tank
     my_bullets.update();
+
+    //HP update
+    myHP.update();
 }
 
 // Hàm vẽ tank
@@ -33,6 +36,8 @@ void Tank::draw() {
     //vẽ đạn của tank
     my_bullets.draw();
     
+    //vẽ HP
+    myHP.draw();
 }
 
 

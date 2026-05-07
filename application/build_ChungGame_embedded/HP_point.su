@@ -1,0 +1,5 @@
+sources/app/screens/game_objects/HP_point.cpp:4:1:HP_point::HP_point()	0	static
+sources/app/screens/game_objects/HP_point.cpp:9:6:void HP_point::update()	0	static
+sources/app/screens/game_objects/HP_point.cpp:14:6:void HP_point::subHP()	0	static
+sources/app/screens/game_objects/HP_point.cpp:18:6:bool HP_point::isDead()	0	static
+sources/app/screens/game_objects/HP_point.cpp:23:6:void HP_point::draw()	48	static

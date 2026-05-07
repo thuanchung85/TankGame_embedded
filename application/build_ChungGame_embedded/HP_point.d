@@ -1,6 +1,6 @@
-build_ChungGame_embedded/Tank.o: \
- sources/app/screens/game_objects/Tank.cpp \
- sources/app/screens/game_objects/Tank.h \
+build_ChungGame_embedded/HP_point.o: \
+ sources/app/screens/game_objects/HP_point.cpp \
+ sources/app/screens/game_objects/HP_point.h \
  sources/app/screens/game_objects/../bitmap_data/screens_bitmap.h \
  sources/common/view_render.h sources/common/view_item.h \
  /home/luong/workspace/tools/gcc-arm-none-eabi-10.3-2021.10/lib/gcc/arm-none-eabi/10.3.1/include/stdint.h \
@@ -104,6 +104,4 @@ build_ChungGame_embedded/Tank.o: \
  sources/platform/stm32l/arduino/cores/WString.h \
  /home/luong/workspace/tools/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/ctype.h \
  sources/platform/stm32l/arduino/cores/stm32/pgmspace.h \
- /home/luong/workspace/tools/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/inttypes.h \
- sources/app/screens/game_objects/Canon_Bullet.h \
- sources/app/screens/game_objects/HP_point.h
+ /home/luong/workspace/tools/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/inttypes.h

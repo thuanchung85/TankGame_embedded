@@ -14,6 +14,7 @@ extern const unsigned char PROGMEM bitmap_house2 [];
 extern const unsigned char PROGMEM bitmap_house3 [];
 extern const unsigned char PROGMEM bitmap_house4 [];
 extern const unsigned char PROGMEM bitmap_myTank_canon_bullet [];
+extern const unsigned char PROGMEM bitmap_HP [];
 
 
 #endif

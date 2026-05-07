@@ -161,6 +161,7 @@ build_ChungGame_embedded/scr_tank.o: sources/app/screens/scr_tank.cpp \
  sources/app/screens/game_objects/Tank.h \
  sources/app/screens/game_objects/../bitmap_data/screens_bitmap.h \
  sources/app/screens/game_objects/Canon_Bullet.h \
+ sources/app/screens/game_objects/HP_point.h \
  sources/app/screens/game_objects/Ground.h \
  sources/app/screens/game_objects/Tree.h \
  sources/app/screens/game_objects/Mountain.h \

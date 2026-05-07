@@ -3,6 +3,7 @@
 
 #include "../bitmap_data/screens_bitmap.h"
 #include "Canon_Bullet.h"
+#include "HP_point.h"
 
 class Tank {
 public:
@@ -11,6 +12,7 @@ public:
     int8_t frame_count;
 
     Canon_Bullet my_bullets; // Cho phép tối đa 3 viên đạn trên màn hình
+    HP_point myHP;//chỉ số HP của tank = 3
     
     Tank();         // Khai báo Constructor
     void update();  // Khai báo hàm cập nhật
