@@ -9,7 +9,8 @@
 class Tank {
 public:
     int8_t x;//game play chỉ có 2 nut bấm cho xe tank tới lui né tránh đạn
-    int8_t speed;
+    int8_t target_x; // Tọa độ mà tank muốn hướng tới
+    bool isMoving;
     int8_t frame_count;
     int8_t frame_count2;
 
@@ -23,6 +24,9 @@ public:
 
     void tank_fire_canon(); //khai báo hàm tank bắn 
     void tank_fire_gun();
+
+    void moveForward(); // Tiến lên
+    void moveBackward(); // Lùi lại
 };
 
 #endif

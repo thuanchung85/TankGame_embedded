@@ -42,17 +42,17 @@ void btn_up_callback(void* b) {
 	button_t* me_b = (button_t*)b;
 	switch (me_b->state) {
 	case BUTTON_SW_STATE_PRESSED: {
-		APP_DBG("[btn_up_callback] BUTTON_SW_STATE_PRESSED\n");
+		//APP_DBG("[btn_up_callback] BUTTON_SW_STATE_PRESSED\n");
 	}
 		break;
 
 	case BUTTON_SW_STATE_LONG_PRESSED: {
-		APP_DBG("[btn_up_callback] BUTTON_SW_STATE_LONG_PRESSED\n");
+		//APP_DBG("[btn_up_callback] BUTTON_SW_STATE_LONG_PRESSED\n");
 	}
 		break;
 
 	case BUTTON_SW_STATE_RELEASED: {
-		APP_DBG("[btn_up_callback] BUTTON_SW_STATE_RELEASED\n");
+		//APP_DBG("[btn_up_callback] BUTTON_SW_STATE_RELEASED\n");
 		task_post_pure_msg(AC_TASK_DISPLAY_ID, AC_DISPLAY_BUTON_UP_RELEASED);
 	}
 		break;

@@ -3,11 +3,22 @@
 // Định nghĩa Constructor
 Tank::Tank() {
     x = 20;
-    speed = 0;
+    target_x = 20;
+    isMoving = false;
 }
 
 // Hàm cập nhật trạng thái 
 void Tank::update() {
+
+    if(isMoving == true)
+    {
+        if (x < target_x) x += 1;
+
+        if (x > target_x) x -= 1;
+
+        if(x == target_x) isMoving = false;
+    }
+   
 
     //cứ 50 frame bắn 1 viên canon
     frame_count++;
@@ -67,4 +78,25 @@ void Tank::tank_fire_gun() {
             my_gun_bullets.fire(x + 18, 31); 
         }
 
+}
+
+void Tank::moveForward() {
+    if(isMoving == false)
+    {
+        if (x < 65-30) { // Giới hạn mép phải màn hình (trừ đi chiều rộng tank)
+            target_x += 10; // Chỉ thay đổi con số, rất nhẹ cho RAM
+            isMoving = true;
+        }
+    }
+   
+}
+
+void Tank::moveBackward() {
+    if(isMoving == false){
+        if (x > 0) { // Giới hạn mép trái màn hình
+            target_x -= 10; // Chỉ thay đổi con số, rất nhẹ cho RAM
+            isMoving = true;
+        }
+    }
+   
 }

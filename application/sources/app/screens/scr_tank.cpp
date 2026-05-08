@@ -75,14 +75,14 @@ void scr_tank_handle(ak_msg_t* msg){
             // Bắt đầu gửi tin nhắn cập nhật màn hình định kỳ
             timer_set(AC_TASK_DISPLAY_ID, 
               AC_DISPLAY_SHOW_TANK_MOVING_UPDATE, // Bạn có thể định nghĩa signal mới này
-              30, // Cập nhật mỗi 30ms
+              60, // Cập nhật mỗi 60ms, chú ý update thời gian càng ngắn thì bộ RAM càng nhanh bị tràn
               TIMER_PERIODIC);
 
             break;
 
         //TANK UPDATE LOOP
         case AC_DISPLAY_SHOW_TANK_MOVING_UPDATE: {
-            APP_DBG("TANK: I alive now tick!\n");
+            //APP_DBG("TANK: I alive now tick!\n");
 
             my_ground.update();//update thông số cuộn mặt đất, để nó chạy từ phải qua trái
             my_tank.update(); // Cập nhật các hiệu ứng của tank nếu có
@@ -107,6 +107,16 @@ void scr_tank_handle(ak_msg_t* msg){
             SCREEN_TRAN(scr_idle_handle, &scr_idle);
             APP_DBG("TANK: Mode Button Released -> Returning to Idle\n");
             }
+            break;
+
+        case AC_DISPLAY_BUTON_UP_RELEASED:
+            // Khi bấm nút UP -> Tank tiến lên
+            my_tank.moveForward();
+            break;
+
+        case AC_DISPLAY_BUTON_DOWN_RELEASED:
+            // Khi bấm nút DOWN -> Tank lùi lại
+            my_tank.moveBackward();
             break;
 
         default:
