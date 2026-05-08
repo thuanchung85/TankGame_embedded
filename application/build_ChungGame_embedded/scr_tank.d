@@ -166,4 +166,5 @@ build_ChungGame_embedded/scr_tank.o: sources/app/screens/scr_tank.cpp \
  sources/app/screens/game_objects/Ground.h \
  sources/app/screens/game_objects/Tree.h \
  sources/app/screens/game_objects/Mountain.h \
- sources/app/screens/game_objects/House.h
+ sources/app/screens/game_objects/House.h \
+ sources/app/screens/game_objects/Score.h

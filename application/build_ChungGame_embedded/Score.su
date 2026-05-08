@@ -1,0 +1,4 @@
+sources/app/screens/game_objects/Score.cpp:4:1:Score::Score()	0	static
+sources/app/screens/game_objects/Score.cpp:9:6:void Score::update()	0	static
+sources/app/screens/game_objects/Score.cpp:18:6:void Score::add()	0	static
+sources/app/screens/game_objects/Score.cpp:23:6:void Score::draw()	24	static

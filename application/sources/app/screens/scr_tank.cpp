@@ -4,6 +4,7 @@
 #include "game_objects/Tree.h"
 #include "game_objects/Mountain.h"
 #include "game_objects/House.h"
+#include "game_objects/Score.h"
 
 
 //================================================GAME LOOP AREA=======================================================//
@@ -13,6 +14,8 @@ static Ground my_ground;//mặt đất cuộn
 static Tree my_tree;//cây trên mặt đất
 static Mountain my_mountain;//núi ở xa
 static House my_house;//nhà ở xa
+static Score my_score;//điểm số
+
 
 // 1. ================Phần Hiển thị (Rendering)========================
 //Đây là hàm vẽ. Mỗi khi màn hình cần làm mới, hệ thống sẽ gọi hàm này.
@@ -32,6 +35,9 @@ static void view_scr_tank(){
 
     //draw ground đang cuộn
     my_ground.draw();
+
+    //draw score
+    my_score.draw();
 
 };
 
@@ -84,6 +90,8 @@ void scr_tank_handle(ak_msg_t* msg){
 
             my_house.update();//nhà update vị trí
             my_mountain.update();//núi ở xa nhất update chậm nhất
+
+            my_score.update();//update score
         }
         break;
 
