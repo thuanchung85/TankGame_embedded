@@ -230,9 +230,14 @@ const unsigned char PROGMEM bitmap_house4 [] = {
 	0x00, 0x7c, 0x7e, 0x00, 0x00, 0x7c, 0x7e, 0x00
 };
 
-// 'bullet (1)', 5x3px
+// 'bullet of canon on tank', 5x3px
 const unsigned char PROGMEM bitmap_myTank_canon_bullet [] = {
 	0x70, 0x78, 0x70
+};
+
+// 'bullet of the gun on tank', 2x1px
+const unsigned char PROGMEM bitmap_myTank_gun_bullet [] = {
+	0xc0
 };
 
 // 'HP', 10x8px

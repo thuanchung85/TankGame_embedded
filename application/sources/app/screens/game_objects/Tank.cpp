@@ -9,16 +9,24 @@ Tank::Tank() {
 // Hàm cập nhật trạng thái 
 void Tank::update() {
 
-    //cứ 10 frame bắn 1 viên
+    //cứ 50 frame bắn 1 viên canon
     frame_count++;
     if(frame_count >= 50)
     {
-        tank_fire();
+        tank_fire_canon();
         frame_count = 0;
+    }
+    
+    frame_count2++;
+    if(frame_count2 >= 30)
+    {
+        tank_fire_gun();
+        frame_count2 = 0;
     }
 
     // update các viên đạn của tank
-    my_bullets.update();
+    my_canon_bullets.update();
+    my_gun_bullets.update();
 
     //HP update
     myHP.update();
@@ -34,19 +42,29 @@ void Tank::draw() {
     view_render.drawBitmap(x, 30, bitmap_tank, 30, 30, WHITE);
 
     //vẽ đạn của tank
-    my_bullets.draw();
+    my_canon_bullets.draw();
+    my_gun_bullets.draw();
     
     //vẽ HP
     myHP.draw();
 }
 
 
-// Hàm xử lý khi bấm nút bắn (ví dụ nút UP hoặc nút OK)
-void Tank::tank_fire() {
+// Hàm xử lý khi tank bắn canon
+void Tank::tank_fire_canon() {
    
-        if (!my_bullets.is_active) {
+        if (!my_canon_bullets.is_active) {
             // Bắn ra từ vị trí đầu nòng pháo (khoảng x+30, y+5 của xe tank)
-            my_bullets.fire(x + 25, 38); 
+            my_canon_bullets.fire(x + 25, 38); 
         }
-    
+
+}
+// Hàm xử lý khi tank bắn gun
+void Tank::tank_fire_gun() {
+   
+        if (!my_gun_bullets.is_active) {
+            // Bắn ra từ vị trí đầu nòng gun
+            my_gun_bullets.fire(x + 18, 31); 
+        }
+
 }

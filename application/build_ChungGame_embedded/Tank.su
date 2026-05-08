@@ -1,4 +1,5 @@
 sources/app/screens/game_objects/Tank.cpp:4:1:Tank::Tank()	8	static
-sources/app/screens/game_objects/Tank.cpp:28:6:void Tank::draw()	32	static
-sources/app/screens/game_objects/Tank.cpp:45:6:void Tank::tank_fire()	0	static
+sources/app/screens/game_objects/Tank.cpp:36:6:void Tank::draw()	32	static
+sources/app/screens/game_objects/Tank.cpp:54:6:void Tank::tank_fire_canon()	0	static
+sources/app/screens/game_objects/Tank.cpp:63:6:void Tank::tank_fire_gun()	0	static
 sources/app/screens/game_objects/Tank.cpp:10:6:void Tank::update()	8	static
