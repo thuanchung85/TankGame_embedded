@@ -6,6 +6,7 @@
 #include "game_objects/House.h"
 #include "game_objects/Score.h"
 #include "game_objects/Enemy.h"
+#include "game_objects/Trap.h"
 
 //================================================GAME LOOP AREA=======================================================//
 //============KHAI BÁO: Biến và object ========//
@@ -16,7 +17,7 @@ static Mountain my_mountain;//núi ở xa
 static House my_house;//nhà ở xa
 static Score my_score;//điểm số
 static Enemy my_enemy; //địch
-
+static Trap my_trap; //các trap như là rocket
 
 // 1. ================Phần Hiển thị (Rendering)========================
 //Đây là hàm vẽ. Mỗi khi màn hình cần làm mới, hệ thống sẽ gọi hàm này.
@@ -36,6 +37,9 @@ static void view_scr_game(){
 
     //draw địch
     my_enemy.draw();
+
+     //draw trap
+    my_trap.draw();
 
     //draw ground đang cuộn
     my_ground.draw();
@@ -92,6 +96,7 @@ void scr_game_handle(ak_msg_t* msg){
             my_tank.update(); // Cập nhật các hiệu ứng của tank nếu có
             my_tree.update();//di chuyển cây 
             my_enemy.update();//update xe tank địch
+            my_trap.update();
             my_house.update();//nhà update vị trí
             my_mountain.update();//núi ở xa nhất update chậm nhất
 

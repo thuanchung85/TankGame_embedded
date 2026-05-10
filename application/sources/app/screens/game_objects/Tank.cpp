@@ -83,7 +83,7 @@ void Tank::tank_fire_gun() {
 void Tank::moveForward() {
     if(isMoving == false)
     {
-        if (x < 65-30) { // Giới hạn mép phải màn hình (trừ đi chiều rộng tank)
+        if (x < 100-30) { // Giới hạn mép phải màn hình (trừ đi chiều rộng tank)
             target_x += 10; // Chỉ thay đổi con số, rất nhẹ cho RAM
             isMoving = true;
         }

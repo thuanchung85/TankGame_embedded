@@ -14,3 +14,4 @@ SOURCES_CPP += sources/app/screens/game_objects/House.cpp
 SOURCES_CPP += sources/app/screens/game_objects/HP_point.cpp
 SOURCES_CPP += sources/app/screens/game_objects/Score.cpp
 SOURCES_CPP += sources/app/screens/game_objects/Enemy.cpp
+SOURCES_CPP += sources/app/screens/game_objects/Trap.cpp

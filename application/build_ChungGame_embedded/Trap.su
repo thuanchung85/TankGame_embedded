@@ -1,0 +1,3 @@
+sources/app/screens/game_objects/Trap.cpp:4:1:Trap::Trap()	8	static
+sources/app/screens/game_objects/Trap.cpp:10:6:void Trap::update()	8	static
+sources/app/screens/game_objects/Trap.cpp:19:6:void Trap::draw()	24	static
