@@ -168,4 +168,4 @@ build_ChungGame_embedded/scr_game.o: sources/app/screens/scr_game.cpp \
  sources/app/screens/game_objects/Mountain.h \
  sources/app/screens/game_objects/House.h \
  sources/app/screens/game_objects/Score.h \
- sources/app/screens/game_objects/Enemy_Tank.h
+ sources/app/screens/game_objects/Enemy.h

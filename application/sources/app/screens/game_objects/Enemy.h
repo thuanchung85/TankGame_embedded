@@ -1,15 +1,15 @@
-#ifndef ENEMY_TANK_H
-#define ENEMY_TANK_H
+#ifndef ENEMY_H
+#define ENEMY_H
 
 #include "../bitmap_data/screens_bitmap.h"
 
-class Enemy_Tank {
+class Enemy {
 public:
     short x;
-    int8_t y;
     int8_t frame_count;
+    int8_t enemy_type;
  
-    Enemy_Tank();         // Khai báo Constructor
+    Enemy();         // Khai báo Constructor
     void update();  // Khai báo hàm cập nhật
     void draw();    // Khai báo hàm vẽ
 

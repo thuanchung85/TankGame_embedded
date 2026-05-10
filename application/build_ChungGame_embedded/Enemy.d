@@ -1,6 +1,6 @@
-build_ChungGame_embedded/Enemy_Tank.o: \
- sources/app/screens/game_objects/Enemy_Tank.cpp \
- sources/app/screens/game_objects/Enemy_Tank.h \
+build_ChungGame_embedded/Enemy.o: \
+ sources/app/screens/game_objects/Enemy.cpp \
+ sources/app/screens/game_objects/Enemy.h \
  sources/app/screens/game_objects/../bitmap_data/screens_bitmap.h \
  sources/common/view_render.h sources/common/view_item.h \
  /home/luong/workspace/tools/gcc-arm-none-eabi-10.3-2021.10/lib/gcc/arm-none-eabi/10.3.1/include/stdint.h \

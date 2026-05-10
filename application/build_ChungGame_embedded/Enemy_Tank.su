@@ -1,3 +1,0 @@
-sources/app/screens/game_objects/Enemy_Tank.cpp:4:1:Enemy_Tank::Enemy_Tank()	8	static
-sources/app/screens/game_objects/Enemy_Tank.cpp:10:6:void Enemy_Tank::update()	8	static
-sources/app/screens/game_objects/Enemy_Tank.cpp:23:6:void Enemy_Tank::draw()	24	static

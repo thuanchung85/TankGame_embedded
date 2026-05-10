@@ -17,5 +17,8 @@ extern const unsigned char PROGMEM bitmap_myTank_canon_bullet [];
 extern const unsigned char PROGMEM bitmap_HP [];
 extern const unsigned char PROGMEM bitmap_myTank_gun_bullet [];
 extern const unsigned char PROGMEM bitmap_enemy_tank [];
-
+extern const unsigned char PROGMEM bitmap_enemy_air_plane [];
+extern const unsigned char PROGMEM bitmap_enemy_mine [];
+extern const unsigned char PROGMEM bitmap_enemy_rocket [];
+extern const unsigned char PROGMEM bitmap_enemy_troop [];
 #endif

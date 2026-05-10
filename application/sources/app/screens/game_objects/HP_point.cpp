@@ -2,7 +2,7 @@
 
 // Định nghĩa Constructor
 HP_point::HP_point() {
-    hpPoint = 2; // Mặc định là hp point = 2
+    hpPoint = 1; // Mặc định là hp point = 1
 }
 
 // Hàm cập nhật trạng thái 

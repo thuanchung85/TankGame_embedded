@@ -5,7 +5,7 @@
 #include "game_objects/Mountain.h"
 #include "game_objects/House.h"
 #include "game_objects/Score.h"
-#include "game_objects/Enemy_Tank.h"
+#include "game_objects/Enemy.h"
 
 //================================================GAME LOOP AREA=======================================================//
 //============KHAI BÁO: Biến và object ========//
@@ -15,7 +15,7 @@ static Tree my_tree;//cây trên mặt đất
 static Mountain my_mountain;//núi ở xa
 static House my_house;//nhà ở xa
 static Score my_score;//điểm số
-static Enemy_Tank enemyTank; //xe tank địch
+static Enemy my_enemy; //địch
 
 
 // 1. ================Phần Hiển thị (Rendering)========================
@@ -34,8 +34,8 @@ static void view_scr_game(){
     //draw xe tank
     my_tank.draw();
 
-    //draw xe tank địch
-    enemyTank.draw();
+    //draw địch
+    my_enemy.draw();
 
     //draw ground đang cuộn
     my_ground.draw();
@@ -91,7 +91,7 @@ void scr_game_handle(ak_msg_t* msg){
             my_ground.update();//update thông số cuộn mặt đất, để nó chạy từ phải qua trái
             my_tank.update(); // Cập nhật các hiệu ứng của tank nếu có
             my_tree.update();//di chuyển cây 
-            enemyTank.update();//update xe tank địch
+            my_enemy.update();//update xe tank địch
             my_house.update();//nhà update vị trí
             my_mountain.update();//núi ở xa nhất update chậm nhất
 
