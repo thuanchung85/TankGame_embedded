@@ -21,4 +21,8 @@ extern const unsigned char PROGMEM bitmap_enemy_air_plane [];
 extern const unsigned char PROGMEM bitmap_enemy_mine [];
 extern const unsigned char PROGMEM bitmap_enemy_rocket [];
 extern const unsigned char PROGMEM bitmap_enemy_troop [];
+extern const unsigned char PROGMEM bitmap_bum[];
+extern const unsigned char PROGMEM bitmap_bum2[];
+extern const unsigned char PROGMEM bitmap_bum3[];
+
 #endif

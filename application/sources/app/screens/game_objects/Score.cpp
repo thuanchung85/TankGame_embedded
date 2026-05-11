@@ -7,16 +7,18 @@ Score::Score() {
 
 // Hàm cập nhật trạng thái 
 void Score::update() {
-    frame_count++;
+   /*
+     frame_count++;
     if(frame_count >= 100)
     {
         current_score++;
         frame_count = 0;
     }
+   */
 }
 
 void Score::add() {
-   
+   current_score+=10;
 }
 
 // Hàm vẽ 

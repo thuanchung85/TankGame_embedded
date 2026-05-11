@@ -5,8 +5,7 @@
 
 class Score {
 public: 
-    int8_t current_score;
-    unsigned short frame_count;//cứ sau 1 lượng frame thí cộng 1 điểm
+    unsigned short current_score;
  
     Score();         // Khai báo Constructor
     void update();  // Khai báo hàm cập nhật

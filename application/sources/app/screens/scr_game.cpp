@@ -92,10 +92,36 @@ void scr_game_handle(ak_msg_t* msg){
         case AC_DISPLAY_SHOW_TANK_MOVING_UPDATE: {
             //APP_DBG("TANK: I alive now tick!\n");
 
+           
+
             my_ground.update();//update thông số cuộn mặt đất, để nó chạy từ phải qua trái
             my_tank.update(); // Cập nhật các hiệu ứng của tank nếu có
+            
+             // Kiểm tra va chạm giữa đạn Canon và Enemy
+            if (my_tank.my_canon_bullets.is_active) 
+            {
+                // Giả sử viên đạn canon của bạn có kích thước 5x3 như trong code vẽ
+                if (my_enemy.checkCollision(my_tank.my_canon_bullets.x, 
+                                            my_tank.my_canon_bullets.y, 5, 3)) {
+                    
+                    // XỬ LÝ KHI TRÚNG ĐÍCH:
+                    my_tank.my_canon_bullets.is_active = false; // Mất viên đạn
+                    
+                    // Bật trạng thái nổ thay vì biến mất ngay
+                    my_enemy.isExploding = true;
+                    my_enemy.explosionTimer = 0;
+                    
+                    // Cộng điểm
+                    my_score.add(); 
+                    
+                    // Có thể thêm tiếng Bíp chúc mừng
+                    BUZZER_PlayTones(tones_3beep);
+                }
+            }
+             my_enemy.update();//update xe tank địch
+
             my_tree.update();//di chuyển cây 
-            my_enemy.update();//update xe tank địch
+           
             my_trap.update();
             my_house.update();//nhà update vị trí
             my_mountain.update();//núi ở xa nhất update chậm nhất
