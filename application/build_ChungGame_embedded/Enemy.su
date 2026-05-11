@@ -1,4 +1,5 @@
+sources/app/screens/game_objects/Enemy.cpp:12:6:void Enemy::reset()	8	static
 sources/app/screens/game_objects/Enemy.cpp:4:1:Enemy::Enemy()	8	static
-sources/app/screens/game_objects/Enemy.cpp:12:6:void Enemy::update()	8	static
-sources/app/screens/game_objects/Enemy.cpp:73:6:void Enemy::draw()	24	static
-sources/app/screens/game_objects/Enemy.cpp:108:6:bool Enemy::checkCollision(short int, short int, short int, short int)	16	static
+sources/app/screens/game_objects/Enemy.cpp:25:6:void Enemy::update()	8	static
+sources/app/screens/game_objects/Enemy.cpp:90:6:void Enemy::draw()	24	static
+sources/app/screens/game_objects/Enemy.cpp:139:6:bool Enemy::checkCollision(short int, short int, short int, short int)	16	static

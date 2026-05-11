@@ -27,13 +27,6 @@ void Tank::update() {
         tank_fire_canon();
         frame_count = 0;
     }
-    
-    frame_count2++;
-    if(frame_count2 >= 30)
-    {
-        tank_fire_gun();
-        frame_count2 = 0;
-    }
 
     // update các viên đạn của tank
     my_canon_bullets.update();
@@ -71,13 +64,11 @@ void Tank::tank_fire_canon() {
 
 }
 // Hàm xử lý khi tank bắn gun
-void Tank::tank_fire_gun() {
-   
-        if (!my_gun_bullets.is_active) {
-            // Bắn ra từ vị trí đầu nòng gun
-            my_gun_bullets.fire(x + 18, 31); 
-        }
-
+void Tank::tank_fire_gun(short enemyY) {
+    if (!my_gun_bullets.is_active) {
+        // Truyền thêm enemyY để viên đạn biết hướng bay
+        my_gun_bullets.fire(x + 18, 31, enemyY); 
+    }
 }
 
 void Tank::moveForward() {

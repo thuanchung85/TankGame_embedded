@@ -96,29 +96,69 @@ void scr_game_handle(ak_msg_t* msg){
 
             my_ground.update();//update thông số cuộn mặt đất, để nó chạy từ phải qua trái
             my_tank.update(); // Cập nhật các hiệu ứng của tank nếu có
-            
-             // Kiểm tra va chạm giữa đạn Canon và Enemy
+            // Tự động bắn Gun nếu thấy máy bay
+            if (my_enemy.enemy_type == 1 && my_enemy.x < 120) { 
+                // Truyền y của máy bay vào (y=5 trong class Enemy của bạn)
+                my_tank.tank_fire_gun(5); 
+            }
+            // Kiểm tra va chạm giữa đạn Canon và Enemy tank, mine, troop
             if (my_tank.my_canon_bullets.is_active) 
             {
-                // Giả sử viên đạn canon của bạn có kích thước 5x3 như trong code vẽ
-                if (my_enemy.checkCollision(my_tank.my_canon_bullets.x, 
-                                            my_tank.my_canon_bullets.y, 5, 3)) {
-                    
-                    // XỬ LÝ KHI TRÚNG ĐÍCH:
-                    my_tank.my_canon_bullets.is_active = false; // Mất viên đạn
-                    
-                    // Bật trạng thái nổ thay vì biến mất ngay
-                    my_enemy.isExploding = true;
-                    my_enemy.explosionTimer = 0;
-                    
-                    // Cộng điểm
-                    my_score.add(); 
-                    
-                    // Có thể thêm tiếng Bíp chúc mừng
-                    BUZZER_PlayTones(tones_3beep);
+                 if(my_enemy.enemy_type != 1)
+                {
+                    // Giả sử viên đạn canon của bạn có kích thước 5x3 như trong code vẽ
+                    if (my_enemy.checkCollision(my_tank.my_canon_bullets.x, 
+                                                my_tank.my_canon_bullets.y, 5, 3)) {
+                        // 1. Vô hiệu hóa viên đạn ngay lập tức
+                        my_tank.my_canon_bullets.is_active = false;
+                        
+                        // 2. Trừ máu kẻ địch
+                        my_enemy.hp--;
+
+                        // 3. Kiểm tra xem kẻ địch đã chết chưa
+                        if (my_enemy.hp <= 0) {
+                            // Kẻ địch bị tiêu diệt
+                            my_enemy.isExploding = true;
+                            my_enemy.explosionTimer = 0;
+                            my_score.add(); 
+                            BUZZER_PlayTones(tones_3beep); // Tiếng bíp báo hiệu tiêu diệt
+                        } else {
+                            // Kẻ địch còn máu (xe tank trúng phát đầu)
+                            
+                        }
+                    }
                 }
             }
-             my_enemy.update();//update xe tank địch
+            //kiểm tra va chạm gun và máy bay (1)
+            if(my_tank.my_gun_bullets.is_active)
+            {
+                if(my_enemy.enemy_type == 1)
+                {
+                    // Giả sử viên đạn gun của bạn có kích thước 2x1 như trong code vẽ
+                    if (my_enemy.checkCollision(my_tank.my_gun_bullets.x, 
+                                                my_tank.my_gun_bullets.y, 2, 1)) {
+                        // 1. Vô hiệu hóa viên đạn ngay lập tức
+                        my_tank.my_gun_bullets.is_active = false;
+                        
+                        // 2. Trừ máu kẻ địch
+                        my_enemy.hp--;
+
+                        // 3. Kiểm tra xem kẻ địch đã chết chưa
+                        if (my_enemy.hp <= 0) {
+                            // Kẻ địch bị tiêu diệt
+                            my_enemy.isExploding = true;
+                            my_enemy.explosionTimer = 0;
+                            my_score.add(); 
+                            BUZZER_PlayTones(tones_3beep); // Tiếng bíp báo hiệu tiêu diệt
+                        } else {
+                            // Kẻ địch còn máu (xe tank trúng phát đầu)
+                            
+                        }
+                    }
+                }
+            }
+
+            my_enemy.update();//update xe tank địch
 
             my_tree.update();//di chuyển cây 
            

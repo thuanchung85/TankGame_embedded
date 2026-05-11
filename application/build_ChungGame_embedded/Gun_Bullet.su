@@ -1,4 +1,4 @@
 sources/app/screens/game_objects/Gun_Bullet.cpp:4:1:Gun_Bullet::Gun_Bullet()	0	static
-sources/app/screens/game_objects/Gun_Bullet.cpp:8:6:void Gun_Bullet::fire(short int, short int)	0	static
-sources/app/screens/game_objects/Gun_Bullet.cpp:15:6:void Gun_Bullet::update()	0	static
-sources/app/screens/game_objects/Gun_Bullet.cpp:24:6:void Gun_Bullet::draw()	24	static
+sources/app/screens/game_objects/Gun_Bullet.cpp:8:6:void Gun_Bullet::fire(short int, short int, short int)	0	static
+sources/app/screens/game_objects/Gun_Bullet.cpp:16:6:void Gun_Bullet::update()	0	static
+sources/app/screens/game_objects/Gun_Bullet.cpp:33:6:void Gun_Bullet::draw()	24	static

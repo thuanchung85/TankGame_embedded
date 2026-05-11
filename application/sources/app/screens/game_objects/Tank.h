@@ -12,7 +12,6 @@ public:
     int8_t target_x; // Tọa độ mà tank muốn hướng tới
     bool isMoving;
     int8_t frame_count;
-    int8_t frame_count2;
 
     Gun_Bullet my_gun_bullets;//đạn trên gun
     Canon_Bullet my_canon_bullets; // đạn canon
@@ -23,7 +22,7 @@ public:
     void draw();    // Khai báo hàm vẽ
 
     void tank_fire_canon(); //khai báo hàm tank bắn 
-    void tank_fire_gun();
+    void tank_fire_gun(short enemyY);
 
     void moveForward(); // Tiến lên
     void moveBackward(); // Lùi lại
