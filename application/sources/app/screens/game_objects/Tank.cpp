@@ -1,4 +1,7 @@
 #include "Tank.h"
+extern "C" {
+    #include "../../../../driver/buzzer/buzzer.h"
+}
 
 // Định nghĩa Constructor
 Tank::Tank() {
@@ -26,6 +29,7 @@ void Tank::update() {
     {
         tank_fire_canon();
         frame_count = 0;
+        BUZZER_PlaySound(BUZZER_SOUND_CLICK);
     }
 
     // update các viên đạn của tank

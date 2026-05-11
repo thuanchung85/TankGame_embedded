@@ -83,6 +83,7 @@ build_ChungGame_embedded/Tank.o: \
  sources/platform/stm32l/stm32l1xx_conf.h \
  sources/platform/stm32l/Libraries/CMSIS/Device/ST/STM32L1xx/Include/system_stm32l1xx.h \
  sources/common/container/ring_buffer.h \
+ sources/driver/buzzer/buzzer_music.h \
  sources/networks/mbmaster-v2.9.6/demo/STM32/Port/mbport.h \
  /home/luong/workspace/tools/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/assert.h \
  sources/networks/mbmaster-v2.9.6/mbmaster/include/mbm.h \
@@ -107,4 +108,5 @@ build_ChungGame_embedded/Tank.o: \
  /home/luong/workspace/tools/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/inttypes.h \
  sources/app/screens/game_objects/Canon_Bullet.h \
  sources/app/screens/game_objects/Gun_Bullet.h \
- sources/app/screens/game_objects/HP_point.h
+ sources/app/screens/game_objects/HP_point.h \
+ sources/libraries/ArduinoJson/src/ArduinoJson/../../../../driver/buzzer/buzzer.h

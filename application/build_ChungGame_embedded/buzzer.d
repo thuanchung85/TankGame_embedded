@@ -54,4 +54,5 @@ build_ChungGame_embedded/buzzer.o: sources/driver/buzzer/buzzer.c \
  /home/luong/workspace/tools/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/sys/lock.h \
  /home/luong/workspace/tools/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/sys/cdefs.h \
  /home/luong/workspace/tools/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/sys/string.h \
- /home/luong/workspace/tools/gcc-arm-none-eabi-10.3-2021.10/lib/gcc/arm-none-eabi/10.3.1/include/stdbool.h
+ /home/luong/workspace/tools/gcc-arm-none-eabi-10.3-2021.10/lib/gcc/arm-none-eabi/10.3.1/include/stdbool.h \
+ sources/driver/buzzer/buzzer_music.h

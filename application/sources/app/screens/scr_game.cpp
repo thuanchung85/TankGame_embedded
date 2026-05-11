@@ -79,7 +79,8 @@ void scr_game_handle(ak_msg_t* msg){
         //SCREEN_ENTRY: Một tín hiệu đặc biệt của AK, nó tự động kích hoạt khi màn hình tank vừa được bật lên.
         case SCREEN_ENTRY:
             APP_DBG(">> Entered TANK Screen Success!\n");
-           
+           BUZZER_PlaySound(BUZZER_SOUND_STARTUP);
+
             // Bắt đầu gửi tin nhắn cập nhật màn hình định kỳ
             timer_set(AC_TASK_DISPLAY_ID, 
               AC_DISPLAY_SHOW_TANK_MOVING_UPDATE, // Bạn có thể định nghĩa signal mới này
@@ -121,7 +122,7 @@ void scr_game_handle(ak_msg_t* msg){
                             my_enemy.isExploding = true;
                             my_enemy.explosionTimer = 0;
                             my_score.add(); 
-                            BUZZER_PlayTones(tones_3beep); // Tiếng bíp báo hiệu tiêu diệt
+                            BUZZER_PlaySound(BUZZER_SOUND_USB_DISCONNECTED); // Tiếng bíp báo hiệu tiêu diệt
                         } else {
                             // Kẻ địch còn máu (xe tank trúng phát đầu)
                             
@@ -149,7 +150,7 @@ void scr_game_handle(ak_msg_t* msg){
                             my_enemy.isExploding = true;
                             my_enemy.explosionTimer = 0;
                             my_score.add(); 
-                            BUZZER_PlayTones(tones_3beep); // Tiếng bíp báo hiệu tiêu diệt
+                            BUZZER_PlaySound(BUZZER_SOUND_BANG); // Tiếng bíp báo hiệu tiêu diệt
                         } else {
                             // Kẻ địch còn máu (xe tank trúng phát đầu)
                             

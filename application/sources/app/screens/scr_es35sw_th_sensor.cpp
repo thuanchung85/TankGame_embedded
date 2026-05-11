@@ -144,7 +144,7 @@ void scr_es35sw_th_sensor_handle(ak_msg_t* msg) {
 
 	case AC_DISPLAY_BUTON_UP_RELEASED: {
 		APP_DBG_SIG("AC_DISPLAY_BUTON_UP_RELEASED\n");
-		BUZZER_PlayTones(tones_3beep);
+		//BUZZER_PlayTones(tones_3beep);
 	}
 		break;
 
