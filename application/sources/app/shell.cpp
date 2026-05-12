@@ -871,26 +871,30 @@ int32_t shell_psv(uint8_t* argv) {
 int32_t shell_buzzer(uint8_t* argv) {
 	switch (*(argv + 5)) {
 	case 'i': {
-		//BUZZER_Init();
+		BUZZER_Init();
 	}
 		break;
 
 	case '1': {
+		BUZZER_PlaySound(BUZZER_SOUND_3BEEP);
 		//BUZZER_PlayTones(tones_startup);
 	}
 		break;
 
 	case '2': {
+		BUZZER_PlaySound(BUZZER_SOUND_3BEEP);
 		//BUZZER_PlayTones(tones_3beep);
 	}
 		break;
 
 	case '3': {
+		BUZZER_PlaySound(BUZZER_SOUND_STARTUP);
 		//BUZZER_PlayTones(tones_SMB);
 	}
 		break;
 
 	case '4': {
+		BUZZER_PlaySound(BUZZER_SOUND_MERRY_CHRISTMAS);
 		//BUZZER_PlayTones(tones_merryChrismast);
 	}
 		break;

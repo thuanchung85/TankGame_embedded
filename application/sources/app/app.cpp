@@ -162,6 +162,7 @@ int main_app() {
 
 	/* siren init */
 	BUZZER_Init();
+	BUZZER_PlaySound(BUZZER_SOUND_3BEEP);
 	//BUZZER_PlayTones(tones_startup);
 
 	/* get boot share data */

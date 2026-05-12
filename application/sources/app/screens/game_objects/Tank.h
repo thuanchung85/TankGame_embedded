@@ -12,6 +12,8 @@ public:
     int8_t target_x; // Tọa độ mà tank muốn hướng tới
     bool isMoving;
     int8_t frame_count;
+    bool isExploding;//tank bi nổ tung
+    int8_t explosion_timer;
 
     Gun_Bullet my_gun_bullets;//đạn trên gun
     Canon_Bullet my_canon_bullets; // đạn canon
@@ -26,6 +28,11 @@ public:
 
     void moveForward(); // Tiến lên
     void moveBackward(); // Lùi lại
+
+    void lossHP();//trừ HP của tank
+
+    // check va chạm với enemy
+    bool checkCollisionWithEnemy(short enemyX, short enemyY, short enemyW, short enemyH);
 };
 
 #endif

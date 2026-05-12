@@ -227,3 +227,23 @@ const Tone_TypeDef tones_merry_christmas[] = {
 	{3136, 9}, // G7
 	{   0, 0}
 };
+
+const Tone_TypeDef tones_my_explosion[] = {
+    {5000, 2}, // Tiếng đanh cực cao lúc bắt đầu nổ (20ms)
+    {3500, 3}, // Giảm dần tần số
+    {2000, 4}, // Trầm dần
+    {1000, 5}, // Kết thúc bằng tiếng ù trầm
+    {0, 0}     // Dừng
+};
+
+const Tone_TypeDef tones_firecracker[] = {
+    {5000, 2}, // Tiếng đanh cực cao lúc bắt đầu nổ (20ms)
+    {3500, 3}, // Giảm dần tần số
+    {2000, 4}, // Trầm dần
+    {1000, 5}, // Kết thúc bằng tiếng ù trầm
+    {4000, 2}, {0, 5}, // Phát 1
+    {4200, 2}, {0, 5}, // Phát 2
+    {3800, 2}, {0, 5}, // Phát 3
+    {3000, 10},        // Phát nổ lớn cuối cùng
+    {0, 0}
+};

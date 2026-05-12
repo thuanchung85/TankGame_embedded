@@ -98,6 +98,7 @@ void scr_lhio404_io_device_handle(ak_msg_t* msg) {
 
 	case AC_DISPLAY_BUTON_DOWN_RELEASED: {
 		APP_DBG_SIG("AC_DISPLAY_BUTON_DOWN_RELEASED\n");
+		BUZZER_PlaySound(BUZZER_SOUND_3BEEP);
 		//BUZZER_PlayTones(tones_3beep);
 	}
 		break;

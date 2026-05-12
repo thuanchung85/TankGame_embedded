@@ -97,6 +97,38 @@ void scr_game_handle(ak_msg_t* msg){
 
             my_ground.update();//update thông số cuộn mặt đất, để nó chạy từ phải qua trái
             my_tank.update(); // Cập nhật các hiệu ứng của tank nếu có
+
+            // Lấy thông tin kích thước Enemy để check va chạm
+            int8_t eW =25;
+            int8_t eH = 21;
+            int8_t eY = 33;
+            switch (my_enemy.enemy_type) {
+                case 0: eW = 25; eH = 21; eY = 33; break; // Tank địch
+                case 1: eW = 25; eH = 21; eY = 5;  break; // Máy bay
+                case 2: eW = 22; eH = 21; eY = 33; break; // Mìn
+                case 3: eW = 15; eH = 21; eY = 34; break; // Lính
+            }
+
+            // Kiểm tra va chạm giữa Tank mình và Enemy
+            // Lưu ý: Chỉ check khi enemy chưa nổ và tank chưa nổ
+            if (!my_enemy.isExploding) 
+            {
+                if (my_tank.checkCollisionWithEnemy(my_enemy.x, eY, eW, eH) && my_enemy.hp > 0) 
+                {
+                    
+                    // CẢ HAI CÙNG NỔ!
+                    my_enemy.isExploding = true;
+                    my_enemy.explosionTimer = 0;
+                    
+                    // Giả sử bạn thêm biến isExploding cho Tank
+                    my_tank.isExploding = true; 
+                    
+                    // Phát âm thanh nổ lớn
+                    BUZZER_PlaySound(BUZZER_SOUND_EXPLOSION);
+                }
+            }
+
+
             // Tự động bắn Gun nếu thấy máy bay
             if (my_enemy.enemy_type == 1 && my_enemy.x < 120) { 
                 // Truyền y của máy bay vào (y=5 trong class Enemy của bạn)
@@ -105,7 +137,7 @@ void scr_game_handle(ak_msg_t* msg){
             // Kiểm tra va chạm giữa đạn Canon và Enemy tank, mine, troop
             if (my_tank.my_canon_bullets.is_active) 
             {
-                 if(my_enemy.enemy_type != 1)
+                 if(my_enemy.enemy_type != 1 && my_enemy.hp > 0)
                 {
                     // Giả sử viên đạn canon của bạn có kích thước 5x3 như trong code vẽ
                     if (my_enemy.checkCollision(my_tank.my_canon_bullets.x, 
@@ -122,7 +154,7 @@ void scr_game_handle(ak_msg_t* msg){
                             my_enemy.isExploding = true;
                             my_enemy.explosionTimer = 0;
                             my_score.add(); 
-                            BUZZER_PlaySound(BUZZER_SOUND_USB_DISCONNECTED); // Tiếng bíp báo hiệu tiêu diệt
+                            BUZZER_PlaySound(BUZZER_SOUND_BANG); // Tiếng bíp báo hiệu tiêu diệt
                         } else {
                             // Kẻ địch còn máu (xe tank trúng phát đầu)
                             
@@ -133,7 +165,7 @@ void scr_game_handle(ak_msg_t* msg){
             //kiểm tra va chạm gun và máy bay (1)
             if(my_tank.my_gun_bullets.is_active)
             {
-                if(my_enemy.enemy_type == 1)
+                if(my_enemy.enemy_type == 1 && my_enemy.hp > 0)
                 {
                     // Giả sử viên đạn gun của bạn có kích thước 2x1 như trong code vẽ
                     if (my_enemy.checkCollision(my_tank.my_gun_bullets.x, 
@@ -150,7 +182,7 @@ void scr_game_handle(ak_msg_t* msg){
                             my_enemy.isExploding = true;
                             my_enemy.explosionTimer = 0;
                             my_score.add(); 
-                            BUZZER_PlaySound(BUZZER_SOUND_BANG); // Tiếng bíp báo hiệu tiêu diệt
+                            BUZZER_PlaySound(BUZZER_SOUND_EXPLOSION); // Tiếng bíp báo hiệu tiêu diệt
                         } else {
                             // Kẻ địch còn máu (xe tank trúng phát đầu)
                             

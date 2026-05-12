@@ -3,9 +3,6 @@
 // Định nghĩa Constructor
 Enemy::Enemy() {
     reset();
-    x = 130 + (rand() % 100);
-    enemy_type = 3;
-
 }
 
 // Hàm để reset kẻ địch khi nó chết hoặc đi hết màn hình
@@ -14,75 +11,39 @@ void Enemy::reset() {
     explosionTimer = 0;
     enemy_type = rand() % 4;
     // Gán HP tùy theo loại enemy
-    if (enemy_type == 0) { // Xe tank địch
+    if (enemy_type == 0 || enemy_type == 1) { // Xe tank địch, máy bay địch hp =2
         hp = 2;
     } else {               // Các loại khác (Troop, Air, Mine)
         hp = 1;
     }
+    x = 150 + (rand() % 100);//tọa độ reset enemy x = 150 + random
 }
 
 // Hàm cập nhật trạng thái 
 void Enemy::update() {
 
-    if (isExploding) {
+    if (isExploding) //nếu nổ tung
+    {
         explosionTimer++;
         if (explosionTimer > 9) {
             reset(); // Gọi hàm reset để hồi HP và chọn loại enemy mới
-            x = 130 + (rand() % 100);
-            enemy_type = rand() % 4;
-
         }
         return;
     }
-
-
-    switch (enemy_type)
+    else // nếu còn sống
     {
-        case 0://xe tank
-            //scroll trên mặt đất, cho nó di chuyển từ phải sang trái
-            x--;
-            // Nếu đã trôi hết qua trái màn hình
-            if (x < -35) {
-                reset();
-                x = 120 + (rand() % 100);
-                enemy_type = rand() % 4;//random ra enemy type, tank, troop, airplane, mine.
-            }        
-            break;
-
-        case 1:// máy bay
-            //scroll trên mặt đất, cho nó di chuyển từ phải sang trái
-            x--;
-            // Nếu đã trôi hết qua trái màn hình
-            if (x < -35) {
-                reset();
-                x = 150 + (rand() % 100);  
-                enemy_type = rand() % 4;//random ra enemy type, tank, troop, airplane, mine.
-            }        
-            break;
-
-        case 2://mìn
-            //scroll trên mặt đất, cho nó di chuyển từ phải sang trái
-            x--;
-            // Nếu đã trôi hết qua trái màn hình
-            if (x < -35) {
-                reset();
-                x = 140 + (rand() % 100);
-                enemy_type = rand() % 4;//random ra enemy type, tank, troop, airplane, mine, rocket.
-            }        
-            break;
-
-        case 3://troop
-            //scroll trên mặt đất, cho nó di chuyển từ phải sang trái
+        if(enemy_type == 3 || enemy_type == 1)//lính và máy bay di chuyển = 2
+        {
             x -= 2;
-            // Nếu đã trôi hết qua trái màn hình
-            if (x < -35) {
-                reset();
-                x = 135 + (rand() % 100); 
-                enemy_type = rand() % 4;//random ra enemy type, tank, troop, airplane, mine, rocket.
-            }    
-            break;
-    }
-    
+        }
+        else// tank và mìn di chuyển = 1
+        {
+            x--;
+        }
+        if (x < -35) {
+            reset();
+        }
+    }   
    
 }
 

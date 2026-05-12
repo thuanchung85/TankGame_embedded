@@ -8,53 +8,75 @@ Tank::Tank() {
     x = 20;
     target_x = 20;
     isMoving = false;
+    isExploding = false;
+    explosion_timer = 0;
 }
 
 // Hàm cập nhật trạng thái 
 void Tank::update() {
+    if(!isExploding)//nếu tank còn sống
+    { 
+        if(isMoving == true)
+        {
+            if (x < target_x) x += 1;
 
-    if(isMoving == true)
-    {
-        if (x < target_x) x += 1;
+            if (x > target_x) x -= 1;
 
-        if (x > target_x) x -= 1;
+            if(x == target_x) isMoving = false;
+        }
+    
 
-        if(x == target_x) isMoving = false;
+        //cứ 50 frame bắn 1 viên canon
+        frame_count++;
+        if(frame_count >= 50)
+        {
+            tank_fire_canon();
+            frame_count = 0;
+            
+            BUZZER_PlaySound(BUZZER_SOUND_CLICK);
+            
+        }
+
+        // update các viên đạn của tank
+        my_canon_bullets.update();
+        my_gun_bullets.update();
+
+        //HP update
+        myHP.update();
     }
-   
-
-    //cứ 50 frame bắn 1 viên canon
-    frame_count++;
-    if(frame_count >= 50)
+    else// nếu tank nổ tung
     {
-        tank_fire_canon();
-        frame_count = 0;
-        BUZZER_PlaySound(BUZZER_SOUND_CLICK);
+        explosion_timer++;
+        if(explosion_timer > 20) { // Sau khoảng 1.2s nổ thì thực hiện reset hoặc Game Over
+            // Gọi lệnh quay về màn hình Menu hoặc Restart game ở đây
+        }
     }
-
-    // update các viên đạn của tank
-    my_canon_bullets.update();
-    my_gun_bullets.update();
-
-    //HP update
-    myHP.update();
 }
 
 // Hàm vẽ tank
 void Tank::draw() {
-    //Lệnh này vẽ hình ảnh tank lên màn hình. 
-    // 20, 30: Tọa độ bắt đầu (góc trên cùng bên trái).
-    // bitmap_tank: Dữ liệu hình ảnh lấy từ screens_bitmap.h mà bạn thấy trong file header.
-    // 30, 30: Kích thước vùng vẽ (độ phân giải màn hình của bạn là 124x60). tank size 30x30
-    // WHITE: Màu sắc của hình ảnh.
-    view_render.drawBitmap(x, 30, bitmap_tank, 30, 30, WHITE);
+    if (isExploding) {
+        // Vẽ chuỗi bitmap nổ giống Enemy (bum, bum2, bum3)
+        if (explosion_timer < 5) view_render.drawBitmap(x, 30, bitmap_bum, 28, 20, WHITE);
+        else if (explosion_timer < 10) view_render.drawBitmap(x, 30, bitmap_bum2, 30, 26, WHITE);
+        // ...
+    }
+    else
+    {
+        //Lệnh này vẽ hình ảnh tank lên màn hình. 
+        // 20, 30: Tọa độ bắt đầu (góc trên cùng bên trái).
+        // bitmap_tank: Dữ liệu hình ảnh lấy từ screens_bitmap.h mà bạn thấy trong file header.
+        // 30, 30: Kích thước vùng vẽ (độ phân giải màn hình của bạn là 124x60). tank size 30x30
+        // WHITE: Màu sắc của hình ảnh.
+        view_render.drawBitmap(x, 30, bitmap_tank, 30, 30, WHITE);
 
-    //vẽ đạn của tank
-    my_canon_bullets.draw();
-    my_gun_bullets.draw();
-    
-    //vẽ HP
-    myHP.draw();
+        //vẽ đạn của tank
+        my_canon_bullets.draw();
+        my_gun_bullets.draw();
+        
+        //vẽ HP
+        myHP.draw();
+    }
 }
 
 
@@ -94,4 +116,28 @@ void Tank::moveBackward() {
         }
     }
    
+}
+
+// hàm va chạm với địch
+bool Tank::checkCollisionWithEnemy(short enemyX, short enemyY, short enemyW, short enemyH) {
+    int8_t tankW = 25; // Chiều rộng xe tank
+    int8_t tankH = 15; // Chiều cao xe tank
+    int8_t tankY = 30; // Tọa độ Y cố định của tank trên mặt đất
+
+    // Kiểm tra hình chữ nhật giao nhau giữa Tank và Enemy
+    if (x < enemyX + enemyW &&
+        x + tankW > enemyX &&
+        tankY < enemyY + enemyH &&
+        tankY + tankH > enemyY) {
+        return true; 
+    }
+    return false;
+}
+
+void Tank::lossHP(){
+    myHP.subHP();
+    if(myHP.hpPoint < 0)
+    {
+        isExploding = true;
+    }
 }

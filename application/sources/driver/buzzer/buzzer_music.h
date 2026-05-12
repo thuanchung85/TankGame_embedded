@@ -28,7 +28,9 @@ typedef enum {
 	BUZZER_SOUND_LOWSCORE,
 	BUZZER_SOUND_SUPER_MARIO,
 	BUZZER_SOUND_MERRY_CHRISTMAS,
-	BUZZER_SOUND_MAX
+	BUZZER_SOUND_MAX,
+    BUZZER_SOUND_EXPLOSION,
+    BUZZER_SOUND_FIRECRACKER
 } buzzer_sound_t;
 
 extern const Tone_TypeDef tones_click[];
@@ -44,6 +46,8 @@ extern const Tone_TypeDef tones_highscore[];
 extern const Tone_TypeDef tones_lowscore[];
 extern const Tone_TypeDef tones_smb[];
 extern const Tone_TypeDef tones_merry_christmas[];
+extern const Tone_TypeDef tones_my_explosion[];
+extern const Tone_TypeDef tones_firecracker[];
 
 #ifdef __cplusplus
 }
