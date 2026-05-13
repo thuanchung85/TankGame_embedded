@@ -11,6 +11,8 @@ public:
     void update();  // Khai báo hàm cập nhật
     void draw();    // Khai báo hàm vẽ
 
+    bool checkCollisionWithTank(short tankX, short tankY, short tankW, short tankH); //check va chạm với tank
+
 };
 
 #endif

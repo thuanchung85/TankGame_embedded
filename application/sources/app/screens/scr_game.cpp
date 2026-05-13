@@ -121,7 +121,8 @@ void scr_game_handle(ak_msg_t* msg){
                     my_enemy.explosionTimer = 0;
                     
                     // Giả sử bạn thêm biến isExploding cho Tank
-                    my_tank.isExploding = true; 
+                    my_tank.lossHP();
+                    //my_tank.isExploding = true; 
                     
                     // Phát âm thanh nổ lớn
                     BUZZER_PlaySound(BUZZER_SOUND_EXPLOSION);
@@ -195,7 +196,23 @@ void scr_game_handle(ak_msg_t* msg){
 
             my_tree.update();//di chuyển cây 
            
-            my_trap.update();
+            my_trap.update();//di chuyển rocket
+            // Kiểm tra va chạm với Rocket từ trên trời
+            if (!my_tank.isExploding) {
+                if (my_trap.checkCollisionWithTank(my_tank.x, 30, 25, 15)) {
+                    // 1. Tank mất máu
+                    my_tank.lossHP(); 
+                    
+                    // 2. Rocket nổ ngay lập tức (Reset về vị trí cũ)
+                    my_trap.y = -20;
+                    my_trap.x = rand() % 100;
+                    
+                    // 3. Hiệu ứng âm thanh và hình ảnh
+                    BUZZER_PlaySound(BUZZER_SOUND_BANG);
+                    //APP_DBG("TANK HIT BY ROCKET!\n");
+                }
+            }
+
             my_house.update();//nhà update vị trí
             my_mountain.update();//núi ở xa nhất update chậm nhất
 

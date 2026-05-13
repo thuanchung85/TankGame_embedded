@@ -136,7 +136,7 @@ bool Tank::checkCollisionWithEnemy(short enemyX, short enemyY, short enemyW, sho
 
 void Tank::lossHP(){
     myHP.subHP();
-    if(myHP.hpPoint < 0)
+    if(myHP.hpPoint <= 0)
     {
         isExploding = true;
     }
