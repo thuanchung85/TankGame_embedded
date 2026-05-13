@@ -19,9 +19,13 @@ static Score my_score;//điểm số
 static Enemy my_enemy; //địch
 static Trap my_trap; //các trap như là rocket
 
+bool isPaused = false;//biến trạng thái game play hay pause.
+
 // 1. ================Phần Hiển thị (Rendering)========================
 //Đây là hàm vẽ. Mỗi khi màn hình cần làm mới, hệ thống sẽ gọi hàm này.
-static void view_scr_game(){
+static void view_scr_game()
+{
+    
     //chú ý phải vẽ theo thứ tự object xa nhất ưu tiên vẽ trước, object gần nhất vẽ sau cùng.
     //draw mountain
     my_mountain.draw();
@@ -46,6 +50,13 @@ static void view_scr_game(){
 
     //draw score
     my_score.draw();
+
+    // Nếu đang Pause, vẽ bitmap ghi đè lên toàn bộ màn hình
+    if (isPaused) {
+        view_render.fillRect(0,0,130,65,BLACK); // Xóa sạch buffer
+        // Tọa độ (0,0), kích thước 124x60 theo bitmap bạn cung cấp
+        view_render.drawBitmap(0, 0, bitmap_game_pause, 124, 60, WHITE);
+    }
 
 };
 
@@ -79,7 +90,8 @@ void scr_game_handle(ak_msg_t* msg){
         //SCREEN_ENTRY: Một tín hiệu đặc biệt của AK, nó tự động kích hoạt khi màn hình tank vừa được bật lên.
         case SCREEN_ENTRY:
             APP_DBG(">> Entered TANK Screen Success!\n");
-           BUZZER_PlaySound(BUZZER_SOUND_STARTUP);
+            BUZZER_PlaySound(BUZZER_SOUND_STARTUP);
+            isPaused = false;//resume game
 
             // Bắt đầu gửi tin nhắn cập nhật màn hình định kỳ
             timer_set(AC_TASK_DISPLAY_ID, 
@@ -92,7 +104,10 @@ void scr_game_handle(ak_msg_t* msg){
         //TANK UPDATE LOOP
         case AC_DISPLAY_SHOW_TANK_MOVING_UPDATE: {
             //APP_DBG("TANK: I alive now tick!\n");
-
+            // NẾU ĐANG PAUSE -> THOÁT KHÔNG XỬ LÝ LOGIC
+            if (isPaused) {
+                return; 
+            }
            
 
             my_ground.update();//update thông số cuộn mặt đất, để nó chạy từ phải qua trái
@@ -225,23 +240,30 @@ void scr_game_handle(ak_msg_t* msg){
         //Khi bạn bấm và thả nút "Mode" trên mạch, code sẽ thực hiện lệnh bên trong.
         case AC_DISPLAY_BUTON_MODE_RELEASED: { 
             // Phải gỡ bỏ timer trước khi chuyển màn hình
-            timer_remove_attr(AC_TASK_DISPLAY_ID, AC_DISPLAY_SHOW_TANK_MOVING_UPDATE);
+            //timer_remove_attr(AC_TASK_DISPLAY_ID, AC_DISPLAY_SHOW_TANK_MOVING_UPDATE);
 
             //SCREEN_TRAN(scr_idle_handle, &scr_idle): Đây là lệnh Chuyển cảnh (Transition).
             // Nó sẽ thoát khỏi màn hình tank và quay về màn hình chờ (scr_idle).
-            SCREEN_TRAN(scr_idle_handle, &scr_idle);
-            APP_DBG("TANK: Mode Button Released -> Returning to Idle\n");
+            //SCREEN_TRAN(scr_idle_handle, &scr_idle);
+            //APP_DBG("TANK: Mode Button Released -> Returning to Idle\n");
+            isPaused = !isPaused; // Đảo trạng thái: Play <-> Pause
+            if (isPaused) {
+                APP_DBG("GAME PAUSED\n");
+                BUZZER_PlaySound(BUZZER_SOUND_CLICK); // Kêu bíp nhẹ báo hiệu
+            } else {
+                APP_DBG("GAME RESUMED\n");
+            }
             }
             break;
 
         case AC_DISPLAY_BUTON_UP_RELEASED:
             // Khi bấm nút UP -> Tank tiến lên
-            my_tank.moveForward();
+            if (!isPaused) my_tank.moveForward();
             break;
 
         case AC_DISPLAY_BUTON_DOWN_RELEASED:
             // Khi bấm nút DOWN -> Tank lùi lại
-            my_tank.moveBackward();
+            if (!isPaused) my_tank.moveBackward();
             break;
 
         default:

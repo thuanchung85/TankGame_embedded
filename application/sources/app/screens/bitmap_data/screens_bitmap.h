@@ -24,5 +24,8 @@ extern const unsigned char PROGMEM bitmap_enemy_troop [];
 extern const unsigned char PROGMEM bitmap_bum[];
 extern const unsigned char PROGMEM bitmap_bum2[];
 extern const unsigned char PROGMEM bitmap_bum3[];
+extern const unsigned char PROGMEM bitmap_game_pause[];
+extern const unsigned char PROGMEM bitmap_game_banner[];
+extern const unsigned char PROGMEM bitmap_game_over[];
 
 #endif
