@@ -64,7 +64,7 @@ static void view_scr_game()
         
         // Bạn có thể in thêm điểm số cuối cùng ở dưới banner
          view_render.setTextSize(1);
-         view_render.setCursor(95, 40);
+         view_render.setCursor(90, 30);
          view_render.print(my_score.current_score);
     } 
     // Nếu đang Pause, vẽ bitmap ghi đè lên toàn bộ màn hình
