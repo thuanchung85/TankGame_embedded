@@ -9,6 +9,7 @@
 #include "scr_es35sw_th_sensor.h"
 #include "scr_lhio404_io_device.h"
 #include "scr_game.h"
+#include "scr_banner_game.h"
 
 #define LCD_WIDTH			(124)
 #define LCD_HEIGHT			(60)

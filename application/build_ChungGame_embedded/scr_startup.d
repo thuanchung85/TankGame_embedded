@@ -158,4 +158,5 @@ build_ChungGame_embedded/scr_startup.o: \
  sources/networks/mbmaster-v2.9.6/mbmaster/include/common/mbportlayer.h \
  sources/app/screens/scr_lhio404_io_device.h \
  sources/app/screens/scr_game.h \
- sources/app/screens/bitmap_data/screens_bitmap.h
+ sources/app/screens/bitmap_data/screens_bitmap.h \
+ sources/app/screens/scr_banner_game.h

@@ -268,15 +268,17 @@ void scr_game_handle(ak_msg_t* msg){
             if (isGameOver) {
                 // Nếu đang Game Over, bấm MODE để RESTART hoặc về IDLE
                 reset_game();
+                // Phải gỡ bỏ timer trước khi chuyển màn hình
+                timer_remove_attr(AC_TASK_DISPLAY_ID, AC_DISPLAY_SHOW_TANK_MOVING_UPDATE);
+
+                //SCREEN_TRAN(scr_idle_handle, &scr_idle): Đây là lệnh Chuyển cảnh (Transition).
+                // Nó sẽ thoát khỏi màn hình tank và quay về màn hình chờ (scr_idle).
+                SCREEN_TRAN(scr_banner_game_handle, &scr_banner_game);
+                APP_DBG("TANK: Mode Button Released -> Returning to BANNER\n");
+            
             }
             
-            // Phải gỡ bỏ timer trước khi chuyển màn hình
-            //timer_remove_attr(AC_TASK_DISPLAY_ID, AC_DISPLAY_SHOW_TANK_MOVING_UPDATE);
-
-            //SCREEN_TRAN(scr_idle_handle, &scr_idle): Đây là lệnh Chuyển cảnh (Transition).
-            // Nó sẽ thoát khỏi màn hình tank và quay về màn hình chờ (scr_idle).
-            //SCREEN_TRAN(scr_idle_handle, &scr_idle);
-            //APP_DBG("TANK: Mode Button Released -> Returning to Idle\n");
+            
             
             else 
             {
