@@ -2,7 +2,11 @@
 
 // Định nghĩa Constructor
 Score::Score() {
-    current_score = 0; // Mặc định là hp point = 2
+   reset();
+}
+
+void Score::reset(){
+    current_score = 0;
 }
 
 // Hàm cập nhật trạng thái 

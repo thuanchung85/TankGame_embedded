@@ -12,6 +12,7 @@ public:
     void draw(); // Khai báo hàm vẽ
     void subHP();   //khai báo hàm trừ máu HP
     bool isDead();//check tank có hết HP
+    void reset();
 };
 
 #endif

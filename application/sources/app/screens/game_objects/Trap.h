@@ -10,7 +10,7 @@ public:
     Trap();         // Khai báo Constructor
     void update();  // Khai báo hàm cập nhật
     void draw();    // Khai báo hàm vẽ
-
+    void reset();
     bool checkCollisionWithTank(short tankX, short tankY, short tankW, short tankH); //check va chạm với tank
 
 };

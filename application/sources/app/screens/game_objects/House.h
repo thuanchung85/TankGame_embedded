@@ -12,6 +12,7 @@ public:
     House();         // Khai báo Constructor
     void update();  // Khai báo hàm cập nhật
     void draw();    // Khai báo hàm vẽ
+    void reset();
 };
 
 #endif

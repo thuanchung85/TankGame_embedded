@@ -31,6 +31,8 @@ public:
 
     void lossHP();//trừ HP của tank
 
+    void reset();//reset lại tank
+
     // check va chạm với enemy
     bool checkCollisionWithEnemy(short enemyX, short enemyY, short enemyW, short enemyH);
 };

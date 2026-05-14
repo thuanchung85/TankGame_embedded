@@ -20,6 +20,10 @@ static Enemy my_enemy; //địch
 static Trap my_trap; //các trap như là rocket
 
 bool isPaused = false;//biến trạng thái game play hay pause.
+bool isGameOver = false; // Trạng thái kết thúc game
+
+// Thêm dòng này ở phía trên đầu file
+static void reset_game();
 
 // 1. ================Phần Hiển thị (Rendering)========================
 //Đây là hàm vẽ. Mỗi khi màn hình cần làm mới, hệ thống sẽ gọi hàm này.
@@ -51,8 +55,21 @@ static void view_scr_game()
     //draw score
     my_score.draw();
 
+    // Kiểm tra trạng thái Game Over
+    if (isGameOver) 
+    {
+        view_render.fillRect(0,0,130,65,BLACK); // Xóa sạch buffer
+        // Vẽ bitmap Game Over lên trung tâm (0,0)
+        view_render.drawBitmap(0, 0, bitmap_game_over, 124, 60, WHITE);
+        
+        // Bạn có thể in thêm điểm số cuối cùng ở dưới banner
+         view_render.setTextSize(1);
+         view_render.setCursor(95, 40);
+         view_render.print(my_score.current_score);
+    } 
     // Nếu đang Pause, vẽ bitmap ghi đè lên toàn bộ màn hình
-    if (isPaused) {
+    else if (isPaused) 
+    {
         view_render.fillRect(0,0,130,65,BLACK); // Xóa sạch buffer
         // Tọa độ (0,0), kích thước 124x60 theo bitmap bạn cung cấp
         view_render.drawBitmap(0, 0, bitmap_game_pause, 124, 60, WHITE);
@@ -91,6 +108,7 @@ void scr_game_handle(ak_msg_t* msg){
         case SCREEN_ENTRY:
             APP_DBG(">> Entered TANK Screen Success!\n");
             BUZZER_PlaySound(BUZZER_SOUND_STARTUP);
+            isGameOver = false;//game over false khi mới vào game
             isPaused = false;//resume game
 
             // Bắt đầu gửi tin nhắn cập nhật màn hình định kỳ
@@ -104,14 +122,21 @@ void scr_game_handle(ak_msg_t* msg){
         //TANK UPDATE LOOP
         case AC_DISPLAY_SHOW_TANK_MOVING_UPDATE: {
             //APP_DBG("TANK: I alive now tick!\n");
-            // NẾU ĐANG PAUSE -> THOÁT KHÔNG XỬ LÝ LOGIC
-            if (isPaused) {
+            // NẾU ĐANG PAUSE hoặc bị game over -> THOÁT KHÔNG XỬ LÝ LOGIC
+            if (isGameOver || isPaused) {
                 return; 
             }
            
 
             my_ground.update();//update thông số cuộn mặt đất, để nó chạy từ phải qua trái
             my_tank.update(); // Cập nhật các hiệu ứng của tank nếu có
+
+            // KIỂM TRA ĐIỀU KIỆN THUA CUỘC
+            if (my_tank.isExploding) {
+                isGameOver = true;
+                BUZZER_PlaySound(BUZZER_SOUND_EXPLOSION); // Tiếng nổ lớn kết thúc
+                //APP_DBG("GAME OVER! Final Score: %d\n", my_score.current_score);
+            }
 
             // Lấy thông tin kích thước Enemy để check va chạm
             int8_t eW =25;
@@ -239,6 +264,12 @@ void scr_game_handle(ak_msg_t* msg){
         //AC_DISPLAY_BUTON_MODE_RELEASED: Đây là sự kiện bấm nút. 
         //Khi bạn bấm và thả nút "Mode" trên mạch, code sẽ thực hiện lệnh bên trong.
         case AC_DISPLAY_BUTON_MODE_RELEASED: { 
+            
+            if (isGameOver) {
+                // Nếu đang Game Over, bấm MODE để RESTART hoặc về IDLE
+                reset_game();
+            }
+            
             // Phải gỡ bỏ timer trước khi chuyển màn hình
             //timer_remove_attr(AC_TASK_DISPLAY_ID, AC_DISPLAY_SHOW_TANK_MOVING_UPDATE);
 
@@ -246,27 +277,46 @@ void scr_game_handle(ak_msg_t* msg){
             // Nó sẽ thoát khỏi màn hình tank và quay về màn hình chờ (scr_idle).
             //SCREEN_TRAN(scr_idle_handle, &scr_idle);
             //APP_DBG("TANK: Mode Button Released -> Returning to Idle\n");
-            isPaused = !isPaused; // Đảo trạng thái: Play <-> Pause
-            if (isPaused) {
-                APP_DBG("GAME PAUSED\n");
-                BUZZER_PlaySound(BUZZER_SOUND_CLICK); // Kêu bíp nhẹ báo hiệu
-            } else {
-                APP_DBG("GAME RESUMED\n");
+            
+            else 
+            {
+                isPaused = !isPaused; // Đảo trạng thái: Play <-> Pause
+                if (isPaused) 
+                {
+                    APP_DBG("GAME PAUSED\n");
+                    BUZZER_PlaySound(BUZZER_SOUND_CLICK); // Kêu bíp nhẹ báo hiệu
+                } 
+                else {
+                    APP_DBG("GAME RESUMED\n");
+                }
             }
-            }
+        }
             break;
 
         case AC_DISPLAY_BUTON_UP_RELEASED:
             // Khi bấm nút UP -> Tank tiến lên
-            if (!isPaused) my_tank.moveForward();
+            if (!isGameOver && !isPaused) my_tank.moveForward();
             break;
 
         case AC_DISPLAY_BUTON_DOWN_RELEASED:
             // Khi bấm nút DOWN -> Tank lùi lại
-            if (!isPaused) my_tank.moveBackward();
+            if (!isGameOver && !isPaused) my_tank.moveBackward();
             break;
 
         default:
             break;
     }
+}
+
+static void reset_game(){
+    isGameOver = false;
+    isPaused = false;
+    my_tank.reset();
+    my_score.reset();
+    my_house.reset();
+    my_tree.reset();
+    my_enemy.reset();
+    my_trap.reset();
+    my_mountain.reset();
+    
 }

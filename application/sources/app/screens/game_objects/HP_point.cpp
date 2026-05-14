@@ -2,6 +2,9 @@
 
 // Định nghĩa Constructor
 HP_point::HP_point() {
+    reset();
+}
+void HP_point::reset(){
     hpPoint = 1; // Mặc định là hp point = 1
 }
 

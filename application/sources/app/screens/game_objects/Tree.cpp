@@ -2,6 +2,9 @@
 
 // Định nghĩa Constructor
 Tree::Tree() {
+    reset();
+}
+void Tree::reset(){
     x = 130; 
     tree_type = 0;
 }

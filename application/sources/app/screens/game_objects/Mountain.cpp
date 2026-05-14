@@ -2,9 +2,11 @@
 
 // Định nghĩa Constructor
 Mountain::Mountain() {
-   x = 200;    
+   reset();    
 }
-
+void Mountain::reset(){
+    x =200;
+}
 // Hàm cập nhật trạng thái 
 void Mountain::update() {
     //scroll núi trên mặt đất, cho nó di chuyển từ phải sang trái

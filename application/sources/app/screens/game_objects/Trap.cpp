@@ -2,6 +2,9 @@
 
 // Định nghĩa Constructor
 Trap::Trap() {
+   reset();
+}
+void Trap::reset(){
     x = 0 + (rand() % 100);
     y = -20;
 }

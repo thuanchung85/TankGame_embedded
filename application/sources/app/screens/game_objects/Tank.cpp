@@ -5,11 +5,16 @@ extern "C" {
 
 // Định nghĩa Constructor
 Tank::Tank() {
+    reset();
+}
+
+void Tank::reset(){
     x = 20;
     target_x = 20;
     isMoving = false;
     isExploding = false;
     explosion_timer = 0;
+    myHP.reset();
 }
 
 // Hàm cập nhật trạng thái 

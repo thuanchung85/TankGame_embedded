@@ -2,10 +2,12 @@
 
 // Định nghĩa Constructor
 House::House() {
-    x = 180; 
+   reset();
+}
+void House::reset(){
+     x = 180; 
     house_type = 0; // Mặc định là nhà số 1
 }
-
 // Hàm cập nhật trạng thái 
 void House::update() {
     frame_count++;
