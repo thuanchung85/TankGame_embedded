@@ -38,7 +38,7 @@ static void view_scr_banner_game()
 
 // 2. ================Định nghĩa cấu trúc Màn hình (Data Structures)========================
 //Định nghĩa đây là một đối tượng "động" (dynamic). 
-//Nó liên kết trực tiếp với hàm vẽ view_scr_tank để hệ thống biết phải vẽ cái gì khi đối tượng này xuất hiện.
+//Nó liên kết trực tiếp với hàm vẽ view_scr_banner_game để hệ thống biết phải vẽ cái gì khi đối tượng này xuất hiện.
 view_dynamic_t dyn_view_banner_game = {
     {
         .item_type = ITEM_TYPE_DYNAMIC,
@@ -62,7 +62,7 @@ void scr_banner_game_handle(ak_msg_t* msg){
     //msg -> sig: Đây là "tín hiệu" (signal) gửi đến từ hệ thống (Active Kernel).
     switch (msg -> sig){
         // Chạy khi bắt đầu vào màn hình này (ví dụ: khởi tạo âm thanh, biến số)
-        //SCREEN_ENTRY: Một tín hiệu đặc biệt của AK, nó tự động kích hoạt khi màn hình tank vừa được bật lên.
+        //SCREEN_ENTRY: Một tín hiệu đặc biệt của AK, nó tự động kích hoạt khi màn hình banner vừa được bật lên.
         case SCREEN_ENTRY:
            menu_index = 0; // Reset về Start khi vào màn hình
             APP_DBG(">> Entered BANNER GAME Screen!\n");
@@ -81,7 +81,7 @@ void scr_banner_game_handle(ak_msg_t* msg){
                 SCREEN_TRAN(scr_game_handle, &scr_game); 
             }
             else if (menu_index == 1) {
-                // Xem TOP SCORE (Nếu bạn đã có màn hình score)
+                // Xem TOP SCORE 
                 // SCREEN_TRAN(scr_highscore_handle, &scr_highscore);
             }
             else if (menu_index == 2) {
