@@ -159,4 +159,6 @@ build_ChungGame_embedded/scr_startup.o: \
  sources/app/screens/scr_lhio404_io_device.h \
  sources/app/screens/scr_game.h \
  sources/app/screens/bitmap_data/screens_bitmap.h \
- sources/app/screens/scr_banner_game.h
+ sources/libraries/ArduinoJson/src/ArduinoJson/../../../../driver/eeprom/eeprom.h \
+ sources/app/screens/scr_banner_game.h \
+ sources/app/screens/scr_topscore_game.h

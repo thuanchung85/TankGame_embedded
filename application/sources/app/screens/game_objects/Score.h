@@ -5,7 +5,7 @@
 
 class Score {
 public: 
-    unsigned short current_score;
+    uint32_t current_score;
  
     Score();         // Khai báo Constructor
     void update();  // Khai báo hàm cập nhật

@@ -232,7 +232,9 @@ build_ChungGame_embedded/app.o: sources/app/app.cpp \
  sources/app/screens/scr_lhio404_io_device.h \
  sources/app/screens/scr_game.h \
  sources/app/screens/bitmap_data/screens_bitmap.h \
- sources/app/screens/scr_banner_game.h sources/app/task_zigbee.h \
+ sources/libraries/ArduinoJson/src/ArduinoJson/../../../../driver/eeprom/eeprom.h \
+ sources/app/screens/scr_banner_game.h \
+ sources/app/screens/scr_topscore_game.h sources/app/task_zigbee.h \
  sources/sys/sys_irq.h \
  sources/platform/stm32l/arduino/libraries/SPI/SPI.h \
  sources/platform/stm32l/arduino/cores/WString.h \

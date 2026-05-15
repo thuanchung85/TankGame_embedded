@@ -18,6 +18,7 @@ screens_bitmap.h: Chứa dữ liệu hình ảnh (pixels) của nhân vật Tank
 #include "task_display.h"
 #include "view_render.h"
 #include "bitmap_data/screens_bitmap.h"
+#include "../../../../driver/eeprom/eeprom.h" //save score người chơi
 
 /*
 Từ khóa extern (Lời hứa của Header). Đây là phần thú vị nhất. extern nói với trình biên dịch rằng: "Những thứ này tồn tại đâu đó trong các file .cpp, đừng lo, cứ cho phép dùng đi, lúc chạy sẽ thấy!"

@@ -39,7 +39,7 @@ void Score::draw() {
     // Bạn có thể dùng một hàm hỗ trợ để chuyển số sang chuỗi
     // Hoặc nếu view_render hỗ trợ printf thì càng tốt
     char scoreStr[6];
-    sprintf(scoreStr, "%d", current_score);
+    sprintf(scoreStr, "%ld", current_score);
     
     for(int i = 0; scoreStr[i] != '\0'; i++) {
         view_render.write(scoreStr[i]); 

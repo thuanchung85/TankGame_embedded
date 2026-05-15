@@ -117,7 +117,9 @@ build_ChungGame_embedded/scr_idle.o: sources/app/screens/scr_idle.cpp \
  sources/app/screens/scr_lhio404_io_device.h \
  sources/app/screens/scr_game.h \
  sources/app/screens/bitmap_data/screens_bitmap.h \
+ sources/libraries/ArduinoJson/src/ArduinoJson/../../../../driver/eeprom/eeprom.h \
  sources/app/screens/scr_banner_game.h \
+ sources/app/screens/scr_topscore_game.h \
  /home/luong/workspace/tools/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/c++/10.3.1/vector \
  /home/luong/workspace/tools/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h \
  /home/luong/workspace/tools/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/c++/10.3.1/bits/functexcept.h \

@@ -22,8 +22,10 @@ static Trap my_trap; //các trap như là rocket
 bool isPaused = false;//biến trạng thái game play hay pause.
 bool isGameOver = false; // Trạng thái kết thúc game
 
-// Thêm dòng này ở phía trên đầu file
+
 static void reset_game();
+static void update_top_scores(uint32_t new_score);
+
 
 // 1. ================Phần Hiển thị (Rendering)========================
 //Đây là hàm vẽ. Mỗi khi màn hình cần làm mới, hệ thống sẽ gọi hàm này.
@@ -134,6 +136,10 @@ void scr_game_handle(ak_msg_t* msg){
             // KIỂM TRA ĐIỀU KIỆN THUA CUỘC
             if (my_tank.isExploding) {
                 isGameOver = true;
+
+                // --- LƯU ĐIỂM VÀO EEPROM TẠI ĐÂY ---
+                update_top_scores(my_score.current_score);
+
                 BUZZER_PlaySound(BUZZER_SOUND_EXPLOSION); // Tiếng nổ lớn kết thúc
                 //APP_DBG("GAME OVER! Final Score: %d\n", my_score.current_score);
             }
@@ -310,6 +316,7 @@ void scr_game_handle(ak_msg_t* msg){
     }
 }
 
+//hàm reset lại tank và màn chơi
 static void reset_game(){
     isGameOver = false;
     isPaused = false;
@@ -321,4 +328,33 @@ static void reset_game(){
     my_trap.reset();
     my_mountain.reset();
     
+}
+
+//hàm save score vào eeprom
+static void update_top_scores(uint32_t new_score) {
+    uint32_t top[3];
+    // 1. Đọc 3 mức điểm hiện tại từ EEPROM
+    eeprom_read(0x00, (uint8_t*)&top[0], 4);
+    eeprom_read(0x04, (uint8_t*)&top[1], 4);
+    eeprom_read(0x08, (uint8_t*)&top[2], 4);
+
+    // 2. So sánh và sắp xếp lại
+    if (new_score > top[0]) {
+        top[2] = top[1];
+        top[1] = top[0];
+        top[0] = new_score;
+    } else if (new_score > top[1]) {
+        top[2] = top[1];
+        top[1] = new_score;
+    } else if (new_score > top[2]) {
+        top[2] = new_score;
+    } else {
+        return; // Không đủ điểm vào top, không cần ghi EEPROM
+    }
+
+    // 3. Ghi lại bảng điểm mới vào EEPROM
+    eeprom_write(0x00, (uint8_t*)&top[0], 4);
+    eeprom_write(0x04, (uint8_t*)&top[1], 4);
+    eeprom_write(0x08, (uint8_t*)&top[2], 4);
+    APP_DBG("EEPROM: New High Score Saved!\n");
 }
