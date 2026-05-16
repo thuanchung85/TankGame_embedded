@@ -9,7 +9,7 @@ Boss::Boss() {
 void Boss::reset() {
     x = 130;        // Xuất hiện từ ngoài rìa phải màn hình
     y = 14;         // Vị trí Y trung tâm (màn hình cao 64, boss cao 36 -> (64-36)/2 = 14)
-    max_hp = 10;    // Cho Boss ăn 10 phát đạn mới nổ cho "trâu"
+    max_hp = 2;    // Cho Boss ăn 10 phát đạn mới nổ cho "trâu"
     hp = max_hp;
     is_active = false;
     is_exploding = false;
@@ -63,7 +63,7 @@ void Boss::draw() {
     if (is_active) {
         // Vẽ Boss
         view_render.drawBitmap(x, y, bitmap_boss, 60, 36, WHITE);
-        
+
         // 2. Vẽ giao diện thanh máu cố định trên HUD (Top Screen)
         view_render.setTextSize(1);
         view_render.setCursor(20, 0); // Đặt chữ BOSS ở x=20, y=0 cho thẳng hàng với thanh máu

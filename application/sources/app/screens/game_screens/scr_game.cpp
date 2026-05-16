@@ -22,8 +22,11 @@ static Trap my_trap; //các trap như là rocket
 static Boss my_boss; // Khai báo object Boss
 
 bool isPaused = false;//biến trạng thái game play hay pause.
+
+static uint8_t game_over_delay_counter = 0; // Biến đếm thời gian chờ Game Over
 bool isGameOver = false; // Trạng thái kết thúc game
 
+bool isVictory = false;// Trạng thái game victory
 
 static void reset_game();
 static void update_top_scores(uint32_t new_score);
@@ -77,6 +80,18 @@ static void view_scr_game()
          view_render.setCursor(90, 30);
          view_render.print(my_score.current_score);
     } 
+    //nếu là victory game
+    else if (isVictory){
+        view_render.fillRect(0,0,130,65,BLACK); // Xóa sạch buffer
+        // Vẽ bitmap Game Over lên trung tâm (0,0)
+        view_render.drawBitmap(0, 0, bitmap_victory, 124, 60, WHITE);
+        
+        // Bạn có thể in thêm điểm số cuối cùng ở dưới banner
+         view_render.setTextSize(1);
+         view_render.setCursor(90, 30);
+         view_render.print(my_score.current_score);
+    }
+
     // Nếu đang Pause, vẽ bitmap ghi đè lên toàn bộ màn hình
     else if (isPaused) 
     {
@@ -133,7 +148,7 @@ void scr_game_handle(ak_msg_t* msg){
         case AC_DISPLAY_SHOW_TANK_MOVING_UPDATE: {
             //APP_DBG("TANK: I alive now tick!\n");
             // NẾU ĐANG PAUSE hoặc bị game over -> THOÁT KHÔNG XỬ LÝ LOGIC
-            if (isGameOver || isPaused) {
+            if (isGameOver || isPaused || isVictory) {
                 return; 
             }
            
@@ -150,7 +165,7 @@ void scr_game_handle(ak_msg_t* msg){
 
             // 2. UPDATE BOSS LOGIC
             my_boss.update();
-
+            
             // 3. KIỂM TRA VA CHẠM ĐẠN CANON TRÚNG BOSS
             if (my_tank.my_canon_bullets.is_active && my_boss.is_active) {
                 if (my_boss.check_collision(my_tank.my_canon_bullets.x, my_tank.my_canon_bullets.y, 5, 3)) {
@@ -160,7 +175,17 @@ void scr_game_handle(ak_msg_t* msg){
                     
                     if (my_boss.hp <= 0) { // Nếu diệt được Boss
                         my_score.current_score += 100; // Thưởng hẳn 100 điểm!
-                        BUZZER_PlaySound(BUZZER_SOUND_EXPLOSION);
+                        //delay for animation
+                        game_over_delay_counter++;
+                        if (game_over_delay_counter == 1) {
+                            BUZZER_PlaySound(BUZZER_SOUND_EXPLOSION); 
+                        }
+                        if (game_over_delay_counter >= 30) {
+                            isVictory = true;
+                            // --- LƯU ĐIỂM VÀO EEPROM TẠI ĐÂY ---
+                            update_top_scores(my_score.current_score);
+                        }
+
                     }
                 }
             }
@@ -176,13 +201,20 @@ void scr_game_handle(ak_msg_t* msg){
 
             // KIỂM TRA ĐIỀU KIỆN THUA CUỘC
             if (my_tank.isExploding) {
-                isGameOver = true;
+                // Trong khi tank đang nổ, các object khác vẫn có thể update hoặc đứng yên tùy bạn
+                // Chúng ta sẽ tăng biến đếm lên theo mỗi chu kỳ 60ms
+                game_over_delay_counter++;
+              
+                if (game_over_delay_counter == 1) {
+                    BUZZER_PlaySound(BUZZER_SOUND_EXPLOSION); 
+                }
 
-                // --- LƯU ĐIỂM VÀO EEPROM TẠI ĐÂY ---
-                update_top_scores(my_score.current_score);
-
-                BUZZER_PlaySound(BUZZER_SOUND_EXPLOSION); // Tiếng nổ lớn kết thúc
-                //APP_DBG("GAME OVER! Final Score: %d\n", my_score.current_score);
+                if (game_over_delay_counter >= 30) {
+                    isGameOver = true;
+                    // --- LƯU ĐIỂM VÀO EEPROM TẠI ĐÂY ---
+                    update_top_scores(my_score.current_score);
+                }
+               
             }
 
             // Lấy thông tin kích thước Enemy để check va chạm
@@ -317,7 +349,7 @@ void scr_game_handle(ak_msg_t* msg){
         //Khi bạn bấm và thả nút "Mode" trên mạch, code sẽ thực hiện lệnh bên trong.
         case AC_DISPLAY_BUTON_MODE_RELEASED: { 
             
-            if (isGameOver) {
+            if (isGameOver || isVictory) {
                 // Nếu đang Game Over, bấm MODE để RESTART hoặc về IDLE
                 reset_game();
                 // Phải gỡ bỏ timer trước khi chuyển màn hình
@@ -329,9 +361,6 @@ void scr_game_handle(ak_msg_t* msg){
                 APP_DBG("TANK: Mode Button Released -> Returning to BANNER\n");
             
             }
-            
-            
-            
             else 
             {
                 isPaused = !isPaused; // Đảo trạng thái: Play <-> Pause
@@ -364,8 +393,10 @@ void scr_game_handle(ak_msg_t* msg){
 
 //hàm reset lại tank và màn chơi
 static void reset_game(){
+    game_over_delay_counter = 0;
     isGameOver = false;
     isPaused = false;
+    isVictory = false;
     my_tank.reset();
     my_score.reset();
     my_house.reset();
