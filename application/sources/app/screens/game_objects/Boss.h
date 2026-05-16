@@ -8,11 +8,13 @@ public:
     int16_t x, y;
     int8_t hp;
     int8_t max_hp;
+    int8_t move_dir; // Hướng di chuyển lên/xuống (1 hoặc -1)
+    uint8_t explosion_timer;
     bool is_active;
     bool is_exploding;
-    uint8_t explosion_timer;
-    int8_t move_dir; // Hướng di chuyển lên/xuống (1 hoặc -1)
-
+    bool isDie; // Trạng thái xác nhận Boss đã chết hoàn toàn
+   
+   
     Boss();
     void spawn();
     void update();

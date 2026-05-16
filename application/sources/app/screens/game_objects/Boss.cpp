@@ -15,10 +15,12 @@ void Boss::reset() {
     is_exploding = false;
     explosion_timer = 0;
     move_dir = 1;
+    isDie = false;
 }
 
 void Boss::spawn() {
-    if (!is_active && !is_exploding) {
+    // Chỉ sinh ra khi chưa hoạt động, chưa nổ và chưa chết
+    if (!is_active && !is_exploding && !isDie) {
         reset();
         is_active = true;
     }
@@ -31,6 +33,7 @@ void Boss::lose_hp(int8_t damage) {
         is_active = false;
         is_exploding = true;
         explosion_timer = 0;
+        // Chưa set isDie vội, để nó nổ xong đã!
     }
 }
 
@@ -40,20 +43,21 @@ void Boss::update() {
         explosion_timer++;
         if (explosion_timer > 15) { // Hiệu ứng nổ diễn ra trong 15 frame
             is_exploding = false;
+            isDie = true; // <--- 2. NỔ XONG THÌ CHÍNH THỨC XÁC NHẬN "ĐÃ CHẾT"
         }
         return;
     }
 
-    if (!is_active) return;
+    // Nếu đã chết hẳn rồi hoặc chưa active thì không update logic di chuyển nữa
+    if (isDie || !is_active) return; 
 
-    // 1. Logic đi vào màn hình: Từ x=130 chạy vào dừng lại ở x=65 (nửa màn hình bên phải)
+    // 1. Logic đi vào màn hình... (giữ nguyên bên dưới)
     if (x > 65) {
         x -= 1; 
     } else {
-        // 2. Khi đã vào vị trí, Boss sẽ bay lên bay xuống để né đạn và làm khó người chơi
         y += move_dir;
-        if (y <= 2 || y >= 26) { // Giới hạn biên trên và biên dưới để không lệch màn hình
-            move_dir = -move_dir; // Đổi hướng
+        if (y <= 2 || y >= 26) { 
+            move_dir = -move_dir; 
         }
     }
 }

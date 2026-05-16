@@ -175,21 +175,22 @@ void scr_game_handle(ak_msg_t* msg){
                     
                     if (my_boss.hp <= 0) { // Nếu diệt được Boss
                         my_score.current_score += 100; // Thưởng hẳn 100 điểm!
-                        //delay for animation
-                        game_over_delay_counter++;
-                        if (game_over_delay_counter == 1) {
-                            BUZZER_PlaySound(BUZZER_SOUND_EXPLOSION); 
-                        }
-                        if (game_over_delay_counter >= 30) {
-                            isVictory = true;
-                            // --- LƯU ĐIỂM VÀO EEPROM TẠI ĐÂY ---
-                            update_top_scores(my_score.current_score);
-                        }
-
+                        BUZZER_PlaySound(BUZZER_SOUND_EXPLOSION);
+                       
                     }
                 }
             }
     
+            // LOGIC KIỂM TRA CHIẾN THẮNG KHI BOSS CHẾT HẲN
+            if (my_boss.isDie && !isVictory) {
+                isVictory = true; // Bật màn hình Victory lên!
+
+                // --- LƯU ĐIỂM VÀO EEPROM TẠI ĐÂY ---
+                update_top_scores(my_score.current_score);
+                
+                APP_DBG("GAME VICTORY! Boss is Dead.\n");
+            }
+
             // 4. KIỂM TRA VA CHẠM XE TANK MÌNH ĐÂM VÀO BOSS
             if (my_boss.is_active && !my_tank.isExploding) {
                 // Coi như đâm vào Boss là dính sát thương cực nặng
@@ -216,7 +217,7 @@ void scr_game_handle(ak_msg_t* msg){
                 }
                
             }
-
+           
             // Lấy thông tin kích thước Enemy để check va chạm
             int8_t eW =25;
             int8_t eH = 21;
