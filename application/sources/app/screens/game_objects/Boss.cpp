@@ -9,7 +9,7 @@ Boss::Boss() {
 void Boss::reset() {
     x = 130;        // Xuất hiện từ ngoài rìa phải màn hình
     y = 14;         // Vị trí Y trung tâm (màn hình cao 64, boss cao 36 -> (64-36)/2 = 14)
-    max_hp = 2;    // Cho Boss ăn 10 phát đạn mới nổ cho "trâu"
+    max_hp = 10;    // Cho Boss ăn 10 phát đạn mới nổ cho "trâu"
     hp = max_hp;
     is_active = false;
     is_exploding = false;
@@ -85,6 +85,14 @@ void Boss::draw() {
     else if (is_exploding) {
         // Vẽ hiệu ứng nổ (Vẽ vài vòng tròn đồng tâm to dần hoặc dùng hàm nổ có sẵn)
         view_render.drawCircle(x + 30, y + 18, explosion_timer * 2, WHITE);
+         // Chia explosionTimer để tạo hiệu ứng hoạt hình
+            if (explosion_timer < 3) {
+                view_render.drawBitmap(x + 30, y + 18, bitmap_bum, 28, 20, WHITE);
+            } else if (explosion_timer < 6) {
+                view_render.drawBitmap(x + 30, y + 18, bitmap_bum2, 30, 26, WHITE);
+            } else {
+                view_render.drawBitmap(x + 30, y + 18, bitmap_bum3, 30, 31, WHITE);
+            }
     }
 }
 

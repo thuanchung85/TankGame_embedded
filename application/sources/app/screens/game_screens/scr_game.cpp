@@ -158,7 +158,7 @@ void scr_game_handle(ak_msg_t* msg){
 
 
             // 1. KIỂM TRA ĐIỀU KIỆN XUẤT HIỆN BOSS
-            if (my_score.current_score >= 20 && !my_boss.is_active && my_boss.hp == my_boss.max_hp && !my_boss.is_exploding) {
+            if (my_score.current_score >= 200 && !my_boss.is_active && my_boss.hp == my_boss.max_hp && !my_boss.is_exploding) {
                 my_boss.spawn();
                 // Tùy chọn: Khi Boss xuất hiện, bạn có thể tạm thời cho ngưng xuất hiện Enemy thường
             }
