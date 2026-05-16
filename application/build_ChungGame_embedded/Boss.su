@@ -1,0 +1,7 @@
+sources/app/screens/game_objects/Boss.cpp:9:6:void Boss::reset()	0	static
+sources/app/screens/game_objects/Boss.cpp:4:1:Boss::Boss()	8	static
+sources/app/screens/game_objects/Boss.cpp:20:6:void Boss::spawn()	8	static
+sources/app/screens/game_objects/Boss.cpp:27:6:void Boss::lose_hp(int8_t)	0	static
+sources/app/screens/game_objects/Boss.cpp:38:6:void Boss::update()	0	static
+sources/app/screens/game_objects/Boss.cpp:87:6:bool Boss::check_collision(int16_t, int16_t, int8_t, int8_t)	12	static
+sources/app/screens/game_objects/Boss.cpp:62:6:void Boss::draw()	32	static

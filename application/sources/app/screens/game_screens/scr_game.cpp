@@ -7,6 +7,7 @@
 #include "game_objects/Score.h"
 #include "game_objects/Enemy.h"
 #include "game_objects/Trap.h"
+#include "game_objects/Boss.h" // Nhớ include vào nhé Luong
 
 //================================================GAME LOOP AREA=======================================================//
 //============KHAI BÁO: Biến và object ========//
@@ -18,6 +19,7 @@ static House my_house;//nhà ở xa
 static Score my_score;//điểm số
 static Enemy my_enemy; //địch
 static Trap my_trap; //các trap như là rocket
+static Boss my_boss; // Khai báo object Boss
 
 bool isPaused = false;//biến trạng thái game play hay pause.
 bool isGameOver = false; // Trạng thái kết thúc game
@@ -46,10 +48,16 @@ static void view_scr_game()
     my_tank.draw();
 
     //draw địch
-    my_enemy.draw();
+    if(!my_boss.is_active){
+        my_enemy.draw();
+    }
 
-     //draw trap
+    // Vẽ Boss tại đây
+    my_boss.draw(); 
+
+    //draw trap
     my_trap.draw();
+    
 
     //draw ground đang cuộn
     my_ground.draw();
@@ -132,6 +140,39 @@ void scr_game_handle(ak_msg_t* msg){
 
             my_ground.update();//update thông số cuộn mặt đất, để nó chạy từ phải qua trái
             my_tank.update(); // Cập nhật các hiệu ứng của tank nếu có
+
+
+            // 1. KIỂM TRA ĐIỀU KIỆN XUẤT HIỆN BOSS
+            if (my_score.current_score >= 20 && !my_boss.is_active && my_boss.hp == my_boss.max_hp && !my_boss.is_exploding) {
+                my_boss.spawn();
+                // Tùy chọn: Khi Boss xuất hiện, bạn có thể tạm thời cho ngưng xuất hiện Enemy thường
+            }
+
+            // 2. UPDATE BOSS LOGIC
+            my_boss.update();
+
+            // 3. KIỂM TRA VA CHẠM ĐẠN CANON TRÚNG BOSS
+            if (my_tank.my_canon_bullets.is_active && my_boss.is_active) {
+                if (my_boss.check_collision(my_tank.my_canon_bullets.x, my_tank.my_canon_bullets.y, 5, 3)) {
+                    my_tank.my_canon_bullets.is_active = false; // Mất viên đạn
+                    my_boss.lose_hp(1); // Boss mất 1 máu
+                    BUZZER_PlaySound(BUZZER_SOUND_BANG); // Kêu bíp trúng đạn
+                    
+                    if (my_boss.hp <= 0) { // Nếu diệt được Boss
+                        my_score.current_score += 100; // Thưởng hẳn 100 điểm!
+                        BUZZER_PlaySound(BUZZER_SOUND_EXPLOSION);
+                    }
+                }
+            }
+    
+            // 4. KIỂM TRA VA CHẠM XE TANK MÌNH ĐÂM VÀO BOSS
+            if (my_boss.is_active && !my_tank.isExploding) {
+                // Coi như đâm vào Boss là dính sát thương cực nặng
+                if (my_boss.check_collision(my_tank.x, 33, 25, 15)) { // Tọa độ Y xe tank bạn đang để check va chạm là 33
+                    my_tank.lossHP();
+                    BUZZER_PlaySound(BUZZER_SOUND_EXPLOSION);
+                }
+            }
 
             // KIỂM TRA ĐIỀU KIỆN THUA CUỘC
             if (my_tank.isExploding) {
@@ -238,11 +279,16 @@ void scr_game_handle(ak_msg_t* msg){
                 }
             }
 
-            my_enemy.update();//update xe tank địch
+            if(!my_boss.is_active){
+                my_enemy.update();//update xe tank địch
+            }
+          
 
             my_tree.update();//di chuyển cây 
            
+           
             my_trap.update();//di chuyển rocket
+            
             // Kiểm tra va chạm với Rocket từ trên trời
             if (!my_tank.isExploding) {
                 if (my_trap.checkCollisionWithTank(my_tank.x, 30, 25, 15)) {
@@ -327,6 +373,7 @@ static void reset_game(){
     my_enemy.reset();
     my_trap.reset();
     my_mountain.reset();
+    my_boss.reset(); // Reset trạng thái Boss
     
 }
 

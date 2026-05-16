@@ -27,5 +27,7 @@ extern const unsigned char PROGMEM bitmap_bum3[];
 extern const unsigned char PROGMEM bitmap_game_pause[];
 extern const unsigned char PROGMEM bitmap_banner_game[];
 extern const unsigned char PROGMEM bitmap_game_over[];
+extern const unsigned char PROGMEM bitmap_boss[];
+extern const unsigned char PROGMEM bitmap_boss_rocket[];
 
 #endif

@@ -1,3 +1,3 @@
-sources/app/screens/game_screens/scr_game.cpp:105:6:void scr_game_handle(ak_msg_t*)	40	static
-sources/app/screens/game_screens/scr_game.cpp:360:1:cpp)	8	static
-sources/app/screens/game_screens/scr_game.cpp:32:13:void view_scr_game()	32	static
+sources/app/screens/game_screens/scr_game.cpp:113:6:void scr_game_handle(ak_msg_t*)	48	static
+sources/app/screens/game_screens/scr_game.cpp:407:1:cpp)	8	static
+sources/app/screens/game_screens/scr_game.cpp:34:13:void view_scr_game()	32	static
