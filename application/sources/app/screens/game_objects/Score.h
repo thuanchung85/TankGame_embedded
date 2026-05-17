@@ -7,9 +7,9 @@ class Score {
 public: 
     uint32_t current_score;
  
-    Score();         // Khai báo Constructor
-    void update();  // Khai báo hàm cập nhật
-    void draw(); // Khai báo hàm vẽ
+    Score();         
+    void update();  
+    void draw(); 
     void add();
     void reset();
 };

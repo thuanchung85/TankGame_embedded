@@ -5,12 +5,12 @@
 
 class Mountain {
 public:
-    short x;//vị trí 
+    short x;
     int8_t frame_count;
     
-    Mountain();         // Khai báo Constructor
-    void update();  // Khai báo hàm cập nhật
-    void draw();    // Khai báo hàm vẽ
+    Mountain();         
+    void update();  
+    void draw();    
     void reset();
 };
 

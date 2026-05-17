@@ -8,32 +8,31 @@
 
 class Tank {
 public:
-    int8_t x;//game play chỉ có 2 nut bấm cho xe tank tới lui né tránh đạn
-    int8_t target_x; // Tọa độ mà tank muốn hướng tới
+    int8_t x; //x of tank
+    int8_t target_x; //x target for moving of tank
     bool isMoving;
     int8_t frame_count;
-    bool isExploding;//tank bi nổ tung
+    bool isExploding;
     int8_t explosion_timer;
 
-    Gun_Bullet my_gun_bullets;//đạn trên gun
-    Canon_Bullet my_canon_bullets; // đạn canon
-    HP_point myHP;//chỉ số HP của tank
+    Gun_Bullet my_gun_bullets; // air gun
+    Canon_Bullet my_canon_bullets; //  canon
+    HP_point myHP;
     
-    Tank();         // Khai báo Constructor
-    void update();  // Khai báo hàm cập nhật
-    void draw();    // Khai báo hàm vẽ
+    Tank();         
+    void update();  
+    void draw();    
 
-    void tank_fire_canon(); //khai báo hàm tank bắn 
+    void tank_fire_canon(); 
     void tank_fire_gun(short enemyY);
 
-    void moveForward(); // Tiến lên
-    void moveBackward(); // Lùi lại
+    void moveForward(); 
+    void moveBackward();
 
-    void lossHP();//trừ HP của tank
+    void lossHP();
 
-    void reset();//reset lại tank
+    void reset();
 
-    // check va chạm với enemy
     bool checkCollisionWithEnemy(short enemyX, short enemyY, short enemyW, short enemyH);
 };
 

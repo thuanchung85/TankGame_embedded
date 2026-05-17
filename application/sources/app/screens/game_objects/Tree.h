@@ -5,12 +5,12 @@
 
 class Tree {
 public:
-    short x;//vị trí mọc cây trên đất
-    int8_t tree_type;//có 3 dạng cây, cây dừa, cây khô, cây bụi
+    short x;
+    int8_t tree_type;
     
-    Tree();         // Khai báo Constructor
-    void update();  // Khai báo hàm cập nhật
-    void draw();    // Khai báo hàm vẽ
+    Tree();         
+    void update();  
+    void draw();    
     void reset();
 };
 

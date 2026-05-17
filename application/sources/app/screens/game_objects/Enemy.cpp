@@ -1,42 +1,38 @@
 #include "Enemy.h"
 
-// Định nghĩa Constructor
 Enemy::Enemy() {
     reset();
 }
 
-// Hàm để reset kẻ địch khi nó chết hoặc đi hết màn hình
 void Enemy::reset() {
     isExploding = false;
     explosionTimer = 0;
     enemy_type = rand() % 4;
-    // Gán HP tùy theo loại enemy
-    if (enemy_type == 0 || enemy_type == 1) { // Xe tank địch, máy bay địch hp =2
+    if (enemy_type == 0 || enemy_type == 1) { 
         hp = 2;
-    } else {               // Các loại khác (Troop, Air, Mine)
+    } else {               
         hp = 1;
     }
-    x = 150 + (rand() % 100);//tọa độ reset enemy x = 150 + random
+    x = 150 + (rand() % 100);
 }
 
-// Hàm cập nhật trạng thái 
 void Enemy::update() {
 
-    if (isExploding) //nếu nổ tung
+    if (isExploding) 
     {
         explosionTimer++;
         if (explosionTimer > 9) {
-            reset(); // Gọi hàm reset để hồi HP và chọn loại enemy mới
+            reset(); 
         }
         return;
     }
-    else // nếu còn sống
+    else 
     {
-        if(enemy_type == 3 || enemy_type == 1)//lính và máy bay di chuyển = 2
+        if(enemy_type == 3 || enemy_type == 1)
         {
             x -= 2;
         }
-        else// tank và mìn di chuyển = 1
+        else
         {
             x--;
         }
@@ -47,13 +43,11 @@ void Enemy::update() {
    
 }
 
-// Hàm vẽ Enemy
 void Enemy::draw() {
 
     if (isExploding) {
-        if(enemy_type != 1)//tank, mine, troop nổ dưới đất
+        if(enemy_type != 1)//for tank, mine, troop at y = 30
         {
-            // Chia explosionTimer để tạo hiệu ứng hoạt hình
             if (explosionTimer < 3) {
                 view_render.drawBitmap(x, 30, bitmap_bum, 28, 20, WHITE);
             } else if (explosionTimer < 6) {
@@ -62,9 +56,8 @@ void Enemy::draw() {
                 view_render.drawBitmap(x, 20, bitmap_bum3, 30, 31, WHITE);
             }
         }
-        else //máy bay nổ tại y = 5
+        else //for air at y = 5
         {
-            // Chia explosionTimer để tạo hiệu ứng hoạt hình
             if (explosionTimer < 3) {
                 view_render.drawBitmap(x, 5, bitmap_bum, 28, 20, WHITE);
             } else if (explosionTimer < 6) {
@@ -74,23 +67,24 @@ void Enemy::draw() {
             }
         }
 
-    } else {
-     
+    } 
+    else 
+    {
         switch (enemy_type)
         {
-            case 0://xe tank
+            case 0:// tank
                     view_render.drawBitmap(x, 33, bitmap_enemy_tank, 25, 21, WHITE);
                     break;
 
-            case 1:// máy bay
+            case 1:// air
                     view_render.drawBitmap(x, 5, bitmap_enemy_air_plane, 25, 21, WHITE);
                     break;
 
-            case 2://mìn
+            case 2:// mine
                     view_render.drawBitmap(x, 33, bitmap_enemy_mine, 22, 21, WHITE);
                     break;
 
-            case 3://troop
+            case 3:// troop
                 view_render.drawBitmap(x, 34, bitmap_enemy_troop, 15, 21, WHITE);
                 break;
         }
@@ -100,7 +94,6 @@ void Enemy::draw() {
 bool Enemy::checkCollision(short bulletX, short bulletY, short bulletW, short bulletH) {
     short enemyW, enemyH, enemyY;
     
-    // 1. Xác định kích thước vùng va chạm tùy theo loại địch
     switch (enemy_type) {
         case 0: enemyW = 25; enemyH = 21; enemyY = 33; break; // Tank
         case 1: enemyW = 25; enemyH = 21; enemyY = 5;  break; // Air
@@ -109,12 +102,11 @@ bool Enemy::checkCollision(short bulletX, short bulletY, short bulletW, short bu
         default: return false;
     }
 
-    // 2. Thuật toán kiểm tra hình chữ nhật giao nhau
     if (bulletX < x + enemyW &&
         bulletX + bulletW > x &&
         bulletY < enemyY + enemyH &&
         bulletY + bulletH > enemyY) {
-        return true; // Có va chạm!
+        return true; 
     }
     
     return false;

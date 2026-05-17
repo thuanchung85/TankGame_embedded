@@ -7,11 +7,11 @@ class Trap {
 public:
     short x,y;
     
-    Trap();         // Khai báo Constructor
-    void update();  // Khai báo hàm cập nhật
-    void draw();    // Khai báo hàm vẽ
+    Trap();         
+    void update();  
+    void draw();    
     void reset();
-    bool checkCollisionWithTank(short tankX, short tankY, short tankW, short tankH); //check va chạm với tank
+    bool checkCollisionWithTank(short tankX, short tankY, short tankW, short tankH); 
 
 };
 

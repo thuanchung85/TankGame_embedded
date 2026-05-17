@@ -5,15 +5,15 @@
 
 class Gun_Bullet {
 public:
-    bool is_active; // Đạn có đang bay không?
+    bool is_active; 
     int8_t x, y;
-    short targetY; // Lưu tọa độ Y của máy bay lúc bắt đầu bắn
+    short targetY; 
     
-    Gun_Bullet();         // Khai báo Constructor
+    Gun_Bullet();         
     
     void fire(short startX, short startY, short destY);
-    void update();  // Khai báo hàm cập nhật
-    void draw();    // Khai báo hàm vẽ
+    void update();  
+    void draw();   
 };
 
 #endif

@@ -5,7 +5,7 @@
 #include "task_display.h"
 #include "view_render.h"
 #include "bitmap_data/screens_bitmap.h"
-#include "../../../../driver/eeprom/eeprom.h" //lấy score người chơi lên
+#include "../../../../driver/eeprom/eeprom.h" //get score from eeprom
 
 
 extern view_dynamic_t dyn_view_topscore_game;

@@ -6,13 +6,13 @@
 class Canon_Bullet {
 public:
     int8_t x, y;
-    bool is_active; // Đạn có đang bay không?
+    bool is_active; 
     
-    Canon_Bullet();         // Khai báo Constructor
+    Canon_Bullet();         
 
-    void fire(short startX, short startY);//hàm khai hỏa
-    void update();  // Khai báo hàm cập nhật
-    void draw();    // Khai báo hàm vẽ
+    void fire(short startX, short startY);
+    void update();  
+    void draw();    
 };
 
 #endif

@@ -7,9 +7,9 @@ class Ground {
 public:
     int8_t scroll_offset;
     
-    Ground();         // Khai báo Constructor
-    void update();  // Khai báo hàm cập nhật
-    void draw();    // Khai báo hàm vẽ
+    Ground();         
+    void update();  
+    void draw();    
 };
 
 #endif

@@ -5,13 +5,13 @@
 
 class House {
 public:
-    short x;//vị trí 
+    short x;
     int8_t frame_count;
-    int8_t house_type; // Biến để lưu kiểu nhà hiện tại (0 đến 3)
+    int8_t house_type; 
  
-    House();         // Khai báo Constructor
-    void update();  // Khai báo hàm cập nhật
-    void draw();    // Khai báo hàm vẽ
+    House();         
+    void update();  
+    void draw();    
     void reset();
 };
 

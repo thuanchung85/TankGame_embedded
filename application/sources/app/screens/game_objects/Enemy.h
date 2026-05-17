@@ -5,15 +5,15 @@
 
 class Enemy {
 public:
-    bool isExploding;    // Đang nổ hay không
+    bool isExploding;    
     int8_t enemy_type;
-    int8_t hp;              // Máu hiện tại của kẻ địch
-    int8_t explosionTimer;  // Bộ đếm thời gian nổ
+    int8_t hp;              
+    int8_t explosionTimer;  
     short x;
     
-    Enemy();         // Khai báo Constructor
-    void update();  // Khai báo hàm cập nhật
-    void draw();    // Khai báo hàm vẽ
+    Enemy();         
+    void update();  
+    void draw();    
     bool checkCollision(short bulletX, short bulletY, short bulletW, short bulletH);
     void reset();
 };

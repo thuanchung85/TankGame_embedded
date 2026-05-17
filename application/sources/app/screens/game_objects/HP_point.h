@@ -7,11 +7,11 @@ class HP_point {
 public: 
     int8_t hpPoint;
  
-    HP_point();         // Khai báo Constructor
-    void update();  // Khai báo hàm cập nhật
-    void draw(); // Khai báo hàm vẽ
-    void subHP();   //khai báo hàm trừ máu HP
-    bool isDead();//check tank có hết HP
+    HP_point();        
+    void update();  
+    void draw(); 
+    void subHP();   
+    bool isDead();
     void reset();
 };
 
