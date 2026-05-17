@@ -1,6 +1,7 @@
 include sources/app/screens/bitmap_data/Makefile.mk
 include sources/app/screens/game_objects/Makefile.mk
 include sources/app/screens/game_screens/Makefile.mk
+include sources/app/screens/game_managers/Makefile.mk
 
 CFLAGS		+= -I./sources/app/screens
 CPPFLAGS	+= -I./sources/app/screens

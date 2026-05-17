@@ -1,10 +1,10 @@
-sources/app/screens/game_objects/Tank.cpp:11:6:void Tank::reset()	0	static
-sources/app/screens/game_objects/Tank.cpp:7:1:Tank::Tank()	8	static
-sources/app/screens/game_objects/Tank.cpp:62:6:void Tank::draw()	32	static
-sources/app/screens/game_objects/Tank.cpp:89:6:void Tank::tank_fire_canon()	0	static
-sources/app/screens/game_objects/Tank.cpp:21:6:void Tank::update()	8	static
-sources/app/screens/game_objects/Tank.cpp:98:6:void Tank::tank_fire_gun(short int)	0	static
-sources/app/screens/game_objects/Tank.cpp:105:6:void Tank::moveForward()	0	static
-sources/app/screens/game_objects/Tank.cpp:116:6:void Tank::moveBackward()	0	static
-sources/app/screens/game_objects/Tank.cpp:127:6:bool Tank::checkCollisionWithEnemy(short int, short int, short int, short int)	0	static
-sources/app/screens/game_objects/Tank.cpp:142:6:void Tank::lossHP()	8	static
+sources/app/screens/game_objects/Tank.cpp:10:6:void Tank::reset()	0	static
+sources/app/screens/game_objects/Tank.cpp:6:1:Tank::Tank()	8	static
+sources/app/screens/game_objects/Tank.cpp:58:6:void Tank::draw()	32	static
+sources/app/screens/game_objects/Tank.cpp:78:6:void Tank::tank_fire_canon()	0	static
+sources/app/screens/game_objects/Tank.cpp:19:6:void Tank::update()	8	static
+sources/app/screens/game_objects/Tank.cpp:85:6:void Tank::tank_fire_gun(short int)	0	static
+sources/app/screens/game_objects/Tank.cpp:92:6:void Tank::moveForward()	0	static
+sources/app/screens/game_objects/Tank.cpp:104:6:void Tank::moveBackward()	0	static
+sources/app/screens/game_objects/Tank.cpp:115:6:bool Tank::checkCollisionWithEnemy(short int, short int, short int, short int)	0	static
+sources/app/screens/game_objects/Tank.cpp:130:6:void Tank::lossHP()	8	static

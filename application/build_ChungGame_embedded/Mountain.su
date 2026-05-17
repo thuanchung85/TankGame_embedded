@@ -1,4 +1,4 @@
-sources/app/screens/game_objects/Mountain.cpp:4:1:Mountain::Mountain()	0	static
-sources/app/screens/game_objects/Mountain.cpp:7:6:void Mountain::reset()	0	static
-sources/app/screens/game_objects/Mountain.cpp:11:6:void Mountain::update()	0	static
-sources/app/screens/game_objects/Mountain.cpp:27:6:void Mountain::draw()	24	static
+sources/app/screens/game_objects/Mountain.cpp:3:1:Mountain::Mountain()	0	static
+sources/app/screens/game_objects/Mountain.cpp:6:6:void Mountain::reset()	0	static
+sources/app/screens/game_objects/Mountain.cpp:9:6:void Mountain::update()	0	static
+sources/app/screens/game_objects/Mountain.cpp:22:6:void Mountain::draw()	24	static

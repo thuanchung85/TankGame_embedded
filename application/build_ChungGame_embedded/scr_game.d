@@ -175,4 +175,10 @@ build_ChungGame_embedded/scr_game.o: \
  sources/app/screens/game_objects/Score.h \
  sources/app/screens/game_objects/Enemy.h \
  sources/app/screens/game_objects/Trap.h \
- sources/app/screens/game_objects/Boss.h
+ sources/app/screens/game_objects/Boss.h \
+ sources/app/screens/game_managers/CollisionManager.h \
+ sources/app/screens/game_managers/../game_objects/Tank.h \
+ sources/app/screens/game_managers/../game_objects/Enemy.h \
+ sources/app/screens/game_managers/../game_objects/Boss.h \
+ sources/app/screens/game_managers/../game_objects/Trap.h \
+ sources/app/screens/game_managers/../game_objects/Score.h

@@ -8,6 +8,7 @@
 #include "game_objects/Enemy.h"
 #include "game_objects/Trap.h"
 #include "game_objects/Boss.h" 
+#include "game_managers/CollisionManager.h"
 
 //============game objects ========//
 static Tank my_tank;// tank
@@ -135,49 +136,36 @@ void scr_game_handle(ak_msg_t* msg)
             my_ground.update();//update scroliing ground
             my_tank.update(); //update tank
 
-
             // SPAWN BOSS when score at 200
             if (my_score.current_score >= 200 && !my_boss.is_active && my_boss.hp == my_boss.max_hp && !my_boss.is_exploding) {
                 my_boss.spawn();
             }
 
             //update boss
-            my_boss.update();
-            
-            // check BOSS collision with canon bullet
-            if (my_tank.my_canon_bullets.is_active && my_boss.is_active) 
-            {
-                if (my_boss.check_collision(my_tank.my_canon_bullets.x, my_tank.my_canon_bullets.y, 5, 3)) {
-                    my_tank.my_canon_bullets.is_active = false; 
-                    my_boss.lose_hp(1);//boss loss 1 hp
-                    BUZZER_PlaySound(BUZZER_SOUND_BANG); 
-                    
-                    //boss hp is gone
-                    if (my_boss.hp <= 0) 
-                    { 
-                        my_score.current_score += 100; 
-                        BUZZER_PlaySound(BUZZER_SOUND_EXPLOSION);
-                       
-                    }
-                }
+            my_boss.update();  
+            if(!my_boss.is_active){
+                my_enemy.update();//update enemy tank 
             }
+            my_tree.update();//tree update
+            my_trap.update();//update rocket trap
+            my_house.update();// update scrolling house
+            my_mountain.update();//update mountain
+            my_score.update();//update score 
     
-            // check victory when boss die
+            // TANK auto gun update attack air
+            if (my_enemy.enemy_type == 1 && my_enemy.x < 120) { 
+                my_tank.tank_fire_gun(5); 
+            }
+
+            // XỬ LÝ VA CHẠM TẬP TRUNG (COLLISION PHASE)!
+            CollisionManager::check_all_collisions(my_tank, my_enemy, my_boss, my_trap, my_score);
+           
+             // check victory when boss die
             if (my_boss.isDie && !isVictory) {
                 isVictory = true; // active VICTORY
                 // --- SAVE score ---
                 update_top_scores(my_score.current_score); 
                 APP_DBG("GAME VICTORY! Boss is Dead.\n");
-            }
-
-            // check BOSS collision with tank
-            if (my_boss.is_active && !my_tank.isExploding) 
-            {
-                if (my_boss.check_collision(my_tank.x, 33, 25, 15)) 
-                { 
-                    my_tank.lossHP();//tank die
-                    BUZZER_PlaySound(BUZZER_SOUND_EXPLOSION);
-                }
             }
 
             // check game over
@@ -198,102 +186,7 @@ void scr_game_handle(ak_msg_t* msg)
                
             }
            
-            // check enemy collision with tank
-            int8_t eW =25;
-            int8_t eH = 21;
-            int8_t eY = 33;
-            switch (my_enemy.enemy_type) {
-                case 0: eW = 25; eH = 21; eY = 33; break; // Tank enemy
-                case 1: eW = 25; eH = 21; eY = 5;  break; // air
-                case 2: eW = 22; eH = 21; eY = 33; break; // mine
-                case 3: eW = 15; eH = 21; eY = 34; break; // troop
-            }
-
-            if (!my_enemy.isExploding) 
-            {
-                if (my_tank.checkCollisionWithEnemy(my_enemy.x, eY, eW, eH) && my_enemy.hp > 0) 
-                {
-                    my_enemy.isExploding = true;
-                    my_enemy.explosionTimer = 0;
-                    my_tank.lossHP();                    
-                    BUZZER_PlaySound(BUZZER_SOUND_EXPLOSION);
-                }
-            }
-
-
-            // TANK auto gun update attack air
-            if (my_enemy.enemy_type == 1 && my_enemy.x < 120) { 
-                my_tank.tank_fire_gun(5); 
-            }
-
-            // check colllion Canon with Enemy tank, mine, troop
-            if (my_tank.my_canon_bullets.is_active) 
-            {
-                if(my_enemy.enemy_type != 1 && my_enemy.hp > 0)
-                {
-                    if (my_enemy.checkCollision(my_tank.my_canon_bullets.x, 
-                                                my_tank.my_canon_bullets.y, 5, 3)) 
-                    {
-                        my_tank.my_canon_bullets.is_active = false;                        
-                        my_enemy.hp--;
-
-                        if (my_enemy.hp <= 0) 
-                        {
-                            my_enemy.isExploding = true;
-                            my_enemy.explosionTimer = 0;
-                            my_score.add(); 
-                            BUZZER_PlaySound(BUZZER_SOUND_BANG); 
-                        } 
-                        else {
-                            
-                        }
-                    }
-                }
-            }
-
-            //check collion auto gun with air
-            if(my_tank.my_gun_bullets.is_active)
-            {
-                if(my_enemy.enemy_type == 1 && my_enemy.hp > 0)
-                {
-                    if (my_enemy.checkCollision(my_tank.my_gun_bullets.x, 
-                                                my_tank.my_gun_bullets.y, 2, 1)) {
-                        my_tank.my_gun_bullets.is_active = false;                        
-                        my_enemy.hp--;
-
-                        if (my_enemy.hp <= 0) {
-                            my_enemy.isExploding = true;
-                            my_enemy.explosionTimer = 0;
-                            my_score.add(); 
-                            BUZZER_PlaySound(BUZZER_SOUND_EXPLOSION); 
-                        } else {
-                            
-                        }
-                    }
-                }
-            }
-
-            if(!my_boss.is_active){
-                my_enemy.update();//update enemy tank 
-            }
           
-            my_tree.update();//tree update
-            my_trap.update();//update rocket trap
-            
-            // check collsion rocket trap with TANK
-            if (!my_tank.isExploding) {
-                if (my_trap.checkCollisionWithTank(my_tank.x, 30, 25, 15)) 
-                {
-                    my_tank.lossHP(); 
-                    my_trap.y = -20;
-                    my_trap.x = rand() % 100;                    
-                    BUZZER_PlaySound(BUZZER_SOUND_BANG);
-                }
-            }
-
-            my_house.update();// update scrolling house
-            my_mountain.update();//update mountain
-            my_score.update();//update score
         }
         break;
 

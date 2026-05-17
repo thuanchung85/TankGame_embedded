@@ -1,5 +1,5 @@
-sources/app/screens/game_objects/Trap.cpp:7:6:void Trap::reset()	8	static
-sources/app/screens/game_objects/Trap.cpp:4:1:Trap::Trap()	8	static
-sources/app/screens/game_objects/Trap.cpp:13:6:void Trap::update()	8	static
-sources/app/screens/game_objects/Trap.cpp:22:6:void Trap::draw()	24	static
-sources/app/screens/game_objects/Trap.cpp:29:6:bool Trap::checkCollisionWithTank(short int, short int, short int, short int)	8	static
+sources/app/screens/game_objects/Trap.cpp:6:6:void Trap::reset()	8	static
+sources/app/screens/game_objects/Trap.cpp:3:1:Trap::Trap()	8	static
+sources/app/screens/game_objects/Trap.cpp:11:6:void Trap::update()	8	static
+sources/app/screens/game_objects/Trap.cpp:19:6:void Trap::draw()	24	static
+sources/app/screens/game_objects/Trap.cpp:25:6:bool Trap::checkCollisionWithTank(short int, short int, short int, short int)	8	static
