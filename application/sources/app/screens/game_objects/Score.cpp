@@ -12,8 +12,8 @@ void Score::update() {
   
 }
 
-void Score::add() {
-   current_score+=10;
+void Score::add(int value) {
+   current_score+= value;
 }
 
 void Score::draw() {

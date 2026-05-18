@@ -2,6 +2,26 @@
 #define __BOSS_H__
 
 #include "../bitmap_data/screens_bitmap.h"
+//  Rocket of Boss
+struct BossRocket {
+    int8_t hp; // HP of rocket
+    int16_t x, y;
+    bool is_active;
+   
+    
+    void reset(int8_t _hp) {
+        x = 0;
+        y = 0;
+        hp = _hp;
+        is_active = false;
+    }
+    void lose_hp(int8_t damage) {
+        hp -= damage;
+        if (hp <= 0) {
+            is_active = false; // Rocket die
+        }
+    }
+};
 
 class Boss {
 public:
@@ -16,6 +36,9 @@ public:
    
    
     Boss();
+    BossRocket rocket;
+    uint8_t fire_cooldown_counter; //rocket luanch each 1s
+
     void spawn();
     void update();
     void draw();

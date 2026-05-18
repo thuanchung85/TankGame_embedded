@@ -14,6 +14,8 @@ void Boss::reset() {
     explosion_timer = 0;
     move_dir = 1;
     isDie = false;
+    rocket.reset(2);
+    fire_cooldown_counter = 0;
 }
 
 void Boss::spawn() {
@@ -43,10 +45,8 @@ void Boss::update() {
         return;
     }
 
-    // Nếu đã chết hẳn rồi hoặc chưa active thì không update logic di chuyển nữa
     if (isDie || !is_active) return; 
 
-    // 1. Logic đi vào màn hình... (giữ nguyên bên dưới)
     if (x > 65) {
         x -= 1; 
     } else {
@@ -55,9 +55,37 @@ void Boss::update() {
             move_dir = -move_dir; 
         }
     }
+
+    if (!rocket.is_active) {
+        fire_cooldown_counter++;
+        if (fire_cooldown_counter >= 68) { 
+            if (rand() % 2 == 0) { 
+                rocket.is_active = true;
+                rocket.x = x + 20; 
+                rocket.y = y + 12;
+                rocket.hp = 2;
+                BUZZER_PlaySound(BUZZER_SOUND_FIRECRACKER);
+            }
+            fire_cooldown_counter = 0;
+            
+        }
+    }
+
+    if (rocket.is_active) {
+        rocket.x -= 2; 
+        if (rocket.x < -17) { 
+            rocket.is_active = false;
+        }
+    }
 }
 
 void Boss::draw() {
+
+    //boss rocket
+    if (rocket.is_active) {
+        view_render.drawBitmap(rocket.x, rocket.y, bitmap_boss_rocket, 17, 11, WHITE);
+    }
+    //boss
     if (is_active) {
         view_render.drawBitmap(x, y, bitmap_boss, 60, 36, WHITE);
         view_render.setTextSize(1);

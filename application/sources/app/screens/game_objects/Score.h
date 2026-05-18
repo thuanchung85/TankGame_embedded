@@ -10,7 +10,7 @@ public:
     Score();         
     void update();  
     void draw(); 
-    void add();
+    void add(int value);
     void reset();
 };
 
