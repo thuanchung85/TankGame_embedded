@@ -1,3 +1,14 @@
+## TANK GAME DEMO - AKOS -STM32L151
+1. How to run:
+   - Open terminal, and go to folder application by command:  cd '/home/luong/workspace/Sources/ChungGame_embedded/application' 
+   - Build and run by command:  sudo make flash dev=/dev/ttyUSB0
+2. GAMEPLAY:
+   - You have 1 tank with 1 live point (HP). Your mission is move and destroy enemies get about 200 point and destroy the big BOSS.
+   - Use button UP and DOWN to move your tank, try avoid hit by enemies.
+
+[<img src="https://i.postimg.cc/brBvWn91/Screenshot-2026-05-18-143159.jpg" width="240"/>](https://i.postimg.cc/brBvWn91/Screenshot-2026-05-18-143159.jpg)
+
+
 ## AK Embedded Base Kit - STM32L151 - Lập trình nhúng vi điều khiển
 
 [<img src="hardware/images/ak-foundation-logo.png" width="240"/>](https://github.com/the-ak-foundation)
