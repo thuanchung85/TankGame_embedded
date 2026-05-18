@@ -6,6 +6,7 @@
    - You have 1 tank with 1 live point (HP). Your mission is move and destroy enemies get about 200 point and destroy the big BOSS.
    - Use button UP and DOWN to move your tank, try avoid hit by enemies.
 
+[<img src="https://i.postimg.cc/brBvWn91/Screenshot-2026-05-18-143159.jpg" width="240"/>](https://i.postimg.cc/brBvWn91/Screenshot-2026-05-18-143159.jpg)
 
 
 ## AK Embedded Base Kit - STM32L151 - Lập trình nhúng vi điều khiển
