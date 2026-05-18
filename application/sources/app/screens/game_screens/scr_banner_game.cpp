@@ -59,9 +59,14 @@ void scr_banner_game_handle(ak_msg_t* msg){
            menu_index = 0; 
             APP_DBG(">> Entered BANNER GAME Screen!\n");
             BUZZER_PlaySound(BUZZER_SOUND_STARTUP);
+
+            // CLEAR ALL TIMER UPDATE 
+            timer_remove_attr(AC_TASK_DISPLAY_ID, AC_DISPLAY_SHOW_TANK_MOVING_UPDATE);
             break;
 
        
+        case AC_DISPLAY_SHOW_TANK_MOVING_UPDATE:
+            break;
 
         //when button "MODE" released
         case AC_DISPLAY_BUTON_MODE_RELEASED: 
