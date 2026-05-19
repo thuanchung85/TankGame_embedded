@@ -32,15 +32,16 @@ void Boss::lose_hp(int8_t damage) {
         is_active = false;
         is_exploding = true;
         explosion_timer = 0;
+        BUZZER_PlaySound(BUZZER_SOUND_EXPLOSION);
     }
 }
 
 void Boss::update() {
     if (is_exploding) {
         explosion_timer++;
-        if (explosion_timer > 15) { 
+        if (explosion_timer > 15) {       
             is_exploding = false;
-            isDie = true; 
+            isDie = true;
         }
         return;
     }

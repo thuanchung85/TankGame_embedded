@@ -155,11 +155,6 @@ void scr_game_handle(ak_msg_t* msg)
                 if(!my_tank.isExploding){
                      my_tank.tank_fire_cannon();
                 }
-                //pause game
-                //game_events.isPaused = !game_events.isPaused; 
-                //if (game_events.isPaused) {
-                    //BUZZER_PlaySound(BUZZER_SOUND_CLICK); 
-                //} 
             }
         }
         break;
