@@ -143,16 +143,23 @@ void scr_game_handle(ak_msg_t* msg)
 
         //button "Mode" released
         case AC_DISPLAY_BUTON_MODE_RELEASED: { 
-          if (game_events.isGameOver || game_events.isVictory) {
+            //if is game over or victory
+            if (game_events.isGameOver || game_events.isVictory) 
+            {
                 reset_game_bridge();
                 timer_remove_attr(AC_TASK_DISPLAY_ID, AC_DISPLAY_SHOW_TANK_MOVING_UPDATE);
                 SCREEN_TRAN(scr_banner_game_handle, &scr_banner_game);
             }
+            //if tank live so fire 
             else {
-                game_events.isPaused = !game_events.isPaused; 
-                if (game_events.isPaused) {
-                    BUZZER_PlaySound(BUZZER_SOUND_CLICK); 
-                } 
+                if(!my_tank.isExploding){
+                     my_tank.tank_fire_canon();
+                }
+                //pause game
+                //game_events.isPaused = !game_events.isPaused; 
+                //if (game_events.isPaused) {
+                    //BUZZER_PlaySound(BUZZER_SOUND_CLICK); 
+                //} 
             }
         }
         break;

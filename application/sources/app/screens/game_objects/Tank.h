@@ -10,10 +10,11 @@ class Tank {
 public:
     int8_t x; //x of tank
     int8_t target_x; //x target for moving of tank
-    bool isMoving;
     int8_t frame_count;
-    bool isExploding;
     int8_t explosion_timer;
+    bool is_canon_reloaded;
+    bool isExploding;
+    bool isMoving;
 
     Gun_Bullet my_gun_bullets; // air gun
     Canon_Bullet my_canon_bullets; //  canon

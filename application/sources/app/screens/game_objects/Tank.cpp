@@ -12,6 +12,7 @@ void Tank::reset(){
     target_x = 20;
     isMoving = false;
     isExploding = false;
+    is_canon_reloaded = false;
     explosion_timer = 0;
     myHP.reset();
 }
@@ -29,14 +30,12 @@ void Tank::update()
             if(x == target_x) isMoving = false;
         }
     
-        //fire canon auto each 50 frame
+        //fire canon auto reload each 50 frame
         frame_count++;
         if(frame_count >= 50)
         {
-            tank_fire_canon();
+            is_canon_reloaded = true;
             frame_count = 0;
-            BUZZER_PlaySound(BUZZER_SOUND_CLICK);
-            
         }
 
         // update canon tank
@@ -76,8 +75,10 @@ void Tank::draw() {
 
 //tank fire canon
 void Tank::tank_fire_canon() {
-   if (!my_canon_bullets.is_active) {
+   if (!my_canon_bullets.is_active &&  is_canon_reloaded) {
         my_canon_bullets.fire(x + 25, 38); 
+        is_canon_reloaded = false;
+        BUZZER_PlaySound(BUZZER_SOUND_CLICK);
     }
 }
 
