@@ -1,6 +1,6 @@
-build_ChungGame_embedded/Canon_Bullet.o: \
- sources/app/screens/game_objects/Canon_Bullet.cpp \
- sources/app/screens/game_objects/Canon_Bullet.h \
+build_ChungGame_embedded/Cannon_Bullet.o: \
+ sources/app/screens/game_objects/Cannon_Bullet.cpp \
+ sources/app/screens/game_objects/Cannon_Bullet.h \
  sources/app/screens/game_objects/../bitmap_data/screens_bitmap.h \
  sources/common/view_render.h sources/common/view_item.h \
  /home/luong/workspace/tools/gcc-arm-none-eabi-10.3-2021.10/lib/gcc/arm-none-eabi/10.3.1/include/stdint.h \

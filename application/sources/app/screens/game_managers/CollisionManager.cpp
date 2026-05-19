@@ -7,14 +7,14 @@ void CollisionManager::check_all_collisions(Tank& tank, Enemy& enemy, Boss& boss
     check_bullets_with_enemy(tank, enemy, score);
     check_trap_with_tank(tank, trap);
     check_boss_rocket_with_tank(tank, boss);
-    check_canon_bullet_with_boss_rocket(tank,boss);
+    check_cannon_bullet_with_boss_rocket(tank,boss);
     check_gun_bullet_with_boss_rocket(tank,boss);
 }
 
 void CollisionManager::check_bullet_with_boss(Tank& tank, Boss& boss, Score& score) {
-    if (tank.my_canon_bullets.is_active && boss.is_active) {
-        if (boss.check_collision(tank.my_canon_bullets.x, tank.my_canon_bullets.y, 5, 3)) {
-            tank.my_canon_bullets.is_active = false; 
+    if (tank.my_cannon_bullets.is_active && boss.is_active) {
+        if (boss.check_collision(tank.my_cannon_bullets.x, tank.my_cannon_bullets.y, 5, 3)) {
+            tank.my_cannon_bullets.is_active = false; 
             boss.lose_hp(1);
             BUZZER_PlaySound(BUZZER_SOUND_BANG); 
             
@@ -51,10 +51,10 @@ void CollisionManager::check_tank_with_enemy(Tank& tank, Enemy& enemy) {
 }
 
 void CollisionManager::check_bullets_with_enemy(Tank& tank, Enemy& enemy, Score& score) {
-    // 1. Check tank canon hit ground enemy
-    if (tank.my_canon_bullets.is_active && enemy.enemy_type != 1 && enemy.hp > 0) {
-        if (enemy.checkCollision(tank.my_canon_bullets.x, tank.my_canon_bullets.y, 5, 3)) {
-            tank.my_canon_bullets.is_active = false;                        
+    // 1. Check tank cannon hit ground enemy
+    if (tank.my_cannon_bullets.is_active && enemy.enemy_type != 1 && enemy.hp > 0) {
+        if (enemy.checkCollision(tank.my_cannon_bullets.x, tank.my_cannon_bullets.y, 5, 3)) {
+            tank.my_cannon_bullets.is_active = false;                        
             enemy.hp--;
             if (enemy.hp <= 0) {
                 enemy.isExploding = true;
@@ -105,15 +105,15 @@ void CollisionManager::check_boss_rocket_with_tank(Tank& tank, Boss& boss) {
 }
 
 
-void CollisionManager::check_canon_bullet_with_boss_rocket(Tank& tank, Boss& boss) {
-    if (tank.my_canon_bullets.is_active && boss.rocket.is_active) {
-        int16_t cx = tank.my_canon_bullets.x;
-        int16_t cy = tank.my_canon_bullets.y;
+void CollisionManager::check_cannon_bullet_with_boss_rocket(Tank& tank, Boss& boss) {
+    if (tank.my_cannon_bullets.is_active && boss.rocket.is_active) {
+        int16_t cx = tank.my_cannon_bullets.x;
+        int16_t cy = tank.my_cannon_bullets.y;
         int16_t rx = boss.rocket.x;
         int16_t ry = boss.rocket.y;
 
         if (cx < rx + 17 && cx + 5 > rx && cy < ry + 11 && cy + 3 > ry) {
-            tank.my_canon_bullets.is_active = false; 
+            tank.my_cannon_bullets.is_active = false; 
             
             boss.rocket.lose_hp(2);
             BUZZER_PlaySound(BUZZER_SOUND_EXPLOSION); 

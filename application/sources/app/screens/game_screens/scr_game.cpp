@@ -153,7 +153,7 @@ void scr_game_handle(ak_msg_t* msg)
             //if tank live so fire 
             else {
                 if(!my_tank.isExploding){
-                     my_tank.tank_fire_canon();
+                     my_tank.tank_fire_cannon();
                 }
                 //pause game
                 //game_events.isPaused = !game_events.isPaused; 

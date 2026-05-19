@@ -12,7 +12,7 @@ void Tank::reset(){
     target_x = 20;
     isMoving = false;
     isExploding = false;
-    is_canon_reloaded = false;
+    is_cannon_reloaded = false;
     explosion_timer = 0;
     myHP.reset();
 }
@@ -30,16 +30,16 @@ void Tank::update()
             if(x == target_x) isMoving = false;
         }
     
-        //fire canon auto reload each 50 frame
+        //fire cannon auto reload each 50 frame
         frame_count++;
         if(frame_count >= 50)
         {
-            is_canon_reloaded = true;
+            is_cannon_reloaded = true;
             frame_count = 0;
         }
 
-        // update canon tank
-        my_canon_bullets.update();
+        // update cannon tank
+        my_cannon_bullets.update();
         my_gun_bullets.update();
 
         //HP update
@@ -67,17 +67,17 @@ void Tank::draw() {
     else
     {
         view_render.drawBitmap(x, 30, bitmap_tank, 30, 30, WHITE);//draw tank
-        my_canon_bullets.draw(); //draw cannon bullet
+        my_cannon_bullets.draw(); //draw cannon bullet
         my_gun_bullets.draw(); //draw auto gun bullet
         myHP.draw(); //draw hp
     }
 }
 
-//tank fire canon
-void Tank::tank_fire_canon() {
-   if (!my_canon_bullets.is_active &&  is_canon_reloaded) {
-        my_canon_bullets.fire(x + 25, 38); 
-        is_canon_reloaded = false;
+//tank fire cannon
+void Tank::tank_fire_cannon() {
+   if (!my_cannon_bullets.is_active &&  is_cannon_reloaded) {
+        my_cannon_bullets.fire(x + 25, 38); 
+        is_cannon_reloaded = false;
         BUZZER_PlaySound(BUZZER_SOUND_CLICK);
     }
 }

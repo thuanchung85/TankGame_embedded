@@ -2,7 +2,7 @@ sources/app/screens/game_objects/Tank.cpp:10:6:void Tank::reset()	0	static
 sources/app/screens/game_objects/Tank.cpp:6:1:Tank::Tank()	8	static
 sources/app/screens/game_objects/Tank.cpp:20:6:void Tank::update()	8	static
 sources/app/screens/game_objects/Tank.cpp:57:6:void Tank::draw()	32	static
-sources/app/screens/game_objects/Tank.cpp:77:6:void Tank::tank_fire_canon()	16	static
+sources/app/screens/game_objects/Tank.cpp:77:6:void Tank::tank_fire_cannon()	16	static
 sources/app/screens/game_objects/Tank.cpp:86:6:void Tank::tank_fire_gun(short int)	0	static
 sources/app/screens/game_objects/Tank.cpp:93:6:void Tank::moveForward()	0	static
 sources/app/screens/game_objects/Tank.cpp:105:6:void Tank::moveBackward()	0	static

@@ -2,7 +2,7 @@
 #define TANK_H
 
 #include "../bitmap_data/screens_bitmap.h"
-#include "Canon_Bullet.h"
+#include "Cannon_Bullet.h"
 #include "Gun_Bullet.h"
 #include "HP_point.h"
 
@@ -12,19 +12,19 @@ public:
     int8_t target_x; //x target for moving of tank
     int8_t frame_count;
     int8_t explosion_timer;
-    bool is_canon_reloaded;
+    bool is_cannon_reloaded;
     bool isExploding;
     bool isMoving;
 
     Gun_Bullet my_gun_bullets; // air gun
-    Canon_Bullet my_canon_bullets; //  canon
+    Cannon_Bullet my_cannon_bullets; //  cannon
     HP_point myHP;
     
     Tank();         
     void update();  
     void draw();    
 
-    void tank_fire_canon(); 
+    void tank_fire_cannon(); 
     void tank_fire_gun(short enemyY);
 
     void moveForward(); 

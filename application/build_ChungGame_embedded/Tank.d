@@ -106,7 +106,7 @@ build_ChungGame_embedded/Tank.o: \
  /home/luong/workspace/tools/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/ctype.h \
  sources/platform/stm32l/arduino/cores/stm32/pgmspace.h \
  /home/luong/workspace/tools/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/inttypes.h \
- sources/app/screens/game_objects/Canon_Bullet.h \
+ sources/app/screens/game_objects/Cannon_Bullet.h \
  sources/app/screens/game_objects/Gun_Bullet.h \
  sources/app/screens/game_objects/HP_point.h \
  sources/libraries/ArduinoJson/src/ArduinoJson/../../../../driver/buzzer/buzzer.h

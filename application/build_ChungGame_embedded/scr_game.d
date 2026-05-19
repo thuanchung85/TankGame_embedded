@@ -165,7 +165,7 @@ build_ChungGame_embedded/scr_game.o: \
  sources/libraries/ArduinoJson/src/ArduinoJson/../../../../driver/eeprom/eeprom.h \
  sources/app/screens/game_objects/Tank.h \
  sources/app/screens/game_objects/../bitmap_data/screens_bitmap.h \
- sources/app/screens/game_objects/Canon_Bullet.h \
+ sources/app/screens/game_objects/Cannon_Bullet.h \
  sources/app/screens/game_objects/Gun_Bullet.h \
  sources/app/screens/game_objects/HP_point.h \
  sources/app/screens/game_objects/Ground.h \
