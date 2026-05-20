@@ -1,5 +1,5 @@
 ## TANK GAME DEMO - AKOS -STM32L151
-1. How to run:
+1. HOW TO RUN:
    - Open terminal, and go to folder application by command:  cd '/home/luong/workspace/Sources/ChungGame_embedded/application' 
    - Build and run by command:  sudo make flash dev=/dev/ttyUSB0
 2. GAMEPLAY:
@@ -8,6 +8,9 @@
    - Use Mode button for tank fire cannon, it will take 50ms for reload next cannon bullet.
 
 [<img src="https://i.postimg.cc/brBvWn91/Screenshot-2026-05-18-143159.jpg" width="240"/>](https://i.postimg.cc/brBvWn91/Screenshot-2026-05-18-143159.jpg)
+
+3. USE CASE:
+   [<img src="https://i.postimg.cc/CLYjjsDC/user-case.png"/>](https://i.postimg.cc/CLYjjsDC/user-case.png)
 
 
 ## AK Embedded Base Kit - STM32L151 - Lập trình nhúng vi điều khiển
