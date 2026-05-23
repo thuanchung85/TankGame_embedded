@@ -41,7 +41,16 @@ https://github.com/user-attachments/assets/0a2d2ca1-4aab-4f7d-9217-8a006b4d772b
    
    Game Engine → Menu Screen: Display top score, restart or exit options.
 
+   
 
+6. CASE VICTORY SEQUENCE:  
+<img width="1381" height="486" alt="Screenshot 2026-05-23 123852" src="https://github.com/user-attachments/assets/4f064502-7415-4f96-81fa-54198e93f4bb" />
+
+7. CASE GAMEOVER SEQUENCE:
+<img width="793" height="588" alt="gameover" src="https://github.com/user-attachments/assets/d2dcc6aa-bce2-4329-b02a-14a54ff68a00" />
+
+8. GAMEPLAY SEQUENCE:
+   <img width="1917" height="1791" alt="sequenceDiagram" src="https://github.com/user-attachments/assets/0eb040e5-76dc-4d22-af58-050e429d48e6" /><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="1917.316850081621" height="1791.4943114520001"></svg>
 
 
 
