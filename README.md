@@ -1,5 +1,11 @@
+
+
+https://github.com/user-attachments/assets/0a2d2ca1-4aab-4f7d-9217-8a006b4d772b
+
+
+
 ## TANK GAME DEMO - AKOS -STM32L151
-1. How to run:
+1. HOW TO RUN:
    - Open terminal, and go to folder application by command:  cd '/home/luong/workspace/Sources/ChungGame_embedded/application' 
    - Build and run by command:  sudo make flash dev=/dev/ttyUSB0
 2. GAMEPLAY:
@@ -8,6 +14,44 @@
    - Use Mode button for tank fire cannon, it will take 50ms for reload next cannon bullet.
 
 [<img src="https://i.postimg.cc/brBvWn91/Screenshot-2026-05-18-143159.jpg" width="240"/>](https://i.postimg.cc/brBvWn91/Screenshot-2026-05-18-143159.jpg)
+
+3. USE CASE:
+   [<img src="https://i.postimg.cc/CLYjjsDC/user-case.png"/>](https://i.postimg.cc/CLYjjsDC/user-case.png)
+
+4. Overall:
+   <img width="1099" height="671" alt="Screenshot 2026-05-23 122801" src="https://github.com/user-attachments/assets/a588e88e-406c-417a-86dd-d25ba867cfba" />
+
+5. Main Sequential Flow:
+
+   Player → Tank: Send movement or fire commands.
+
+   Tank → Game Engine: Update position, generate ammunition.
+   
+   Game Engine → Enemy System: Generate new enemies every second.
+   
+   Tank ↔ Enemy System: Check collisions, process damage.
+   
+   Game Engine → Score System: Add points based on the type of enemy destroyed.
+   
+   Game Engine → Boss: Activate when the score threshold is reached.
+   
+   Boss ↔ Tank: Engage in combat, check victory or game over.
+   
+   Game Engine → EEPROM: Save score upon victory.
+   
+   Game Engine → Menu Screen: Display top score, restart or exit options.
+
+   
+
+6. CASE VICTORY SEQUENCE:  
+<img width="1381" height="486" alt="Screenshot 2026-05-23 123852" src="https://github.com/user-attachments/assets/4f064502-7415-4f96-81fa-54198e93f4bb" />
+
+7. CASE GAMEOVER SEQUENCE:
+<img width="793" height="588" alt="gameover" src="https://github.com/user-attachments/assets/d2dcc6aa-bce2-4329-b02a-14a54ff68a00" />
+
+8. GAMEPLAY SEQUENCE:
+   <img width="1917" height="1791" alt="sequenceDiagram" src="https://github.com/user-attachments/assets/0eb040e5-76dc-4d22-af58-050e429d48e6" /><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="1917.316850081621" height="1791.4943114520001"></svg>
+
 
 
 ## AK Embedded Base Kit - STM32L151 - Lập trình nhúng vi điều khiển
