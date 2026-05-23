@@ -18,6 +18,32 @@ https://github.com/user-attachments/assets/0a2d2ca1-4aab-4f7d-9217-8a006b4d772b
 3. USE CASE:
    [<img src="https://i.postimg.cc/CLYjjsDC/user-case.png"/>](https://i.postimg.cc/CLYjjsDC/user-case.png)
 
+4. Overall:
+   <img width="1099" height="671" alt="Screenshot 2026-05-23 122801" src="https://github.com/user-attachments/assets/a588e88e-406c-417a-86dd-d25ba867cfba" />
+
+5. Main Sequential Flow:
+
+   Player → Tank: Send movement or fire commands.
+
+   Tank → Game Engine: Update position, generate ammunition.
+   
+   Game Engine → Enemy System: Generate new enemies every second.
+   
+   Tank ↔ Enemy System: Check collisions, process damage.
+   
+   Game Engine → Score System: Add points based on the type of enemy destroyed.
+   
+   Game Engine → Boss: Activate when the score threshold is reached.
+   
+   Boss ↔ Tank: Engage in combat, check victory or game over.
+   
+   Game Engine → EEPROM: Save score upon victory.
+   
+   Game Engine → Menu Screen: Display top score, restart or exit options.
+
+
+
+
 
 ## AK Embedded Base Kit - STM32L151 - Lập trình nhúng vi điều khiển
 
