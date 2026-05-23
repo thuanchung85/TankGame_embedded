@@ -111,6 +111,8 @@ build_ChungGame_embedded/GameEventsManager.o: \
  sources/app/screens/game_managers/../game_objects/Cannon_Bullet.h \
  sources/app/screens/game_managers/../game_objects/Gun_Bullet.h \
  sources/app/screens/game_managers/../game_objects/HP_point.h \
+ sources/app/screens/game_managers/../game_objects/Enemy.h \
+ sources/app/screens/game_managers/../game_objects/Boss.h \
  sources/app/screens/game_managers/../game_objects/Score.h \
  sources/libraries/ArduinoJson/src/ArduinoJson/../../../../driver/eeprom/eeprom.h \
  sources/app/app_dbg.h

@@ -112,5 +112,7 @@ build_ChungGame_embedded/CollisionManager.o: \
  sources/app/screens/game_managers/../game_objects/HP_point.h \
  sources/app/screens/game_managers/../game_objects/Enemy.h \
  sources/app/screens/game_managers/../game_objects/Boss.h \
+ sources/app/screens/game_managers/../game_objects/Enemy.h \
+ sources/app/screens/game_managers/../game_objects/Boss.h \
  sources/app/screens/game_managers/../game_objects/Trap.h \
  sources/app/screens/game_managers/../game_objects/Score.h
