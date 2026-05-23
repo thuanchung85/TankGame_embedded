@@ -1,3 +1,9 @@
+
+
+https://github.com/user-attachments/assets/0a2d2ca1-4aab-4f7d-9217-8a006b4d772b
+
+
+
 ## TANK GAME DEMO - AKOS -STM32L151
 1. HOW TO RUN:
    - Open terminal, and go to folder application by command:  cd '/home/luong/workspace/Sources/ChungGame_embedded/application' 
