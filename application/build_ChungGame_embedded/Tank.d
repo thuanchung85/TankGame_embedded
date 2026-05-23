@@ -109,4 +109,6 @@ build_ChungGame_embedded/Tank.o: \
  sources/app/screens/game_objects/Cannon_Bullet.h \
  sources/app/screens/game_objects/Gun_Bullet.h \
  sources/app/screens/game_objects/HP_point.h \
+ sources/app/screens/game_objects/Enemy.h \
+ sources/app/screens/game_objects/Boss.h \
  sources/libraries/ArduinoJson/src/ArduinoJson/../../../../driver/buzzer/buzzer.h

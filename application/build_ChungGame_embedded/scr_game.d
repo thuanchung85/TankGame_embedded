@@ -168,6 +168,8 @@ build_ChungGame_embedded/scr_game.o: \
  sources/app/screens/game_objects/Cannon_Bullet.h \
  sources/app/screens/game_objects/Gun_Bullet.h \
  sources/app/screens/game_objects/HP_point.h \
+ sources/app/screens/game_objects/Enemy.h \
+ sources/app/screens/game_objects/Boss.h \
  sources/app/screens/game_objects/Ground.h \
  sources/app/screens/game_objects/Tree.h \
  sources/app/screens/game_objects/Mountain.h \

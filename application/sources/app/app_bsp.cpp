@@ -19,11 +19,15 @@ void btn_mode_callback(void* b) {
 	switch (me_b->state) {
 	case BUTTON_SW_STATE_PRESSED: {
 		APP_DBG("[btn_mode_callback] BUTTON_SW_STATE_PRESSED\n");
+		// --- 1. BẮN SIGNAL KHI VỪA NHẤN XUỐNG ---
+        task_post_pure_msg(AC_TASK_DISPLAY_ID, AC_DISPLAY_BUTON_MODE_DOWN);
 	}
 		break;
 
 	case BUTTON_SW_STATE_LONG_PRESSED: {
 		APP_DBG("[btn_mode_callback] BUTTON_SW_STATE_LONG_PRESSED\n");
+		// --- 2. BẮN SIGNAL KHI ĐÈ GIỮ ĐỦ LÂU ---
+        task_post_pure_msg(AC_TASK_DISPLAY_ID, AC_DISPLAY_BUTTON_MODE_HOLD);
 	}
 		break;
 

@@ -12,12 +12,13 @@ void Tank::reset(){
     target_x = 20;
     isMoving = false;
     isExploding = false;
-    is_cannon_reloaded = false;
+    is_cannon_reloaded = true;
     explosion_timer = 0;
+    is_firing_gun = false;
     myHP.reset();
 }
 
-void Tank::update() 
+void Tank::update(Enemy& enemy, Boss& boss) 
 {
     //if tank alive
     if(!isExploding)
@@ -36,6 +37,18 @@ void Tank::update()
         {
             is_cannon_reloaded = true;
             frame_count = 0;
+        }
+
+        // =================================================================
+        //  (MINIGUN LOGIC) OF TANK
+        // =================================================================
+        if (is_firing_gun) {
+            if (!boss.is_active && enemy.enemy_type == 1 && enemy.x < 120) {
+                tank_fire_gun(5); 
+            } 
+            else if (boss.is_active && boss.rocket.is_active && boss.rocket.x < 120) {
+                tank_fire_gun(boss.rocket.y); 
+            }
         }
 
         // update cannon tank

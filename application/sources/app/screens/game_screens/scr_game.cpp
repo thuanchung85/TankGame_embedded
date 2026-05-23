@@ -23,6 +23,8 @@ static Trap my_trap; //rocket drop
 static Boss my_boss; //Boss
 static GameEventsManager game_events;//manage game pause, game over, boss spawn,victory, reset, update save score
 
+bool is_mode_held = false;//flag check MODE BUTTON HOLD
+
 // function reset game
 static void reset_game_bridge() {
     game_events.isGameOver = false;
@@ -103,16 +105,17 @@ void scr_game_handle(ak_msg_t* msg)
             timer_set(AC_TASK_DISPLAY_ID, AC_DISPLAY_SHOW_TANK_MOVING_UPDATE, 60,TIMER_PERIODIC);
             break;
 
+        //game update loop
         case AC_DISPLAY_SHOW_TANK_MOVING_UPDATE: 
         {
             //game stop update when pause, game over, victory
             if (game_events.isGameOver || game_events.isPaused || game_events.isVictory) return;
 
             my_ground.update();//update scroliing ground
-            my_tank.update(); //update tank
+            my_tank.update(my_enemy,my_boss); //update tank
 
             // SPAWN BOSS when score at 200
-           game_events.check_boss_spawn(my_score, my_boss);
+            game_events.check_boss_spawn(my_score, my_boss);
 
             //update boss
             my_boss.update();  
@@ -122,13 +125,6 @@ void scr_game_handle(ak_msg_t* msg)
             my_house.update();// update scrolling house
             my_mountain.update();//update mountain
             my_score.update();//update score 
-    
-            // TANK auto gun update attack air, and boss rocket
-            if (my_enemy.enemy_type == 1 && my_enemy.x < 120 && !my_boss.is_active) my_tank.tank_fire_gun(5); 
-            else if (my_boss.rocket.is_active && my_boss.rocket.x < 120) {
-                // try shooting Rocket Boss
-                my_tank.tank_fire_gun(my_boss.rocket.y); 
-            }
 
             // CHECK (COLLISION PHASE)!
             CollisionManager::check_all_collisions(my_tank, my_enemy, my_boss, my_trap, my_score);
@@ -141,21 +137,34 @@ void scr_game_handle(ak_msg_t* msg)
         }
         break;
 
+        //hold MODE button for minigun fire
+        case AC_DISPLAY_BUTON_MODE_DOWN:
+            is_mode_held = false; 
+           my_tank.is_firing_gun = true;
+            break;
+        case AC_DISPLAY_BUTTON_MODE_HOLD:
+            is_mode_held = true; 
+            my_tank.is_firing_gun = true; 
+            break;
+
         //button "Mode" released
         case AC_DISPLAY_BUTON_MODE_RELEASED: { 
-            //if is game over or victory
-            if (game_events.isGameOver || game_events.isVictory) 
-            {
-                reset_game_bridge();
-                timer_remove_attr(AC_TASK_DISPLAY_ID, AC_DISPLAY_SHOW_TANK_MOVING_UPDATE);
-                SCREEN_TRAN(scr_banner_game_handle, &scr_banner_game);
-            }
-            //if tank live so fire 
-            else {
-                if(!my_tank.isExploding){
-                     my_tank.tank_fire_cannon();
+            my_tank.is_firing_gun = false; 
+            if (!is_mode_held) {
+                //if is game over or victory
+                if (game_events.isGameOver || game_events.isVictory) 
+                {
+                    reset_game_bridge();
+                    timer_remove_attr(AC_TASK_DISPLAY_ID, AC_DISPLAY_SHOW_TANK_MOVING_UPDATE);
+                    SCREEN_TRAN(scr_banner_game_handle, &scr_banner_game);
                 }
-            }
+                //if tank live so fire 
+                else {
+                    if(!my_tank.isExploding){
+                        my_tank.tank_fire_cannon();
+                    }
+                }
+                }
         }
         break;
 

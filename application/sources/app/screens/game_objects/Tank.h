@@ -5,6 +5,8 @@
 #include "Cannon_Bullet.h"
 #include "Gun_Bullet.h"
 #include "HP_point.h"
+#include "Enemy.h"
+#include "Boss.h"
 
 class Tank {
 public:
@@ -15,13 +17,14 @@ public:
     bool is_cannon_reloaded;
     bool isExploding;
     bool isMoving;
+    bool is_firing_gun;
 
     Gun_Bullet my_gun_bullets; // air gun
     Cannon_Bullet my_cannon_bullets; //  cannon
     HP_point myHP;
     
     Tank();         
-    void update();  
+    void update(Enemy& enemy, Boss& boss);  
     void draw();    
 
     void tank_fire_cannon(); 
