@@ -12,6 +12,7 @@ https://github.com/user-attachments/assets/0a2d2ca1-4aab-4f7d-9217-8a006b4d772b
    - You have 1 tank with 1 live point (HP). Your mission is move and destroy enemies get about 200 point and destroy the big BOSS.
    - Use button UP and DOWN to move your tank, try avoid hit by enemies.
    - Use Mode button for tank fire cannon, it will take 50ms for reload next cannon bullet.
+   - User hold MODE button for 0.5s, then tank will fire minigun to destroy air targets.
 
 [<img src="https://i.postimg.cc/brBvWn91/Screenshot-2026-05-18-143159.jpg" width="240"/>](https://i.postimg.cc/brBvWn91/Screenshot-2026-05-18-143159.jpg)
 
