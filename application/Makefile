@@ -23,7 +23,7 @@
 Print = @echo "~"
 
 # Name of build target ex: ak-base-kit-stm32l151-application.bin
-NAME_MODULE = ChungGame_embedded
+NAME_MODULE = TankGame_embedded
 PROJECT = $(NAME_MODULE)
 
 GCC_PATH		= $(HOME)/workspace/tools/gcc-arm-none-eabi-10.3-2021.10
