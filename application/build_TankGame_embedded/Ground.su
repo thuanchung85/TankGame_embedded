@@ -1,3 +1,0 @@
-sources/app/screens/game_objects/Ground.cpp:3:1:Ground::Ground()	0	static
-sources/app/screens/game_objects/Ground.cpp:7:6:void Ground::update()	0	static
-sources/app/screens/game_objects/Ground.cpp:14:6:void Ground::draw()	40	static

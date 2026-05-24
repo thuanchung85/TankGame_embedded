@@ -1,9 +1,0 @@
-sources/app/screens/game_managers/CollisionManager.cpp:14:6:static void CollisionManager::check_bullet_with_boss(Tank&, Boss&, Score&)	24	static
-sources/app/screens/game_managers/CollisionManager.cpp:29:6:static void CollisionManager::check_tank_with_boss(Tank&, Boss&)	16	static
-sources/app/screens/game_managers/CollisionManager.cpp:38:6:static void CollisionManager::check_tank_with_enemy(Tank&, Enemy&)	24	static
-sources/app/screens/game_managers/CollisionManager.cpp:53:6:static void CollisionManager::check_bullets_with_enemy(Tank&, Enemy&, Score&)	32	static
-sources/app/screens/game_managers/CollisionManager.cpp:83:6:static void CollisionManager::check_trap_with_tank(Tank&, Trap&)	24	static
-sources/app/screens/game_managers/CollisionManager.cpp:94:6:static void CollisionManager::check_boss_rocket_with_tank(Tank&, Boss&)	16	static
-sources/app/screens/game_managers/CollisionManager.cpp:108:6:static void CollisionManager::check_cannon_bullet_with_boss_rocket(Tank&, Boss&)	4	static
-sources/app/screens/game_managers/CollisionManager.cpp:124:6:static void CollisionManager::check_gun_bullet_with_boss_rocket(Tank&, Boss&)	4	static
-sources/app/screens/game_managers/CollisionManager.cpp:3:6:static void CollisionManager::check_all_collisions(Tank&, Enemy&, Boss&, Trap&, Score&)	24	static

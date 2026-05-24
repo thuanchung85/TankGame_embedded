@@ -1,4 +1,0 @@
-sources/app/screens/game_objects/Tree.cpp:3:1:Tree::Tree()	0	static
-sources/app/screens/game_objects/Tree.cpp:6:6:void Tree::reset()	0	static
-sources/app/screens/game_objects/Tree.cpp:11:6:void Tree::update()	8	static
-sources/app/screens/game_objects/Tree.cpp:19:6:void Tree::draw()	40	static

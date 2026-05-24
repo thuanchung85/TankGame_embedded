@@ -1,4 +1,0 @@
-sources/app/screens/game_objects/Cannon_Bullet.cpp:3:1:Cannon_Bullet::Cannon_Bullet()	0	static
-sources/app/screens/game_objects/Cannon_Bullet.cpp:7:6:void Cannon_Bullet::fire(short int, short int)	0	static
-sources/app/screens/game_objects/Cannon_Bullet.cpp:13:6:void Cannon_Bullet::update()	0	static
-sources/app/screens/game_objects/Cannon_Bullet.cpp:20:6:void Cannon_Bullet::draw()	24	static
