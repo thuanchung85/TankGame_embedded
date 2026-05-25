@@ -1,4 +1,0 @@
-sources/app/screens/game_objects/House.cpp:3:1:House::House()	0	static
-sources/app/screens/game_objects/House.cpp:6:6:void House::reset()	0	static
-sources/app/screens/game_objects/House.cpp:11:6:void House::update()	8	static
-sources/app/screens/game_objects/House.cpp:25:6:void House::draw()	40	static

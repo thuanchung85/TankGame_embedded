@@ -1,2 +1,0 @@
-sources/app/screens/game_screens/scr_topscore_game.cpp:51:6:void scr_topscore_game_handle(ak_msg_t*)	8	static
-sources/app/screens/game_screens/scr_topscore_game.cpp:6:13:void view_scr_topscore_game()	24	static

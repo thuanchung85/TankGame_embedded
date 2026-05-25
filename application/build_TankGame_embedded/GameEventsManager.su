@@ -1,5 +1,0 @@
-sources/app/screens/game_managers/GameEventsManager.cpp:7:1:GameEventsManager::GameEventsManager()	0	static
-sources/app/screens/game_managers/GameEventsManager.cpp:14:6:void GameEventsManager::check_boss_spawn(Score&, Boss&)	0	static
-sources/app/screens/game_managers/GameEventsManager.cpp:44:6:void GameEventsManager::update_top_scores(uint32_t)	24	static
-sources/app/screens/game_managers/GameEventsManager.cpp:20:6:void GameEventsManager::check_victory_condition(Boss&, Score&)	8	static
-sources/app/screens/game_managers/GameEventsManager.cpp:29:6:void GameEventsManager::check_game_over_condition(Tank&, Score&)	16	static
