@@ -4,12 +4,16 @@ https://github.com/user-attachments/assets/0a2d2ca1-4aab-4f7d-9217-8a006b4d772b
 
 
 
-## TANK GAME DEMO - AKOS -STM32L151
+## TANK GAME Embedded- AKOS -STM32L151
+
+This classic tank shooting game is optimized for embedded systems using C/C++ and hardware performance optimization.
 1. HOW TO RUN:
    - Open terminal, and go to folder application by command:  cd '/home/luong/workspace/Sources/ChungGame_embedded/application' 
    - Build and run by command:  sudo make flash dev=/dev/ttyUSB0
      
-2. GAMEPLAY:
+2. KEY FEATURES:
+
+   A. GAMEPLAY:
    - You have 1 tank with 1 live point (HP). Your mission is move and destroy enemies get about 200 point and destroy the big BOSS.
    - Use button UP and DOWN to move your tank, try avoid hit by enemies.
    - Use Mode button for tank fire cannon, it will take 50ms for reload next cannon bullet.
@@ -17,18 +21,22 @@ https://github.com/user-attachments/assets/0a2d2ca1-4aab-4f7d-9217-8a006b4d772b
    <div align="center">
       <img width="700" height="" src="https://i.postimg.cc/brBvWn91/Screenshot-2026-05-18-143159.jpg"/>
    </div>
+   B. TECHNICAL FEATURES (Embedded): 
+   
+   Optimized memory management (Dynamic/Static Memory management), multitasking or game loop handling without interrupts/timers, optimized screen refresh rate (Frame rate/FPS control), button debouncing control...
 
-3. USE CASE:
+      
+4. USE CASE:
    <div align="center">
    <img width="700" height="" src="https://i.postimg.cc/CLYjjsDC/user-case.png"/>
    </div>
 
-4. Overall:
+5. Overall:
    <div align="center">
    <img width="700" height="" alt="Screenshot 2026-05-23 122801" src="https://github.com/user-attachments/assets/a588e88e-406c-417a-86dd-d25ba867cfba" />
    </div>
    
-5. Main Sequential Flow:
+6. Main Sequential Flow:
 
    Player → Tank: Send movement or fire commands.
 
@@ -50,7 +58,7 @@ https://github.com/user-attachments/assets/0a2d2ca1-4aab-4f7d-9217-8a006b4d772b
 
    
 
-6. CASE VICTORY SEQUENCE:
+7. CASE VICTORY SEQUENCE:
 <div align="center">
 <img width="700" height="" alt="Screenshot 2026-05-23 123852" src="https://github.com/user-attachments/assets/4f064502-7415-4f96-81fa-54198e93f4bb" />
 </div>
@@ -66,7 +74,7 @@ https://github.com/user-attachments/assets/0a2d2ca1-4aab-4f7d-9217-8a006b4d772b
 </div>
 
 
-## AK Embedded Base Kit - STM32L151 - Lập trình nhúng vi điều khiển
+## AK Embedded Base Kit - STM32L151 - HARDWARE
 
 [<img src="hardware/images/ak-foundation-logo.png" width="240"/>](https://github.com/the-ak-foundation)
 
