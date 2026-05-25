@@ -9,3 +9,4 @@ SOURCES_CPP += sources/app/tank_game/game_objects/tree_object.cpp
 SOURCES_CPP += sources/app/tank_game/game_objects/building_object.cpp
 SOURCES_CPP += sources/app/tank_game/game_objects/mountain_object.cpp
 SOURCES_CPP += sources/app/tank_game/game_objects/tank_object.cpp
+SOURCES_CPP += sources/app/tank_game/game_objects/cannon_bullet_object.cpp

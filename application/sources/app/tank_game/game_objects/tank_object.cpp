@@ -19,10 +19,10 @@ void task_tank_handle(ak_msg_t *msg) {
             static_tank.x = 20;
             static_tank.target_x = 20;
             static_tank.frame_count = 0;
-            static_tank.isMoving = false;
-            static_tank.isExploding = false;
-            static_tank.is_cannon_reloaded = true;
             static_tank.explosion_timer = 0;
+            static_tank.is_cannon_reloaded = true;
+            static_tank.isExploding = false;
+            static_tank.isMoving = false;
             static_tank.is_firing_gun = false;
         } break;
 

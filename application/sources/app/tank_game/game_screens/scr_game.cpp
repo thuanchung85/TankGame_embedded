@@ -6,7 +6,8 @@ static void view_scr_game()
     mountain_draw(); 
     building_draw();
     ground_draw();  
-    tank_draw();     
+    tank_draw();
+    cannon_bullet_draw();     
     tree_draw();
 
 };
@@ -40,6 +41,8 @@ void scr_game_handle(ak_msg_t* msg)
             task_post_pure_msg(TG_TREE_TASK_ID, TREE_SETUP_SIG); 
             task_post_pure_msg(TG_BUILDING_TASK_ID, BUILDING_SETUP_SIG); 
             task_post_pure_msg(TG_MOUNTAIN_TASK_ID, MOUNTAIN_SETUP_SIG); 
+            task_post_pure_msg(TG_CANNON_BULLET_TASK_ID, CANNON_BULLET_SETUP_SIG); 
+
 
             // kích hoạt hẹn giờ định kỳ trong Active Kernel cho game loop
             timer_set(AC_TASK_DISPLAY_ID, AC_DISPLAY_SHOW_TANK_MOVING_UPDATE, 60, TIMER_PERIODIC);
@@ -53,6 +56,7 @@ void scr_game_handle(ak_msg_t* msg)
             // Cứ mỗi chu kỳ quét của màn hình, gửi 1 bức thư thúc giục Mặt đất dịch chuyển X
             task_post_pure_msg(TG_GROUND_TASK_ID, GROUND_UPDATE_SIG);
             task_post_pure_msg(TG_TANK_TASK_ID, TANK_UPDATE_SIG);
+            task_post_pure_msg(TG_CANNON_BULLET_TASK_ID, CANNON_BULLET_UPDATE_SIG);
             task_post_pure_msg(TG_TREE_TASK_ID, TREE_UPDATE_SIG); 
             task_post_pure_msg(TG_BUILDING_TASK_ID, BUILDING_UPDATE_SIG); 
             task_post_pure_msg(TG_MOUNTAIN_TASK_ID, MOUNTAIN_UPDATE_SIG); 
@@ -67,7 +71,7 @@ void scr_game_handle(ak_msg_t* msg)
 
         //button "Mode" released
         case AC_DISPLAY_BUTON_MODE_RELEASED: 
-          
+          task_post_pure_msg(TG_CANNON_BULLET_TASK_ID, CANNON_BULLET_FIRE_SIG);
         break;
 
         case AC_DISPLAY_BUTON_UP_RELEASED:

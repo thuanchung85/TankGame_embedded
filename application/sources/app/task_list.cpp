@@ -50,6 +50,7 @@ const task_t app_task_table[] = {
 	{TG_BUILDING_TASK_ID        ,  TASK_PRI_LEVEL_4    ,  task_building_handle  }, 
 	{TG_MOUNTAIN_TASK_ID        ,  TASK_PRI_LEVEL_4    ,  task_mountain_handle  }, 
 	{TG_TANK_TASK_ID            ,  TASK_PRI_LEVEL_4    ,  task_tank_handle  }, 
+	{TG_CANNON_BULLET_TASK_ID   ,  TASK_PRI_LEVEL_4    ,  task_cannon_bullet_handle  }, 
 
 	/*************************************************************************/
 	/* END OF TABLE */
