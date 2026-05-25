@@ -1,4 +1,4 @@
-include sources/app/screens/Makefile.mk
+include sources/app/tank_game/Makefile.mk
 
 CFLAGS		+= -I./sources/app
 CPPFLAGS	+= -I./sources/app
