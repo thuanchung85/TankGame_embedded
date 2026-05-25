@@ -50,6 +50,7 @@ enum {
     /*************************************************************************/
     TG_GROUND_TASK_ID,
 	TG_TREE_TASK_ID,
+	TG_BUILDING_TASK_ID,
 
 	/* EOT task ID */
 	AK_TASK_EOT_ID,
@@ -115,6 +116,7 @@ extern "C" {
 
 extern void task_ground_handle(ak_msg_t *msg);
 extern void task_tree_handle(ak_msg_t *msg);   
+extern void task_building_handle(ak_msg_t *msg);   
 
 #ifdef __cplusplus
 }
