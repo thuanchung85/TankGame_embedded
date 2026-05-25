@@ -45,8 +45,8 @@ const task_t app_task_table[] = {
 	/*************************************************************************/
 	/* TANK GAME TASK */
 	/*************************************************************************/
-	{TG_GROUND_TASK_ID,  TASK_PRI_LEVEL_4,  task_ground_handle },
-
+	{TG_GROUND_TASK_ID          ,  TASK_PRI_LEVEL_4    ,  task_ground_handle },
+	{TG_TREE_TASK_ID            ,  TASK_PRI_LEVEL_4    ,   task_tree_handle  }, 
 	
 	/*************************************************************************/
 	/* END OF TABLE */

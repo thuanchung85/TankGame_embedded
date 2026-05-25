@@ -3,10 +3,10 @@
 
 static void view_scr_game()
 {    
-    // Gọi mặt đất tự vẽ chính nó lên khung tranh chung
-    ground_draw();
+    
+    ground_draw(); // Gọi mặt đất tự vẽ chính nó lên khung tranh chung
+    tree_draw();   // Cây vẽ đè lên trên mặt đất 
 
-  
 };
 
 view_dynamic_t dyn_view_game = {
@@ -34,6 +34,7 @@ void scr_game_handle(ak_msg_t* msg)
             APP_DBG(">> Entered TANK Screen Success!\n");
             // Khi vừa bước vào màn hình, phát lệnh khởi tạo mặt đất
             task_post_pure_msg(TG_GROUND_TASK_ID, GROUND_SETUP_SIG);
+            task_post_pure_msg(TG_TREE_TASK_ID, TREE_SETUP_SIG); 
 
             // kích hoạt hẹn giờ định kỳ trong Active Kernel cho game loop
             timer_set(AC_TASK_DISPLAY_ID, AC_DISPLAY_SHOW_TANK_MOVING_UPDATE, 60, TIMER_PERIODIC);
@@ -46,6 +47,7 @@ void scr_game_handle(ak_msg_t* msg)
             //APP_DBG(">>  TANK UPDATE!\n");
             // Cứ mỗi chu kỳ quét của màn hình, gửi 1 bức thư thúc giục Mặt đất dịch chuyển X
             task_post_pure_msg(TG_GROUND_TASK_ID, GROUND_UPDATE_SIG);
+            task_post_pure_msg(TG_TREE_TASK_ID, TREE_UPDATE_SIG); 
 
         }
         break;

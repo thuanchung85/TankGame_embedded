@@ -1,7 +1,7 @@
 #include "ground_object.h"
 
 // Khởi tạo vùng nhớ tĩnh toàn cục cho Mặt đất
-ground_t static_ground;
+ground_t static_ground = { .x = 0 };
 
 void task_ground_handle(ak_msg_t *msg) {
     switch (msg->sig) {
