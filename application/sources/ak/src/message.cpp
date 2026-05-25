@@ -123,7 +123,7 @@ void* ak_malloc(size_t size) {
 		}
 	}
 
-	ak_heap = malloc(size);
+	ak_heap = (uint8_t*)malloc(size);
 
 	if (ak_heap == NULL) {
 		FATAL("ak_malloc", 0x02);

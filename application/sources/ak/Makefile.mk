@@ -5,8 +5,8 @@ CPPFLAGS += -I./sources/ak/inc
 
 VPATH += sources/ak/src
 
-SOURCES += sources/ak/src/fsm.c
-SOURCES += sources/ak/src/tsm.c
-SOURCES += sources/ak/src/task.c
-SOURCES += sources/ak/src/timer.c
-SOURCES += sources/ak/src/message.c
+SOURCES_CPP += sources/ak/src/fsm.cpp
+SOURCES_CPP += sources/ak/src/tsm.cpp
+SOURCES_CPP += sources/ak/src/task.cpp
+SOURCES_CPP += sources/ak/src/timer.cpp
+SOURCES_CPP += sources/ak/src/message.cpp
