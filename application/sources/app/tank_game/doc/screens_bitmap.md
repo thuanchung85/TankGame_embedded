@@ -1,4 +1,5 @@
 =================  ENGLISH  ===============================
+
 TECHNICAL DOCUMENTATION: GRAPHICS ENCODING MODULE (BITMAP)
     - Component file name: screens_bitmap.cpp
     - Accompanying header file: screens_bitmap.h
@@ -41,6 +42,7 @@ TECHNICAL DOCUMENTATION: GRAPHICS ENCODING MODULE (BITMAP)
 
 
 =================   VIETNAMESE  ===========================
+
 TÀI LIỆU KỸ THUẬT: MÔ-ĐUN LƯU TRỮ ĐỒ HỌA MÃ HÓA (BITMAP)
 
 - Tên file thành phần: screens_bitmap.cpp
