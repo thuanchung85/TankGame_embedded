@@ -45,6 +45,11 @@ enum {
 	AC_LINK_ID,
 #endif
 
+	/*************************************************************************/
+    /* TANK GAME TASK      */
+    /*************************************************************************/
+    TG_GROUND_TASK_ID,
+
 	/* EOT task ID */
 	AK_TASK_EOT_ID,
 };
@@ -98,5 +103,19 @@ extern void task_rf24_demo(ak_msg_t*);
 /*****************************************************************************/
 extern void task_polling_zigbee();
 extern void task_polling_console();
+
+/*****************************************************************************/
+/* DECLARE: Task entry point FOR TANK GAME
+ */
+/*****************************************************************************/
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+extern void task_ground_handle(ak_msg_t *msg);
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif //__TASK_LIST_H__

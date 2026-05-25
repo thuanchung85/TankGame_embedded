@@ -5,4 +5,4 @@ VPATH += sources/app/screens/game_objects
 
 # CPP source files
 
-SOURCES_CPP += sources/app/screens/game_objects/Ground.cpp
+SOURCES_CPP += sources/app/screens/game_objects/ground_object.cpp

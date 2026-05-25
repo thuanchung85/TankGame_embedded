@@ -1,11 +1,10 @@
 #include "scr_game.h"
-#include "game_objects/Ground.h"
-
 
 
 static void view_scr_game()
 {    
-    
+    // Gọi mặt đất tự vẽ chính nó lên khung tranh chung
+    ground_draw();
 
   
 };
@@ -31,10 +30,25 @@ void scr_game_handle(ak_msg_t* msg)
     switch (msg -> sig)
     {
         case SCREEN_ENTRY:
+        {
             APP_DBG(">> Entered TANK Screen Success!\n");
-            break;
+            // Khi vừa bước vào màn hình, phát lệnh khởi tạo mặt đất
+            task_post_pure_msg(TG_GROUND_TASK_ID, GROUND_SETUP_SIG);
 
-      
+            // kích hoạt hẹn giờ định kỳ trong Active Kernel cho game loop
+            timer_set(AC_TASK_DISPLAY_ID, AC_DISPLAY_SHOW_TANK_MOVING_UPDATE, 60, TIMER_PERIODIC);
+        }
+        break;
+
+        // Tín hiệu update động cơ game loop
+        case AC_DISPLAY_SHOW_TANK_MOVING_UPDATE: 
+        {
+            //APP_DBG(">>  TANK UPDATE!\n");
+            // Cứ mỗi chu kỳ quét của màn hình, gửi 1 bức thư thúc giục Mặt đất dịch chuyển X
+            task_post_pure_msg(TG_GROUND_TASK_ID, GROUND_UPDATE_SIG);
+
+        }
+        break;
 
         case AC_DISPLAY_BUTON_MODE_DOWN:
             break;
