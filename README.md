@@ -73,6 +73,15 @@ This classic tank shooting game is optimized for embedded systems using C/C++ an
 <img width="700" height="" alt="sequenceDiagram" src="https://github.com/user-attachments/assets/0eb040e5-76dc-4d22-af58-050e429d48e6" /><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="1917.316850081621" height="1791.4943114520001"></svg>
 </div>
 
+9. BITMAP DATA:
+
+   Download link: https://drive.google.com/drive/folders/1s_6J5NmODzScs4ymTYlF7k-WHXQxQIwn?usp=drive_link
+
+10. SOURCE CODE (in 4 folders):
+    - bitmap_data: The location where bitmap data of game objects is stored.
+    - game_managers: This is where in-game events like victory or game over are managed, as well as boss summoning. It also manages collision detection between objects in the game.
+    - game_objects: This is where all the game objects are located, such as the player's tank, enemy objects like soldiers, mines, tanks, planes, boss enemies, various types of trees, mountains, buildings, and the ground. It also contains bullets and booby trap rockets.
+    - game_screens: This area contains three game screens: the game banner with the game menu, the main game screen, and the top score screen. 
 
 ## AK Embedded Base Kit - STM32L151 - HARDWARE
 
