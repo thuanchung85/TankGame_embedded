@@ -80,7 +80,7 @@ void scr_banner_game_handle(ak_msg_t* msg){
             }
             else if (menu_index == 2) {
                 // EXIT game
-                SCREEN_TRAN(scr_idle_handle, &scr_idle);
+                SCREEN_TRAN(scr_info_handle, &scr_info);
             }
             BUZZER_PlaySound(BUZZER_SOUND_CLICK);
             break;

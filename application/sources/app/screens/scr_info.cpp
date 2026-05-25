@@ -49,12 +49,10 @@ void scr_info_handle(ak_msg_t* msg) {
 
 	case AC_DISPLAY_SHOW_IDLE: {
 		APP_DBG_SIG("AC_DISPLAY_SHOW_IDLE\n");
-		SCREEN_TRAN(scr_idle_handle, &scr_idle);
 	}
 
 	case AC_DISPLAY_BUTON_MODE_RELEASED: {
 		APP_DBG_SIG("AC_DISPLAY_BUTON_MODE_RELEASED\n");
-		//SCREEN_TRAN(scr_idle_handle, &scr_idle);
 		SCREEN_TRAN(scr_banner_game_handle, &scr_banner_game);
 	}
 		break;
