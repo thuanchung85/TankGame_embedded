@@ -2,12 +2,12 @@
 
 
 static void view_scr_game()
-{    
-    
-    ground_draw(); // Gọi mặt đất tự vẽ chính nó lên khung tranh chung
-    tree_draw();   // Cây vẽ đè lên trên mặt đất 
-    building_draw();   // Cây vẽ đè lên trên mặt đất 
-    mountain_draw(); //vẽ núi
+{      
+    mountain_draw(); 
+    building_draw();
+    ground_draw();  
+    tank_draw();     
+    tree_draw();
 
 };
 
@@ -36,6 +36,7 @@ void scr_game_handle(ak_msg_t* msg)
             APP_DBG(">> Entered TANK Screen Success!\n");
             // Khi vừa bước vào màn hình, phát lệnh khởi tạo mặt đất
             task_post_pure_msg(TG_GROUND_TASK_ID, GROUND_SETUP_SIG);
+            task_post_pure_msg(TG_TANK_TASK_ID, TANK_SETUP_SIG); 
             task_post_pure_msg(TG_TREE_TASK_ID, TREE_SETUP_SIG); 
             task_post_pure_msg(TG_BUILDING_TASK_ID, BUILDING_SETUP_SIG); 
             task_post_pure_msg(TG_MOUNTAIN_TASK_ID, MOUNTAIN_SETUP_SIG); 
@@ -51,6 +52,7 @@ void scr_game_handle(ak_msg_t* msg)
             //APP_DBG(">>  TANK UPDATE!\n");
             // Cứ mỗi chu kỳ quét của màn hình, gửi 1 bức thư thúc giục Mặt đất dịch chuyển X
             task_post_pure_msg(TG_GROUND_TASK_ID, GROUND_UPDATE_SIG);
+            task_post_pure_msg(TG_TANK_TASK_ID, TANK_UPDATE_SIG);
             task_post_pure_msg(TG_TREE_TASK_ID, TREE_UPDATE_SIG); 
             task_post_pure_msg(TG_BUILDING_TASK_ID, BUILDING_UPDATE_SIG); 
             task_post_pure_msg(TG_MOUNTAIN_TASK_ID, MOUNTAIN_UPDATE_SIG); 
@@ -69,10 +71,12 @@ void scr_game_handle(ak_msg_t* msg)
         break;
 
         case AC_DISPLAY_BUTON_UP_RELEASED:
-             break;
+            task_post_pure_msg(TG_TANK_TASK_ID, TANK_MOVE_FORWARD_SIG);
+        break;
 
         case AC_DISPLAY_BUTON_DOWN_RELEASED:
-             break;
+            task_post_pure_msg(TG_TANK_TASK_ID, TANK_MOVE_BACKWARD_SIG);
+        break;
 
         default:
             break;
