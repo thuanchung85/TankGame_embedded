@@ -76,8 +76,11 @@ This classic tank shooting game is optimized for embedded systems using C/C++ an
 9. BITMAP DATA:
 
    Download link: https://drive.google.com/drive/folders/1s_6J5NmODzScs4ymTYlF7k-WHXQxQIwn?usp=drive_link
+   
+   Document: https://github.com/thuanchung85/TankGame_embedded/blob/main/application/sources/app/tank_game/doc/screens_bitmap.md
+   
 
-10. SOURCE CODE (in 4 folders):
+11. SOURCE CODE (in 4 folders):
     - bitmap_data: The location where bitmap data of game objects is stored.
     - game_managers: This is where in-game events like victory or game over are managed, as well as boss summoning. It also manages collision detection between objects in the game.
     - game_objects: This is where all the game objects are located, such as the player's tank, enemy objects like soldiers, mines, tanks, planes, boss enemies, various types of trees, mountains, buildings, and the ground. It also contains bullets and booby trap rockets.
