@@ -7,6 +7,7 @@ static void view_scr_game()
     ground_draw(); // Gọi mặt đất tự vẽ chính nó lên khung tranh chung
     tree_draw();   // Cây vẽ đè lên trên mặt đất 
     building_draw();   // Cây vẽ đè lên trên mặt đất 
+    mountain_draw(); //vẽ núi
 
 };
 
@@ -37,6 +38,7 @@ void scr_game_handle(ak_msg_t* msg)
             task_post_pure_msg(TG_GROUND_TASK_ID, GROUND_SETUP_SIG);
             task_post_pure_msg(TG_TREE_TASK_ID, TREE_SETUP_SIG); 
             task_post_pure_msg(TG_BUILDING_TASK_ID, BUILDING_SETUP_SIG); 
+            task_post_pure_msg(TG_MOUNTAIN_TASK_ID, MOUNTAIN_SETUP_SIG); 
 
             // kích hoạt hẹn giờ định kỳ trong Active Kernel cho game loop
             timer_set(AC_TASK_DISPLAY_ID, AC_DISPLAY_SHOW_TANK_MOVING_UPDATE, 60, TIMER_PERIODIC);
@@ -51,6 +53,7 @@ void scr_game_handle(ak_msg_t* msg)
             task_post_pure_msg(TG_GROUND_TASK_ID, GROUND_UPDATE_SIG);
             task_post_pure_msg(TG_TREE_TASK_ID, TREE_UPDATE_SIG); 
             task_post_pure_msg(TG_BUILDING_TASK_ID, BUILDING_UPDATE_SIG); 
+            task_post_pure_msg(TG_MOUNTAIN_TASK_ID, MOUNTAIN_UPDATE_SIG); 
 
         }
         break;

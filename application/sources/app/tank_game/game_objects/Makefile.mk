@@ -7,3 +7,4 @@ VPATH += sources/app/tank_game/game_objects
 SOURCES_CPP += sources/app/tank_game/game_objects/ground_object.cpp
 SOURCES_CPP += sources/app/tank_game/game_objects/tree_object.cpp
 SOURCES_CPP += sources/app/tank_game/game_objects/building_object.cpp
+SOURCES_CPP += sources/app/tank_game/game_objects/mountain_object.cpp

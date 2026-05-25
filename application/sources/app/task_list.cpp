@@ -48,6 +48,7 @@ const task_t app_task_table[] = {
 	{TG_GROUND_TASK_ID          ,  TASK_PRI_LEVEL_4    ,  task_ground_handle },
 	{TG_TREE_TASK_ID            ,  TASK_PRI_LEVEL_4    ,  task_tree_handle  }, 
 	{TG_BUILDING_TASK_ID        ,  TASK_PRI_LEVEL_4    ,  task_building_handle  }, 
+	{TG_MOUNTAIN_TASK_ID        ,  TASK_PRI_LEVEL_4    ,  task_mountain_handle  }, 
 
 	/*************************************************************************/
 	/* END OF TABLE */

@@ -8,6 +8,7 @@
 #include "game_objects/ground_object.h"// include mặt đất
 #include "game_objects/tree_object.h" //  include cây
 #include "game_objects/building_object.h" //  include nhà
+#include "game_objects/mountain_object.h" //  include núi
 
 extern view_dynamic_t dyn_view_game;
 extern view_screen_t scr_game;
