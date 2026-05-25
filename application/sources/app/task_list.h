@@ -54,6 +54,7 @@ enum {
 	TG_MOUNTAIN_TASK_ID,
 	TG_TANK_TASK_ID,
 	TG_CANNON_BULLET_TASK_ID,
+	TG_ENEMY_TASK_ID,
 
 	/* EOT task ID */
 	AK_TASK_EOT_ID,
@@ -123,6 +124,7 @@ extern void task_building_handle(ak_msg_t *msg);
 extern void task_mountain_handle(ak_msg_t *msg);   
 extern void task_tank_handle(ak_msg_t *msg);   
 extern void task_cannon_bullet_handle(ak_msg_t *msg);   
+extern void task_enemy_handle(ak_msg_t *msg);   
 
 #ifdef __cplusplus
 }
