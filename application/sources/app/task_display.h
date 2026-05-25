@@ -2,12 +2,8 @@
 #define __TASK_DISPLAY_H__
 
 #include "screen_manager.h"
-#include "scr_idle.h"
 #include "scr_info.h"
 #include "scr_startup.h"
-#include "scr_noen.h"
-#include "scr_es35sw_th_sensor.h"
-#include "scr_lhio404_io_device.h"
 #include "scr_game.h"
 #include "scr_banner_game.h"
 #include "scr_topscore_game.h"
