@@ -1,5 +1,10 @@
 #include "scr_game.h"
 
+//  ================  VARIABLES  ================ //
+static bool is_minigun_firing = false; // Cờ hiệu kiểm soát trạng thái xả đạn liên thanh
+
+//  ================  HELPER FUNCTIONS ================ //
+
 // Hàm kiểm tra 2 hình chữ nhật có đè lên nhau không
 static bool check_collision(int16_t x1, int16_t y1, int16_t w1, int16_t h1,
                             int16_t x2, int16_t y2, int16_t w2, int16_t h2) 
@@ -10,7 +15,9 @@ static bool check_collision(int16_t x1, int16_t y1, int16_t w1, int16_t h1,
             y1 + h1 > y2);
 }
 
-//  ================draw game objects ================
+
+
+//  ================  DRAW GAME OBJECTS ================ //
 static void view_scr_game()
 {      
     mountain_draw(); 
@@ -20,7 +27,7 @@ static void view_scr_game()
     enemy_draw();   // <<< Vẽ Kẻ địch (Vẽ trước cây để cây che nếu muốn, hoặc vẽ sau cùng)
     tree_draw();     
     cannon_bullet_draw(); // Vẽ đạn
-
+    minigun_bullet_draw();
 };
 
 view_dynamic_t dyn_view_game = {
@@ -38,7 +45,7 @@ view_screen_t scr_game = {
 };
 
 
-// ================logic (Event Handler)========================
+// ================LOGIC (EVENT HANDLER)======================== //
 void scr_game_handle(ak_msg_t* msg)
 {
     switch (msg -> sig)
@@ -73,11 +80,26 @@ void scr_game_handle(ak_msg_t* msg)
             task_post_pure_msg(TG_TREE_TASK_ID, TREE_UPDATE_SIG); 
             task_post_pure_msg(TG_BUILDING_TASK_ID, BUILDING_UPDATE_SIG); 
             task_post_pure_msg(TG_MOUNTAIN_TASK_ID, MOUNTAIN_UPDATE_SIG); 
+            task_post_pure_msg(TG_MINIGUN_BULLET_TASK_ID, MINIGUN_BULLET_UPDATE_SIG);
 
             // Đưa extern các biến tĩnh vào để dùng chung dữ liệu
             extern tank_t static_tank;
             extern cannon_bullet_t static_cannon_bullet;
             extern enemy_t static_enemy;
+            extern minigun_bullet_t minigun_pool[MAX_MINIGUN_BULLETS];
+
+            // ==========================================================
+            // ĐỘNG CƠ XẢ ĐẠN TỰ ĐỘNG THEO NHỊP GAME
+            // ==========================================================
+            if (is_minigun_firing) {
+                static uint8_t minigun_fire_divider = 0; //chu kỳ bắn minigun
+                minigun_fire_divider++;
+                if (minigun_fire_divider >= 8) { // Cứ 8 chu kỳ game loop (120ms) mới bắn 1 viên
+                    task_post_pure_msg(TG_MINIGUN_BULLET_TASK_ID, MINIGUN_BULLET_FIRE_SIG);
+                    minigun_fire_divider = 0;
+                }
+            }
+
             // ==========================================================
             // XỬ LÝ VA CHẠM 1: ĐẠN TA BẮN TRÚNG ĐỊCH
             // ==========================================================
@@ -110,6 +132,37 @@ void scr_game_handle(ak_msg_t* msg)
             }
 
             // ==========================================================
+            // XỬ LÝ VA CHẠM: ĐẠN MINIGUN (MẢNG) BẮN TRÚNG ĐỊCH
+            // ==========================================================
+            if (!static_enemy.isExploding) 
+            {
+                int16_t enemy_w = 25, enemy_h = 21, enemy_y = 33;
+                if (static_enemy.enemy_type == 1) enemy_y = 5; 
+                else if (static_enemy.enemy_type == 3) { enemy_w = 15; enemy_y = 34; }
+
+                // Duyệt qua từng viên đạn trong pool xem có viên nào trúng địch không
+                for (int i = 0; i < MAX_MINIGUN_BULLETS; i++) 
+                {
+                    if (minigun_pool[i].is_active) 
+                    {
+                        if (check_collision(minigun_pool[i].x, minigun_pool[i].y, 2, 1,
+                                            static_enemy.x, enemy_y, enemy_w, enemy_h)) 
+                        {
+                            minigun_pool[i].is_active = false; // Tắt viên đạn trúng đích
+                            
+                            if (static_enemy.hp > 0) static_enemy.hp--;
+
+                            if (static_enemy.hp == 0) {
+                                static_enemy.isExploding = true;
+                                static_enemy.explosionTimer = 0;
+                            }
+                            break; // Viên này nổ rồi thì thôi, dừng duyệt các viên khác ở khung hình này
+                        }
+                    }
+                }
+            }
+
+            // ==========================================================
             // XỬ LÝ VA CHẠM 2: ĐỊCH ĐÂM TRÚNG XE TĂNG TA
             // ==========================================================
             if (!static_tank.isExploding && !static_enemy.isExploding) 
@@ -134,14 +187,18 @@ void scr_game_handle(ak_msg_t* msg)
         }
         break;
 
+        //khi nut mode down va hold lâu
         case AC_DISPLAY_BUTON_MODE_DOWN:
+            is_minigun_firing = true;//xã minigun
             break;
         case AC_DISPLAY_BUTTON_MODE_HOLD:
-             break;
+            is_minigun_firing = true;
+            break;
 
         //button "Mode" released
         case AC_DISPLAY_BUTON_MODE_RELEASED: 
-          task_post_pure_msg(TG_CANNON_BULLET_TASK_ID, CANNON_BULLET_FIRE_SIG);
+            is_minigun_firing = false; // Ngừng xả minigun
+            task_post_pure_msg(TG_CANNON_BULLET_TASK_ID, CANNON_BULLET_FIRE_SIG);
         break;
 
         case AC_DISPLAY_BUTON_UP_RELEASED:

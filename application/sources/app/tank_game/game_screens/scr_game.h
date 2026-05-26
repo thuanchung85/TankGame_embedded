@@ -12,6 +12,7 @@
 #include "game_objects/tank_object.h" //  include tank
 #include "game_objects/cannon_bullet_object.h" //  include cannon bullet
 #include "game_objects/enemy_object.h" //  include enemy
+#include "game_objects/minigun_bullet_object.h" //  include minigun
 
 extern view_dynamic_t dyn_view_game;
 extern view_screen_t scr_game;
