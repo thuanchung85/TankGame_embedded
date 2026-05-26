@@ -19,6 +19,7 @@ void task_minigun_bullet_handle(ak_msg_t *msg) {
       case MINIGUN_BULLET_FIRE_SIG: {
             extern tank_t static_tank;
             extern enemy_t static_enemy;
+            extern boss_t static_boss; // <-- THÊM EXTERN ĐỂ TRUY CẬP RADA BOSS
 
             // KIẾM VIÊN ĐẠN ĐANG RẢNH TRONG HỒ (POOL) ĐỂ BẮN
             for (int i = 0; i < MAX_MINIGUN_BULLETS; i++) {
@@ -26,13 +27,26 @@ void task_minigun_bullet_handle(ak_msg_t *msg) {
                     minigun_pool[i].x = static_tank.x + 18; 
                     minigun_pool[i].y = 31;                
 
-                    // NÂNG CẤP LOGIC TÌM MỤC TIÊU:
-                    // Chỉ khi địch xuất hiện VÀ địch là MÁY BAY (type 1) VÀ địch chưa nổ
-                    if (static_enemy.enemy_type == 1 && !static_enemy.isExploding) {
-                        minigun_pool[i].targetY = 5; // Khóa mục tiêu tầm cao máy bay
-                    } else {
-                        // Nếu không có máy bay, đặt mục tiêu ở trên trời xa (-10) 
-                        // để đạn liên tục bay chéo thẳng lên góc màn hình
+                    // ====================================================
+                    // HỆ THỐNG RADA DẪN ĐƯỜNG ĐA TẦNG NÂNG CẤP CỦA LUONG:
+                    // ====================================================
+                    
+                    // TẦNG 1: Ưu tiên tối cao - Khóa mục tiêu vào quả Rocket của Boss nếu nó đang bay nguy hiểm
+                    if (static_boss.is_active && static_boss.rocket.is_active) {
+                        // Thêm 5 pixel để đạn nhắm thẳng vào tâm trục Y của quả Rocket (17x11)
+                        minigun_pool[i].targetY = static_boss.rocket.y + 5; 
+                    }
+                    // TẦNG 2: Nếu không có Rocket, khóa thẳng vào thân hình Boss khổng lồ để xả dame
+                    else if (static_boss.is_active && !static_boss.is_exploding) {
+                        // Nhắm vào khoảng giữa thân Boss (36 pixel chiều cao -> cộng thêm 18)
+                        minigun_pool[i].targetY = static_boss.y + 18;
+                    }
+                    // TẦNG 3: Nếu không có Boss, quay về chế độ phòng thủ máy bay thường như cũ
+                    else if (static_enemy.enemy_type == 1 && !static_enemy.isExploding) {
+                        minigun_pool[i].targetY = 5; // Khóa mục tiêu tầm cao máy bay thường
+                    } 
+                    // TẦNG CỐI: Chiến trường trống trải, bắn chéo lên trời giải trí
+                    else {
                         minigun_pool[i].targetY = -10; 
                     }
 

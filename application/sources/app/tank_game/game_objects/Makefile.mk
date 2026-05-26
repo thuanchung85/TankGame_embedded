@@ -13,3 +13,4 @@ SOURCES_CPP += sources/app/tank_game/game_objects/cannon_bullet_object.cpp
 SOURCES_CPP += sources/app/tank_game/game_objects/enemy_object.cpp
 SOURCES_CPP += sources/app/tank_game/game_objects/minigun_bullet_object.cpp
 SOURCES_CPP += sources/app/tank_game/game_objects/score_object.cpp
+SOURCES_CPP += sources/app/tank_game/game_objects/boss_object.cpp

@@ -57,7 +57,7 @@ enum {
 	TG_ENEMY_TASK_ID,
 	TG_MINIGUN_BULLET_TASK_ID,
 	TG_SCORE_TASK_ID,
-
+	TG_BOSS_TASK_ID,
 
 	/* EOT task ID */
 	AK_TASK_EOT_ID,
@@ -130,6 +130,7 @@ extern void task_cannon_bullet_handle(ak_msg_t *msg);
 extern void task_enemy_handle(ak_msg_t *msg);   
 extern void task_minigun_bullet_handle(ak_msg_t *msg);   
 extern void task_score_handle(ak_msg_t *msg);   
+extern void task_boss_handle(ak_msg_t *msg);   
 
 #ifdef __cplusplus
 }

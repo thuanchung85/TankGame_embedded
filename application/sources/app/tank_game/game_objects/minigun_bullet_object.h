@@ -8,6 +8,7 @@
 #include "app_dbg.h"
 #include "tank_object.h"
 #include "enemy_object.h"
+#include "boss_object.h"
 
 #define MAX_MINIGUN_BULLETS  5  // Tối đa 5 viên đạn xuất hiện cùng lúc
 
