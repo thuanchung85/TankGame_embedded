@@ -53,6 +53,7 @@ const task_t app_task_table[] = {
 	{TG_CANNON_BULLET_TASK_ID   ,  TASK_PRI_LEVEL_4    ,  task_cannon_bullet_handle  }, 
 	{TG_ENEMY_TASK_ID           ,  TASK_PRI_LEVEL_4    ,  task_enemy_handle  }, 
 	{TG_MINIGUN_BULLET_TASK_ID  ,  TASK_PRI_LEVEL_4    ,  task_minigun_bullet_handle  }, 
+	{TG_SCORE_TASK_ID           ,  TASK_PRI_LEVEL_4    ,  task_score_handle  }, 
 
 	/*************************************************************************/
 	/* END OF TABLE */

@@ -10,6 +10,24 @@ extern enemy_t static_enemy;
 extern minigun_bullet_t minigun_pool[MAX_MINIGUN_BULLETS];
 
 //  ================  HELPER FUNCTIONS ================ //
+//function add score
+static void add_score()
+{
+    uint8_t score_bonus = 1;
+
+    if (static_enemy.enemy_type == 1)
+    {
+        // airplane: random  5 - 20 score
+        score_bonus = 5 + (rand() % 16);
+    }
+    else
+    {
+        // other enemy random  1 - 10 score
+        score_bonus = 1 + (rand() % 10);
+    }
+
+    task_post_common_msg(TG_SCORE_TASK_ID, SCORE_ADD_SIG, &score_bonus , sizeof(uint8_t));
+}
 
 // check if game objects rectangle over each other
 static bool check_collision(int16_t x1, int16_t y1, int16_t w1, int16_t h1,
@@ -69,6 +87,7 @@ static void check_collision_cannon_bullet_with_enemy()
                 static_enemy.isExploding = true;
                 static_enemy.explosionTimer = 0;
                 // APP_DBG(">> ENEMY DESTROYED!\n");
+                add_score();
             }
             else
             {
@@ -109,6 +128,9 @@ static void check_collision_minigun_bullet_with_enemy()
                     {
                         static_enemy.isExploding = true;
                         static_enemy.explosionTimer = 0;
+
+                        //add score
+                       add_score();
                     }
                     break; 
                 }
@@ -158,6 +180,7 @@ static void view_scr_game()
     tree_draw();     
     cannon_bullet_draw(); 
     minigun_bullet_draw();
+    score_draw();
 };
 
 view_dynamic_t dyn_view_game = {
