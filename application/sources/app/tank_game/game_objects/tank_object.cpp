@@ -79,8 +79,8 @@ void tank_draw() {
     if (static_tank.isDie) {
         view_render.setTextSize(1);
         view_render.setTextColor(WHITE);
-        view_render.setCursor(35, 25);
-        view_render.print("GAME OVER");
+        view_render.setCursor(5, 10);
+        view_render.print("YOUR TANK IS DESTROY");
         return;
     }
 

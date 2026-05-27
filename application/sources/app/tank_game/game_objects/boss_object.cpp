@@ -24,34 +24,36 @@ static void check_collision_cannon_bullets_with_boss()
     }
 }
 
-// tank collision with Boss
+// tank collision with Boss and rocket boss
 static void check_collision_tank_with_boss()
 {
-    if (!static_boss.is_active || static_tank.isExploding)
-        return;
+   if (static_tank.isExploding) return;
 
     // --- case 1: Rocket's Boss hit tank ---
     if (static_boss.rocket.is_active)
     {
         if (check_collision(static_tank.x, 30, 30, 30,
-                            static_boss.rocket.x, static_boss.rocket.y, 17, 11))
+                            static_boss.rocket.x, static_boss.rocket.y, 15, 8))
         {
             static_boss.rocket.is_active = false; // Rocket bum
             static_tank.isExploding = true;       // tank bum
             static_tank.explosion_timer = 0;
             // APP_DBG(">> TANK DESTROYED BY BOSS ROCKET! <<\n");
-            BUZZER_PlaySound(BUZZER_SOUND_EXPLOSION); // Phát âm thanh đúng 1 lần duy nhất tại đây!
+            BUZZER_PlaySound(BUZZER_SOUND_EXPLOSION); 
         }
     }
 
     // --- case 2: Boss direct collision hit tank ---
-    if (check_collision(static_tank.x, 30, 30, 30,
-                        static_boss.x, static_boss.y, 60, 36))
+    if (static_boss.is_active && !static_boss.is_exploding && !static_boss.isDie)
     {
-        static_tank.isExploding = true;
-        static_tank.explosion_timer = 0;
-        // APP_DBG(">> TANK CRASHED BY BOSS! <<\n");
-        BUZZER_PlaySound(BUZZER_SOUND_EXPLOSION); // Phát âm thanh đúng 1 lần duy nhất tại đây!
+        if (check_collision(static_tank.x, 30, 30, 30,
+                            static_boss.x, static_boss.y, 60, 36))
+        {
+            static_tank.isExploding = true;
+            static_tank.explosion_timer = 0;
+            // APP_DBG(">> TANK CRASHED BY BOSS! <<\n");
+            BUZZER_PlaySound(BUZZER_SOUND_EXPLOSION); 
+        }
     }
 }
 
@@ -70,8 +72,7 @@ static void check_collision_tank_with_boss()
 //  Minigun hit Rocket of Boss
 static void check_collision_minigun_with_boss_rocket()
 {
-    // If the Boss is not active, or the Boss's rockets haven't been fired yet, there's no need to check.
-    if (!static_boss.is_active || !static_boss.rocket.is_active)
+    if (!static_boss.rocket.is_active)
         return;
 
     // Browse through my entire pool of flying Minigun ammunition
@@ -126,6 +127,62 @@ static void boss_reset()
     static_boss.rocket.hp = 2;
 }
 
+//boss moving
+static void boss_moving()
+{
+    // --- AI Boss Movement (Comprehensive Zig-zag Surfing) ---
+    // 1. state 1: When it first appears at X=130, it slowly flies towards the screen until it reaches X=90
+    if (static_boss.x > 90 && static_boss.move_dir_x == 1)
+    {
+        static_boss.x -= 1;
+    }
+    // 2. State 2: Once in battle, activate the zig-zag movement (back and forth + up and down).
+    else
+    {
+        // --- edit Y (UP / DOWN) ---
+        static_boss.y += static_boss.move_dir;
+        if (static_boss.y <= 2 || static_boss.y >= 26)
+        {
+            static_boss.move_dir = -static_boss.move_dir; // If you hit the top/bottom boundary, change direction.
+        }
+
+        // --- edit X (forward / back) ---
+        // move_dir_x = 1 means the Boss is moving to the right, move_dir_x = -1 means it is moving to the left
+        static_boss.x += static_boss.move_dir_x;
+
+        // Set flight range limits for the X-axis (From X=40 to X=90)
+        if (static_boss.x <= 40)
+        {
+            static_boss.move_dir_x = 1; // Touch the left side -> Move to the right
+        }
+        else if (static_boss.x >= 90)
+        {
+            static_boss.move_dir_x = -1; // Right side contact -> Move to the left
+        }
+    }
+}
+//boss fire rocket
+static void boss_fire_rocket()
+{
+    // --- Logic Cooldown , boss reload và shoot Rocket ---
+    if (!static_boss.rocket.is_active)
+    {
+        static_boss.fire_cooldown_counter++;
+        if (static_boss.fire_cooldown_counter >= 68)
+        {
+            if (rand() % 2 == 0)
+            {
+                static_boss.rocket.is_active = true;
+                static_boss.rocket.x = static_boss.x; // The bullet flew to the left, so the launch was slightly to the left, Boss.
+                static_boss.rocket.y = static_boss.y + 12;
+                static_boss.rocket.hp = 2;
+                BUZZER_PlaySound(BUZZER_SOUND_FIRECRACKER);
+                APP_DBG(">> BOSS FIRED ROCKET! <<\n");
+            }
+            static_boss.fire_cooldown_counter = 0;
+        }
+    }
+}
 
 
 
@@ -176,72 +233,22 @@ void task_boss_handle(ak_msg_t *msg) {
 
         //when boss update loop
         case BOSS_UPDATE_SIG: {
-            // --- Logic for Boss explosion animation---
-            if (static_boss.is_exploding) {
-                static_boss.explosion_timer++;
-                if (static_boss.explosion_timer > 15) {      
-                    static_boss.is_exploding = false;
-                    static_boss.isDie = true;
-                }
-            }
-
+           
+            // =========================================================
+            // ACTIONS OF BOSS 
+            // =========================================================
             if (!static_boss.isDie && static_boss.is_active && !static_boss.is_exploding)
             {
-                // --- AI Boss Movement (Comprehensive Zig-zag Surfing) ---
-                // 1. state 1: When it first appears at X=130, it slowly flies towards the screen until it reaches X=90
-                if (static_boss.x > 90 && static_boss.move_dir_x == 1)
-                {
-                    static_boss.x -= 1;
-                }
-                // 2. State 2: Once in battle, activate the zig-zag movement (back and forth + up and down).
-                else
-                {
-                    // --- edit Y (UP / DOWN) ---
-                    static_boss.y += static_boss.move_dir;
-                    if (static_boss.y <= 2 || static_boss.y >= 26)
-                    {
-                        static_boss.move_dir = -static_boss.move_dir; // If you hit the top/bottom boundary, change direction.
-                    }
-
-                    // --- edit X (forward / back) ---
-                    // move_dir_x = 1 means the Boss is moving to the right, move_dir_x = -1 means it is moving to the left
-                    static_boss.x += static_boss.move_dir_x;
-
-                    // Set flight range limits for the X-axis (From X=40 to X=90)
-                    if (static_boss.x <= 40)
-                    {
-                        static_boss.move_dir_x = 1; // Touch the left side -> Move to the right
-                    }
-                    else if (static_boss.x >= 90)
-                    {
-                        static_boss.move_dir_x = -1; // Right side contact -> Move to the left
-                    }
-                }
-
-                // --- Logic Cooldown , boss reload và shoot Rocket ---
-                if (!static_boss.rocket.is_active)
-                {
-                    static_boss.fire_cooldown_counter++;
-                    if (static_boss.fire_cooldown_counter >= 68)
-                    {
-                        if (rand() % 2 == 0)
-                        {
-                            static_boss.rocket.is_active = true;
-                            static_boss.rocket.x = static_boss.x; // The bullet flew to the left, so the launch was slightly to the left, Boss.
-                            static_boss.rocket.y = static_boss.y + 12;
-                            static_boss.rocket.hp = 2;
-                            BUZZER_PlaySound(BUZZER_SOUND_FIRECRACKER);
-                            APP_DBG(">> BOSS FIRED ROCKET! <<\n");
-                        }
-                        static_boss.fire_cooldown_counter = 0;
-                    }
-                }
+                boss_moving();
+                boss_fire_rocket();
             }
-            // --- update Rocket data ---
-            if (static_boss.rocket.is_active) {
-                static_boss.rocket.x -= 1; //The rocket flew continuously to the left, towards the tank.
-                if (static_boss.rocket.x < -17) { 
-                    static_boss.rocket.is_active = false; //If it flies off the screen, it turns off.
+            // --- update Rocket data ---//
+            if (static_boss.rocket.is_active)
+            {
+                static_boss.rocket.x -= 1; // The rocket flew continuously to the left, towards the tank.
+                if (static_boss.rocket.x < -17)
+                {
+                    static_boss.rocket.is_active = false; // If it flies off the screen, it turns off.
                 }
             }
 
@@ -256,6 +263,17 @@ void task_boss_handle(ak_msg_t *msg) {
                 // 3. Check boss or the rocket will hit our tank.
                check_collision_tank_with_boss();
             }
+            
+            // --- update Boss explosion animation ---//
+            if (static_boss.is_exploding)
+            {
+                static_boss.explosion_timer++;
+                if (static_boss.explosion_timer > 15)
+                {
+                    static_boss.is_exploding = false;
+                    static_boss.isDie = true;
+                }
+            }
         
         } break;
 
@@ -269,7 +287,7 @@ void task_boss_handle(ak_msg_t *msg) {
 //===============  DRAW ==============//
 void boss_draw() {
     //  Rocket  Boss
-    if (static_boss.rocket.is_active) {
+    if (static_boss.rocket.is_active && !static_boss.isDie) {
         view_render.drawBitmap(static_boss.rocket.x, static_boss.rocket.y, bitmap_boss_rocket, 17, 11, WHITE);
     }
 

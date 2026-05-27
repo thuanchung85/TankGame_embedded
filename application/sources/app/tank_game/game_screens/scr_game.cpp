@@ -139,30 +139,30 @@ void scr_game_handle(ak_msg_t *msg)
 
     // when MODE button down and HOLD
     case AC_DISPLAY_BUTON_MODE_DOWN:
-        if (!static_tank.isExploding)
+        if (!static_tank.isExploding && !static_tank.isDie)
             is_minigun_firing = true; // active minigun
         break;
     case AC_DISPLAY_BUTTON_MODE_HOLD:
-        if (!static_tank.isExploding)
+        if (!static_tank.isExploding && !static_tank.isDie)
             is_minigun_firing = true; // active minigun
         break;
 
     // button MODE released
     case AC_DISPLAY_BUTON_MODE_RELEASED:
         is_minigun_firing = false; // stop minigun
-        if (!static_tank.isExploding)
+        if (!static_tank.isExploding && !static_tank.isDie)
             task_post_pure_msg(TG_CANNON_BULLET_TASK_ID, CANNON_BULLET_FIRE_SIG); // fire cannon
         break;
 
     // button UP released
     case AC_DISPLAY_BUTON_UP_RELEASED:
-        if (!static_tank.isExploding)
+        if (!static_tank.isExploding && !static_tank.isDie)
             task_post_pure_msg(TG_TANK_TASK_ID, TANK_MOVE_FORWARD_SIG); // move tank forward
         break;
 
     // button DOWN released
     case AC_DISPLAY_BUTON_DOWN_RELEASED:
-        if (!static_tank.isExploding)
+        if (!static_tank.isExploding && !static_tank.isDie)
             task_post_pure_msg(TG_TANK_TASK_ID, TANK_MOVE_BACKWARD_SIG); // move tank backward
         break;
 
