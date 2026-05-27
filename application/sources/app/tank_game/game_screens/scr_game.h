@@ -15,6 +15,7 @@
 #include "game_objects/minigun_bullet_object.h" //  include minigun
 #include "game_objects/score_object.h" //score
 #include "game_objects/boss_object.h" //boss
+#include "game_objects/boss2_object.h" //boss2
 
 extern view_dynamic_t dyn_view_game;
 extern view_screen_t scr_game;

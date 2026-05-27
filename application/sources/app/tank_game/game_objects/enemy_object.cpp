@@ -1,6 +1,6 @@
 #include "enemy_object.h"
 
-enemy_t static_enemy = { 
+enemy_t static_enemy={
     .isExploding = false,    
     .enemy_type = 0,
     .hp = 1,              
@@ -8,7 +8,122 @@ enemy_t static_enemy = {
     .x = 150
 };
 
-static void enemy_reset(){
+// function check collision cannon bullet with enemy
+ void check_collision_cannon_bullet_with_enemy()
+{
+    if (static_cannon_bullet.is_active && !static_enemy.isExploding)
+    {
+        // get (Bounding Box) of enemy type
+        int16_t enemy_w = 25, enemy_h = 21, enemy_y = 33;
+
+        if (static_enemy.enemy_type == 1)
+            enemy_y = 5; // for air plane
+        else if (static_enemy.enemy_type == 3)
+        {
+            enemy_w = 15;
+            enemy_y = 34;
+        } // for troop
+
+        // Check cannon bullet (5x3) hit test enemy
+        if (check_collision(static_cannon_bullet.x, static_cannon_bullet.y, 5, 3,
+                            static_enemy.x, enemy_y, enemy_w, enemy_h))
+        {
+            // deactive cannon bullet
+            static_cannon_bullet.is_active = false;
+
+            // enemy loss hp
+            if (static_enemy.hp > 0)
+                static_enemy.hp--;
+
+            // if no hp then enemy destroy
+            if (static_enemy.hp == 0)
+            {
+                static_enemy.isExploding = true;
+                static_enemy.explosionTimer = 0;
+                // APP_DBG(">> ENEMY DESTROYED!\n");
+                add_score();
+            }
+            else
+            {
+                // APP_DBG(">> ENEMY HIT! HP REMAINING: %d\n", static_enemy.hp);
+            }
+        }
+    }
+}
+
+// function check collision minigun bullet with enemy
+ void check_collision_minigun_bullet_with_enemy()
+{
+    if (!static_enemy.isExploding)
+    {
+        int16_t enemy_w = 25, enemy_h = 21, enemy_y = 33;
+        if (static_enemy.enemy_type == 1)
+            enemy_y = 5;
+        else if (static_enemy.enemy_type == 3)
+        {
+            enemy_w = 15;
+            enemy_y = 34;
+        }
+
+        // loop for array of minigun bullet
+        for (int i = 0; i < MAX_MINIGUN_BULLETS; i++)
+        {
+            if (minigun_pool[i].is_active)
+            {
+                if (check_collision(minigun_pool[i].x, minigun_pool[i].y, 2, 1,
+                                    static_enemy.x, enemy_y, enemy_w, enemy_h))
+                {
+                    minigun_pool[i].is_active = false; // deactive the bullet hit enemy
+
+                    if (static_enemy.hp > 0)
+                        static_enemy.hp--;
+
+                    if (static_enemy.hp == 0)
+                    {
+                        static_enemy.isExploding = true;
+                        static_enemy.explosionTimer = 0;
+
+                        // add score
+                        add_score();
+                    }
+                    break;
+                }
+            }
+        }
+    }
+}
+
+// function check collision tank with enemy
+ void check_collision_tank_with_enemy()
+{
+    if (!static_tank.isExploding && !static_enemy.isExploding)
+    {
+        int16_t enemy_w = 25, enemy_h = 21, enemy_y = 33;
+        if (static_enemy.enemy_type == 1)
+            enemy_y = 5;
+        else if (static_enemy.enemy_type == 3)
+        {
+            enemy_w = 15;
+            enemy_y = 34;
+        }
+
+        // Check my tank hit with enemy (30x30 ,at Y=30)
+        if (check_collision(static_tank.x, 30, 30, 30,
+                            static_enemy.x, enemy_y, enemy_w, enemy_h))
+        {
+            // tank destroy
+            static_tank.isExploding = true;
+            static_tank.explosion_timer = 0;
+            // APP_DBG(">> GAME OVER - TANK CRASHED!\n");
+            static_enemy.isExploding = true;
+            static_enemy.explosionTimer = 0;
+            // APP_DBG(">> ENEMY DESTROYED!\n");
+        }
+    }
+}
+
+
+ void enemy_reset(){
     static_enemy.isExploding = false;
     static_enemy.explosionTimer = 0;
     static_enemy.enemy_type = rand() % 4;
@@ -19,6 +134,9 @@ static void enemy_reset(){
     }
     static_enemy.x = 150 + (rand() % 100);
 }
+
+
+
 
 void task_enemy_handle(ak_msg_t *msg) {
     switch (msg->sig) {

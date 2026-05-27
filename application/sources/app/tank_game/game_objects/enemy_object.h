@@ -6,6 +6,10 @@
 #include "view_render.h"
 #include "bitmap_data/screens_bitmap.h"
 #include "app_dbg.h"
+#include "score_object.h"
+#include "cannon_bullet_object.h"
+#include "tank_object.h"
+#include "minigun_bullet_object.h"
 
 struct ak_msg_t;
 
@@ -28,6 +32,9 @@ extern enemy_t static_enemy;
 #ifdef __cplusplus
 extern "C" {
 #endif
+void check_collision_cannon_bullet_with_enemy();
+void check_collision_minigun_bullet_with_enemy();
+void check_collision_tank_with_enemy();
 
 void task_enemy_handle(struct ak_msg_t *msg);
 void enemy_draw();

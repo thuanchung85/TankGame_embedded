@@ -36,6 +36,12 @@ void task_minigun_bullet_handle(ak_msg_t *msg) {
                         // Thêm 5 pixel để đạn nhắm thẳng vào tâm trục Y của quả Rocket (17x11)
                         minigun_pool[i].targetY = static_boss.rocket.y + 5; 
                     }
+                     // TẦNG 2: Ưu tiên tối cao - Khóa mục tiêu vào quả cannon của Boss2 nếu nó đang bay nguy hiểm
+                    else if (static_boss2.is_active && static_boss2.cannon_bullet.is_active) {
+                        minigun_pool[i].targetY = static_boss2.cannon_bullet.y + 5; 
+                    }
+
+
                     // TẦNG 2: Nếu không có Rocket, khóa thẳng vào thân hình Boss khổng lồ để xả dame
                     else if (static_boss.is_active && !static_boss.is_exploding) {
                         // Nhắm vào khoảng giữa thân Boss (36 pixel chiều cao -> cộng thêm 18)

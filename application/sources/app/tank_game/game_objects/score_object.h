@@ -6,6 +6,7 @@
 #include "view_render.h"
 #include "app_dbg.h"
 #include "message.h"
+#include "enemy_object.h"
 
 struct ak_msg_t;
 
@@ -24,6 +25,7 @@ extern score_object_t static_score;
 #ifdef __cplusplus
 extern "C" {
 #endif
+void add_score();
 
 void task_score_handle(struct ak_msg_t *msg);
 
