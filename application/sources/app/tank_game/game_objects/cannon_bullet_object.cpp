@@ -22,6 +22,7 @@ void task_cannon_bullet_handle(ak_msg_t *msg) {
                 static_cannon_bullet.x = static_tank.x + 28; 
                 static_cannon_bullet.y = 39; // Tọa độ Y cố định ngang tầm nòng pháo (Tank ở Y=30)
                 static_cannon_bullet.is_active = true;
+                BUZZER_PlaySound(BUZZER_SOUND_CLICK);
             }
         } break;
 

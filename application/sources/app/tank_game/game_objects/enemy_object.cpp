@@ -41,6 +41,8 @@ enemy_t static_enemy={
                 static_enemy.isExploding = true;
                 static_enemy.explosionTimer = 0;
                 // APP_DBG(">> ENEMY DESTROYED!\n");
+            
+                BUZZER_PlaySound(BUZZER_SOUND_BANG);
                 add_score();
             }
             else
@@ -82,6 +84,7 @@ enemy_t static_enemy={
                     {
                         static_enemy.isExploding = true;
                         static_enemy.explosionTimer = 0;
+                        BUZZER_PlaySound(BUZZER_SOUND_EXPLOSION); 
 
                         // add score
                         add_score();
@@ -115,9 +118,11 @@ enemy_t static_enemy={
             static_tank.isExploding = true;
             static_tank.explosion_timer = 0;
             // APP_DBG(">> GAME OVER - TANK CRASHED!\n");
+            BUZZER_PlaySound(BUZZER_SOUND_EXPLOSION); // Phát âm thanh đúng 1 lần duy nhất tại đây!
             static_enemy.isExploding = true;
             static_enemy.explosionTimer = 0;
             // APP_DBG(">> ENEMY DESTROYED!\n");
+            BUZZER_PlaySound(BUZZER_SOUND_EXPLOSION); // Phát âm thanh đúng 1 lần duy nhất tại đây!
         }
     }
 }

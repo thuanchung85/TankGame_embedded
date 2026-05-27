@@ -8,7 +8,8 @@ tank_t static_tank = {
     .is_cannon_reloaded = true,
     .isExploding = false,
     .isMoving = false,
-    .is_firing_gun = false
+    .is_firing_gun = false,
+    .isDie = false
 };
 
 void task_tank_handle(ak_msg_t *msg) {
@@ -24,29 +25,31 @@ void task_tank_handle(ak_msg_t *msg) {
             static_tank.isExploding = false;
             static_tank.isMoving = false;
             static_tank.is_firing_gun = false;
+            static_tank.isDie = false;
         } break;
 
         case TANK_UPDATE_SIG: {
-            //if tank alive
-            if(!static_tank.isExploding)
-            { 
-                //tank move to x target
-                if(static_tank.isMoving == true)
-                {
+           
+            //tank die already
+            if (static_tank.isDie) break;
+
+            //tank on exploding
+            if (static_tank.isExploding) {
+                static_tank.explosion_timer++;
+                
+                if (static_tank.explosion_timer > 20) {
+                    static_tank.isExploding = false;
+                    static_tank.isDie = true; 
+                }
+            }
+            // tank is ok
+            else {
+                if (static_tank.isMoving == true) {
                     if (static_tank.x < static_tank.target_x) static_tank.x += 1;
                     if (static_tank.x > static_tank.target_x) static_tank.x -= 1;
-                    if(static_tank.x == static_tank.target_x) static_tank.isMoving = false;
-                }
-            
-            }
-            else// if tank die
-            {
-                static_tank.explosion_timer++;
-                if(static_tank.explosion_timer > 20) { 
-                    static_tank.explosion_timer = 0;
+                    if (static_tank.x == static_tank.target_x) static_tank.isMoving = false;
                 }
             }
-        
         } break;
 
 
@@ -72,18 +75,29 @@ void task_tank_handle(ak_msg_t *msg) {
 }
 
 void tank_draw() {
-   //if tank die
-    if (static_tank.isExploding) 
-    {
-        // animation bitmap (bum, bum2, bum3)
-        if (static_tank.explosion_timer < 5) view_render.drawBitmap(static_tank.x, 30, bitmap_bum, 28, 20, WHITE);
-        else if (static_tank.explosion_timer < 10) view_render.drawBitmap(static_tank.x, 30, bitmap_bum2, 30, 26, WHITE);
-         else if (static_tank.explosion_timer < 15) view_render.drawBitmap(static_tank.x, 30, bitmap_bum3, 30, 26, WHITE);
+   // 1. Trường hợp xe tăng đã chết hẳn -> Không vẽ gì cả (hoặc vẽ chữ GAME OVER)
+    if (static_tank.isDie) {
+        view_render.setTextSize(1);
+        view_render.setTextColor(WHITE);
+        view_render.setCursor(35, 25);
+        view_render.print("GAME OVER");
+        return;
     }
-    //if tank alive
-    else
-    {
-        view_render.drawBitmap(static_tank.x, 30, bitmap_tank, 30, 30, WHITE);//draw tank
 
+    // 2. Trường hợp xe tăng đang nổ -> Vẽ tuần tự các bước animation
+    if (static_tank.isExploding) {
+        if (static_tank.explosion_timer < 6) {
+            view_render.drawBitmap(static_tank.x, 30, bitmap_bum, 28, 20, WHITE);
+        }
+        else if (static_tank.explosion_timer < 12) {
+            view_render.drawBitmap(static_tank.x, 30, bitmap_bum2, 30, 26, WHITE);
+        }
+        else {
+            view_render.drawBitmap(static_tank.x, 30, bitmap_bum3, 30, 26, WHITE);
+        }
+    }
+    // 3. Trường hợp xe tăng bình thường -> Vẽ xe tăng
+    else {
+        view_render.drawBitmap(static_tank.x, 30, bitmap_tank, 30, 30, WHITE);
     }
 }

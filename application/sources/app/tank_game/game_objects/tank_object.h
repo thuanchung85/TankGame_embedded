@@ -26,6 +26,7 @@ typedef struct {
     bool isExploding;
     bool isMoving;
     bool is_firing_gun;
+    bool isDie;
 } tank_t;
 
 extern tank_t static_tank;

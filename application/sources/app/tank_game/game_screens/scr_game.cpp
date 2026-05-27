@@ -130,7 +130,7 @@ void scr_game_handle(ak_msg_t *msg)
         }
 
         // BOSS call
-        check_and_spawn_boss();
+        check_and_spawn_boss(10);
         // BOSS2 call
         check_and_spawn_boss2();
       
