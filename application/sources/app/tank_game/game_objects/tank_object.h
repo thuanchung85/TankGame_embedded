@@ -6,6 +6,8 @@
 #include "view_render.h"
 #include "bitmap_data/screens_bitmap.h"
 #include "app_dbg.h"
+#include "task_display.h"
+#include "game_screens/scr_game_over.h"
 
 struct ak_msg_t;
 

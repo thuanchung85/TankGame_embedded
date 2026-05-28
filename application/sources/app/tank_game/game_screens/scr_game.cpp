@@ -69,7 +69,21 @@ void scr_game_handle(ak_msg_t *msg)
     case SCREEN_ENTRY:
     {
         APP_DBG(">> Entered TANK Screen Success!\n");
-        // setup for objects in game
+        static_tank.isDie = false;
+        static_tank.isExploding = false;
+        is_minigun_firing = false; // Tắt luôn minigun đề phòng người chơi bấm giữ nút
+
+        static_boss.is_active = false;
+        static_boss.isDie = false;
+        static_boss.is_exploding = false;
+        
+        static_boss2.is_active = false;
+        static_boss2.isDie = false;
+        static_boss2.is_exploding = false;
+
+        static_trap.is_active = false;
+
+        // 2. PHÁT LỆNH ĐỒNG BỘ ĐỂ CÁC TASK RESET DỮ LIỆU TỌA ĐỘ
         task_post_pure_msg(TG_GROUND_TASK_ID, GROUND_SETUP_SIG);
         task_post_pure_msg(TG_TANK_TASK_ID, TANK_SETUP_SIG);
         task_post_pure_msg(TG_TREE_TASK_ID, TREE_SETUP_SIG);
@@ -77,15 +91,11 @@ void scr_game_handle(ak_msg_t *msg)
         task_post_pure_msg(TG_MOUNTAIN_TASK_ID, MOUNTAIN_SETUP_SIG);
         task_post_pure_msg(TG_CANNON_BULLET_TASK_ID, CANNON_BULLET_SETUP_SIG);
         task_post_pure_msg(TG_TRAP_TASK_ID, TRAP_SETUP_SIG);
-
-        // --- RESET SCORE  ---
         task_post_pure_msg(TG_SCORE_TASK_ID, SCORE_SETUP_SIG);
-
-        // --- RESET BOSS, BOSS2  ---
         task_post_pure_msg(TG_BOSS_TASK_ID, BOSS_SETUP_SIG);
         task_post_pure_msg(TG_BOSS2_TASK_ID, BOSS2_SETUP_SIG);
 
-        // timer for game loop
+        // 3. KÍCH HOẠT LẠI TIMER GAME LOOP MỚI
         timer_set(AC_TASK_DISPLAY_ID, AC_DISPLAY_SHOW_TANK_MOVING_UPDATE, 60, TIMER_PERIODIC);
     }
     break;
@@ -135,9 +145,9 @@ void scr_game_handle(ak_msg_t *msg)
         }
 
         // BOSS call when 100 score
-        check_and_spawn_boss(400);
+        check_and_spawn_boss(100);
         // BOSS2 call when 350 score
-        check_and_spawn_boss2(10);
+        check_and_spawn_boss2(350);
       
       }
     break;
@@ -170,6 +180,13 @@ void scr_game_handle(ak_msg_t *msg)
         if (!static_tank.isExploding && !static_tank.isDie)
             task_post_pure_msg(TG_TANK_TASK_ID, TANK_MOVE_BACKWARD_SIG); // move tank backward
         break;
+
+    case SCREEN_EXIT:
+    {
+        APP_DBG(">> Exited TANK Screen -> Killing Timer Loop!\n");
+        timer_remove_attr(AC_TASK_DISPLAY_ID, AC_DISPLAY_SHOW_TANK_MOVING_UPDATE);
+    }
+    break;
 
     default:
         break;
