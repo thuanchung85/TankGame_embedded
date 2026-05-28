@@ -11,6 +11,7 @@ extern boss_t static_boss;
 extern boss2_t static_boss2;
 extern score_object_t static_score;
 extern minigun_bullet_t minigun_pool[MAX_MINIGUN_BULLETS];
+extern trap_t static_trap;
 
 //  ================  HELPER FUNCTIONS ================ //
 
@@ -37,6 +38,7 @@ static void view_scr_game()
     building_draw();
     ground_draw();
     tank_draw();
+    trap_draw();
     enemy_draw();
     tree_draw();
     cannon_bullet_draw();
@@ -74,6 +76,7 @@ void scr_game_handle(ak_msg_t *msg)
         task_post_pure_msg(TG_BUILDING_TASK_ID, BUILDING_SETUP_SIG);
         task_post_pure_msg(TG_MOUNTAIN_TASK_ID, MOUNTAIN_SETUP_SIG);
         task_post_pure_msg(TG_CANNON_BULLET_TASK_ID, CANNON_BULLET_SETUP_SIG);
+        task_post_pure_msg(TG_TRAP_TASK_ID, TRAP_SETUP_SIG);
 
         // --- RESET SCORE  ---
         task_post_pure_msg(TG_SCORE_TASK_ID, SCORE_SETUP_SIG);
@@ -100,6 +103,8 @@ void scr_game_handle(ak_msg_t *msg)
 
         // update enenmies
         task_post_pure_msg(TG_ENEMY_TASK_ID, ENEMY_UPDATE_SIG);
+        // update trap
+        task_post_pure_msg(TG_TRAP_TASK_ID, TRAP_UPDATE_SIG);
 
         // update Boss 1 
         if (static_boss.is_active || static_boss.is_exploding)

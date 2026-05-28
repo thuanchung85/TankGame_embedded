@@ -28,6 +28,7 @@ void task_minigun_bullet_handle(ak_msg_t *msg) {
                     if (static_boss.is_active && static_boss.rocket.is_active) {
                         minigun_pool[i].targetY = static_boss.rocket.y + 5; 
                     }
+                    
                     else if (static_boss2.is_active && static_boss2.cannon_bullet.is_active) {
                         minigun_pool[i].targetY = static_boss2.cannon_bullet.y + 5; 
                     }
@@ -38,6 +39,9 @@ void task_minigun_bullet_handle(ak_msg_t *msg) {
                     else if (static_enemy.enemy_type == 1 && !static_enemy.isExploding) {
                         minigun_pool[i].targetY = 5; 
                     } 
+                    else if (static_trap.is_active  && !static_trap.isExploding) {
+                        minigun_pool[i].targetY = static_trap.y + 5; 
+                    }
                     else {
                         minigun_pool[i].targetY = -10; 
                     }

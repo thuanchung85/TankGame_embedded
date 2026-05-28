@@ -10,6 +10,7 @@
 #include "enemy_object.h"
 #include "boss_object.h"
 #include "boss2_object.h"
+#include "trap_object.h"
 
 #define MAX_MINIGUN_BULLETS  5  
 

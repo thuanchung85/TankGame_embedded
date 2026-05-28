@@ -56,6 +56,7 @@ const task_t app_task_table[] = {
 	{TG_SCORE_TASK_ID           ,  TASK_PRI_LEVEL_4    ,  task_score_handle  }, 
 	{TG_BOSS_TASK_ID            ,  TASK_PRI_LEVEL_4    ,  task_boss_handle  }, 
 	{TG_BOSS2_TASK_ID           ,  TASK_PRI_LEVEL_4    ,  task_boss2_handle  }, 
+	{TG_TRAP_TASK_ID            ,  TASK_PRI_LEVEL_4    ,  task_trap_handle  }, 
 
 	/*************************************************************************/
 	/* END OF TABLE */
