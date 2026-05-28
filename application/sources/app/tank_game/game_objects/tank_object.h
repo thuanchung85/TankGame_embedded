@@ -12,8 +12,8 @@ struct ak_msg_t;
 enum {
     TANK_SETUP_SIG = 1,
     TANK_UPDATE_SIG,
-    TANK_MOVE_FORWARD_SIG,  // Tín hiệu tiến lên (nhích sang phải)
-    TANK_MOVE_BACKWARD_SIG, // Tín hiệu lùi lại (nhích sang trái)
+    TANK_MOVE_FORWARD_SIG,  
+    TANK_MOVE_BACKWARD_SIG, 
     TANK_RESET_SIG
 };
 

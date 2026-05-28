@@ -11,14 +11,14 @@
 #include "boss_object.h"
 #include "boss2_object.h"
 
-#define MAX_MINIGUN_BULLETS  5  // Tối đa 5 viên đạn xuất hiện cùng lúc
+#define MAX_MINIGUN_BULLETS  5  
 
 struct ak_msg_t;
 
 enum {
     MINIGUN_BULLET_SETUP_SIG = 1,
     MINIGUN_BULLET_UPDATE_SIG,
-    MINIGUN_BULLET_FIRE_SIG,    // Tín hiệu kích hoạt bắn đạn liên thanh
+    MINIGUN_BULLET_FIRE_SIG,    
     MINIGUN_BULLET_RESET_SIG
 };
 

@@ -101,13 +101,13 @@ void scr_game_handle(ak_msg_t *msg)
         // update enenmies
         task_post_pure_msg(TG_ENEMY_TASK_ID, ENEMY_UPDATE_SIG);
 
-        // update Boss 1 (Chạy khi đang active HOẶC đang nổ)
+        // update Boss 1 
         if (static_boss.is_active || static_boss.is_exploding)
         {
             task_post_pure_msg(TG_BOSS_TASK_ID, BOSS_UPDATE_SIG);
         }
 
-        // update Boss 2 (Tương tự như Boss 1)
+        // update Boss 2 
         if (static_boss2.is_active || static_boss2.is_exploding)
         {
             task_post_pure_msg(TG_BOSS2_TASK_ID, BOSS_UPDATE_SIG);

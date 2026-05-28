@@ -20,21 +20,19 @@ void task_cannon_bullet_handle(ak_msg_t *msg) {
             if (!static_cannon_bullet.is_active) {
                 extern tank_t static_tank; 
                 static_cannon_bullet.x = static_tank.x + 28; 
-                static_cannon_bullet.y = 39; // Tọa độ Y cố định ngang tầm nòng pháo (Tank ở Y=30)
+                static_cannon_bullet.y = 39; 
                 static_cannon_bullet.is_active = true;
                 BUZZER_PlaySound(BUZZER_SOUND_CLICK);
             }
         } break;
 
         case CANNON_BULLET_UPDATE_SIG: {
-            // Nếu đạn đang bay thì mới cập nhật tọa độ
             if (static_cannon_bullet.is_active) {
-                static_cannon_bullet.x += 2; // Tốc độ đạn bay 
+                static_cannon_bullet.x += 2; 
 
-                // Nếu đạn bay vượt quá rìa màn hình OLED (128 pixel), tắt đạn đi
                 if (static_cannon_bullet.x > 128) {
                     static_cannon_bullet.is_active = false;
-                    static_cannon_bullet.x = 0; // Đưa về 0 để an toàn
+                    static_cannon_bullet.x = 0; 
                 }
             }
         } break;

@@ -7,32 +7,32 @@
 #include "bitmap_data/screens_bitmap.h"
 #include "app_dbg.h"
 
-// Forward declaration: Báo cho trình biên dịch biết cấu trúc tin nhắn của AK mà không cần include 
+// Forward declaration: Informs the compiler of AK's message structure without including it.
 struct ak_msg_t;
 
-// Định nghĩa các Tín hiệu (Signal) dành riêng cho Mặt Đất
+// Defines signals specifically for the ground.
 enum {
-    GROUND_SETUP_SIG = 1,  // Cấu hình ban đầu cho mặt đất
-    GROUND_UPDATE_SIG,     // Lệnh dịch chuyển mặt đất (cuộn)
-    GROUND_RESET_SIG       // Reset lại trạng thái khi chơi lại
+    GROUND_SETUP_SIG = 1,  // when Initial configuration for the ground
+    GROUND_UPDATE_SIG,     // when Ground movement (scroll) command
+    GROUND_RESET_SIG       // when Reset your state when you restart the game.
 };
 
-// Cấu trúc dữ liệu lưu trạng thái mặt đất
+// Data structure for storing ground state
 typedef struct {
-    int8_t x;  // Tọa độ X để tạo hiệu ứng cuộn màn hình
+    int8_t x;  // X-coordinates to create the scrolling effect
 } ground_t;
 
-// Khai báo extern để file màn hình (scr_game.cpp) có thể vào đọc tọa độ X đi vẽ
+// Declare extern so that the screen file (scr_game.cpp) can read the X-coordinates to draw.
 extern ground_t static_ground;
 
 #ifdef __cplusplus
 extern "C" {
 #endif
 
-// Hàm Entry Point (Xử lý sự kiện) của Task Mặt Đất
+// Entry Point (Event Handling) function of Ground Task
 void task_ground_handle(struct ak_msg_t *msg);
 
-//Hàm vẽ bitmap của mặt đất
+// Function to draw a bitmap of the ground
 void ground_draw();
 
 #ifdef __cplusplus

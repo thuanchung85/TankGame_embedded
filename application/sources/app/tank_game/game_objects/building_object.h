@@ -16,9 +16,9 @@ enum {
 };
 
 typedef struct {
-    short x;  // Tọa độ X để tạo hiệu ứng cuộn màn hình
-    int8_t building_type; // các dạng cây, dừa, cây khô, bụi
-    int8_t frame_count;// delay tốc độ chạy của building để tạo hiệu ứng parallax
+    short x;  
+    int8_t building_type; 
+    int8_t frame_count;
 } building_t;
 
 extern building_t static_building;

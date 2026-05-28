@@ -25,7 +25,7 @@ enum {
 typedef struct {
     int16_t x;
     int16_t y;
-    int16_t targetY; // <--  Để lưu tọa độ Y của xe tăng lúc bắn
+    int16_t targetY; 
     int8_t hp;
     bool is_active;
 } boss2_cannon_bullet_t;

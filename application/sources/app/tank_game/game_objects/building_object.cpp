@@ -1,8 +1,8 @@
 #include "building_object.h"
 
 building_t static_building = {
-    .x = 180,        // Đặt sẵn nó ở ngoài màn hình bên phải
-    .building_type = 0,   // Loại nhà đầu tiên
+    .x = 180,        
+    .building_type = 0,   
     .frame_count = 0
 };
 

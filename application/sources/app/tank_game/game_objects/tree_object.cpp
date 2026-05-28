@@ -1,8 +1,8 @@
 #include "tree_object.h"
 
 tree_t static_tree = {
-    .x = 130,        // Đặt sẵn nó ở ngoài màn hình bên phải
-    .tree_type = 0   // Loại cây đầu tiên
+    .x = 130,        
+    .tree_type = 0   
 };
 
 const unsigned char* tree_bitmaps[] = {

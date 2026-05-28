@@ -16,8 +16,8 @@ enum {
 };
 
 typedef struct {
-    short x;  // Tọa độ X để tạo hiệu ứng cuộn màn hình
-    int8_t tree_type; // các dạng cây, dừa, cây khô, bụi
+    short x;  
+    int8_t tree_type; 
 } tree_t;
 
 extern tree_t static_tree;

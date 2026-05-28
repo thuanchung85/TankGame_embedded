@@ -75,7 +75,7 @@ void task_tank_handle(ak_msg_t *msg) {
 }
 
 void tank_draw() {
-   // 1. Trường hợp xe tăng đã chết hẳn -> Không vẽ gì cả (hoặc vẽ chữ GAME OVER)
+    // 1. If the tank is completely dead -> Draw nothing (or draw the words GAME OVER)
     if (static_tank.isDie) {
         view_render.setTextSize(1);
         view_render.setTextColor(WHITE);
@@ -84,7 +84,7 @@ void tank_draw() {
         return;
     }
 
-    // 2. Trường hợp xe tăng đang nổ -> Vẽ tuần tự các bước animation
+    // 2. Case where the tank is exploding -> Draw the animation steps sequentially
     if (static_tank.isExploding) {
         if (static_tank.explosion_timer < 6) {
             view_render.drawBitmap(static_tank.x, 30, bitmap_bum, 28, 20, WHITE);
@@ -96,7 +96,8 @@ void tank_draw() {
             view_render.drawBitmap(static_tank.x, 30, bitmap_bum3, 30, 26, WHITE);
         }
     }
-    // 3. Trường hợp xe tăng bình thường -> Vẽ xe tăng
+    
+    // 3. Normal tank case -> Draw the tank
     else {
         view_render.drawBitmap(static_tank.x, 30, bitmap_tank, 30, 30, WHITE);
     }

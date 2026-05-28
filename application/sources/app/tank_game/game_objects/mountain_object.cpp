@@ -1,7 +1,7 @@
 #include "mountain_object.h"
 
 mountain_t static_mountain = {
-    .x = 200,        // Đặt sẵn nó ở ngoài màn hình bên phải
+    .x = 200,        
     .frame_count = 0
 };
 

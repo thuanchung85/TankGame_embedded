@@ -13,7 +13,7 @@ struct ak_msg_t;
 enum {
     CANNON_BULLET_SETUP_SIG = 1,
     CANNON_BULLET_UPDATE_SIG,
-    CANNON_BULLET_FIRE_SIG,    // <<<  TÍN HIỆU NÀY ĐỂ TANK GỌI
+    CANNON_BULLET_FIRE_SIG,    
     CANNON_BULLET_RESET_SIG
 };
 

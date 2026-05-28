@@ -118,11 +118,11 @@ enemy_t static_enemy={
             static_tank.isExploding = true;
             static_tank.explosion_timer = 0;
             // APP_DBG(">> GAME OVER - TANK CRASHED!\n");
-            BUZZER_PlaySound(BUZZER_SOUND_EXPLOSION); // Phát âm thanh đúng 1 lần duy nhất tại đây!
+            BUZZER_PlaySound(BUZZER_SOUND_EXPLOSION); 
             static_enemy.isExploding = true;
             static_enemy.explosionTimer = 0;
             // APP_DBG(">> ENEMY DESTROYED!\n");
-            BUZZER_PlaySound(BUZZER_SOUND_EXPLOSION); // Phát âm thanh đúng 1 lần duy nhất tại đây!
+            BUZZER_PlaySound(BUZZER_SOUND_EXPLOSION); 
         }
     }
 }
