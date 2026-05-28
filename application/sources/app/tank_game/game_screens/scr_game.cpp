@@ -129,10 +129,10 @@ void scr_game_handle(ak_msg_t *msg)
             check_collision_tank_with_enemy();
         }
 
-        // BOSS call
-        check_and_spawn_boss(10);
-        // BOSS2 call
-        check_and_spawn_boss2();
+        // BOSS call when 100 score
+        check_and_spawn_boss(400);
+        // BOSS2 call when 350 score
+        check_and_spawn_boss2(10);
       
       }
     break;

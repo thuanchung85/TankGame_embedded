@@ -48,7 +48,7 @@ extern boss2_t static_boss2;
 #ifdef __cplusplus
 extern "C" {
 #endif
-void check_and_spawn_boss2();
+void check_and_spawn_boss2(uint32_t score);
 
 void task_boss2_handle(struct ak_msg_t *msg);
 void boss2_draw();

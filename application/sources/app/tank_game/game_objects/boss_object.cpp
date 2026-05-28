@@ -58,7 +58,7 @@ static void check_collision_tank_with_boss()
 }
 
 // Boss Spawn when Score
- void check_and_spawn_boss(uint8_t score)
+ void check_and_spawn_boss(uint32_t score)
 {
     extern score_object_t static_score; 
     // If the score reaches score points or more AND the Boss has never appeared/is not dead, then summon the Boss!
@@ -97,7 +97,7 @@ static void check_collision_minigun_with_boss_rocket()
                 {
                     static_boss.rocket.is_active = false;
                     // APP_DBG(">> PLAYER DESTROYED BOSS ROCKET! <<\n");
-                    BUZZER_PlaySound(BUZZER_SOUND_EXPLOSION); // Phát âm thanh đúng 1 lần duy nhất tại đây!
+                    BUZZER_PlaySound(BUZZER_SOUND_EXPLOSION); 
                 }
 
                 break; // Exit this frame loop to process the next bullet
@@ -186,7 +186,7 @@ static void boss_fire_rocket()
 
 
 
-//============ HANDLE ==========//
+//============  HANDLE  ==========//
 void task_boss_handle(ak_msg_t *msg) {
     switch (msg->sig) {
 
@@ -284,7 +284,7 @@ void task_boss_handle(ak_msg_t *msg) {
 
 
 
-//===============  DRAW ==============//
+//===============  DRAW  ==============//
 void boss_draw() {
     //  Rocket  Boss
     if (static_boss.rocket.is_active && !static_boss.isDie) {
