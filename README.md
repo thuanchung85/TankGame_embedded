@@ -74,7 +74,7 @@ https://github.com/user-attachments/assets/0a2d2ca1-4aab-4f7d-9217-8a006b4d772b
    
 
 11. SOURCE CODE:
-    in folder: application/app/tank_game
+    in folder: application/sources/app/tank_game
        - bitmap_data: The location where bitmap data of game objects is stored.
        - game_objects: This is where all the game objects are located, such as the player's tank, enemy objects like soldiers, mines, tanks, planes, boss enemies, various types of trees, mountains, buildings, and the ground. It also contains bullets and booby trap rockets.
        - game_screens: This area contains three game screens: the game banner with the game menu, the main game screen, and the top score screen, gameover, victory screen.
