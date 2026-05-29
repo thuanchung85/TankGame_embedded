@@ -100,7 +100,7 @@ static void boss2_reset()
 {
     static_boss2.x = 130;
     static_boss2.y = 14;
-    static_boss2.max_hp = 3;
+    static_boss2.max_hp = 30;
     static_boss2.hp = static_boss2.max_hp;
     static_boss2.is_active = false;
     static_boss2.is_exploding = false;
