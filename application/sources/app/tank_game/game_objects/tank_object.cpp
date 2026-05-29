@@ -49,10 +49,13 @@ void task_tank_handle(ak_msg_t *msg) {
                     static_boss.is_exploding = false;
                     static_boss.isDie = true;
                     static_boss.rocket.is_active = false;
+                    static_boss.rocket.x = 150;
                     static_boss2.is_active = false;
+                    static_boss2.cannon_bullet.x = 150;
                     static_boss2.is_exploding = false;
                     static_boss2.isDie = true;
                     static_trap.is_active = false;
+                    static_trap.y = -50;
                     static_trap.isExploding = false;
                     static_trap.isDestroy = true;
 

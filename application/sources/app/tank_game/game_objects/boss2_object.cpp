@@ -1,14 +1,14 @@
 #include "boss2_object.h"
 
+static uint8_t game_victory_timer_countdown = 0;
+
 boss2_t static_boss2;
 
 //=========BOSS2=======//
 // cannon hit BOSS2
 static void check_collision_cannon_bullets_with_boss2()
 {
-    if (!static_boss2.is_active || static_boss2.is_exploding || static_boss2.isDie)
-        return;
-
+    
     // --- Check tank cannon hit Boss2 ---
     if (static_cannon_bullet.is_active)
     {
@@ -26,8 +26,6 @@ static void check_collision_cannon_bullets_with_boss2()
 // tank collision with Boss2
 static void check_collision_tank_with_boss2()
 {
-    if (!static_boss2.is_active || static_tank.isExploding)
-        return;
 
     // case 1:  boss 2 fire cannon bullet hit tank
     if (static_boss2.cannon_bullet.is_active)
@@ -70,9 +68,7 @@ static void check_collision_tank_with_boss2()
 //  Minigun hit cannon_bullet of Boss2
 static void check_collision_minigun_with_boss2_cannon_bullet()
 {
-    if (!static_boss2.is_active || !static_boss2.cannon_bullet.is_active)
-        return;
-
+  
     for (int i = 0; i < MAX_MINIGUN_BULLETS; i++)
     {
         if (minigun_pool[i].is_active)
@@ -104,7 +100,7 @@ static void boss2_reset()
 {
     static_boss2.x = 130;
     static_boss2.y = 14;
-    static_boss2.max_hp = 30;
+    static_boss2.max_hp = 3;
     static_boss2.hp = static_boss2.max_hp;
     static_boss2.is_active = false;
     static_boss2.is_exploding = false;
@@ -262,13 +258,55 @@ void task_boss2_handle(ak_msg_t *msg)
             if (static_boss2.is_exploding)
             {
                 static_boss2.explosion_timer++;
-                if (static_boss2.explosion_timer > 15)
+                if (static_boss2.explosion_timer > 20)
                 {
                     static_boss2.is_exploding = false;
                     static_boss2.isDie = true;
                 }
-                break;
+                
             }
+
+            //when boss 2 die then victory and clear game
+            if (static_boss2.isDie) {
+                game_victory_timer_countdown++;
+                if (game_victory_timer_countdown >= 20) { 
+                    game_victory_timer_countdown = 0;
+                    
+                    APP_DBG(">> TIMEOUT VICTORY FINISHED -> CLEAN UP GAME OBJECTS... <<\n");
+                    
+                    // =========================================================
+                    //ALL RESET GAME OBJECT 
+                    // =========================================================
+                    APP_DBG(">> GO TO GAME VICTORY SCREEN! <<\n");
+                    SCREEN_TRAN(scr_victory_handle, &scr_victory);
+                    
+                    static_boss.is_active = false;
+                    static_boss.is_exploding = false;
+                    static_boss.isDie = true;
+                    static_boss.rocket.is_active = false;
+                    static_boss.rocket.x = 150;
+                    static_boss2.is_active = false;
+                    static_boss2.cannon_bullet.x = 150;
+                    static_boss2.is_exploding = false;
+                    static_boss2.isDie = true;
+                    static_trap.is_active = false;
+                    static_trap.y = -50;
+                    static_trap.isExploding = false;
+                    static_trap.isDestroy = true;
+
+                    task_post_pure_msg(TG_ENEMY_TASK_ID, ENEMY_RESET_SIG);
+                    task_post_pure_msg(TG_CANNON_BULLET_TASK_ID, CANNON_BULLET_RESET_SIG);
+                    task_post_pure_msg(TG_MINIGUN_BULLET_TASK_ID, MINIGUN_BULLET_RESET_SIG); 
+                    task_post_pure_msg(TG_TRAP_TASK_ID, TRAP_RESET_SIG);
+                    task_post_pure_msg(TG_MOUNTAIN_TASK_ID, MOUNTAIN_RESET_SIG);
+                    task_post_pure_msg(TG_TANK_TASK_ID, TANK_RESET_SIG);
+                    task_post_pure_msg(TG_BUILDING_TASK_ID, BUILDING_RESET_SIG);
+                    task_post_pure_msg(TG_TREE_TASK_ID, TREE_RESET_SIG);
+                    task_post_pure_msg(TG_GROUND_TASK_ID, GROUND_RESET_SIG);
+                }
+                
+            }
+
 
         }
         break;
@@ -281,6 +319,14 @@ void task_boss2_handle(ak_msg_t *msg)
 //===============  DRAW  ==============//
 void boss2_draw()
 {
+    if (static_boss2.isDie) {
+        view_render.setTextSize(1);
+        view_render.setTextColor(WHITE);
+        view_render.setCursor(25, 10);
+        view_render.print("BOSS IS DESTROY");
+        return;
+    }
+
     //draw boss2 cannon bullet
     if (static_boss2.cannon_bullet.is_active && !static_boss2.isDie) 
     {

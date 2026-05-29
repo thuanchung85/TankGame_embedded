@@ -84,7 +84,7 @@ void task_trap_handle(ak_msg_t *msg) {
 
             if (!static_tank.isExploding && !static_tank.isDie) {
                 if (check_collision(static_trap.x, static_trap.y, 5, 8,
-                                    static_tank.x, 30, 30, 30)) 
+                                    static_tank.x, 30, 25, 15)) 
                 {
                     static_tank.isExploding = true;
                     static_tank.explosion_timer = 0;

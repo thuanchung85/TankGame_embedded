@@ -11,6 +11,8 @@
 #include "cannon_bullet_object.h"
 #include "tank_object.h"
 #include "minigun_bullet_object.h"
+#include "task_display.h"
+#include "game_screens/scr_victory.h"
 
 struct ak_msg_t;
 

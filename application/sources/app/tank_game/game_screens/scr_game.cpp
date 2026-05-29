@@ -123,8 +123,7 @@ void scr_game_handle(ak_msg_t *msg)
         }
 
         // update Boss 2 
-        if (static_boss2.is_active || static_boss2.is_exploding)
-        {
+        if (static_boss2.is_active || static_boss2.is_exploding || static_boss2.isDie){
             task_post_pure_msg(TG_BOSS2_TASK_ID, BOSS_UPDATE_SIG);
         }
 
@@ -145,9 +144,9 @@ void scr_game_handle(ak_msg_t *msg)
         }
 
         // BOSS call when 100 score
-        check_and_spawn_boss(100);
+        check_and_spawn_boss(1000);
         // BOSS2 call when 350 score
-        check_and_spawn_boss2(350);
+        check_and_spawn_boss2(10);
       
       }
     break;

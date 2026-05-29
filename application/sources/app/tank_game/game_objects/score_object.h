@@ -25,6 +25,9 @@ extern score_object_t static_score;
 #ifdef __cplusplus
 extern "C" {
 #endif
+
+void update_top_scores(uint32_t new_score);
+
 void add_score();
 
 void task_score_handle(struct ak_msg_t *msg);

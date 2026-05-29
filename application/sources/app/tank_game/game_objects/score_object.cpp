@@ -1,5 +1,29 @@
 #include "score_object.h"
 
+//============  UPDATE TOP SCORE  =====//
+void update_top_scores(uint32_t new_score) {
+    uint32_t top[3];
+    eeprom_read(0x00, (uint8_t*)&top[0], 4);
+    eeprom_read(0x04, (uint8_t*)&top[1], 4);
+    eeprom_read(0x08, (uint8_t*)&top[2], 4);
+
+    if (new_score > top[0]) {
+        top[2] = top[1]; top[1] = top[0]; top[0] = new_score;
+    } else if (new_score > top[1]) {
+        top[2] = top[1]; top[1] = new_score;
+    } else if (new_score > top[2]) {
+        top[2] = new_score;
+    } else {
+        return;
+    }
+
+    eeprom_write(0x00, (uint8_t*)&top[0], 4);
+    eeprom_write(0x04, (uint8_t*)&top[1], 4);
+    eeprom_write(0x08, (uint8_t*)&top[2], 4);
+    APP_DBG("EEPROM: New High Score Saved!\n");
+}
+
+
 score_object_t static_score = {
     .current_score = 0
 };
