@@ -10,17 +10,7 @@ This module acts as the global finite state machine (FSM) infrastructure governi
 2. Unified Screen State Machine (Viewports Matrix)
 The user interface transitions seamlessly between 5 unique viewports utilizing the Active Kernel platform macro `SCREEN_TRAN(next_handler, &next_screen_struct)`.
 
-[ Banner Menu ] <======== (Button MODE) =========+
-   /     |      \                                  |
-(Start) (Top)   (Exit)                             |
-  /      |        \                                |
- V       V         V                               |
-[Game] [TopScore] [Info]                           |
-|                                                 |
-+---> (Player Defeated) ===> [Game Over Screen] --+
-|                                                 |
-+---> (Boss 2 Neutralized) => [Victory Screen] ---+
-
+<img width="1408" height="768" alt="image" src="https://github.com/user-attachments/assets/4928bf2c-301c-4a87-8bf5-3895d0c65a08" />
 
 ---
 3. Component Technical Breakdown
