@@ -70,8 +70,8 @@ https://github.com/user-attachments/assets/0a2d2ca1-4aab-4f7d-9217-8a006b4d772b
 
    Download link: https://drive.google.com/drive/folders/1s_6J5NmODzScs4ymTYlF7k-WHXQxQIwn?usp=drive_link
    
-   Document: https://github.com/thuanchung85/TankGame_embedded/blob/main/application/sources/app/tank_game/doc/screens_bitmap.md
-   
+   Document: [application/sources/app/tank_game/docs/screens_bitmap.md
+](https://github.com/thuanchung85/TankGame_embedded/blob/AK_TASK_EVENT_BASE/application/sources/app/tank_game/docs/screens_bitmap.md)
 
 11. SOURCE CODE:
     in folder: application/sources/app/tank_game
@@ -79,8 +79,27 @@ https://github.com/user-attachments/assets/0a2d2ca1-4aab-4f7d-9217-8a006b4d772b
        - game_objects: This is where all the game objects are located, such as the player's tank, enemy objects like soldiers, mines, tanks, planes, boss enemies, various types of trees, mountains, buildings, and the ground. It also contains bullets and booby trap rockets.
        - game_screens: This area contains three game screens: the game banner with the game menu, the main game screen, and the top score screen, gameover, victory screen.
        - other_screens: some info , QR code screen.
+      
+12. GAME SCREENS, and SCORE SYSTEM:
+[    application/sources/app/tank_game/docs/game_screens_and_score_system.md
+](https://github.com/thuanchung85/TankGame_embedded/blob/AK_TASK_EVENT_BASE/application/sources/app/tank_game/docs/game_screens_and_score_system.md)
+    
+14. PARALLAX VIEW:
+[    application/sources/app/tank_game/docs/parallax_view.md
+](https://github.com/thuanchung85/TankGame_embedded/blob/AK_TASK_EVENT_BASE/application/sources/app/tank_game/docs/parallax_view.md)
+    
+16. TANK:
+[    application/sources/app/tank_game/docs/tank_object.md
+](https://github.com/thuanchung85/TankGame_embedded/blob/AK_TASK_EVENT_BASE/application/sources/app/tank_game/docs/tank_object.md)
 
+18. ENEMIES, and TRAP:
+[   application/sources/app/tank_game/docs/enemy_trap_objects.md
+](https://github.com/thuanchung85/TankGame_embedded/blob/AK_TASK_EVENT_BASE/application/sources/app/tank_game/docs/enemy_trap_objects.md)
 
+20. BOSS:
+[    application/sources/app/tank_game/docs/boss_objects.md
+](https://github.com/thuanchung85/TankGame_embedded/blob/AK_TASK_EVENT_BASE/application/sources/app/tank_game/docs/boss_objects.md)
+    
 ## AK Embedded Base Kit - STM32L151 - Lập trình nhúng vi điều khiển
 
 [<img src="hardware/images/ak-foundation-logo.png" width="240"/>](https://github.com/the-ak-foundation)
