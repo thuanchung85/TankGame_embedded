@@ -10,10 +10,11 @@ https://github.com/user-attachments/assets/0a2d2ca1-4aab-4f7d-9217-8a006b4d772b
    - Build and run by command:  sudo make flash dev=/dev/ttyUSB0
      
 2. GAMEPLAY:
-   - You have 1 tank with 1 live point (HP). Your mission is move and destroy enemies get about 200 point and destroy the big BOSS.
+   - You have 1 tank with 1 live point (HP). Your mission is move and destroy enemies get about 250 point and destroy the big BOSS.
    - Use button UP and DOWN to move your tank, try avoid hit by enemies.
    - Use Mode button for tank fire cannon, it will take 50ms for reload next cannon bullet.
    - User hold MODE button for 0.5s, then tank will fire minigun to destroy air targets.
+   - User must defeat both mini boss and big boss, then the score will save on victory, user can check top scores at banner game screen.
    <div align="center">
       <img width="700" height="" src="https://i.postimg.cc/brBvWn91/Screenshot-2026-05-18-143159.jpg"/>
    </div>
