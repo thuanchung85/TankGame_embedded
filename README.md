@@ -66,6 +66,20 @@ https://github.com/user-attachments/assets/0a2d2ca1-4aab-4f7d-9217-8a006b4d772b
 <img width="700" height="" alt="sequenceDiagram" src="https://github.com/user-attachments/assets/0eb040e5-76dc-4d22-af58-050e429d48e6" /><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="1917.316850081621" height="1791.4943114520001"></svg>
 </div>
 
+9. BITMAP DATA:
+
+   Download link: https://drive.google.com/drive/folders/1s_6J5NmODzScs4ymTYlF7k-WHXQxQIwn?usp=drive_link
+   
+   Document: https://github.com/thuanchung85/TankGame_embedded/blob/main/application/sources/app/tank_game/doc/screens_bitmap.md
+   
+
+11. SOURCE CODE:
+    in folder: application/app/tank_game
+       - bitmap_data: The location where bitmap data of game objects is stored.
+       - game_objects: This is where all the game objects are located, such as the player's tank, enemy objects like soldiers, mines, tanks, planes, boss enemies, various types of trees, mountains, buildings, and the ground. It also contains bullets and booby trap rockets.
+       - game_screens: This area contains three game screens: the game banner with the game menu, the main game screen, and the top score screen, gameover, victory screen.
+       - other_screens: some info , QR code screen.
+
 
 ## AK Embedded Base Kit - STM32L151 - Lập trình nhúng vi điều khiển
 
