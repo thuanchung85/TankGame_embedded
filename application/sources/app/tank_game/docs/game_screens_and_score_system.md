@@ -4,16 +4,20 @@ TECHNICAL DOCUMENTATION: GAME SCREENS MANAGEMENT & EEPROM SCORE SYSTEM
 - Framework Integration: Active Kernel (AK) Screen State Machine Framework
 - Storage Component: Non-volatile EEPROM (Electrically Erasable Programmable ROM)
 
-1. Module Overview
+**1. Module Overview**
+
 This module acts as the global finite state machine (FSM) infrastructure governing visual interface routing and persistent data metrics. It abstracts separate display viewports into isolated, discrete handler components and securely retains top high-score profiles in physical EEPROM clusters to preserve player records across full hardware reboots.
 
-2. Unified Screen State Machine (Viewports Matrix)
+**2. Unified Screen State Machine**
+
+<img width="1290" height="768" alt="599902487-4928bf2c-301c-4a87-8bf5-3895d0c65a08" src="https://github.com/user-attachments/assets/47fae547-15ca-423e-926a-b3556fa917bd" />
+
 The user interface transitions seamlessly between 5 unique viewports utilizing the Active Kernel platform macro `SCREEN_TRAN(next_handler, &next_screen_struct)`.
 
-<img width="1408" height="768" alt="image" src="https://github.com/user-attachments/assets/4928bf2c-301c-4a87-8bf5-3895d0c65a08" />
+
 
 ---
-3. Component Technical Breakdown
+**3. Component Technical Breakdown**
 
 3.1. Banner Start Menu (`scr_banner_game.cpp`)
 - **Visual Architecture:** Renders a fullscreen introductory graphics logo `bitmap_banner_game` (124x60 px) and maintains a volatile dynamic index pointer `menu_index` tracking options: `0: START`, `1: TOP SCORE`, `2: EXIT`.
@@ -35,7 +39,7 @@ The user interface transitions seamlessly between 5 unique viewports utilizing t
 
 ---
 
-4. High Score Persistence Framework (`scr_topscore_game.cpp`)
+**4. High Score Persistence Framework (`scr_topscore_game.cpp`)**
 
 4.1. Memory Allocation Mapping
 To safeguard score leaderboards without a file system, the engine interfaces directly with primitive EEPROM byte sectors via physical memory boundaries. It maps a leaderboard table storing three 32-bit unsigned integers (`uint32_t`, 4 bytes each):
