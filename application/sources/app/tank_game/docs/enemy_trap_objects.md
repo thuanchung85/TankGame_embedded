@@ -16,6 +16,7 @@ The module operates a dynamic entity model tracking various trap threats via an 
 | :--- | :--- | :--- | :--- |
 | `0` | Armored Enemy Ground Tank | 25x21 px | Ground Line ($Y = 33$) |
 | `1` | Tactical Aerial Fighter Jet | 25x21 px | Airspace Line ($Y = 5$) |
+| `2` | Tactical Plan Mine | 22x21 px | Ground Line ($Y = 33$) |
 | `3` | Infantry Ground Soldier Troop | 15x21 px | Ground Line ($Y = 34$) |
 
 2.2. Processing Loops
