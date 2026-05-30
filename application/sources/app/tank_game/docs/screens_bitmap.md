@@ -17,10 +17,10 @@ The `screens_bitmap.cpp` module acts as the static graphics resource repository 
 Below is a summary of all graphics structures defined in the file, categorized by function:
 
 3.1. Entities & Combat Group
-- `bitmap_boss2`: 42x34 px | The main big boss. It is a heavy tank capable of firing cannon bullets.
-- `bitmap_boss`: 60x36 px | The mini-boss. It is a combat helicopter capable of firing rockets.
-- `bitmap_boss2_cannon_bullet`: 13x5 px | High-caliber cannon shells fired by Boss 2.
-- `bitmap_boss_rocket`: 17x11 px | Homing rockets fired by the mini-boss.
+- `bitmap_boss2`: 42x34 px (204 Bytes)| The main big boss. It is a heavy tank capable of firing cannon bullets.
+- `bitmap_boss`: 60x36 px (288 Bytes)| The mini-boss. It is a combat helicopter capable of firing rockets.
+- `bitmap_boss2_cannon_bullet`: 13x5 px (10 Bytes)| High-caliber cannon shells fired by Boss 2.
+- `bitmap_boss_rocket`: 17x11 px (33 Bytes)| Homing rockets fired by the mini-boss.
 - `bitmap_tank`: 30x30 px (120 Bytes) | The player's tank. Designed with a solid block shape and an integrated cannon barrel.
 - `bitmap_enemy_tank`: 25x21 px (66 Bytes) | Enemy tanks. Smaller than the player's tank to differentiate the hitbox.
 - `bitmap_enemy_air_plane`: 25x21 px (66 Bytes) | Enemy fighter jets providing aerial attack support.
@@ -52,13 +52,13 @@ Below is a summary of all graphics structures defined in the file, categorized b
 - `check_collision`: An optimized geometric AABB (Axis-Aligned Bounding Box) function used for real-time hit testing between game objects.
 
 4. Decoding and Display Principles (Hex-to-Pixel Encoding)
-All the data arrays above follow the principle of encoding monochrome images specifically for embedded displays (OLED/LCD using SSD1306 controllers):
+All the data arrays above follow the principle of encoding monochrome images specifically for embedded displays (OLED/LCD):
 
 - Data Format: Each bit `1` represents an active pixel (light color/drawing color), and bit `0` represents an inactive pixel (background color).
 - Scanning Mechanism: Data is scanned in rows horizontally from left to right, and vertically from top to bottom.
-- Array Size Calculation Formula: 
-  $$\text{Size (Bytes)} = \text{ceil}(\text{Width} / 8) \times \text{Height}$$
-  *Example:* For `bitmap_tank` (30x30 px): Each 30 px row requires $\text{ceil}(30/8) = 4$ Bytes. For a total of 30 rows, the allocation is $4 \times 30 = 120$ Bytes, which matches the compiled code exactly.
+- Array Size Calculation Formula: size = array.length
+
+Example:* For `bitmap_myTank_gun_bullet`  = 1 Byte. 'bitmap_boss2' = 204 Bytes
 
 5. Instructions for Using & Calling Resources in Source Code
 To render these resources on the OLED display, developers must call the bitmap rendering API that reads directly from the microcontroller's Flash memory.
