@@ -6,17 +6,19 @@ TECHNICAL GUIDELINES: ACTIVE KERNEL TASK REGISTRATION PROTOCOL
                       /*************************************************************************/
 - Architecture Framework: Active Kernel (AK) Event-Driven Task Scheduler
 
-1. Architectural Overview
+**1. Architectural Overview**
+
 In the Active Kernel (AK) environment, every standalone subsystem (e.g., player tank, enemies, dynamic scrolling layers) operates as an isolated execution thread managed by an asynchronous event loop. For a custom subsystem to receive, parse, and process kernel message vectors (`ak_msg_t`), it must be explicitly declared and registered across two synchronized definition layers:
-1. Architectural ID Enumeration Block (`task_list.h`)
-2. Function Signature Linkage Block (`task_list.h`)
-3. Global Scheduling Allocation Table (`task_list.cpp`)
+  1. Architectural ID Enumeration Block (`task_list.h`)
+  2. Function Signature Linkage Block (`task_list.h`)
+  3. Global Scheduling Allocation Table (`task_list.cpp`)
 
 ---
 
-2. Step-by-Step Registration Workflow
+**2. Step-by-Step Registration Workflow**
 
 STEP 1: Define the Unique Identifier Enum (task_list.h)
+
 Every unique task requires a dedicated Task ID. Open `task_list.h` and locate the anonymous task ID enumeration cluster (`enum`). Insert the specific Tank Game identifiers directly before the End-of-Table anchor (`AK_TASK_EOT_ID`):
 
 ```c
@@ -45,6 +47,7 @@ enum {
 };
 
 STEP 2: Declare the C-Compatible Task Handler Interface (task_list.h)
+
 Because the Active Kernel core is compiled using standard C calling conventions, but game modules may be implemented using C++ source properties, explicit Linkage Declarations are required.
 
 At the bottom of task_list.h, enclose the handler function prototypes inside an #ifdef __cplusplus / extern "C" guard wrapper to avoid symbol name mangling during compilation links.
@@ -71,6 +74,7 @@ extern void task_trap_handle(ak_msg_t *msg);
 #endif
 
 STEP 3: Bind Array Mapping inside the Master Dispatch Table (task_list.cpp)
+
 Open task_list.cpp and locate the immutable scheduling dispatch matrix named const task_t app_task_table[]. Every record entry instantiated within this table binds the Task ID, Execution Priority Level, and the targeted Callback Handler Entry Point.
 
 Insert the Tank Game definitions array segment exactly prior to the terminal sentinel element {AK_TASK_EOT_ID, TASK_PRI_LEVEL_0, (pf_task)0}:
