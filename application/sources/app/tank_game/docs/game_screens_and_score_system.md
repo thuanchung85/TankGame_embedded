@@ -21,7 +21,8 @@ The user interface transitions seamlessly between 5 unique viewports utilizing t
 
 3.1. Banner Start Menu (`scr_banner_game.cpp`)
 - **Visual Architecture:** Renders a fullscreen introductory graphics logo `bitmap_banner_game` (124x60 px) and maintains a volatile dynamic index pointer `menu_index` tracking options: `0: START`, `1: TOP SCORE`, `2: EXIT`.
-- **Control Handlers:** - `UP_RELEASED` / `DOWN_RELEASED`: Rotates the selection marker arrow `>` up or down with a modular wraparound check and dispatches an audio click via `BUZZER_PlaySound(BUZZER_SOUND_CLICK)`.
+- **Control Handlers:**
+  - `UP_RELEASED` / `DOWN_RELEASED`: Rotates the selection marker arrow `>` up or down with a modular wraparound check and dispatches.
   - `MODE_RELEASED`: Evaluates the finalized `menu_index` block to fire target context transfers (e.g., jumping to the active tactical battle viewport `scr_game`).
 
 3.2. Main Battle Engine Viewport (`scr_game.cpp`)
