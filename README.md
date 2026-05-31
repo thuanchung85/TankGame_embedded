@@ -102,6 +102,9 @@ https://github.com/user-attachments/assets/0a2d2ca1-4aab-4f7d-9217-8a006b4d772b
 20. BOSS:
 [    application/sources/app/tank_game/docs/boss_objects.md
 ](https://github.com/thuanchung85/TankGame_embedded/blob/AK_TASK_EVENT_BASE/application/sources/app/tank_game/docs/boss_objects.md)
+
+21. TASK LIST:
+    https://github.com/thuanchung85/TankGame_embedded/blob/AK_TASK_EVENT_BASE/application/sources/app/tank_game/docs/task_registration.md
     
 ## AK Embedded Base Kit - STM32L151 - Lập trình nhúng vi điều khiển
 
